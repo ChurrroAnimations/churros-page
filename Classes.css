@@ -30,6 +30,12 @@
     color: #fdf5ff;
 }
 
+/* Fonts */
+    @font-face {
+        font-family: 'homeGreeting';
+        src: url('Resources/Fonts/Unna/Unna-Regular.ttf');
+    }
+
 .mainWrapper {
     margin: auto;
     width: 60%;
@@ -48,7 +54,7 @@
 .homeGreeting {
     text-align: center;
     color: var(--textLyme);
-    font-family: 'homeGreeting', sans-serif;
+    font-family: 'homeGreeting', serif;
 }
 
 .sectionHeader {
