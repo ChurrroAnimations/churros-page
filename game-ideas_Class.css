@@ -4,6 +4,7 @@
     background-image: url('Resources/Page_Elements/Sunrise.jpg');
     background-repeat: no-repeat;
     background-size: cover;
+    background-attachment: fixed;
 }
 
 .backBlur {
