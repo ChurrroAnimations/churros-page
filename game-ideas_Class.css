@@ -1,7 +1,7 @@
 :root {
-    --textPink: #FFD9E5;
+    --textBlue: #DBDBFF;
     background-color: #27272C;
-    background-image: url('Resources/Page_Elements/Sunrise.jpg');
+    background-image: url('Resources/Page_Elements/Sunset.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
@@ -24,7 +24,7 @@
     margin: 0;
     padding: 5px;
     font-size: small;
-    color: #fdf5ff;
+    color: #F5FEFF;
 }
 
 /* Fonts */
@@ -53,7 +53,7 @@
     margin: auto;
     width: 60%;
     border-radius: 50px;
-    background-color: rgba(255, 197, 211, 0.5);
+    background-color: #A399FF80;
     backdrop-filter: blur(0.1rem);
     background-clip: padding-box;
     border-width: 2px;
@@ -74,13 +74,13 @@
 
 .homeGreeting {
     text-align: center;
-    color: var(--textPink);
+    color: var(--textBlue);
     font-family: 'homeGreeting', serif;
 }
 
 .sectionHeader {
     text-align: center;
-    color: #FDF5FF;
+    color: #F5FEFF;
     font-family: 'sectionHeader', sans-serif;
     font-weight: bolder;
     font-size: 60px;
@@ -90,7 +90,7 @@
 
 .subsectionHeader {
     text-align: left;
-    color: var(--textPink);
+    color: var(--textBlue);
     font-family: 'subsectionHeader', sans-serif;
     margin-bottom: -14px;
 }
@@ -98,7 +98,7 @@
 /*Subsection Text */
     .subsectionText {
         margin-left: 40px;
-        color: var(--textPink);
+        color: var(--textBlue);
         font-family: 'subsectionText', sans-serif;
     }
     .subsectionParag {
@@ -111,33 +111,39 @@
     }
     .subsectionList {
         text-align: justify;
-        color: var(--textPink);
+        color: var(--textBlue);
         font-family: 'subsectionText', sans-serif;
         margin-left: 50px;
         margin-top: -10px;
     }
     .subsectionScrollP {
         text-align: center;
+        background-color: hsla(0, 0%, 0%, 0.25);
     }
     
     .subsectionScrollA {
-        color: hwb(350 70% 10%);
+        color: hwb(250 70% 10%);
     }
     .subsectionScrollA:visited {
-      color: hwb(350 60% 10%);
+      color: hwb(250 60% 10%);
       background-color: transparent;
       text-decoration: none;
     }
     .subsectionScrollA:hover {
-      color: hwb(300 70% 10%);
+      color: hwb(200 70% 10%);
       background-color: transparent;
       text-decoration: underline;
     }
     .subsectionScrollA:active {
-      color: hwb(300 60% 10%);
+      color: hwb(200 60% 10%);
       background-color: transparent;
       text-decoration: underline;
     }
+
+    .subsectionUrlPink {
+        color: var(--textBlue);
+    }
+
 /* Classes for the buttons */
     .linkButtonsLink {
         text-decoration: none;
@@ -154,7 +160,7 @@
         margin: auto;
         text-align: center;
         border-radius: 5px;
-        background-color: #F6B;
+        background-color: #68F;
     }
 
     .linkButtons .text {
@@ -175,4 +181,4 @@
 .homeIconDiv {
     width: 30px;
     margin: auto;
-}   
+}
