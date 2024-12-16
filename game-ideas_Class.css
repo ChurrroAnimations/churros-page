@@ -1,7 +1,7 @@
 :root {
     --textPink: #FFD9E5;
     background-color: #27272C;
-    background-image: url('');
+    background-image: url('Resources/Page_Elements/Sunrise.jpg');
     background-repeat: no-repeat;
     background-size: cover;
 }
@@ -108,7 +108,6 @@
         margin-left: 30pt;
         text-align: justify;
     }
-
     .subsectionList {
         text-align: justify;
         color: var(--textPink);
@@ -116,7 +115,28 @@
         margin-left: 50px;
         margin-top: -10px;
     }
-
+    .subsectionScrollP {
+        text-align: center;
+    }
+    
+    .subsectionScrollA {
+        color: hwb(350 70% 10%);
+    }
+    .subsectionScrollA:visited {
+      color: hwb(350 60% 10%);
+      background-color: transparent;
+      text-decoration: none;
+    }
+    .subsectionScrollA:hover {
+      color: hwb(300 70% 10%);
+      background-color: transparent;
+      text-decoration: underline;
+    }
+    .subsectionScrollA:active {
+      color: hwb(300 60% 10%);
+      background-color: transparent;
+      text-decoration: underline;
+    }
 /* Classes for the buttons */
     .linkButtonsLink {
         text-decoration: none;
@@ -144,8 +164,8 @@
     }
 
 .homeIconImg {
-    width: 40px;
-    height: 40px;
+    width: 30px;
+    height: 30px;
     margin: auto;
     display: block;
     margin-top: -5px;
