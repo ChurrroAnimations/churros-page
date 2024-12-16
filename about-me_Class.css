@@ -130,12 +130,12 @@
       text-decoration: none;
     }
     .subsectionScrollA:hover {
-      color: hwb(190 70% 10%);
+      color: hwb(140 70% 10%);
       background-color: transparent;
       text-decoration: underline;
     }
     .subsectionScrollA:active {
-      color: hwb(190 60% 10%);
+      color: hwb(140 60% 10%);
       background-color: transparent;
       text-decoration: underline;
     }
