@@ -134,16 +134,3 @@
         font-size: 30px;
         padding: 5px;
     }
-
-.homeIconImg {
-    width: 40px;
-    height: 40px;
-    margin: auto;
-    display: block;
-    margin-top: -5px;
-}
-
-.homeIconDiv {
-    width: 30px;
-    margin: auto;
-}   
