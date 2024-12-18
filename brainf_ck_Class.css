@@ -48,6 +48,20 @@
         font-family: 'subsectionText';
         src: url('Resources/Fonts/Comic_Neue/ComicNeue-Regular.ttf');
     }
+
+    
+    @font-face {
+        font-family: 'brainf_ckCode';
+        src: url('Resources/Fonts/Comic_Neue/ComicNeue-Regular.ttf');
+    }
+    @font-face {
+        font-family: 'brainf_ckMemory';
+        src: url('Resources/Fonts/Comic_Neue/ComicNeue-Bold.ttf');
+    }
+    @font-face {
+        font-family: 'subsectionText';
+        src: url('Resources/Fonts/Comic_Neue/ComicNeue-Regular.ttf');
+    }
     
 .primaryContainer {
     margin: auto;
@@ -61,24 +75,20 @@
 
 .primaryNestedContainer {
     margin: auto;
-    width: 90%;
+    width: 65%;
     padding-left: 5%;
     padding-right: 5%;
+    padding-bottom: 2.5%;
     border-radius: 25px;
     background-color: hsla(276, 100%, 80%, 0.05);
     backdrop-filter: blur(0.1rem);
     background-clip: padding-box;
-    border-width: 2px;
-    margin-top: -2.5%;
-    margin-bottom: 5%;
+
+    margin-bottom: 1.2em;
 }
 
 .secondaryContainer {
     width: 75%;
-    margin: auto;
-}
-
-.tertiaryContainer{
     margin: auto;
 }
 
@@ -123,12 +133,11 @@
         margin-left: 30pt;
         text-align: justify;
     }
-    .subsectionList {
-        text-align: justify;
+    li {
         color: var(--textUrple);
-        font-family: 'subsectionText', sans-serif;
-        margin-left: 50px;
-        margin-top: -10px;
+        font-family: 'brainf_ckMemory', sans-serif;
+        display: inline-block;
+        margin: 0 10px;
     }
     .subsectionScrollP {
         text-align: center;
@@ -166,6 +175,19 @@
         height: 15em;
         resize: none;
     }
+
+    .brainf_ckInputTxt {
+        color: var(--textUrple);
+        font-family: 'subsectionText', sans-serif;
+    }
+    .brainf_ckInputBox {
+        border-radius: 5px;
+        background-color: hwb(270 30% 10%);
+        color: var(--textUrple);
+        width: 100%;
+        resize: none;
+    }
+
     ::placeholder {
         color: hsl(270, 50%, 68%);
     }
