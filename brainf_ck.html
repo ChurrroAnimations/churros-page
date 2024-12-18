@@ -24,7 +24,6 @@
     </head>
     <body>
         <div class="backBlur"></div>
-
         <p class="photoCred">
             Text Fonts: Google Fonts
             <br>
@@ -43,26 +42,35 @@
 
             <!-- Info -->
             <div class="secondaryContainer">
-                <h3 class="subsectionHeader">
-                    Brainf*ck
-                </h3>
+                <div onload="toggleMemory()"></div> 
                 <form action="test">
-                    <input id="fname" name="fname" style="color:#ff0; background-color:#0f0; width:100%;" value="This is temporary. Churro is going to change this later.">
+                    <h3 class="subsectionHeader">
+                        Brainf*ck
+                    </h3>
+                    <input id="fname" name="fname" style="color:#ff0; background-color:#0f0; width:100%;" value="This" id="inputBrainF_ck">
+                    <h3 class="subsectionHeader">
+                        Brainf*ck
+                    </h3>
+                    <input id="fname" name="fname" style="color:#ff0; background-color:#0f0; width:100%;" value="Your mother" id="outputText" readonly>
                 </form>
                 <h3 class="subsectionHeader">
-                    Header 3
+                    Relationship
                 </h3>
                 <p class="subsectionText">
-                    Paragraph
+                    I see you
                 </p>
-                <button class="linkButtons" id="toggleMemory">
-                    Show Memory
-                </button>
-                <script>
-                    memory = document.getElementById("memoryDiv");
-                    memory.style.display = (memory.style.display === "none") ? "block" : "none";
-                </script>
-                <div class="primaryNestedContainer primaryDivider" id="memoryDiv">
+                <div class="secondaryContainer">
+                    <button class="linkButtons" onclick="toggleMemory()" id="toggleMemoryButton">
+                        Show Memory
+                    </button>
+                    <button class="linkButtons" onclick="loadTheRick()" id="toggleMemoryButton">
+                        Show Memory
+                    </button>
+                    <button class="linkButtons" onclick="toggleMemory()" id="toggleMemoryButton">
+                        Show Memory
+                    </button>
+                </div>
+                <div class="primaryNestedContainer primaryDivider" style="display:none;" id="memoryDiv">
                     <h3 class="subsectionHeader" style="margin-bottom:-14px;">
                         This is a subsection header
                     </h3>
@@ -72,5 +80,26 @@
                 </div>
             </div>
         </div>
+
+        <!-- Scripts -->
+        <script>
+            function toggleMemory() {
+                var memory = document.getElementById("memoryDiv");
+                var memoryButton = document.getElementById("toggleMemoryButton");
+                if (memory.style.display === "none") {
+                    memory.style.display = "block";
+                    memoryButton.innerHTML = "Hide Memory";
+                } else {
+                    memory.style.display = "none";
+                    memoryButton.innerHTML = "Show Memory";
+                }
+            }
+
+            function loadTheRick() {
+                var inputBox = document.getElementById("inputBrainF_ck");
+                inputBox.style.color= "#0ff";
+                inputBox.value = "hi";
+            }
+        </script>
     </body>
 </html>
