@@ -46,13 +46,13 @@
                     Brainf*ck
                 </h3>
                 <textarea name="inputBrainF_ck" class="subsectionTextarea" id="inputBrainF_ck" placeholder="Brainf*ck goes here..."></textarea>
-                <button class="linkButtons" onclick="toggleMemory()" id="toggleMemoryButton">
+                <button class="linkButtons" onclick="" id="hsrgjhgiub">
                     Show Memory
                 </button>
-                <button class="linkButtons" onclick="loadTheRick()" id="toggleMemoryButtonee">
+                <button class="linkButtons" onclick="addMemory()" id="toggleMemoryButtonee">
                     Show Memory
                 </button>
-                <button class="linkButtons" onclick="toggleMemory()" id="toggleMemoryButtoneeeee">
+                <button class="linkButtons" onclick="toggleMemory()" id="memoryToggle">
                     Show Memory
                 </button>
                 <div style="margin-bottom: -2.4em;"></div>
@@ -60,36 +60,28 @@
                     Brainf*ck
                 </h3>
                 <textarea name="outputText" class="subsectionTextarea" id="outputText" placeholder="Text output goes here..." readonly></textarea>
-                <h3 class="subsectionHeader">
-                    Relationship
-                </h3>
-                <p class="subsectionText">
-                    I see you
-                </p>
-                <div class="secondaryContainer">
-                </div>
-                <div class="primaryNestedContainer primaryDivider" style="display:none;" id="memoryDiv">
-                    <h3 class="subsectionHeader" style="margin-bottom:-14px;">
-                        This is a subsection header
-                    </h3>
-                    <p class="subsectionText">
-                        I know where you live
-                    </p>
-                </div>
+            </div>
+            <hr class="primaryDivider" style="border: 0px; margin-bottom: 1.2em;">
+            <div class="primaryNestedContainer primaryDivider" style="display:none;" id="memoryDiv">
+                <h2 class="subsectionHeader">
+                    Memory
+                </h2>
+                <ul class="subsectionList" id="memoryBank">
+                </ul>
             </div>
         </div>
 
         <!-- Scripts -->
         <script>
             function toggleMemory() {
-                var memory = document.getElementById("memoryDiv");
-                var memoryButton = document.getElementById("toggleMemoryButton");
-                if (memory.style.display === "none") {
-                    memory.style.display = "block";
-                    memoryButton.innerHTML = "Hide Memory";
+                var memoryDiv = document.getElementById("memoryDiv");
+                var memoryToggle = document.getElementById("memoryToggle");
+                if (memoryDiv.style.display === "none") {
+                    memoryDiv.style.display = "block";
+                    memoryToggle.innerHTML = "Hide Memory";
                 } else {
-                    memory.style.display = "none";
-                    memoryButton.innerHTML = "Show Memory";
+                    memoryDiv.style.display = "none";
+                    memoryToggle.innerHTML = "Show Memory";
                 }
             }
 
@@ -98,9 +90,19 @@
                 try {
                     const response = await fetch("Resources/Page_Resources/Rick.bf");
                     const rickBf = await response.text();
-                    inputBox.value = rickBf;
+                    inputBox.innerHTML = rickBf;
                 } catch (error) {   
                     inputBox.innerHTML = "Error loading file: " + error;
+                }
+            }
+
+            async function addMemory() {
+                for (let iq = 1; iq <= 30000; iq++) {
+                    var braincell = document.createElement("li")
+                    braincell.id = "braincell" + iq;
+                    braincell.textContent = "000";
+                    var memoryBank = document.getElementById("memoryBank");
+                    memoryBank.appendChild(braincell);
                 }
             }
             
