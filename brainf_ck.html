@@ -46,18 +46,21 @@
                     Brainf*ck
                 </h3>
                 <textarea name="inputBrainF_ck" class="subsectionTextarea" id="inputBrainF_ck" placeholder="Brainf*ck goes here..."></textarea>
-                <button class="linkButtons" onclick="" id="hsrgjhgiub">
-                    Show Memory
+                <label for="userImput" class="subsectionHeader">Input:</label>
+                <input type="text" class="brainf_ckInputBox" id="userImput" placeholder="User Input">
+                <br><br>
+                <button class="linkButtons" onclick="runBrainf_ck()" id="hsrgjhgiub">
+                    Run Brainf*ck
                 </button>
-                <button class="linkButtons" onclick="addMemory()" id="toggleMemoryButtonee">
-                    Show Memory
+                <button class="linkButtons" onclick="" id="toggleMemoryButtonee">
+                    ur mom
                 </button>
                 <button class="linkButtons" onclick="toggleMemory()" id="memoryToggle">
                     Show Memory
                 </button>
                 <div style="margin-bottom: -2.4em;"></div>
                 <h3 class="subsectionHeader">
-                    Brainf*ck
+                    Output
                 </h3>
                 <textarea name="outputText" class="subsectionTextarea" id="outputText" placeholder="Text output goes here..." readonly></textarea>
             </div>
@@ -66,6 +69,10 @@
                 <h2 class="subsectionHeader">
                     Memory
                 </h2>
+                <ul class="subsectionList">
+                    <li>Data Pointer Location:</li>
+                    <li id="dataPointa">0</li>
+                </ul>
                 <ul class="subsectionList" id="memoryBank">
                 </ul>
             </div>
@@ -73,7 +80,32 @@
 
         <!-- Scripts -->
         <script>
-            function toggleMemory() {
+            function windowLoad() {
+                addMemory();
+                loadTheRick();
+            }
+
+            async function addMemory() {
+                for (let iq = 1; iq <= 30000; iq++) {
+                    var braincell = document.createElement("li");
+                    braincell.id = "braincell" + iq;
+                    braincell.textContent = "000";
+                    var memoryBank = document.getElementById("memoryBank");
+                    memoryBank.appendChild(braincell);
+                }
+            }
+            async function loadTheRick() {
+                var inputBox = document.getElementById("inputBrainF_ck");
+                try {
+                    const response = await fetch("Resources/Page_Resources/Rick.bf");
+                    const rickBf = await response.text();
+                    inputBox.innerHTML = rickBf;
+                } catch (error) {
+                    inputBox.innerHTML = "Error loading file: " + error + "\nThis was suppose to load the Brainf*ck script I wrote to recite Rick Astley's famous song Never Gonna Give You Up. The file is here if you want to view it:\nhttps://churrroanimations.github.io/churros-page/Resources/Page_Resources/Rick.bf";
+                }
+            }
+
+            async function toggleMemory() {
                 var memoryDiv = document.getElementById("memoryDiv");
                 var memoryToggle = document.getElementById("memoryToggle");
                 if (memoryDiv.style.display === "none") {
@@ -85,28 +117,23 @@
                 }
             }
 
-            async function loadTheRick() {
+            async function runBrainf_ck() {
                 var inputBox = document.getElementById("inputBrainF_ck");
-                try {
-                    const response = await fetch("Resources/Page_Resources/Rick.bf");
-                    const rickBf = await response.text();
-                    inputBox.innerHTML = rickBf;
-                } catch (error) {   
-                    inputBox.innerHTML = "Error loading file: " + error;
+                var outputBox = document.getElementById("outputText");
+                const branif_ckCharacters = [">", "<", "+", "-", ".", ",", "[", "]"];
+                const brainf_ckCodeRaw = inputBox.value;
+                var brainf_ckCodeClean = "";
+                for (let character = 0; character <  brainf_ckCodeRaw.length; character++) {
+                    if (branif_ckCharacters.includes(brainf_ckCodeRaw[character])) {
+                        brainf_ckCodeClean += brainf_ckCodeRaw[character];
+                    }
                 }
-            }
-
-            async function addMemory() {
-                for (let iq = 1; iq <= 30000; iq++) {
-                    var braincell = document.createElement("li")
-                    braincell.id = "braincell" + iq;
-                    braincell.textContent = "000";
-                    var memoryBank = document.getElementById("memoryBank");
-                    memoryBank.appendChild(braincell);
-                }
+                outputBox.value = brainf_ckCodeClean;
             }
             
-            window.onload = loadTheRick;
+// -[--->+<]>-----.>--[----->+<]>-.+++++++++.-----.++++++++++.
+
+            window.onload = windowLoad;
         </script>
     </body>
 </html>
