@@ -42,16 +42,15 @@
 
             <!-- Info -->
             <div class="secondaryContainer">
-                <div onload="toggleMemory()"></div> 
                 <form action="test">
                     <h3 class="subsectionHeader">
                         Brainf*ck
                     </h3>
-                    <input id="fname" name="fname" style="color:#ff0; background-color:#0f0; width:100%;" value="This" id="inputBrainF_ck">
+                    <input name="inputBrainF_ck" style="color:#ff0; background-color:#0f0; width:100%;" value="This" id="inputBrainF_ck">
                     <h3 class="subsectionHeader">
                         Brainf*ck
                     </h3>
-                    <input id="fname" name="fname" style="color:#ff0; background-color:#0f0; width:100%;" value="Your mother" id="outputText" readonly>
+                    <input name="outputText" style="color:#ff0; background-color:#0f0; width:100%;" value="Your mother" id="outputText" readonly>
                 </form>
                 <h3 class="subsectionHeader">
                     Relationship
@@ -63,10 +62,10 @@
                     <button class="linkButtons" onclick="toggleMemory()" id="toggleMemoryButton">
                         Show Memory
                     </button>
-                    <button class="linkButtons" onclick="loadTheRick()" id="toggleMemoryButton">
+                    <button class="linkButtons" onclick="loadTheRick()" id="toggleMemoryButtonee">
                         Show Memory
                     </button>
-                    <button class="linkButtons" onclick="toggleMemory()" id="toggleMemoryButton">
+                    <button class="linkButtons" onclick="toggleMemory()" id="toggleMemoryButtoneeeee">
                         Show Memory
                     </button>
                 </div>
@@ -95,11 +94,18 @@
                 }
             }
 
-            function loadTheRick() {
+            async function loadTheRick() {
                 var inputBox = document.getElementById("inputBrainF_ck");
-                inputBox.style.color= "#0ff";
-                inputBox.value = "hi";
+                try {
+                    const response = await fetch("Resources/Page_Resources/Rick.bf");
+                    const rickBf = await response.text();
+                    inputBox.value = rickBf;
+                } catch (error) {
+                    inputBox.value = "Error loading file: " + error;
+                }
             }
+            
+            window.onload = loadTheRick;
         </script>
     </body>
 </html>
