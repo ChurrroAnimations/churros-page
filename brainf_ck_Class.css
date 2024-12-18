@@ -158,10 +158,20 @@
         color: var(--textUrple);
     }
 
-/* Classes for the buttons */
-    .linkButtonsLink {
-        text-decoration: none;
+    .subsectionTextarea {
+        width: 100%;
+        border-radius: 5px;
+        background-color: hwb(270 30% 10%);
+        color: var(--textUrple);
+        height: 15em;
+        resize: none;
     }
+    ::placeholder {
+        color: hsl(270, 50%, 68%);
+    }
+
+
+/* Classes for the buttons */
 
     .linkButtons {
         width: 120px;
@@ -171,20 +181,6 @@
         background-color: hwb(270 25% 37.5%);
         color: var(--textUrple);
         margin-bottom: 5%;
-    }
-
-    .linkButtons .filln {
-        margin: auto;
-        text-align: center;
-        border-radius: 5px;
-        background-color: hwb(177 40% 0%);
-    }
-
-    .linkButtons .text {
-        font-family: 'linkButtons', serif;
-        color: #FFF;
-        font-size: 30px;
-        padding: 5px;
     }
 
 .homeIconImg {
