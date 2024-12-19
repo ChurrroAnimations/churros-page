@@ -29,16 +29,8 @@
 
 /* Fonts */
     @font-face {
-        font-family: 'homeGreeting';
-        src: url('Resources/Fonts/Unna/Unna-Regular.ttf');
-    }
-    @font-face {
         font-family: 'sectionHeader';
         src: url('Resources/Fonts/Playwrite_HR_Lijeva/PlaywriteHRLijeva-VariableFont_wght.ttf');
-    }
-    @font-face {
-        font-family: 'linkButtons';
-        src: url('Resources/Fonts/Ubuntu/Ubuntu-Bold.ttf');
     }
     @font-face {
         font-family: 'subsectionHeader';
@@ -57,10 +49,6 @@
     @font-face {
         font-family: 'brainf_ckMemory';
         src: url('Resources/Fonts/Comic_Neue/ComicNeue-Bold.ttf');
-    }
-    @font-face {
-        font-family: 'subsectionText';
-        src: url('Resources/Fonts/Comic_Neue/ComicNeue-Regular.ttf');
     }
     
 .primaryContainer {
@@ -96,12 +84,6 @@
     border: 1px solid rgba(16, 16, 16, 0.33);
 }
 
-.homeGreeting {
-    text-align: center;
-    color: var(--textUrple);
-    font-family: 'homeGreeting', serif;
-}
-
 .sectionHeader {
     text-align: center;
     color: hsl(266, 100%, 98%);
@@ -120,51 +102,11 @@
 }
 
 /*Subsection Text */
-    .subsectionText {
-        margin-left: 40px;
-        color: var(--textUrple);
-        font-family: 'subsectionText', sans-serif;
-    }
-    .subsectionParag {
-        text-indent: 25pt;
-        text-align: justify;
-    }
-    .subsectionPoem {
-        margin-left: 30pt;
-        text-align: justify;
-    }
     li {
         color: var(--textUrple);
         font-family: 'brainf_ckMemory', sans-serif;
         display: inline-block;
         margin: 0 10px;
-    }
-    .subsectionScrollP {
-        text-align: center;
-        background-color: hsla(0, 0%, 0%, 0.25);
-    }
-    
-    .subsectionScrollA {
-        color: hwb(270 70% 10%);
-    }
-    .subsectionScrollA:visited {
-      color: hwb(270 60% 10%);
-      background-color: transparent;
-      text-decoration: none;
-    }
-    .subsectionScrollA:hover {
-      color: hwb(220 70% 10%);
-      background-color: transparent;
-      text-decoration: underline;
-    }
-    .subsectionScrollA:active {
-      color: hwb(220 60% 10%);
-      background-color: transparent;
-      text-decoration: underline;
-    }
-
-    .subsectionUrlPink {
-        color: var(--textUrple);
     }
 
     .subsectionTextarea {
@@ -195,7 +137,7 @@
 
 /* Classes for the buttons */
 
-    .linkButtons {
+    .operationButtons {
         width: 120px;
         margin: auto;
         text-align: center;
