@@ -46,8 +46,8 @@
                     Brainf*ck
                 </h3>
                 <textarea name="inputBrainF_ck" class="subsectionTextarea" id="inputBrainF_ck" placeholder="Brainf*ck goes here..."></textarea>
-                <label for="userImput" class="subsectionHeader">Input:</label>
-                <input type="text" class="brainf_ckInputBox" id="userImput" placeholder="User Input">
+                <label for="userImputConst" class="subsectionHeader">Input:</label>
+                <input type="text" class="brainf_ckInputBox" id="userImputConst" placeholder="User Input">
                 <br><br>
                 <button class="linkButtons" onclick="runBrainf_ck()" id="hsrgjhgiub">
                     Run Brainf*ck
@@ -71,7 +71,9 @@
                 </h2>
                 <ul class="subsectionList">
                     <li>Data Pointer Location:</li>
-                    <li id="dataPointa">0</li>
+                    <li id="dataPointa">1</li>
+                    <li>Unused User Input Data:</li>
+                    <li id="userImputVar"></li>
                 </ul>
                 <ul class="subsectionList" id="memoryBank">
                 </ul>
@@ -105,7 +107,7 @@
                 }
             }
 
-            async function toggleMemory() {
+            function toggleMemory() {
                 var memoryDiv = document.getElementById("memoryDiv");
                 var memoryToggle = document.getElementById("memoryToggle");
                 if (memoryDiv.style.display === "none") {
@@ -118,18 +120,90 @@
             }
 
             async function runBrainf_ck() {
-                var inputBox = document.getElementById("inputBrainF_ck");
+                var brainf_ckInput = document.getElementById("inputBrainF_ck");
                 var outputBox = document.getElementById("outputText");
+                var dataPointa = document.getElementById("dataPointa");
                 const branif_ckCharacters = [">", "<", "+", "-", ".", ",", "[", "]"];
-                const brainf_ckCodeRaw = inputBox.value;
+                const brainf_ckCodeRaw = brainf_ckInput.value;
                 var brainf_ckCodeClean = "";
-                for (let character = 0; character <  brainf_ckCodeRaw.length; character++) {
+                for (let character = 0; character < brainf_ckCodeRaw.length; character++) {
                     if (branif_ckCharacters.includes(brainf_ckCodeRaw[character])) {
                         brainf_ckCodeClean += brainf_ckCodeRaw[character];
                     }
                 }
-                outputBox.value = brainf_ckCodeClean;
+
+                var userImput = document.getElementById("userImputVar");
+                userImput.innerHTML = document.getElementById("userImputConst").value;
+                
+                for (let character = 0; character < brainf_ckCodeClean.length; character++) {
+                    var braincellNo = document.getElementById("braincell" + dataPointa.innerHTML);
+
+                    if (brainf_ckCodeClean[character] === ">") {
+                        var pointerIndex = parseInt(dataPointa.innerHTML);
+                        pointerIndex++;
+                        pointerIndex = (pointerIndex + 30000) % 30000;
+                        dataPointa.innerHTML = pointerIndex;
+                        continue;
+                    }
+                    if (brainf_ckCodeClean[character] === "<") {
+                        var pointerIndex = parseInt(dataPointa.innerHTML);
+                        pointerIndex--;
+                        pointerIndex = (pointerIndex + 30000) % 30000;
+                        dataPointa.innerHTML = pointerIndex;
+                        continue;
+                    }
+                    if (brainf_ckCodeClean[character] === "+") {
+                        var memoryByte = parseInt(braincellNo.innerHTML);
+                        memoryByte++;
+                        memoryByte = (memoryByte + 256) % 256;
+                        memoryByte = String(memoryByte);
+                        memoryByte = (memoryByte.length == 3 ? "" : "0") + memoryByte;
+                        memoryByte = (memoryByte.length == 3 ? "" : "0") + memoryByte;
+                        braincellNo.innerHTML = memoryByte;
+                        continue;
+                    }
+                    if (brainf_ckCodeClean[character] === "-") {
+                        var memoryByte = parseInt(braincellNo.innerHTML);
+                        memoryByte--;
+                        memoryByte = (memoryByte + 256) % 256;
+                        memoryByte = String(memoryByte);
+                        memoryByte = (memoryByte.length == 3 ? "" : "0") + memoryByte;
+                        memoryByte = (memoryByte.length == 3 ? "" : "0") + memoryByte;
+                        braincellNo.innerHTML = memoryByte;
+                        continue;
+                    }
+                    if (brainf_ckCodeClean[character] === ".") {
+                        var printItem = parseInt(braincellNo.innerHTML);
+                        var printChar = String.fromCharCode(printItem);
+                        outputBox.value += printChar;
+                        continue;
+                    }
+                    if (brainf_ckCodeClean[character] === ",") {
+                        var byteValue = userImput.innerHTML[0];
+                        braincellNo.innerHTML = byteValue.charCodeAt(0);
+                        userImput.innerHTML = userImput.innerHTML.substring(1);
+                        continue;
+                    }
+                    if (brainf_ckCodeClean[character] === "[") {
+                        var error = false;
+                        var repeatString = ""
+                        var closingBracketNo = character;
+                        for (let closingBracket = character + 1; ((brainf_ckCodeClean[closingBracket] != "]") || (closingBracket > brainf_ckCodeClean.length)); closingBracket++) {
+                            error = closingBracket > brainf_ckCodeClean.length;
+                            if (error) break;
+                            repeatString += brainf_ckCodeClean[closingBracket];
+                            closingBracketNo = closingBracket;
+                        }
+                        if (error) {
+                            outputBox.innerHTML = "";
+                            break
+                        }
+                        brainf_ckCodeClean = brainf_ckCodeClean.substring(0, repeatString) + brainf_ckCodeClean.substring(closingBracketNo);
+                        // nested
+                    }
+                }
             }
+
             
 // -[--->+<]>-----.>--[----->+<]>-.+++++++++.-----.++++++++++.
 
