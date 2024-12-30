@@ -49,17 +49,32 @@
                 <label for="userImputConst" class="subsectionHeader">Input:</label>
                 <input type="text" class="brainf_ckInputBox" id="userImputConst" placeholder="User Input">
                 <br><br>
-                <button class="operationButtons" onclick="runBrainf_ck()" id="hsrgjhgiub">
+                <button class="operationButtons" onclick="runBrainf_ck()">
                     Run Brainf*ck
-                </button>
-                <button class="operationButtons" onclick="" id="toggleMemoryButtonee">
-                    ur mom
                 </button>
                 <button class="operationButtons" onclick="toggleMemory()" id="memoryToggle">
                     Show Memory
                 </button>
+                <button class="operationButtons" onclick="instrPtrAdd()">
+                    Increment Pointer
+                </button>
+                <button class="operationButtons" onclick="instrPtrMin()">
+                    Decrement Pointer
+                </button>
+                <button class="operationButtons" onclick="instrByteAdd()">
+                    Increment Byte
+                </button>
+                <button class="operationButtons" onclick="instrByteMin()">
+                    Decrement Byte
+                </button>
+                <button class="operationButtons" onclick="instrByteLog()">
+                    Print Byte
+                </button>
+                <button class="operationButtons" onclick="instrByteSet()">
+                    Write Input
+                </button>
                 <div style="margin-bottom: -2.4em;"></div>
-                <h3 class="subsectionHeader">
+                <h3 class="subsectionHeader" id="outputHeader">
                     Output
                 </h3>
                 <textarea name="outputText" class="subsectionTextarea" id="outputText" placeholder="Text output goes here..." readonly></textarea>
@@ -82,13 +97,15 @@
 
         <!-- Scripts -->
         <script>
+            // When page is loaded
             function windowLoad() {
                 addMemory();
                 loadTheRick();
             }
 
+            // Adds bytes to memory
             async function addMemory() {
-                for (let iq = 1; iq <= 30000; iq++) {
+                for (let iq = 1; iq <= 100; iq++) {
                     var braincell = document.createElement("li");
                     braincell.id = "braincell" + iq;
                     braincell.textContent = "000";
@@ -96,17 +113,15 @@
                     memoryBank.appendChild(braincell);
                 }
             }
+            // Loades the Rick Astley Brainf*ck code.
             async function loadTheRick() {
-                var inputBox = document.getElementById("inputBrainF_ck");
-                try {
-                    const response = await fetch("Resources/Page_Resources/Rick.bf");
-                    const rickBf = await response.text();
-                    inputBox.innerHTML = rickBf;
-                } catch (error) {
-                    inputBox.innerHTML = "Error loading file: " + error + "\nThis was suppose to load the Brainf*ck script I wrote to recite Rick Astley's famous song Never Gonna Give You Up. The file is here if you want to view it:\nhttps://churrroanimations.github.io/churros-page/Resources/Page_Resources/Rick.bf";
-                }
+                var brainf_ckInput = document.getElementById("inputBrainF_ck");
+                const response = await fetch("Resources/Page_Resources/Rick.bf");
+                const rickBf = await response.text();
+                brainf_ckInput.innerHTML = rickBf;
             }
 
+            // Toggle visibility of the memory 
             function toggleMemory() {
                 var memoryDiv = document.getElementById("memoryDiv");
                 var memoryToggle = document.getElementById("memoryToggle");
@@ -119,8 +134,198 @@
                 }
             }
 
-            async function runBrainf_ck() {
+            function getBraincell(cellId) {
+                var braincellElement;
+                var cellIdUsed = cellId === null || cellId === undefined     ? document.getElementById("dataPointa").innerHTML : cellId;
+                braincellElement = document.getElementById("braincell" + cellIdUsed);
+                return braincellElement;
             }
+
+            async function runBrainf_ck() {
+                var brainf_ckInput = document.getElementById("inputBrainF_ck");
+                var outputBox = document.getElementById("outputText");
+                document.getElementById("userImputVar").innerHTML = document.getElementById("userImputConst").value;
+                var dataPointa = document.getElementById("dataPointa");
+                
+                var outputHeader = document.getElementById("outputHeader");
+                outputHeader.innerHTML = "Output ~ Waiting";
+
+                // Reset memory
+                while (getBraincell() != null) {
+                    getBraincell().innerHTML = "000";
+                    dataPointa.innerHTML = parseInt(dataPointa.innerHTML) + 1;
+                }
+                var memoryCap = parseInt(dataPointa.innerHTML) - 1;
+                dataPointa.innerHTML = 1;
+
+                // Remove unnecessary characters & tally
+                const brainf_ckCharacters = [">", "<", "+", "-", ".", ",", "[", "]"];
+                var brainf_ckCharCount = [0, 0, 0, 0, 0, 0, 0, 0]
+                var usableBrainf_ck = "";
+                for (let char = 0; char < brainf_ckInput.value.length; char++) {
+                    if (brainf_ckCharacters.includes(brainf_ckInput.value[char])) {
+                        brainf_ckCharCount[brainf_ckCharacters.indexOf(brainf_ckInput.value[char])]++;
+                        usableBrainf_ck += brainf_ckInput.value[char];
+                    }
+                }
+
+                // Check for obvious errors
+                if (brainf_ckCharCount[6] != brainf_ckCharCount[7]) {
+                    if (brainf_ckCharCount[6] > brainf_ckCharCount[7]) outputHeader.innerHTML = "Output ~ Error: expected closing bracket";
+                    else outputHeader.innerHTML = "Output ~ Error: expected opening bracket";
+                    return;
+                }
+
+                getBraincell(100).innerHTML = usableBrainf_ck;
+                // Actually execute the stuff
+                var bfChar = 0;
+                while (bfChar < usableBrainf_ck.length) {
+                    alert(brainf_ckCharacters.indexOf[","]);
+                    if (brainf_ckCharacters.indexOf[usableBrainf_ck[bfChar]] < 6) {
+                        instrLookup(usableBrainf_ck[bfChar]);
+                    } else {
+                    }
+                    bfChar++;
+                }
+
+                outputHeader.innerHTML = "Output ~ Finished";
+
+/*
+                for (let character);
+                
+
+                let pointer = 0;
+                let userInputIndex = 0;
+                let output = "";
+
+                // Loop stack for managing `[` and `]`
+                const loopStack = [];
+
+                for (let i = 0; i < brainf_ckCode.length; i++) {
+                    const command = brainf_ckCode[i];
+
+                    switch (command) {
+                        case ">":
+                            pointer = (pointer + 1) % 30000;
+                            break;
+                        case "<":
+                            pointer = (pointer - 1 + 30000) % 30000;
+                            break;
+                        case "+":
+                            memory[pointer] = (memory[pointer] + 1) % 256;
+                            break;
+                        case "-":
+                            memory[pointer] = (memory[pointer] - 1 + 256) % 256;
+                            break;
+                        case ".":
+                            output += String.fromCharCode(memory[pointer]);
+                            break;
+                        case ",":
+                            if (userInputIndex < userInput.length) {
+                                memory[pointer] = userInput.charCodeAt(userInputIndex++);
+                            } else {
+                                memory[pointer] = 0; // EOF
+                            }
+                            break;
+                        case "[":
+                            if (memory[pointer] === 0) {
+                                let openBrackets = 1;
+                                while (openBrackets > 0) {
+                                    i++;
+                                    if (brainf_ckCode[i] === "[") openBrackets++;
+                                    if (brainf_ckCode[i] === "]") openBrackets--;
+                                }
+                            } else {
+                                loopStack.push(i);
+                            }
+                            break;
+                        case "]":
+                            if (memory[pointer] !== 0) {
+                                i = loopStack[loopStack.length - 1];
+                            } else {
+                                loopStack.pop();
+                            }
+                            break;
+                    }
+                }
+                outputBox.value = output;*/
+            }
+
+            function instrLookup(instr) {
+                alert("hi");
+                if (instr === ">") instrPtrAdd();
+                if (instr === "<") instrPtrMin();
+                if (instr === "+") instrByteAdd();
+                if (instr === "-") instrByteMin();
+                if (instr === ".") instrByteLog();
+                if (instr === ",") instrByteSet();
+            }
+            function instrPtrAdd() { // Instruction: ">"
+                var dataPointa = document.getElementById("dataPointa");
+                var newPointerPos = parseInt(dataPointa.innerHTML);
+                newPointerPos++;
+                if (getBraincell(newPointerPos) === null) {
+                    newPointerPos--;
+                    while (getBraincell(newPointerPos) != null) newPointerPos--;
+                    newPointerPos++;
+                }
+                dataPointa.innerHTML = newPointerPos;
+            }
+            function instrPtrMin() {  // Instruction: "<"
+                var dataPointa = document.getElementById("dataPointa");
+                var newPointerPos = parseInt(dataPointa.innerHTML);
+                newPointerPos--;
+                if (getBraincell(newPointerPos) === null) {
+                    newPointerPos++;
+                    while (getBraincell(newPointerPos) != null) newPointerPos++;
+                    newPointerPos--;
+                }
+                dataPointa.innerHTML = newPointerPos;
+            }
+            function instrByteAdd() { // Instruction: "+"
+                var selectedByte = getBraincell();
+                newByteVal = parseInt(selectedByte.innerHTML);
+                newByteVal += 257;
+                newByteVal = newByteVal % 256;
+                newByteVal = String(newByteVal);
+                newByteVal = (newByteVal.length < 3 ? "0" : "") + newByteVal;
+                newByteVal = (newByteVal.length < 3 ? "0" : "") + newByteVal;
+                newByteVal = (newByteVal.length < 3 ? "0" : "") + newByteVal;
+                selectedByte.innerHTML = newByteVal;
+            }
+            function instrByteMin() { // Instruction: "-"
+                var selectedByte = getBraincell();
+                newByteVal = parseInt(selectedByte.innerHTML);
+                newByteVal += 255;
+                newByteVal = newByteVal % 256;
+                newByteVal = String(newByteVal);
+                newByteVal = (newByteVal.length < 3 ? "0" : "") + newByteVal;
+                newByteVal = (newByteVal.length < 3 ? "0" : "") + newByteVal;
+                newByteVal = (newByteVal.length < 3 ? "0" : "") + newByteVal;
+                selectedByte.innerHTML = newByteVal;
+            }
+            function instrByteLog() { // Instruction: "."
+                var selectedByte = getBraincell();
+                var outputBox = document.getElementById("outputText");
+                var selectedchar = String.fromCharCode(selectedByte.innerHTML);
+                outputBox.value += selectedchar;
+            }
+            function instrByteSet() { // Instruction: ","
+                var selectedByte = getBraincell();
+                var userImput = document.getElementById("userImputVar");
+                var newImput = "";
+                var imputChar = userImput.innerHTML[0];
+                for (let char = 1; char < userImput.innerHTML.length; char++) {
+                    newImput += userImput.innerHTML[char];
+                }
+                imputChar = imputChar.charCodeAt(0);
+                imputChar = (imputChar.length < 3 ? "0" : "") + imputChar;
+                imputChar = (imputChar.length < 3 ? "0" : "") + imputChar;
+                imputChar = (imputChar.length < 3 ? "0" : "") + imputChar;
+                selectedByte.innerHTML = imputChar;
+                userImput.innerHTML = newImput;
+            }
+            
             window.onload = windowLoad;
         </script>
     </body>
