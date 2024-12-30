@@ -161,11 +161,19 @@
                 // Remove unnecessary characters & tally
                 const brainf_ckCharacters = [">", "<", "+", "-", ".", ",", "[", "]"];
                 var brainf_ckCharCount = [0, 0, 0, 0, 0, 0, 0, 0]
+                var openBktCases = [];
+                var closeBktCases = [];
+                var allBktCases = [];
                 var usableBrainf_ck = "";
                 for (let char = 0; char < brainf_ckInput.value.length; char++) {
                     if (brainf_ckCharacters.includes(brainf_ckInput.value[char])) {
                         brainf_ckCharCount[brainf_ckCharacters.indexOf(brainf_ckInput.value[char])]++;
                         usableBrainf_ck += brainf_ckInput.value[char];
+                        if (brainf_ckCharacters.indexOf(brainf_ckInput.value[char]) > 5) {
+                            if (brainf_ckInput.value[char] == "[") openBktCases.push(char);
+                            else if (brainf_ckInput.value[char] == "]") closeBktCases.push(char);
+                            allBktCases.push(char);
+                        }
                     }
                 }
 
@@ -175,15 +183,19 @@
                     else outputHeader.innerHTML = "Output ~ Error: expected opening bracket";
                     return;
                 }
-
-                getBraincell(100).innerHTML = usableBrainf_ck;
+                
                 // Actually execute the stuff
                 var bfChar = 0;
                 while (bfChar < usableBrainf_ck.length) {
-                    alert(brainf_ckCharacters.indexOf[","]);
-                    if (brainf_ckCharacters.indexOf[usableBrainf_ck[bfChar]] < 6) {
+                    if (brainf_ckCharacters.indexOf(usableBrainf_ck[bfChar]) < 6) {
                         instrLookup(usableBrainf_ck[bfChar]);
                     } else {
+                        if (usableBrainf_ck[allBktCases[0]] == "[" && usableBrainf_ck[allBktCases[1]] == "]") {
+                            while (getBraincell().innerHTML != "000") instrLoopSection(usableBrainf_ck.slice(allBktCases[0] + 1, allBktCases[1]));
+                            bfChar = allBktCases[1];
+                            allBktCases = allBktCases.slice(2, allBktCases.length);
+                        }
+                        
                     }
                     bfChar++;
                 }
@@ -251,14 +263,24 @@
                 outputBox.value = output;*/
             }
 
+            function instrLoopSection(loopedSection) {
+                let bfChar = 0;
+                while (bfChar < loopedSection.length) {
+                    instrLookup(loopedSection[bfChar]);
+                    bfChar++;
+                }
+            }
+            function instrNestedLoop () {
+                
+            }
             function instrLookup(instr) {
-                alert("hi");
-                if (instr === ">") instrPtrAdd();
-                if (instr === "<") instrPtrMin();
-                if (instr === "+") instrByteAdd();
-                if (instr === "-") instrByteMin();
-                if (instr === ".") instrByteLog();
-                if (instr === ",") instrByteSet();
+                //alert(instr);
+                if (instr == ">") instrPtrAdd();
+                if (instr == "<") instrPtrMin();
+                if (instr == "+") instrByteAdd();
+                if (instr == "-") instrByteMin();
+                if (instr == ".") instrByteLog();
+                if (instr == ",") instrByteSet();
             }
             function instrPtrAdd() { // Instruction: ">"
                 var dataPointa = document.getElementById("dataPointa");
