@@ -188,27 +188,33 @@
                     return;
                 }
                 
+                alert(usableBrainf_ck);
                 // Actually execute the stuff
                 var bracketCases = [];
-                for (let instrIndex = 0; instrIndex < usableBrainf_ck.length; instrIndex++) {
+                var instrCalls = 0;
+                for (let instrIndex = 0; instrIndex <= usableBrainf_ck.length; instrIndex++) {
                     //  alert(brainf_ckCharacters.indexOf(usableBrainf_ck[bfChar]) < 6);
                     let currentInstr = usableBrainf_ck[instrIndex];
                     if (brainf_ckCharacters.indexOf(currentInstr) < 6) {
                         instrLookup(currentInstr);
+                        instrCalls++;
                     } else {
                         //alert("Bracket");
-                        if (currentInstr === "[") {
+                        if (currentInstr === "[" && !(bracketCases.includes(instrIndex))) {
                             bracketCases.push(instrIndex);
-                        } else if (currentInstr === "]" && getBraincell().innerHTML != "000") {
-                            instrIndex = bracketCases[bracketCases.length - 1];
-                            bracketCases = bracketCases.slice(0, bracketCases.length - 1);
+                        } else if (currentInstr === "]") {
+                            if (getBraincell().innerHTML != "000") instrIndex = bracketCases[bracketCases.length - 1] - 1;
+                            else bracketCases.pop();
                             //alert(instrIndex);
-                        }
+                        } 
                     }
+                    //alert(currentInstr);
                 }
+                
                 outputHeader.innerHTML = "Output ~ Finished";
+                outputHeader.innerHTML += ", Instruction calls:" + instrCalls;
             }
-            
+
             function instrLookup(instr) {
                 if (instr == ">") instrPtrAdd();
                 if (instr == "<") instrPtrMin();
