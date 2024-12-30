@@ -189,51 +189,27 @@
                 }
                 
                 // Actually execute the stuff
-                var bfChar = 0;
-                while (bfChar < usableBrainf_ck.length) {
+                var bracketCases = [];
+                for (let instrIndex = 0; instrIndex < usableBrainf_ck.length; instrIndex++) {
                     //  alert(brainf_ckCharacters.indexOf(usableBrainf_ck[bfChar]) < 6);
-                    if (brainf_ckCharacters.indexOf(usableBrainf_ck[bfChar]) < 6) {
-                        instrLookup(usableBrainf_ck[bfChar]);
+                    let currentInstr = usableBrainf_ck[instrIndex];
+                    if (brainf_ckCharacters.indexOf(currentInstr) < 6) {
+                        instrLookup(currentInstr);
                     } else {
-//                        alert (allBktCases[1] === closeBktCases[0]);
-                            if (allBktCases[1] === closeBktCases[0]) {
-                                
-                                    const loopedSection = usableBrainf_ck.slice(allBktCases[0] + 1, allBktCases[1])
-                                    alert(loopedSection);
-                                    //instrLoopSection(loopedSection);
-                                
-                                bfChar = allBktCases[1];
-                                allBktCases = allBktCases.slice(2);
-                                
-                                openBktCases = openBktCases.slice(1);
-                                closeBktCases = closeBktCases.slice(1);
-                            }
-                        }
-                    bfChar++;
-                }
-
-                outputHeader.innerHTML = "Output ~ Finished";
-            }
-
-            function instrLoopSection(loopedSection) {
-                var endLoop = false;
-                while (endLoop == false) {
-                    let bfChar = 0;
-                    instrLookup(loopedSection[bfChar]);
-                    bfChar++;
-                    if (bfChar > loopedSection.length) {
-                        bfChar = 0;
-                        if (getBraincell().innerHTML === "000") {
-                            endLoop = true
+                        //alert("Bracket");
+                        if (currentInstr === "[") {
+                            bracketCases.push(instrIndex);
+                        } else if (currentInstr === "]" && getBraincell().innerHTML != "000") {
+                            instrIndex = bracketCases[bracketCases.length - 1];
+                            bracketCases = bracketCases.slice(0, bracketCases.length - 1);
+                            //alert(instrIndex);
                         }
                     }
                 }
+                outputHeader.innerHTML = "Output ~ Finished";
             }
-            function instrNestedLoop () {
-                
-            }
+            
             function instrLookup(instr) {
-                //alert(instr);
                 if (instr == ">") instrPtrAdd();
                 if (instr == "<") instrPtrMin();
                 if (instr == "+") instrByteAdd();
