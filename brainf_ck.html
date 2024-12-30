@@ -136,7 +136,7 @@
 
             function getBraincell(cellId) {
                 var braincellElement;
-                var cellIdUsed = cellId === null || cellId === undefined     ? document.getElementById("dataPointa").innerHTML : cellId;
+                var cellIdUsed = cellId === null || cellId === undefined ? document.getElementById("dataPointa").innerHTML : cellId;
                 braincellElement = document.getElementById("braincell" + cellIdUsed);
                 return braincellElement;
             }
@@ -193,79 +193,19 @@
                         if (usableBrainf_ck[allBktCases[0]] == "[" && usableBrainf_ck[allBktCases[1]] == "]") {
                             while (getBraincell().innerHTML != "000") instrLoopSection(usableBrainf_ck.slice(allBktCases[0] + 1, allBktCases[1]));
                             bfChar = allBktCases[1];
-                            allBktCases = allBktCases.slice(2, allBktCases.length);
+                            allBktCases = allBktCases.slice(2);
                         }
-                        
                     }
                     bfChar++;
                 }
 
                 outputHeader.innerHTML = "Output ~ Finished";
-
-/*
-                for (let character);
-                
-
-                let pointer = 0;
-                let userInputIndex = 0;
-                let output = "";
-
-                // Loop stack for managing `[` and `]`
-                const loopStack = [];
-
-                for (let i = 0; i < brainf_ckCode.length; i++) {
-                    const command = brainf_ckCode[i];
-
-                    switch (command) {
-                        case ">":
-                            pointer = (pointer + 1) % 30000;
-                            break;
-                        case "<":
-                            pointer = (pointer - 1 + 30000) % 30000;
-                            break;
-                        case "+":
-                            memory[pointer] = (memory[pointer] + 1) % 256;
-                            break;
-                        case "-":
-                            memory[pointer] = (memory[pointer] - 1 + 256) % 256;
-                            break;
-                        case ".":
-                            output += String.fromCharCode(memory[pointer]);
-                            break;
-                        case ",":
-                            if (userInputIndex < userInput.length) {
-                                memory[pointer] = userInput.charCodeAt(userInputIndex++);
-                            } else {
-                                memory[pointer] = 0; // EOF
-                            }
-                            break;
-                        case "[":
-                            if (memory[pointer] === 0) {
-                                let openBrackets = 1;
-                                while (openBrackets > 0) {
-                                    i++;
-                                    if (brainf_ckCode[i] === "[") openBrackets++;
-                                    if (brainf_ckCode[i] === "]") openBrackets--;
-                                }
-                            } else {
-                                loopStack.push(i);
-                            }
-                            break;
-                        case "]":
-                            if (memory[pointer] !== 0) {
-                                i = loopStack[loopStack.length - 1];
-                            } else {
-                                loopStack.pop();
-                            }
-                            break;
-                    }
-                }
-                outputBox.value = output;*/
             }
 
             function instrLoopSection(loopedSection) {
                 let bfChar = 0;
                 while (bfChar < loopedSection.length) {
+                    alert(getBraincell().innerHTML != "000");
                     instrLookup(loopedSection[bfChar]);
                     bfChar++;
                 }
