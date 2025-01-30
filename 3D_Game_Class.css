@@ -1,0 +1,151 @@
+:root {
+    --textUrple: hsl(270, 100%, 93%);
+    background-color: hsl(213, 5%, 50%);
+    background-image: url('Resources/Page_Elements/Desert.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.backBlur {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    backdrop-filter: blur(5px);
+}
+
+.photoCred {
+    background-color: #9B9B9B80;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    margin: 0;
+    padding: 5px;
+    font-size: small;
+    color: hsl(266, 100%, 98%);
+}
+
+/* Fonts */
+    @font-face {
+        font-family: 'sectionHeader';
+        src: url('Resources/Fonts/Playwrite_HR_Lijeva/PlaywriteHRLijeva-VariableFont_wght.ttf');
+    }
+    @font-face {
+        font-family: 'subsectionHeader';
+        src: url('Resources/Fonts/Lora/Static/Lora-Bold.ttf');
+    }
+    @font-face {
+        font-family: 'subsectionText';
+        src: url('Resources/Fonts/Comic_Neue/ComicNeue-Regular.ttf');
+    }
+
+    
+
+    
+.primaryContainer {
+    margin: auto;
+    width: 60%;
+    border-radius: 50px;
+    background-color: hsla(276, 100%, 80%, 0.25);
+    backdrop-filter: blur(0.1rem);
+    background-clip: padding-box;
+    border-width: 2px;
+}
+
+.primaryNestedContainer {
+    margin: auto;
+    width: 65%;
+    padding-left: 5%;
+    padding-right: 5%;
+    padding-bottom: 2.5%;
+    border-radius: 25px;
+    background-color: hsla(276, 100%, 80%, 0.05);
+    backdrop-filter: blur(0.1rem);
+    background-clip: padding-box;
+
+    margin-bottom: 1.2em;
+}
+
+.secondaryContainer {
+    width: 75%;
+    margin: auto;
+}
+
+.primaryDivider {
+    border: 1px solid rgba(16, 16, 16, 0.33);
+}
+
+.sectionHeader {
+    text-align: center;
+    color: hsl(266, 100%, 98%);
+    font-family: 'sectionHeader', sans-serif;
+    font-weight: bolder;
+    font-size: 60px;
+    margin-top: -5px;
+    margin-bottom: -5px;
+}
+
+.subsectionHeader {
+    text-align: left;
+    color: var(--textUrple);
+    font-family: 'subsectionHeader', sans-serif;
+    margin-bottom: 0px;
+}
+
+/*Subsection Text */
+    li {
+        color: var(--textUrple);
+        font-family: 'brainf_ckMemory', sans-serif;
+        display: inline-block;
+        margin: 0 10px;
+    }
+
+    .subsectionTextarea {
+        border-radius: 5px;
+        background-color: hwb(270 80% 10%);
+        color: var(--textUrple);
+    }
+
+    .brainf_ckInputTxt {
+        color: var(--textUrple);
+        font-family: 'subsectionText', sans-serif;
+    }
+    .brainf_ckInputBox {
+        border-radius: 5px;
+        background-color: hwb(270 30% 10%);
+        color: var(--textUrple);
+        width: 100%;
+        resize: none;
+    }
+
+    ::placeholder {
+        color: hsl(270, 50%, 68%);
+    }
+
+
+/* Classes for the buttons */
+
+    .operationButtons {
+        width: 120px;
+        margin: auto;
+        text-align: center;
+        border-radius: 5px;
+        background-color: hwb(270 25% 37.5%);
+        color: var(--textUrple);
+        margin-bottom: 5%;
+    }
+
+.homeIconImg {
+    width: 30px;
+    height: 30px;
+    margin: auto;
+    display: block;
+    margin-top: -5px;
+}
+
+.homeIconDiv {
+    width: 30px;
+    margin: auto;
+}   

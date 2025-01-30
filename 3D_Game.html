@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Churro's Website ~ Brainf*ck Compiler
+        </title>
+        <link rel="stylesheet" href="3D_Game_Class.css">
+        <link rel="icon" href="Resources/Page_Elements/Churro_Page_Icon.svg">
+
+        <!-- Link Embedding -->
+        <meta charset="utf-8" />
+        <meta property="og:site_name" content="Churro's Website ~ Brainf*ck" />
+        <meta property="og:title" content="Churro's Website ~ Brainf*ck" />
+        <meta name="description" content="This is the Brainf*ck compiler page for Churro's website." />
+        <meta property="og:description" content="This is the Brainf*ck compiler page Churro's website." />
+        <meta property="og:type" content="website" />
+        <meta property="og:image" content="https://churrroanimations.github.io/churros-page/Resources/External/embed-img.jpg" />
+        <meta property="og:image:type" content="image/jpeg" />
+        <meta property="og:image:width" content="1280" />
+        <meta property="og:image:height" content="800" />
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta property="og:url" content="https://churrroanimations.github.io/churros-page/brainf_ck/" />
+        <link rel="canonical" href="https://churrroanimations.github.io/churros-page/brainf_ck/" />
+    </head>
+    <body>
+        <div class="backBlur"></div>
+        <p class="photoCred">
+            Text Fonts: Google Fonts
+            <br>
+            Background: Aidan Bettis
+        </p>
+        <div class="primaryContainer primaryDivider">
+            <!-- Header & Home Button -->
+            <h1 class="sectionHeader">
+                Brainf¤ck
+            </h1>
+            <div class="homeIconDiv">
+                <a href="https://churrroanimations.github.io/churros-commissions/">
+                    <img src="Resources/Page_Resources/HomeUrpl.svg" alt="Main Menu", class="homeIconImg">
+                </a>
+            </div>
+
+            <!-- Info -->
+            <div class="secondaryContainer" id="gameContainer">
+                <h3 class="subsectionHeader">
+                    Brainf*ck
+                </h3>
+                <canvas id="gameDisplay" width="10" height="100" class="subsectionTextarea primaryDivider">
+                </canvas>
+                <p id="testLoop">
+                    200
+                </p>
+                <p id="allKeysDown">
+
+                </p>
+            </div>
+            <hr class="primaryDivider" style="border: 0px; margin-bottom: 1.2em;">
+            <div class="primaryNestedContainer primaryDivider" style="display:none;" id="memoryDiv">
+                <h2 class="subsectionHeader">
+                    Memory
+                </h2>
+                <ul class="subsectionList">
+                    <li>Data Pointer Location:</li>
+                    <li id="dataPointa">1</li>
+                    <li>Unused User Input Data:</li>
+                    <li id="userImputVar"></li>
+                </ul>
+                <ul class="subsectionList" id="memoryBank">
+                </ul>
+            </div>
+        </div>
+
+        <!-- Scripts -->
+        <script>
+            /* Define da varibles */ {
+                const gameContainer = document.getElementById("gameContainer");
+                gameDisplay = document.getElementById("gameDisplay");
+                stage = {
+                    w : 480,
+                    h : 360,
+                    s : 600,
+                    ctx : gameDisplay.getContext('2d'),
+                }
+                var player = {
+                    display : {
+                    },
+                    real : {
+                        x : 0,
+                        y : 0,
+                        d : 0,
+                        s : 10,
+                        turn : 7.5,
+                        step : 2.5,
+                    },
+                }
+                var allKeysDown = [];
+                checkDisplay();
+
+                var changeInDirection;
+                var changeInPosition;
+
+                var deltaTime = 0;
+                var prevFrameTimestamp;
+                var currFrameTimestamp = Date.now();
+
+                //var inte = 200;
+                requestAnimationFrame(gameTick);
+            }
+            /* Keys Pressed */ {
+                window.onkeydown = keyPress;
+                window.onkeyup = keyUnpress;
+                function keyPress(keyFocus){
+                    let keyDown = keyFocus.key;
+                    if (keyDown.length == 1) keyDown = keyDown.toUpperCase();
+                    if (keyDown == " ") keyDown = "Space";
+                    if (allKeysDown.indexOf(keyDown) == -1) allKeysDown.push(keyDown);
+                }
+                function keyUnpress(keyFocus){
+                    let keyDown = keyFocus.key;
+                    if (keyDown.length == 1) keyDown = keyDown.toUpperCase();
+                    if (keyDown == " ") keyDown = "Space";
+                    let keyIndex = allKeysDown.indexOf(keyDown);
+                    if (keyIndex > -1) allKeysDown.splice(keyIndex, 1);
+                }
+                function isKeyDown (keyFocus) {return (allKeysDown.indexOf(keyFocus) > -1);}
+            }
+            
+            function getXonStage (xPos) {return (xPos / stage.w + 0.5) * gameDisplay.width;}
+            function getYonStage (yPos) {return (yPos * -1 / stage.h + 0.5) * gameDisplay.height;}
+            function checkDisplay () {
+                gameDisplay.width = gameContainer.offsetWidth;
+                gameDisplay.height = gameContainer.offsetWidth / 4 * 3;
+            }
+
+            function drawRect (x1, y1, x2, y2) {
+                stage.ctx.moveTo(
+                    getXonStage(x1),
+                    getYonStage(y1),
+                );
+                stage.ctx.lineTo(
+                    getXonStage(x2),
+                    getYonStage(y1),
+                );
+                stage.ctx.lineTo(
+                    getXonStage(x2),
+                    getYonStage(y2),
+                );
+                stage.ctx.lineTo(
+                    getXonStage(x1),
+                    getYonStage(y2),
+                );
+                stage.ctx.lineTo(
+                    getXonStage(x1),
+                    getYonStage(y1),
+                );
+                let xMax = x1 > x2 ? x1 : x2;
+                let xMin = x1 < x2 ? x1 : x2;
+                let yMax = y1 > y2 ? y1 : y2;
+                let yMin = y1 < y2 ? y1 : y2;
+                if (xMin < player.real.x && player.real.x < xMax && yMin < player.real.y && player.real.y < yMax) {
+                    player.real.y -= Math.sin(player.real.d) * changeInPosition * player.real.step;
+                    if (xMin < player.real.x && player.real.x < xMax && yMin < player.real.y && player.real.y < yMax) {
+                        player.real.y += Math.sin(player.real.d) * changeInPosition * player.real.step;
+                        player.real.x = xMax - xMin / 2 < player.real.x ? xMin : xMax;
+                    } else {
+                        player.real.y += Math.sin(player.real.d) * changeInPosition * player.real.step;
+                        player.real.y = yMax - yMin / 2 < player.real.y ? yMin : yMax;
+                    }
+                }
+            }
+
+
+            function gameTick () {
+                /* Delta Time */ {
+                    prevFrameTimestamp = currFrameTimestamp;
+                    currFrameTimestamp = Date.now();
+                    deltaTime = (currFrameTimestamp - prevFrameTimestamp) / 1000;
+                }
+
+                document.getElementById("testLoop").innerHTML = "∆t: " + deltaTime + " dir: " + player.real.d + " x: " + player.real.x + " y: " + player.real.y;
+                document.getElementById("allKeysDown").innerHTML = allKeysDown.join(', ');
+
+                checkDisplay();
+
+                changeInDirection = 0;
+                if (isKeyDown("K")) changeInDirection += 1;
+                if (isKeyDown(";")) changeInDirection -= 1;
+                player.real.d = (player.real.d + changeInDirection * deltaTime * player.real.turn + 2 * Math.PI) % (2 * Math.PI);
+                
+                changeInPosition = 0;
+                if (isKeyDown("O")) changeInPosition += 1;
+                if (isKeyDown("L")) changeInPosition -= 1;
+                player.real.x += Math.cos(player.real.d) * changeInPosition * player.real.step;
+                player.real.y += Math.sin(player.real.d) * changeInPosition * player.real.step;
+                
+                /* Draw screen */ {
+
+                    /* Top Down Player */ {
+                        // Hitbox
+                        stage.ctx.beginPath();
+                        stage.ctx.strokeStyle = "#bf99e6";
+                        stage.ctx.lineWidth = 1;
+
+                        stage.ctx.moveTo(
+                            getXonStage(player.real.x + Math.cos(0) * player.real.s),
+                            getYonStage(player.real.y + Math.sin(0) * player.real.s),
+                        );
+                        for(let dir = 0; dir < 360; dir++) {
+                            stage.ctx.lineTo(
+                                getXonStage(player.real.x + Math.cos(dir) * player.real.s),
+                                getYonStage(player.real.y + Math.sin(dir) * player.real.s),
+                            );
+                        }
+                        stage.ctx.stroke();
+
+                        
+                        // Draw Player
+                        stage.ctx.beginPath();
+                        stage.ctx.strokeStyle = "tomato";
+                        stage.ctx.lineWidth = 3;
+
+                        stage.ctx.moveTo(
+                            getXonStage(player.real.x + Math.cos(player.real.d) * player.real.s),
+                            getYonStage(player.real.y + Math.sin(player.real.d) * player.real.s),
+                        );
+                        stage.ctx.lineTo(
+                            getXonStage(player.real.x + Math.cos(player.real.d + Math.PI) * player.real.s),
+                            getYonStage(player.real.y + Math.sin(player.real.d + Math.PI) * player.real.s),
+                        );
+                        
+                        stage.ctx.moveTo(
+                            getXonStage(player.real.x + Math.cos(player.real.d + Math.PI / 2) * player.real.s),
+                            getYonStage(player.real.y + Math.sin(player.real.d + Math.PI / 2) * player.real.s),
+                        );
+                        stage.ctx.lineTo(
+                            getXonStage(player.real.x + Math.cos(player.real.d + 3 * Math.PI / 2) * player.real.s),
+                            getYonStage(player.real.y + Math.sin(player.real.d + 3 * Math.PI / 2) * player.real.s)
+                        );
+                        
+                        stage.ctx.moveTo(
+                            getXonStage(player.real.x + Math.cos(player.real.d) * player.real.s),
+                            getYonStage(player.real.y + Math.sin(player.real.d) * player.real.s),
+                        );
+                        stage.ctx.lineTo(
+                            getXonStage(player.real.x + Math.cos(player.real.d + 2 * Math.PI / 3) * player.real.s),
+                            getYonStage(player.real.y + Math.sin(player.real.d + 2 * Math.PI / 3) * player.real.s),
+                        );
+                        stage.ctx.lineTo(
+                            getXonStage(player.real.x + Math.cos(player.real.d + Math.PI) * player.real.s),
+                            getYonStage(player.real.y + Math.sin(player.real.d + Math.PI) * player.real.s),
+                        );
+                        stage.ctx.lineTo(
+                            getXonStage(player.real.x + Math.cos(player.real.d + 4 * Math.PI / 3) * player.real.s),
+                            getYonStage(player.real.y + Math.sin(player.real.d + 4 * Math.PI / 3) * player.real.s),
+                        );
+                        stage.ctx.lineTo(
+                            getXonStage(player.real.x + Math.cos(player.real.d) * player.real.s),
+                            getYonStage(player.real.y + Math.sin(player.real.d) * player.real.s),
+                        );
+                        
+                        stage.ctx.stroke();
+                        
+                    }
+
+                    /* Top Down Obstacles */ {
+                        stage.ctx.beginPath();
+                        stage.ctx.strokeStyle = "tomato";
+                        stage.ctx.lineWidth = 3;
+
+                        stage.ctx.moveTo(
+                            getXonStage(-240),
+                            getYonStage(180),
+                        );
+                        stage.ctx.lineTo(
+                            getXonStage(-230),
+                            getYonStage(180),
+                        );
+                        stage.ctx.lineTo(
+                            getXonStage(-230),
+                            getYonStage(-180),
+                        );
+                        stage.ctx.lineTo(
+                            getXonStage(-240),
+                            getYonStage(-180),
+                        );
+                        stage.ctx.lineTo(
+                            getXonStage(-240),
+                            getYonStage(180),
+                        );
+
+                        stage.ctx.moveTo(
+                            getXonStage(240),
+                            getYonStage(180),
+                        );
+                        stage.ctx.lineTo(
+                            getXonStage(230),
+                            getYonStage(180),
+                        );
+                        stage.ctx.lineTo(
+                            getXonStage(230),
+                            getYonStage(-180),
+                        );
+                        stage.ctx.lineTo(
+                            getXonStage(240),
+                            getYonStage(-180),
+                        );
+                        stage.ctx.lineTo(
+                            getXonStage(240),
+                            getYonStage(180),
+                        );
+
+                        stage.ctx.moveTo(
+                            getXonStage(-230),
+                            getYonStage(180),
+                        );
+                        stage.ctx.lineTo(
+                            getXonStage(230),
+                            getYonStage(180),
+                        );
+                        stage.ctx.lineTo(
+                            getXonStage(230),
+                            getYonStage(170),
+                        );
+                        stage.ctx.lineTo(
+                            getXonStage(-230),
+                            getYonStage(170),
+                        );
+                        stage.ctx.lineTo(
+                            getXonStage(-230),
+                            getYonStage(180),
+                        );
+
+                        stage.ctx.moveTo(
+                            getXonStage(-230),
+                            getYonStage(-180),
+                        );
+                        stage.ctx.lineTo(
+                            getXonStage(230),
+                            getYonStage(-180),
+                        );
+                        stage.ctx.lineTo(
+                            getXonStage(230),
+                            getYonStage(-170),
+                        );
+                        stage.ctx.lineTo(
+                            getXonStage(-230),
+                            getYonStage(-170),
+                        );
+                        stage.ctx.lineTo(
+                            getXonStage(-230),
+                            getYonStage(-180),
+                        );
+
+                        stage.ctx.moveTo(
+                            getXonStage(),
+                            getYonStage(),
+                        );
+                        stage.ctx.lineTo(
+                            getXonStage(),
+                            getYonStage(),
+                        );
+                        
+
+                        drawRect(-100, 100, -40, -40);
+                        
+
+                        stage.ctx.stroke();
+                    }
+
+                }
+                
+                //inte--;
+                /*if (inte > 0)*/ 
+                requestAnimationFrame(gameTick);
+            }
+        </script>
+    </body>
+</html>
