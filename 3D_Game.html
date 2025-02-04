@@ -50,6 +50,12 @@
                 <p id="testLoop">
                     200
                 </p>
+                <p id="touch">
+
+                </p>
+                <p id ="rD2p">
+
+                </p>
                 <p id="allKeysDown">
 
                 </p>
@@ -85,19 +91,19 @@
                     display : {
                     },
                     real : {
-                        x : 0,
+                        x : 200,
                         y : 0,
                         d : 0,
                         s : 10,
-                        turn : 7.5,
+                        turn : 3 * Math.PI ,
                         step : 2.5,
                     },
                 }
                 var allKeysDown = [];
                 checkDisplay();
 
-                var changeInDirection;
-                var changeInPosition;
+                var changeInXpos;
+                var changeInYpos;
 
                 var deltaTime = 0;
                 var prevFrameTimestamp;
@@ -141,7 +147,15 @@
                     getXonStage(x2),
                     getYonStage(y1),
                 );
+                stage.ctx.moveTo(
+                    getXonStage(x2),
+                    getYonStage(y1),
+                );
                 stage.ctx.lineTo(
+                    getXonStage(x2),
+                    getYonStage(y2),
+                );
+                stage.ctx.moveTo(
                     getXonStage(x2),
                     getYonStage(y2),
                 );
@@ -149,23 +163,88 @@
                     getXonStage(x1),
                     getYonStage(y2),
                 );
+                stage.ctx.moveTo(
+                    getXonStage(x1),
+                    getYonStage(y2),
+                );
                 stage.ctx.lineTo(
                     getXonStage(x1),
                     getYonStage(y1),
                 );
+
+                stage.ctx.moveTo(
+                    getXonStage(x1),
+                    getYonStage(y1),
+                );
+                stage.ctx.lineTo(
+                    getXonStage(x2),
+                    getYonStage(y2),
+                );
+                stage.ctx.moveTo(
+                    getXonStage(x2),
+                    getYonStage(y1),
+                );
+                stage.ctx.lineTo(
+                    getXonStage(x1),
+                    getYonStage(y2),
+                )
+
                 let xMax = x1 > x2 ? x1 : x2;
                 let xMin = x1 < x2 ? x1 : x2;
+                let xMid = (xMin + xMax) / 2;
                 let yMax = y1 > y2 ? y1 : y2;
                 let yMin = y1 < y2 ? y1 : y2;
-                if (xMin < player.real.x && player.real.x < xMax && yMin < player.real.y && player.real.y < yMax) {
-                    player.real.y -= Math.sin(player.real.d) * changeInPosition * player.real.step;
-                    if (xMin < player.real.x && player.real.x < xMax && yMin < player.real.y && player.real.y < yMax) {
-                        player.real.y += Math.sin(player.real.d) * changeInPosition * player.real.step;
-                        player.real.x = xMax - xMin / 2 < player.real.x ? xMin : xMax;
-                    } else {
-                        player.real.y += Math.sin(player.real.d) * changeInPosition * player.real.step;
-                        player.real.y = yMax - yMin / 2 < player.real.y ? yMin : yMax;
+                let yMid = (yMin + yMax) / 2;
+
+                let playerCurPosX = player.real.x;
+                let playerCurPosY = player.real.y;
+                let playerOldPosX = playerCurPosX - changeInXpos;
+                let playerOldPosY = playerCurPosY - changeInYpos;
+
+                let xOff = playerOldPosX - xMid;
+                let yOff = playerOldPosY - yMid;
+                let dirRectToPlayer = Math.atan2(yOff, xOff);
+
+
+                /* Collision */ if (
+                    xMax + player.real.s > playerCurPosX &&
+                    xMin - player.real.s < playerCurPosX &&
+                    yMax + player.real.s > playerCurPosY &&
+                    yMin - player.real.s < playerCurPosY
+                ) {
+                    if (playerCurPosX === xMid && playerCurPosY === yMid) {
+                        player.real.x = playerOldPosX;
+                        player.real.y = playerOldPosY;
+                        return;
                     }
+                    document.getElementById("touch").innerHTML = 3 * Math.PI / 4;
+                    if (Math.abs(dirRectToPlayer) < Math.PI / 4 && yMax > playerCurPosY && playerCurPosY > yMin && xMax + player.real.s > playerCurPosX) player.real.x = xMax + player.real.s;
+                    else if (Math.abs(dirRectToPlayer) > 3 * Math.PI / 4 && yMax > playerCurPosY && playerCurPosY > yMin && playerCurPosX > xMin - player.real.s) player.real.x = xMin - player.real.s;
+                    else if (4 * Math.PI / 4 > dirRectToPlayer && dirRectToPlayer > Math.PI / 4 && xMax > playerCurPosX && playerCurPosX > xMin && yMax + player.real.s > playerCurPosY) player.real.y = yMax + player.real.s;
+                    else if (-4 * Math.PI / 4 < dirRectToPlayer && dirRectToPlayer < -1 * Math.PI / 4 && xMax > playerCurPosX && playerCurPosX > xMin && playerCurPosY > yMin - player.real.s) player.real.y = yMin - player.real.s;
+                    else {
+                        if (xOff > 0) xMid = xMax;
+                        else xMid = xMin;
+                        if (yOff > 0) yMid = yMax;
+                        else yMid = yMin;
+                        xOffCorner = playerOldPosX - xMid;
+                        yOffCorner = playerOldPosY - yMid;
+                        if (Math.sqrt(Math.pow(xOffCorner, 2) + Math.pow(yOffCorner, 2)) < 10) {
+                            let xBump = 10 * Math.cos(
+                                Math.atan2(yOffCorner, xOffCorner)
+                            );
+                            let yBump = 10 * Math.sin(
+                                Math.atan2(yOffCorner, xOffCorner)
+                            );
+                            if (xOff > 0) player.real.x = xMid + xBump;
+                            else player.real.x = xMid - xBump;
+                            
+                            if (yOff > 0) player.real.y = yMid + yBump;
+                            else player.real.y = yMid - yBump;
+                        }
+                    }
+                    document.getElementById("rD2p").innerHTML = dirRectToPlayer;
+                    
                 }
             }
 
@@ -182,18 +261,29 @@
 
                 checkDisplay();
 
-                changeInDirection = 0;
+                let changeInDirection = 0;
                 if (isKeyDown("K")) changeInDirection += 1;
                 if (isKeyDown(";")) changeInDirection -= 1;
                 player.real.d = (player.real.d + changeInDirection * deltaTime * player.real.turn + 2 * Math.PI) % (2 * Math.PI);
                 
-                changeInPosition = 0;
+                let changeInPosition = 0;
                 if (isKeyDown("O")) changeInPosition += 1;
                 if (isKeyDown("L")) changeInPosition -= 1;
-                player.real.x += Math.cos(player.real.d) * changeInPosition * player.real.step;
-                player.real.y += Math.sin(player.real.d) * changeInPosition * player.real.step;
+                changeInXpos = Math.cos(player.real.d) * changeInPosition * player.real.step;
+                changeInYpos = Math.sin(player.real.d) * changeInPosition * player.real.step;
+                player.real.x += changeInXpos;
+                player.real.y += changeInYpos;
                 
                 /* Draw screen */ {
+
+                    /* Top Down Obstacles */ {
+                        stage.ctx.beginPath();
+                        stage.ctx.strokeStyle = "tomato";
+                        stage.ctx.lineWidth = 3;
+
+                        drawRect(100, 40, 50, -40);
+                        stage.ctx.stroke();
+                    }
 
                     /* Top Down Player */ {
                         // Hitbox
@@ -202,13 +292,13 @@
                         stage.ctx.lineWidth = 1;
 
                         stage.ctx.moveTo(
-                            getXonStage(player.real.x + Math.cos(0) * player.real.s),
-                            getYonStage(player.real.y + Math.sin(0) * player.real.s),
+                            getXonStage(player.real.x + player.real.s),
+                            getYonStage(player.real.y),
                         );
                         for(let dir = 0; dir < 360; dir++) {
                             stage.ctx.lineTo(
-                                getXonStage(player.real.x + Math.cos(dir) * player.real.s),
-                                getYonStage(player.real.y + Math.sin(dir) * player.real.s),
+                                getXonStage(player.real.x + Math.cos(dir * Math.PI / 180) * player.real.s),
+                                getYonStage(player.real.y + Math.sin(dir * Math.PI / 180) * player.real.s),
                             );
                         }
                         stage.ctx.stroke();
@@ -260,111 +350,6 @@
                         
                         stage.ctx.stroke();
                         
-                    }
-
-                    /* Top Down Obstacles */ {
-                        stage.ctx.beginPath();
-                        stage.ctx.strokeStyle = "tomato";
-                        stage.ctx.lineWidth = 3;
-
-                        stage.ctx.moveTo(
-                            getXonStage(-240),
-                            getYonStage(180),
-                        );
-                        stage.ctx.lineTo(
-                            getXonStage(-230),
-                            getYonStage(180),
-                        );
-                        stage.ctx.lineTo(
-                            getXonStage(-230),
-                            getYonStage(-180),
-                        );
-                        stage.ctx.lineTo(
-                            getXonStage(-240),
-                            getYonStage(-180),
-                        );
-                        stage.ctx.lineTo(
-                            getXonStage(-240),
-                            getYonStage(180),
-                        );
-
-                        stage.ctx.moveTo(
-                            getXonStage(240),
-                            getYonStage(180),
-                        );
-                        stage.ctx.lineTo(
-                            getXonStage(230),
-                            getYonStage(180),
-                        );
-                        stage.ctx.lineTo(
-                            getXonStage(230),
-                            getYonStage(-180),
-                        );
-                        stage.ctx.lineTo(
-                            getXonStage(240),
-                            getYonStage(-180),
-                        );
-                        stage.ctx.lineTo(
-                            getXonStage(240),
-                            getYonStage(180),
-                        );
-
-                        stage.ctx.moveTo(
-                            getXonStage(-230),
-                            getYonStage(180),
-                        );
-                        stage.ctx.lineTo(
-                            getXonStage(230),
-                            getYonStage(180),
-                        );
-                        stage.ctx.lineTo(
-                            getXonStage(230),
-                            getYonStage(170),
-                        );
-                        stage.ctx.lineTo(
-                            getXonStage(-230),
-                            getYonStage(170),
-                        );
-                        stage.ctx.lineTo(
-                            getXonStage(-230),
-                            getYonStage(180),
-                        );
-
-                        stage.ctx.moveTo(
-                            getXonStage(-230),
-                            getYonStage(-180),
-                        );
-                        stage.ctx.lineTo(
-                            getXonStage(230),
-                            getYonStage(-180),
-                        );
-                        stage.ctx.lineTo(
-                            getXonStage(230),
-                            getYonStage(-170),
-                        );
-                        stage.ctx.lineTo(
-                            getXonStage(-230),
-                            getYonStage(-170),
-                        );
-                        stage.ctx.lineTo(
-                            getXonStage(-230),
-                            getYonStage(-180),
-                        );
-
-                        stage.ctx.moveTo(
-                            getXonStage(),
-                            getYonStage(),
-                        );
-                        stage.ctx.lineTo(
-                            getXonStage(),
-                            getYonStage(),
-                        );
-                        
-
-                        drawRect(-100, 100, -40, -40);
-                        
-
-                        stage.ctx.stroke();
                     }
 
                 }
