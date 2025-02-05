@@ -91,7 +91,7 @@
                     display : {
                     },
                     real : {
-                        x : 200,
+                        x : 0,
                         y : 0,
                         d : 0,
                         s : 10,
@@ -102,8 +102,9 @@
                 var allKeysDown = [];
                 checkDisplay();
 
-                var changeInXpos;
-                var changeInYpos;
+                var deltaXpos;
+                var deltaYpos;
+                var deltaDrad;
 
                 var deltaTime = 0;
                 var prevFrameTimestamp;
@@ -172,83 +173,46 @@
                     getYonStage(y1),
                 );
 
-                stage.ctx.moveTo(
-                    getXonStage(x1),
-                    getYonStage(y1),
-                );
-                stage.ctx.lineTo(
-                    getXonStage(x2),
-                    getYonStage(y2),
-                );
-                stage.ctx.moveTo(
-                    getXonStage(x2),
-                    getYonStage(y1),
-                );
-                stage.ctx.lineTo(
-                    getXonStage(x1),
-                    getYonStage(y2),
-                )
-
-                let xMax = x1 > x2 ? x1 : x2;
-                let xMin = x1 < x2 ? x1 : x2;
-                let xMid = (xMin + xMax) / 2;
-                let yMax = y1 > y2 ? y1 : y2;
-                let yMin = y1 < y2 ? y1 : y2;
-                let yMid = (yMin + yMax) / 2;
-
-                let playerCurPosX = player.real.x;
-                let playerCurPosY = player.real.y;
-                let playerOldPosX = playerCurPosX - changeInXpos;
-                let playerOldPosY = playerCurPosY - changeInYpos;
-
-                let xOff = playerOldPosX - xMid;
-                let yOff = playerOldPosY - yMid;
-                let dirRectToPlayer = Math.atan2(yOff, xOff);
-
-
-                /* Collision */ if (
-                    xMax + player.real.s > playerCurPosX &&
-                    xMin - player.real.s < playerCurPosX &&
-                    yMax + player.real.s > playerCurPosY &&
-                    yMin - player.real.s < playerCurPosY
-                ) {
-                    if (playerCurPosX === xMid && playerCurPosY === yMid) {
-                        player.real.x = playerOldPosX;
-                        player.real.y = playerOldPosY;
-                        return;
-                    }
-                    document.getElementById("touch").innerHTML = 3 * Math.PI / 4;
-                    if (Math.abs(dirRectToPlayer) < Math.PI / 4 && yMax > playerCurPosY && playerCurPosY > yMin && xMax + player.real.s > playerCurPosX) player.real.x = xMax + player.real.s;
-                    else if (Math.abs(dirRectToPlayer) > 3 * Math.PI / 4 && yMax > playerCurPosY && playerCurPosY > yMin && playerCurPosX > xMin - player.real.s) player.real.x = xMin - player.real.s;
-                    else if (4 * Math.PI / 4 > dirRectToPlayer && dirRectToPlayer > Math.PI / 4 && xMax > playerCurPosX && playerCurPosX > xMin && yMax + player.real.s > playerCurPosY) player.real.y = yMax + player.real.s;
-                    else if (-4 * Math.PI / 4 < dirRectToPlayer && dirRectToPlayer < -1 * Math.PI / 4 && xMax > playerCurPosX && playerCurPosX > xMin && playerCurPosY > yMin - player.real.s) player.real.y = yMin - player.real.s;
-                    else {
-                        if (xOff > 0) xMid = xMax;
-                        else xMid = xMin;
-                        if (yOff > 0) yMid = yMax;
-                        else yMid = yMin;
-                        xOffCorner = playerOldPosX - xMid;
-                        yOffCorner = playerOldPosY - yMid;
-                        if (Math.sqrt(Math.pow(xOffCorner, 2) + Math.pow(yOffCorner, 2)) < 10) {
-                            let xBump = 10 * Math.cos(
-                                Math.atan2(yOffCorner, xOffCorner)
-                            );
-                            let yBump = 10 * Math.sin(
-                                Math.atan2(yOffCorner, xOffCorner)
-                            );
-                            if (xOff > 0) player.real.x = xMid + xBump;
-                            else player.real.x = xMid - xBump;
-                            
-                            if (yOff > 0) player.real.y = yMid + yBump;
-                            else player.real.y = yMid - yBump;
-                        }
-                    }
-                    document.getElementById("rD2p").innerHTML = dirRectToPlayer;
-                    
+                let pCurX = player.real.x;
+                let pCurY = player.real.y;
+                let pNearX = pCurX;
+                pNearX = Math.min(x1 > x2 ? x1 : x2, pNearX);
+                pNearX = Math.max(x1 < x2 ? x1 : x2, pNearX);
+                let pNearY = pCurY;
+                pNearY = Math.min(y1 > y2 ? y1 : y2, pNearY);
+                pNearY = Math.max(y1 < y2 ? y1 : y2, pNearY);
+                if (Math.sqrt(Math.pow(pCurX - pNearX, 2) + Math.pow(pCurY - pNearY, 2)) < player.real.s){
+                    let dirFrom = Math.atan2(pCurY - pNearY, pCurX - pNearX);
+                    let pBumpX = player.real.s * Math.cos(dirFrom);
+                    let pBumpY = player.real.s * Math.sin(dirFrom);
+                    player.real.x = pNearX + pBumpX;
+                    player.real.y = pNearY + pBumpY;
                 }
             }
 
+            function drawCirc (x, y, r) {
+                for(let dir = 0; dir < 360; dir++) {
+                    stage.ctx.moveTo(
+                        getXonStage(x + Math.cos((dir - 1) * Math.PI / 180) * r),
+                        getYonStage(y + Math.sin((dir - 1) * Math.PI / 180) * r),
+                    );
+                    stage.ctx.lineTo(
+                        getXonStage(x + Math.cos(dir * Math.PI / 180) * r),
+                        getYonStage(y + Math.sin(dir * Math.PI / 180) * r),
+                    );
+                }
 
+                let xOff = player.real.x - x;
+                let yOff = player.real.y - y;
+                let distFrom = player.real.s + r;
+                if (Math.sqrt(Math.pow(xOff, 2) + Math.pow(yOff, 2)) < distFrom) {
+                    let dirFrom = Math.atan2(yOff, xOff);
+                    let pBumpX = distFrom * Math.cos(dirFrom);
+                    let pBumpY = distFrom * Math.sin(dirFrom);
+                    player.real.x = x + pBumpX;
+                    player.real.y = y + pBumpY;
+                }
+            }
             function gameTick () {
                 /* Delta Time */ {
                     prevFrameTimestamp = currFrameTimestamp;
@@ -261,18 +225,20 @@
 
                 checkDisplay();
 
-                let changeInDirection = 0;
-                if (isKeyDown("K")) changeInDirection += 1;
-                if (isKeyDown(";")) changeInDirection -= 1;
-                player.real.d = (player.real.d + changeInDirection * deltaTime * player.real.turn + 2 * Math.PI) % (2 * Math.PI);
+                deltaDrad = 0;
+                if (isKeyDown("K")) deltaDrad += 1;
+                if (isKeyDown(";")) deltaDrad -= 1;
+                deltaDrad *= deltaTime;
+                deltaDrad *= player.real.turn;
+                player.real.d = (player.real.d + deltaDrad + 2 * Math.PI) % (2 * Math.PI);
                 
-                let changeInPosition = 0;
-                if (isKeyDown("O")) changeInPosition += 1;
-                if (isKeyDown("L")) changeInPosition -= 1;
-                changeInXpos = Math.cos(player.real.d) * changeInPosition * player.real.step;
-                changeInYpos = Math.sin(player.real.d) * changeInPosition * player.real.step;
-                player.real.x += changeInXpos;
-                player.real.y += changeInYpos;
+                let deltaPos = 0;
+                if (isKeyDown("O")) deltaPos += 1;
+                if (isKeyDown("L")) deltaPos -= 1;
+                deltaXpos = Math.cos(player.real.d) * deltaPos * player.real.step;
+                deltaYpos = Math.sin(player.real.d) * deltaPos * player.real.step;
+                player.real.x += deltaXpos;
+                player.real.y += deltaYpos;
                 
                 /* Draw screen */ {
 
@@ -281,7 +247,12 @@
                         stage.ctx.strokeStyle = "tomato";
                         stage.ctx.lineWidth = 3;
 
-                        drawRect(100, 40, 50, -40);
+                        drawRect(-240, 180, -230, -180);
+                        drawRect(240, 180, 230, -180);
+                        drawRect(-230, 180, 230, 170);
+                        drawRect(-230, -180, 230, -170);
+
+                        drawCirc(50, 50, 20);
                         stage.ctx.stroke();
                     }
 
