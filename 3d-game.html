@@ -4,23 +4,23 @@
         <title>
             Churro's Website ~ Brainf*ck Compiler
         </title>
-        <link rel="stylesheet" href="3D_Game_Class.css">
+        <link rel="stylesheet" href="3d-game_Class.css">
         <link rel="icon" href="Resources/Page_Elements/Churro_Page_Icon.svg">
 
         <!-- Link Embedding -->
         <meta charset="utf-8" />
-        <meta property="og:site_name" content="Churro's Website ~ Brainf*ck" />
-        <meta property="og:title" content="Churro's Website ~ Brainf*ck" />
-        <meta name="description" content="This is the Brainf*ck compiler page for Churro's website." />
-        <meta property="og:description" content="This is the Brainf*ck compiler page Churro's website." />
+        <meta property="og:site_name" content="Churro's Website ~ Simple 3D Engine" />
+        <meta property="og:title" content="Churro's Website ~ Simple 3D Engine" />
+        <meta name="description" content="This is Simple 3D Engine page for Churro's website." />
+        <meta property="og:description" content="This is the Simple 3D Engine compiler page Churro's website." />
         <meta property="og:type" content="website" />
         <meta property="og:image" content="https://churrroanimations.github.io/churros-page/Resources/External/embed-img.jpg" />
         <meta property="og:image:type" content="image/jpeg" />
         <meta property="og:image:width" content="1280" />
         <meta property="og:image:height" content="800" />
         <meta property="twitter:card" content="summary_large_image" />
-        <meta property="og:url" content="https://churrroanimations.github.io/churros-page/brainf_ck/" />
-        <link rel="canonical" href="https://churrroanimations.github.io/churros-page/brainf_ck/" />
+        <meta property="og:url" content="https://churrroanimations.github.io/churros-page/3d-game" />
+        <link rel="canonical" href="https://churrroanimations.github.io/churros-page/3d-game" />
     </head>
     <body>
         <div class="backBlur"></div>
@@ -45,7 +45,9 @@
                 <h3 class="subsectionHeader">
                     Brainf*ck
                 </h3>
-                <canvas id="gameDisplay" width="10" height="100" class="subsectionTextarea primaryDivider">
+                <canvas id="topDownGameDisplay" width="10" height="100" class="subsectionTextarea primaryDivider">
+                </canvas>
+                <canvas id="firstPersonGameDisplay" width="10" height="100" class="subsectionTextarea primaryDivider">
                 </canvas>
                 <p id="testLoop">
                     200
@@ -81,23 +83,25 @@
             const gameContainer = document.getElementById("gameContainer");
             var touchy = document.getElementById("touch");
             /* Define da varibles */ {
-                gameDisplay = document.getElementById("gameDisplay");
+                topDownGameDisplay = document.getElementById("topDownGameDisplay");
+                firstPersonGameDisplay = document.getElementById("firstPersonGameDisplay");
                 stage = {
                     w : 480,
                     h : 360,
                     s : 600,
-                    ctx : gameDisplay.getContext('2d'),
+                    ctx : topDownGameDisplay.getContext('2d'),
+                    ctx1 : firstPersonGameDisplay.getContext('2d'),
                 };
                 var player = {
                     display : {
                     },
                     real : {
-                        x : 130,
+                        x : 0,
                         y : 0,
                         d : 0,
                         s : 10,
                         turn : 3 * Math.PI ,
-                        step : 2.5,
+                        step : 100,
                     },
                 };
                 var allKeysDown = [];
@@ -124,6 +128,7 @@
                 ['r', 95, -65, 165, -135],
                 ['r', 30, -170, 20, -50],
             ];
+            var rayDistances = [];
             /* Keys Pressed */ {
                 window.onkeydown = keyPress;
                 window.onkeyup = keyUnpress;
@@ -143,96 +148,66 @@
                 function isKeyDown (keyFocus) {return (allKeysDown.indexOf(keyFocus) > -1);}
             }
             
-            function getXonStage (xPos) {return (xPos / stage.w + 0.5) * gameDisplay.width;}
-            function getYonStage (yPos) {return (yPos * -1 / stage.h + 0.5) * gameDisplay.height;}
+            function getXonStage (xPos) {return (xPos / stage.w + 0.5) * topDownGameDisplay.width;}
+            function getYonStage (yPos) {return (yPos * -1 / stage.h + 0.5) * topDownGameDisplay.height;}
             function checkDisplay () {
-                gameDisplay.width = gameContainer.offsetWidth;
-                gameDisplay.height = gameContainer.offsetWidth / 4 * 3;
+                topDownGameDisplay.width = gameContainer.offsetWidth;
+                topDownGameDisplay.height = gameContainer.offsetWidth / 4 * 3;
+                firstPersonGameDisplay.width = gameContainer.offsetWidth;
+                firstPersonGameDisplay.height = gameContainer.offsetWidth / 4 * 3;
             }
 
-            function rayCast (x, y, d) {
-                touchy.innerHTML = "";
+            function castRays (x, y, d, fov) {
+                rayDistances = [];
+                for (let cd = (d - fov / 2); cd <= d + fov / 2; cd += Math.PI / 180) {
+                    singleRayCast(x, y, cd);
+                }
+                touchy.innerHTML = rayDistances.join(", ");
+            }
+            function singleRayCast (x, y, d) {
+                let cx = x;
+                let cy = y;
+                for (let dist = 0; dist <= stage.s; dist += 0.1) {
+                    cx = dist * Math.cos(d) + x;
+                    cy = dist * Math.sin(d) + y;
+                    if (singleRayCollide(cx, cy)) {
+                        rayDistances.push(dist);
+                        dist = stage.s;
+                    };
+                }
+
+                stage.ctx.moveTo(
+                    getXonStage(x),
+                    getYonStage(y),
+                );
+                stage.ctx.lineTo(
+                    getXonStage(cx),
+                    getYonStage(cy),
+                )
+            }
+            function singleRayCollide (x, y) {
                 for (let objI = 0; objI < stageObjects.length; objI++) {
                     let objFocus = stageObjects[objI];
-                    let objX;
-                    let objY;
-                    let objR;
                     let rayXobj = false;
                     if (objFocus[0] === 'r') {
-                        let dx = Math.cos(d);
-                        let dy = Math.sin(d);
                         let objX1 = objFocus[1];
                         let objX2 = objFocus[3];
                         let objXMax = objX1 > objX2 ? objX1 : objX2;
                         let objXMin = objX1 < objX2 ? objX1 : objX2;
-                        objX = (objXMin + objXMax) / 2;
                         let objY1 = objFocus[2];
                         let objY2 = objFocus[4];
                         let objYMax = objY1 > objY2 ? objY1 : objY2;
                         let objYMin = objY1 < objY2 ? objY1 : objY2;
-                        objY = (objYMin + objYMax) / 2;
+                    //touchy.innerHTML += objXMin;
 
-                        let tMaxX = (objXMax - x) / dx;
-                        let tMinX = (objXMin - x) / dx;
-                        if (dx == 0) {
-                            tMaxX = 999999;
-                            tMinX = -999999;
-                        } else {
-                            let tMaxXalleged = tMaxX;
-                            let tMinXalleged = tMinX;
-                            tMaxX = tMaxXalleged > tMinXalleged ? tMaxXalleged : tMinXalleged;
-                            tMinX = tMaxXalleged < tMinXalleged ? tMaxXalleged : tMinXalleged;
-                        }
-                        let tMaxY = (objYMax - y) / dy;
-                        let tMinY = (objYMin - y) / dy;
-                        if (dy == 0) {
-                            tMaxY = 999999;
-                            tMinY = -999999;
-                        } else {
-                            let tMaxYalleged = tMaxY;
-                            let tMinYalleged = tMinY;
-                            tMaxY = tMaxYalleged > tMinYalleged ? tMaxYalleged : tMinYalleged;
-                            tMinY = tMaxYalleged < tMinYalleged ? tMaxYalleged : tMinYalleged;
-                        }
-
-                        if (dx < 0 || dy < 0) {
-                            let tMaxXalleged = tMaxX;
-                            let tMinXalleged = tMinX;
-                            tMaxX = tMinXalleged;
-                            tMinX = tMaxXalleged;
-
-                            let tMaxYalleged = tMaxY;
-                            let tMinYalleged = tMinY;
-                            tMaxY = tMinYalleged;
-                            tMinY = tMaxYalleged;
-                        }
-                        if ((dx == 0 && !(objXMin < dx && dx < objXMax)) || (dy == 0 && !(objYMin < dy && dy < objYMax))) continue;
-
-                        let tXit = Math.max(tMinX, tMinY);
-                        let tNtr = Math.min(tMaxX, tMaxY);
-
-                        rayXobj = tNtr < tXit && tXit > 0;
-
-                        if (objI === 6) {
-                            stage.ctx.moveTo(
-                                getXonStage(x),
-                                getYonStage(y),
-                            );
-                            stage.ctx.lineTo(
-                                getXonStage(300 * Math.cos(d) + x),
-                                getYonStage(300 * Math.sin(d) + y),
-                            );
-                        }
-
+                        rayXobj = objXMin < x && x < objXMax && objYMin < y && y < objYMax;
                     } else if (objFocus[0] === 'c') {
-                        objX = objFocus[1];
-                        objY = objFocus[2];
-                        objR = objFocus[3];
+                        let objX = objFocus[1];
+                        let objY = objFocus[2];
+                        let objR = objFocus[3];
+                        rayXobj = Math.sqrt(Math.pow(objX - x, 2) + Math.pow(objY - y, 2)) < objR;
                     }
-
-                    if (rayXobj) {drawCirc(objX, objY, 5);
-                        touchy.innerHTML += objI;
-                    }
+                    if (rayXobj) return true;
                 }
             }
 
@@ -327,6 +302,29 @@
                 }                
             }
             
+            function drawFirstPov () {
+                rayC = rayDistances.length
+                var horzSpace = rayC / stage.w;
+                var vertSpace = stage.s / stage.h / 2;
+                
+                stage.ctx1.beginPath();
+                stage.ctx1.strokeStyle = "#bf99e6";
+                stage.ctx1.lineWidth = 10;
+                for (let rayI = 0; rayI < rayC; rayI++) {
+                    let rayX = rayI * rayC - stage.w / 2;
+                    let rayY = (stage.s - rayDistances[rayI]) * vertSpace;
+                    stage.ctx1.moveTo(
+                        getXonStage(rayX),
+                        getYonStage(rayY),
+                    );
+                    stage.ctx1.lineTo(
+                        getXonStage(rayX),
+                        getYonStage(0 - rayY),
+                    );
+                }
+                stage.ctx1.stroke();
+            }
+
             function gameTick () {
                 /* Delta Time */ {
                     prevFrameTimestamp = currFrameTimestamp;
@@ -340,19 +338,30 @@
                 checkDisplay();
 
                 deltaDrad = 0;
-                if (isKeyDown("K")) deltaDrad += 1;
-                if (isKeyDown(";")) deltaDrad -= 1;
+                if (isKeyDown("A")) deltaDrad += 1;
+                if (isKeyDown("D")) deltaDrad -= 1;
                 deltaDrad *= deltaTime;
                 deltaDrad *= player.real.turn;
                 player.real.d = (player.real.d + deltaDrad + 2 * Math.PI) % (2 * Math.PI);
                 
-                let deltaPos = 0;
-                if (isKeyDown("O")) deltaPos += 1;
-                if (isKeyDown("L")) deltaPos -= 1;
-                deltaXpos = Math.cos(player.real.d) * deltaPos * player.real.step;
-                deltaYpos = Math.sin(player.real.d) * deltaPos * player.real.step;
-                player.real.x += deltaXpos;
-                player.real.y += deltaYpos;
+                /* Front back */ {
+                    let deltaPos = 0;
+                    if (isKeyDown("O")) deltaPos += 1;
+                    if (isKeyDown("L")) deltaPos -= 1;
+                    deltaXpos = Math.cos(player.real.d) * deltaPos * player.real.step * deltaTime;
+                    deltaYpos = Math.sin(player.real.d) * deltaPos * player.real.step * deltaTime;
+                    player.real.x += deltaXpos;
+                    player.real.y += deltaYpos;
+                }
+                /* Side to side */ {
+                    let deltaPos = 0;
+                    if (isKeyDown("K")) deltaPos += 1;
+                    if (isKeyDown(";")) deltaPos -= 1;
+                    deltaXpos = Math.cos(player.real.d + Math.PI / 2) * deltaPos * player.real.step * deltaTime;
+                    deltaYpos = Math.sin(player.real.d + Math.PI / 2) * deltaPos * player.real.step * deltaTime;
+                    player.real.x += deltaXpos;
+                    player.real.y += deltaYpos;
+                }
                 
                 /* Draw screen */ {
 
@@ -366,7 +375,7 @@
                         stage.ctx.strokeStyle = "#bf99e6";
                         stage.ctx.lineWidth = 1;
 
-                        rayCast(player.real.x, player.real.y, player.real.d);
+                        castRays(player.real.x, player.real.y, player.real.d, Math.PI / 3);
                         
                         stage.ctx.moveTo(
                             getXonStage(player.real.x + player.real.s),
@@ -434,20 +443,11 @@
                         stage.ctx.strokeStyle = "tomato";
                         stage.ctx.lineWidth = 3;
 
-                        /*drawRect(-240, 180, -230, -180);
-                        drawRect(240, 180, 230, -180);
-                        drawRect(-230, 180, 230, 170);
-                        drawRect(-230, -180, 230, -170);
-
-                        drawCirc(130, 100, 35);
-                        drawRect(30, 170, 20, 50);
-
-                        drawRect(95, -65, 165, -135);
-                        drawRect(30, -170, 20, -50);*/
                         drawObjects();
                         stage.ctx.stroke();
                     }
                 }
+                drawFirstPov();
                 
                 //inte--;
                 /*if (inte > 0)*/ 
