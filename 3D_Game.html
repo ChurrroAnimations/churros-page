@@ -174,7 +174,7 @@
 
                         let tMaxX = (objXMax - x) / dx;
                         let tMinX = (objXMin - x) / dx;
-                        if (dx === 0) {
+                        if (dx == 0) {
                             tMaxX = 999999;
                             tMinX = -999999;
                         } else {
@@ -185,7 +185,7 @@
                         }
                         let tMaxY = (objYMax - y) / dy;
                         let tMinY = (objYMin - y) / dy;
-                        if (dx === 0) {
+                        if (dy == 0) {
                             tMaxY = 999999;
                             tMinY = -999999;
                         } else {
@@ -194,10 +194,21 @@
                             tMaxY = tMaxYalleged > tMinYalleged ? tMaxYalleged : tMinYalleged;
                             tMinY = tMaxYalleged < tMinYalleged ? tMaxYalleged : tMinYalleged;
                         }
-                        
+
+                        if (dx < 0 || dy < 0) {
+                            let tMaxXalleged = tMaxX;
+                            let tMinXalleged = tMinX;
+                            tMaxX = tMinXalleged;
+                            tMinX = tMaxXalleged;
+
+                            let tMaxYalleged = tMaxY;
+                            let tMinYalleged = tMinY;
+                            tMaxY = tMinYalleged;
+                            tMinY = tMaxYalleged;
+                        }
                         if ((dx == 0 && !(objXMin < dx && dx < objXMax)) || (dy == 0 && !(objYMin < dy && dy < objYMax))) continue;
 
-                        let tXit = Math.max(tMinX, tMinX);
+                        let tXit = Math.max(tMinX, tMinY);
                         let tNtr = Math.min(tMaxX, tMaxY);
 
                         rayXobj = tNtr < tXit && tXit > 0;
