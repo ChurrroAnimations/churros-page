@@ -78,27 +78,28 @@
 
         <!-- Scripts -->
         <script>
+            const gameContainer = document.getElementById("gameContainer");
+            var touchy = document.getElementById("touch");
             /* Define da varibles */ {
-                const gameContainer = document.getElementById("gameContainer");
                 gameDisplay = document.getElementById("gameDisplay");
                 stage = {
                     w : 480,
                     h : 360,
                     s : 600,
                     ctx : gameDisplay.getContext('2d'),
-                }
+                };
                 var player = {
                     display : {
                     },
                     real : {
-                        x : 0,
+                        x : 130,
                         y : 0,
                         d : 0,
                         s : 10,
                         turn : 3 * Math.PI ,
                         step : 2.5,
                     },
-                }
+                };
                 var allKeysDown = [];
                 checkDisplay();
 
@@ -109,10 +110,20 @@
                 var deltaTime = 0;
                 var prevFrameTimestamp;
                 var currFrameTimestamp = Date.now();
-
+                
                 //var inte = 200;
                 requestAnimationFrame(gameTick);
             }
+            const stageObjects = [
+                ['r', -240, 180, -230, -180],
+                ['r', 240, 180, 230, -180],
+                ['r', -230, 180, 230, 170],
+                ['r', -230, -180, 230, -170],
+                ['c', 130, 100, 35],
+                ['r', 30, 170, 20, 50],
+                ['r', 95, -65, 165, -135],
+                ['r', 30, -170, 20, -50],
+            ];
             /* Keys Pressed */ {
                 window.onkeydown = keyPress;
                 window.onkeyup = keyUnpress;
@@ -137,6 +148,96 @@
             function checkDisplay () {
                 gameDisplay.width = gameContainer.offsetWidth;
                 gameDisplay.height = gameContainer.offsetWidth / 4 * 3;
+            }
+
+            function rayCast (x, y, d) {
+                touchy.innerHTML = "";
+                for (let objI = 0; objI < stageObjects.length; objI++) {
+                    let objFocus = stageObjects[objI];
+                    let objX;
+                    let objY;
+                    let objR;
+                    let rayXobj = false;
+                    if (objFocus[0] === 'r') {
+                        let dx = Math.cos(d);
+                        let dy = Math.sin(d);
+                        let objX1 = objFocus[1];
+                        let objX2 = objFocus[3];
+                        let objXMax = objX1 > objX2 ? objX1 : objX2;
+                        let objXMin = objX1 < objX2 ? objX1 : objX2;
+                        objX = (objXMin + objXMax) / 2;
+                        let objY1 = objFocus[2];
+                        let objY2 = objFocus[4];
+                        let objYMax = objY1 > objY2 ? objY1 : objY2;
+                        let objYMin = objY1 < objY2 ? objY1 : objY2;
+                        objY = (objYMin + objYMax) / 2;
+
+                        let tMaxX = (objXMax - x) / dx;
+                        let tMinX = (objXMin - x) / dx;
+                        if (dx === 0) {
+                            tMaxX = 999999;
+                            tMinX = -999999;
+                        } else {
+                            let tMaxXalleged = tMaxX;
+                            let tMinXalleged = tMinX;
+                            tMaxX = tMaxXalleged > tMinXalleged ? tMaxXalleged : tMinXalleged;
+                            tMinX = tMaxXalleged < tMinXalleged ? tMaxXalleged : tMinXalleged;
+                        }
+                        let tMaxY = (objYMax - y) / dy;
+                        let tMinY = (objYMin - y) / dy;
+                        if (dx === 0) {
+                            tMaxY = 999999;
+                            tMinY = -999999;
+                        } else {
+                            let tMaxYalleged = tMaxY;
+                            let tMinYalleged = tMinY;
+                            tMaxY = tMaxYalleged > tMinYalleged ? tMaxYalleged : tMinYalleged;
+                            tMinY = tMaxYalleged < tMinYalleged ? tMaxYalleged : tMinYalleged;
+                        }
+                        
+                        if ((dx == 0 && !(objXMin < dx && dx < objXMax)) || (dy == 0 && !(objYMin < dy && dy < objYMax))) continue;
+
+                        let tXit = Math.max(tMinX, tMinX);
+                        let tNtr = Math.min(tMaxX, tMaxY);
+
+                        rayXobj = tNtr < tXit && tXit > 0;
+
+                        if (objI === 6) {
+                            stage.ctx.moveTo(
+                                getXonStage(x),
+                                getYonStage(y),
+                            );
+                            stage.ctx.lineTo(
+                                getXonStage(300 * Math.cos(d) + x),
+                                getYonStage(300 * Math.sin(d) + y),
+                            );
+                        }
+
+                    } else if (objFocus[0] === 'c') {
+                        objX = objFocus[1];
+                        objY = objFocus[2];
+                        objR = objFocus[3];
+                    }
+
+                    if (rayXobj) {drawCirc(objX, objY, 5);
+                        touchy.innerHTML += objI;
+                    }
+                }
+            }
+
+            function drawObjects () {
+                for (let objI = 0; objI < stageObjects.length; objI++) {
+                    let objFocus = stageObjects[objI];
+                    if (objFocus[0] === 'r') drawRect(objFocus[1], objFocus[2], objFocus[3], objFocus[4]);
+                    else if (objFocus[0] === 'c') drawCirc(objFocus[1], objFocus[2], objFocus[3]);
+                }
+            }
+            function collideObjects () {
+                for (let objI = 0; objI < stageObjects.length; objI++) {
+                    let objFocus = stageObjects[objI];
+                    if (objFocus[0] === 'r') collideRect(objFocus[1], objFocus[2], objFocus[3], objFocus[4]);
+                    else if (objFocus[0] === 'c') collideCirc(objFocus[1], objFocus[2], objFocus[3]);
+                }
             }
 
             function drawRect (x1, y1, x2, y2) {
@@ -172,7 +273,8 @@
                     getXonStage(x1),
                     getYonStage(y1),
                 );
-
+            }
+            function collideRect (x1, y1, x2, y2) {
                 let pCurX = player.real.x;
                 let pCurY = player.real.y;
                 let pNearX = pCurX;
@@ -181,15 +283,14 @@
                 let pNearY = pCurY;
                 pNearY = Math.min(y1 > y2 ? y1 : y2, pNearY);
                 pNearY = Math.max(y1 < y2 ? y1 : y2, pNearY);
-                if (Math.sqrt(Math.pow(pCurX - pNearX, 2) + Math.pow(pCurY - pNearY, 2)) < player.real.s){
+                if (Math.sqrt(Math.pow(pCurX - pNearX, 2) + Math.pow(pCurY - pNearY, 2)) < player.real.s) {
                     let dirFrom = Math.atan2(pCurY - pNearY, pCurX - pNearX);
                     let pBumpX = player.real.s * Math.cos(dirFrom);
                     let pBumpY = player.real.s * Math.sin(dirFrom);
                     player.real.x = pNearX + pBumpX;
                     player.real.y = pNearY + pBumpY;
-                }
+                }                
             }
-
             function drawCirc (x, y, r) {
                 for(let dir = 0; dir < 360; dir++) {
                     stage.ctx.moveTo(
@@ -201,7 +302,8 @@
                         getYonStage(y + Math.sin(dir * Math.PI / 180) * r),
                     );
                 }
-
+            }
+            function collideCirc (x, y, r) {
                 let xOff = player.real.x - x;
                 let yOff = player.real.y - y;
                 let distFrom = player.real.s + r;
@@ -211,8 +313,9 @@
                     let pBumpY = distFrom * Math.sin(dirFrom);
                     player.real.x = x + pBumpX;
                     player.real.y = y + pBumpY;
-                }
+                }                
             }
+            
             function gameTick () {
                 /* Delta Time */ {
                     prevFrameTimestamp = currFrameTimestamp;
@@ -242,26 +345,18 @@
                 
                 /* Draw screen */ {
 
-                    /* Top Down Obstacles */ {
-                        stage.ctx.beginPath();
-                        stage.ctx.strokeStyle = "tomato";
-                        stage.ctx.lineWidth = 3;
-
-                        drawRect(-240, 180, -230, -180);
-                        drawRect(240, 180, 230, -180);
-                        drawRect(-230, 180, 230, 170);
-                        drawRect(-230, -180, 230, -170);
-
-                        drawCirc(50, 50, 20);
-                        stage.ctx.stroke();
-                    }
-
                     /* Top Down Player */ {
+                        collideObjects();
+
+
+
                         // Hitbox
                         stage.ctx.beginPath();
                         stage.ctx.strokeStyle = "#bf99e6";
                         stage.ctx.lineWidth = 1;
 
+                        rayCast(player.real.x, player.real.y, player.real.d);
+                        
                         stage.ctx.moveTo(
                             getXonStage(player.real.x + player.real.s),
                             getYonStage(player.real.y),
@@ -273,13 +368,13 @@
                             );
                         }
                         stage.ctx.stroke();
-
+                        
                         
                         // Draw Player
                         stage.ctx.beginPath();
                         stage.ctx.strokeStyle = "tomato";
                         stage.ctx.lineWidth = 3;
-
+                        
                         stage.ctx.moveTo(
                             getXonStage(player.real.x + Math.cos(player.real.d) * player.real.s),
                             getYonStage(player.real.y + Math.sin(player.real.d) * player.real.s),
@@ -322,7 +417,25 @@
                         stage.ctx.stroke();
                         
                     }
+                    
+                    /* Top Down Obstacles */ {
+                        stage.ctx.beginPath();
+                        stage.ctx.strokeStyle = "tomato";
+                        stage.ctx.lineWidth = 3;
 
+                        /*drawRect(-240, 180, -230, -180);
+                        drawRect(240, 180, 230, -180);
+                        drawRect(-230, 180, 230, 170);
+                        drawRect(-230, -180, 230, -170);
+
+                        drawCirc(130, 100, 35);
+                        drawRect(30, 170, 20, 50);
+
+                        drawRect(95, -65, 165, -135);
+                        drawRect(30, -170, 20, -50);*/
+                        drawObjects();
+                        stage.ctx.stroke();
+                    }
                 }
                 
                 //inte--;
