@@ -100,7 +100,7 @@
                         y : 0,
                         d : 0,
                         s : 10,
-                        turn : 3 * Math.PI ,
+                        turn : 2 * Math.PI ,
                         step : 100,
                     },
                 };
@@ -162,7 +162,6 @@
                 for (let cd = (d - fov / 2); cd <= d + fov / 2; cd += Math.PI / 180) {
                     singleRayCast(x, y, cd);
                 }
-                touchy.innerHTML = rayDistances.join(", ");
             }
             function singleRayCast (x, y, d) {
                 let cx = x;
@@ -303,16 +302,18 @@
             }
             
             function drawFirstPov () {
-                rayC = rayDistances.length
-                var horzSpace = rayC / stage.w;
-                var vertSpace = stage.s / stage.h / 2;
+                rayC = rayDistances.length;
+                var horzSpace = stage.w / (rayC + 2);
+                var vertSpace = stage.s / stage.h;
                 
                 stage.ctx1.beginPath();
                 stage.ctx1.strokeStyle = "#bf99e6";
-                stage.ctx1.lineWidth = 10;
+                stage.ctx1.lineWidth = 7.5;
+                touchy.innerHTML = "";
                 for (let rayI = 0; rayI < rayC; rayI++) {
-                    let rayX = rayI * rayC - stage.w / 2;
-                    let rayY = (stage.s - rayDistances[rayI]) * vertSpace;
+                    let rayX = (rayI + 1.5) * horzSpace;
+                    rayX -= stage.w / 2;
+                    let rayY = (stage.w / rayDistances[rayI]) * 2;
                     stage.ctx1.moveTo(
                         getXonStage(rayX),
                         getYonStage(rayY),
@@ -321,6 +322,7 @@
                         getXonStage(rayX),
                         getYonStage(0 - rayY),
                     );
+                    touchy.innerHTML += `(x: ${rayX}, y: ${rayY})`;
                 }
                 stage.ctx1.stroke();
             }
@@ -338,8 +340,8 @@
                 checkDisplay();
 
                 deltaDrad = 0;
-                if (isKeyDown("A")) deltaDrad += 1;
-                if (isKeyDown("D")) deltaDrad -= 1;
+                if (isKeyDown("D")) deltaDrad += 1;
+                if (isKeyDown("A")) deltaDrad -= 1;
                 deltaDrad *= deltaTime;
                 deltaDrad *= player.real.turn;
                 player.real.d = (player.real.d + deltaDrad + 2 * Math.PI) % (2 * Math.PI);
