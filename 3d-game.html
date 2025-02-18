@@ -162,7 +162,7 @@
 
             function castRays (x, y, d, fov) {
                 rayDistances = [];
-                for (let cd = d - fov / 2; cd <= d + fov / 2; cd += Math.PI / 180) {
+                for (let cd = d + fov / 2; cd >= d - fov / 2; cd -= Math.PI / 180) {
                     rayDistances.push(singleRayCast(x, y, cd));
                 }
             }
@@ -342,8 +342,8 @@
                 checkDisplay();
 
                 deltaDrad = 0;
-                if (isKeyDown("D")) deltaDrad += 1;
-                if (isKeyDown("A")) deltaDrad -= 1;
+                if (isKeyDown("A")) deltaDrad += 1;
+                if (isKeyDown("D")) deltaDrad -= 1;
                 deltaDrad *= deltaTime;
                 deltaDrad *= player.real.turn;
                 player.real.d = (player.real.d + deltaDrad + 2 * Math.PI) % (2 * Math.PI);
