@@ -148,8 +148,8 @@
                 function isKeyDown (keyFocus) {return (allKeysDown.indexOf(keyFocus) > -1);}
             }
             
-            function getXonStage (xPos) {return (xPos / stage.w + 0.5) * topDownGameDisplay.width;}
-            function getYonStage (yPos) {return (yPos * -1 / stage.h + 0.5) * topDownGameDisplay.height;}
+            function getXonStage (x) {return (x / stage.w + 0.5) * topDownGameDisplay.width;}
+            function getYonStage (y) {return (y * -1 / stage.h + 0.5) * topDownGameDisplay.height;}
             function checkDisplay () {
                 topDownGameDisplay.width = gameContainer.offsetWidth;
                 topDownGameDisplay.height = gameContainer.offsetWidth / 4 * 3;
@@ -157,56 +157,58 @@
                 firstPersonGameDisplay.height = gameContainer.offsetWidth / 4 * 3;
             }
 
+            function lineToStage (x, y) {stage.ctx.lineTo(getXonStage(x),getYonStage(y))}
+            function moveToStage (x, y) {stage.ctx.moveTo(getXonStage(x),getYonStage(y))}
+
             function castRays (x, y, d, fov) {
                 rayDistances = [];
-                for (let cd = (d - fov / 2); cd <= d + fov / 2; cd += Math.PI / 180) {
-                    singleRayCast(x, y, cd);
+                for (let cd = d - fov / 2; cd <= d + fov / 2; cd += Math.PI / 180) {
+                    rayDistances.push(singleRayCast(x, y, cd));
                 }
             }
             function singleRayCast (x, y, d) {
-                let cx = x;
-                let cy = y;
-                for (let dist = 0; dist <= stage.s; dist += 0.1) {
-                    cx = dist * Math.cos(d) + x;
-                    cy = dist * Math.sin(d) + y;
-                    if (singleRayCollide(cx, cy)) {
-                        rayDistances.push(dist);
-                        dist = stage.s;
-                    };
-                }
-
-                stage.ctx.moveTo(
-                    getXonStage(x),
-                    getYonStage(y),
-                );
-                stage.ctx.lineTo(
-                    getXonStage(cx),
-                    getYonStage(cy),
-                )
-            }
-            function singleRayCollide (x, y) {
+                let Ox = x;
+                let Oy = y;
+                let Dx = Math.cos(d);
+                let Dy = Math.sin(d);
                 for (let objI = 0; objI < stageObjects.length; objI++) {
                     let objFocus = stageObjects[objI];
-                    let rayXobj = false;
                     if (objFocus[0] === 'r') {
-                        let objX1 = objFocus[1];
-                        let objX2 = objFocus[3];
-                        let objXMax = objX1 > objX2 ? objX1 : objX2;
-                        let objXMin = objX1 < objX2 ? objX1 : objX2;
-                        let objY1 = objFocus[2];
-                        let objY2 = objFocus[4];
-                        let objYMax = objY1 > objY2 ? objY1 : objY2;
-                        let objYMin = objY1 < objY2 ? objY1 : objY2;
-                    //touchy.innerHTML += objXMin;
+                        let rX1 = objFocus[1], rX2 = objFocus[3];
+                        let rXmax = rX1 < rX2 ? rX1 : rX2;
+                        let rXmin = rX1 > rX2 ? rX1 : rX2;
+                        let tXmax = (rXmax - Ox) / Dx;
+                        let tXmin = (rXmin - Ox) / Dx;
 
-                        rayXobj = objXMin < x && x < objXMax && objYMin < y && y < objYMax;
+                        let rY1 = objFocus[2], rY2 = objFocus[4];
+                        let rYmax = rY1 < rY2 ? rY1 : rY2;
+                        let rYmin = rY1 > rY2 ? rY1 : rY2;
+                        let tYmax = (rYmax - Oy) / Dy;
+                        let tYmin = (rYmin - Oy) / Dy;
+
+                        let tXent = Math.min(tXmin, tXmax);
+                        let tXext = Math.max(tXmin, tXmax);
+
+                        let tYent = Math.min(tYmin, tYmax);
+                        let tYext = Math.max(tYmin, tYmax);
+
+                        let tEnt = Math.max(tXent, tYent);
+                        let tExt = Math.min(tXext, tYext);
+
+                        if (tEnt < tExt && tExt > 0) return stage.s;
+                        
+                        let iX = tEnt * Dx;
+                        let iY = tEnt * Dy;
+                        let iD = Math.sqrt((iX * iX) + (iY * iY));
+                        iD = Math.min(iD, stage.s);
+
+                        moveToStage(Ox, Oy);
+                        lineToStage(Ox + iX, Oy + iY);
+                        return iD;
+
                     } else if (objFocus[0] === 'c') {
-                        let objX = objFocus[1];
-                        let objY = objFocus[2];
-                        let objR = objFocus[3];
-                        rayXobj = Math.sqrt(Math.pow(objX - x, 2) + Math.pow(objY - y, 2)) < objR;
+
                     }
-                    if (rayXobj) return true;
                 }
             }
 
@@ -369,8 +371,6 @@
 
                     /* Top Down Player */ {
                         collideObjects();
-
-
 
                         // Hitbox
                         stage.ctx.beginPath();
