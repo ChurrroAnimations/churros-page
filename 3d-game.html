@@ -98,7 +98,7 @@
                     real : {
                         x : 0,
                         y : 0,
-                        d : 0,
+                        d : Math.PI,
                         s : 10,
                         turn : 2 * Math.PI ,
                         step : 100,
@@ -167,35 +167,40 @@
                 }
             }
             function singleRayCast (x, y, d) {
-                let Ox = x;
-                let Oy = y;
+                let Ox = x, Oy = y;
                 let Dx = Math.cos(d);
                 let Dy = Math.sin(d);
                 for (let objI = 0; objI < stageObjects.length; objI++) {
                     let objFocus = stageObjects[objI];
                     if (objFocus[0] === 'r') {
                         let rX1 = objFocus[1], rX2 = objFocus[3];
-                        let rXmax = rX1 < rX2 ? rX1 : rX2;
-                        let rXmin = rX1 > rX2 ? rX1 : rX2;
+                        let rXmax = Math.max(rX1, rX2);
+                        let rXmin = Math.min(rX1, rX2);
                         let tXmax = (rXmax - Ox) / Dx;
                         let tXmin = (rXmin - Ox) / Dx;
-
+                        if (Dx < 0) {
+                            let newtXmax = tXmin;
+                            let newtXmin = tXmax;
+                            tXmax = newtXmax;
+                            tXmin = newtXmin;
+                        }
+                        
                         let rY1 = objFocus[2], rY2 = objFocus[4];
-                        let rYmax = rY1 < rY2 ? rY1 : rY2;
-                        let rYmin = rY1 > rY2 ? rY1 : rY2;
+                        let rYmax = Math.max(rY1, rY2);
+                        let rYmin = Math.min(rY1, rY2);
                         let tYmax = (rYmax - Oy) / Dy;
                         let tYmin = (rYmin - Oy) / Dy;
+                        if (Dy < 0) {
+                            let newtYmax = tYmin;
+                            let newtYmin = tYmax;
+                            tYmax = newtYmax;
+                            tYmin = newtYmin;
+                        }
 
-                        let tXent = Math.min(tXmin, tXmax);
-                        let tXext = Math.max(tXmin, tXmax);
+                        let tEnt = Math.max(tXmin, tYmin);
+                        let tExt = Math.min(tXmax, tYmax);
 
-                        let tYent = Math.min(tYmin, tYmax);
-                        let tYext = Math.max(tYmin, tYmax);
-
-                        let tEnt = Math.max(tXent, tYent);
-                        let tExt = Math.min(tXext, tYext);
-
-                        if (tEnt < tExt && tExt > 0) return stage.s;
+                        if (tEnt > tExt || tExt < 0) return stage.s;
                         
                         let iX = tEnt * Dx;
                         let iY = tEnt * Dy;
@@ -265,18 +270,18 @@
                 let pCurX = player.real.x;
                 let pCurY = player.real.y;
                 let pNearX = pCurX;
-                pNearX = Math.min(x1 > x2 ? x1 : x2, pNearX);
-                pNearX = Math.max(x1 < x2 ? x1 : x2, pNearX);
+                pNearX = Math.min(Math.max(x1, x2), pNearX);
+                pNearX = Math.max(Math.min(x1, x2), pNearX);
                 let pNearY = pCurY;
-                pNearY = Math.min(y1 > y2 ? y1 : y2, pNearY);
-                pNearY = Math.max(y1 < y2 ? y1 : y2, pNearY);
+                pNearY = Math.min(Math.max(y1, y2), pNearY);
+                pNearY = Math.max(Math.min(y1, y2), pNearY);
                 if (Math.sqrt(Math.pow(pCurX - pNearX, 2) + Math.pow(pCurY - pNearY, 2)) < player.real.s) {
                     let dirFrom = Math.atan2(pCurY - pNearY, pCurX - pNearX);
                     let pBumpX = player.real.s * Math.cos(dirFrom);
                     let pBumpY = player.real.s * Math.sin(dirFrom);
                     player.real.x = pNearX + pBumpX;
                     player.real.y = pNearY + pBumpY;
-                }                
+                }
             }
             function drawCirc (x, y, r) {
                 for(let dir = 0; dir < 360; dir++) {
@@ -304,18 +309,18 @@
             }
             
             function drawFirstPov () {
-                rayC = rayDistances.length;
-                var horzSpace = stage.w / (rayC + 2);
-                var vertSpace = stage.s / stage.h;
+                const rayC = rayDistances.length;
+                const rayW = stage.w / rayC;
+                const rayS = stage.w / -2 + rayW / 2;
                 
                 stage.ctx1.beginPath();
                 stage.ctx1.strokeStyle = "#bf99e6";
                 stage.ctx1.lineWidth = 7.5;
                 touchy.innerHTML = "";
                 for (let rayI = 0; rayI < rayC; rayI++) {
-                    let rayX = (rayI + 1.5) * horzSpace;
-                    rayX -= stage.w / 2;
-                    let rayY = (stage.w / rayDistances[rayI]) * 2;
+                    let rayX = rayS + (rayW * rayI);
+                    let rayY = (1 - rayDistances[rayI] / stage.s) * stage.h;
+                    
                     stage.ctx1.moveTo(
                         getXonStage(rayX),
                         getYonStage(rayY),
