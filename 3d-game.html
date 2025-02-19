@@ -337,7 +337,8 @@
                     deltaTime = (currFrameTimestamp - prevFrameTimestamp) / 1000;
                 }
 
-                document.getElementById("testLoop").innerHTML = "∆t: " + deltaTime + " dir: " + player.real.d + " x: " + player.real.x + " y: " + player.real.y;
+                document.getElementById("testLoop").innerHTML = "Strafe left/right: K/L, move forward/back: O/L, turn left/right: A/D";
+                    //"∆t: " + deltaTime + " dir: " + player.real.d + " x: " + player.real.x + " y: " + player.real.y;
                 document.getElementById("allKeysDown").innerHTML = allKeysDown.join(', ');
 
                 checkDisplay();
@@ -378,7 +379,7 @@
                         stage.ctx.strokeStyle = "#bf99e6";
                         stage.ctx.lineWidth = 1;
 
-                        castRays(player.real.x, player.real.y, player.real.d, rad(60), 240);
+                        castRays(player.real.x, player.real.y, player.real.d, rad(60), 960000);
                         for(let dir = 0; dir < 360; dir++) {
                             lineToOnStage(
                                 player.real.x + Math.cos(rad(dir - 1)) * player.real.s,
