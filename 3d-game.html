@@ -162,14 +162,13 @@
 
             function castRays (x, y, d, fov) {
                 rayDistances = [];
-                for (let cd = d + fov / 2; cd >= d - fov / 2; cd -= Math.PI / 180) {
-                    rayDistances.push(singleRayCast(x, y, cd));
-                }
+                for (let cd = d + fov / 2; cd >= d - fov / 2; cd -= Math.PI / 180) rayDistances.push(singleRayCast(x, y, cd));
             }
             function singleRayCast (x, y, d) {
                 let Ox = x, Oy = y;
                 let Dx = Math.cos(d);
                 let Dy = Math.sin(d);
+                let thisRayDistances = [];
                 for (let objI = 0; objI < stageObjects.length; objI++) {
                     let objFocus = stageObjects[objI];
                     if (objFocus[0] === 'r') {
@@ -178,7 +177,7 @@
                         let rXmin = Math.min(rX1, rX2);
                         let tXmax = (rXmax - Ox) / Dx;
                         let tXmin = (rXmin - Ox) / Dx;
-                        if (Dx < 0) {
+                        if (tXmin > tXmax) {
                             let newtXmax = tXmin;
                             let newtXmin = tXmax;
                             tXmax = newtXmax;
@@ -190,7 +189,7 @@
                         let rYmin = Math.min(rY1, rY2);
                         let tYmax = (rYmax - Oy) / Dy;
                         let tYmin = (rYmin - Oy) / Dy;
-                        if (Dy < 0) {
+                        if (tYmin > tYmax) {
                             let newtYmax = tYmin;
                             let newtYmin = tYmax;
                             tYmax = newtYmax;
@@ -200,21 +199,23 @@
                         let tEnt = Math.max(tXmin, tYmin);
                         let tExt = Math.min(tXmax, tYmax);
 
-                        if (tEnt > tExt || tExt < 0) return stage.s;
-                        
-                        let iX = tEnt * Dx;
-                        let iY = tEnt * Dy;
-                        let iD = Math.sqrt((iX * iX) + (iY * iY));
-                        iD = Math.min(iD, stage.s);
+                        let iD;
 
-                        moveToStage(Ox, Oy);
-                        lineToStage(Ox + iX, Oy + iY);
-                        return iD;
+                        if (tEnt > tExt || tExt < 0) iD = stage.s;
+                        else {
+                            let iX = Dx * tEnt, iY = Dy * tEnt;
+                            iD = Math.min(Math.sqrt((iX * iX) + (iY * iY), stage.s));
+                        }
 
+                        thisRayDistances.push(iD);
                     } else if (objFocus[0] === 'c') {
-
+                        
                     }
                 }
+                rayDist = Math.min(...thisRayDistances);
+                moveToStage(Ox, Oy);
+                lineToStage(Ox + rayDist * Dx, Oy + rayDist * Dy);
+                return rayDist;
             }
 
             function drawObjects () {
@@ -319,7 +320,7 @@
                 touchy.innerHTML = "";
                 for (let rayI = 0; rayI < rayC; rayI++) {
                     let rayX = rayS + (rayW * rayI);
-                    let rayY = (1 - rayDistances[rayI] / stage.s) * stage.h;
+                    let rayY = (1 - rayDistances[rayI] / stage.s) * (stage.h / 2);
                     
                     stage.ctx1.moveTo(
                         getXonStage(rayX),
@@ -329,7 +330,7 @@
                         getXonStage(rayX),
                         getYonStage(0 - rayY),
                     );
-                    touchy.innerHTML += `(x: ${rayX}, y: ${rayY})`;
+                    touchy.innerHTML += `(x: ${rayX}, y: ${rayY}, ${stage.h})`;
                 }
                 stage.ctx1.stroke();
             }
