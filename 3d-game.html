@@ -220,12 +220,20 @@
                         let cX = objFocus[1], cY = objFocus[2], cR = objFocus[3];
                         let cXoff = Ox - cX;
                         let cYoff = Oy - cY;
-                        cDist = cXoff * Dx + cYoff * Dy
-                        rXc = Math.sqrt(cDist * cDist - cXoff * cXoff - cYoff * cYoff + cR * cR);
-                        if (rXc < 0) continue;
+                        cDist = cXoff * Dx + cYoff * Dy;
+                        discrim = cDist * cDist - cXoff * cXoff - cYoff * cYoff + cR * cR;
+                        if (discrim < 0) continue;
                         else {
-                            iD = 0 - cDist - rXc;
-                            if (iD > 0) iD = Math.sqrt(iD * iD * Dx * Dx + iD * iD * Dy * Dy);
+                            rXc = Math.sqrt(discrim);
+                            cDist *= -1;
+                            let iD1 = cDist - rXc;
+                            if (iD1 < 0) iD1 = Infinity;
+                            else iD1 = Math.sqrt(iD1 * iD1 * Dx * Dx + iD1 * iD1 * Dy * Dy);
+                            let iD2 = cDist + rXc;
+                            if (iD2 < 0) iD2 = Infinity;
+                            else iD2 = Math.sqrt(iD2 * iD2 * Dx * Dx + iD2 * iD2 * Dy * Dy);
+                            
+                            iD = Math.min(iD1, iD2);
                             thisRayDistances.push(iD);
                         }
                     }
@@ -302,7 +310,6 @@
                 const rayS = stage.w / -2 + rayW / 2;
                 
                 let r = 192, g = 154, b = 230;
-                touchy.innerHTML = "";
                 for (let rayI = 0; rayI < rayC; rayI++) {
                     let rayX = rayS + (rayW * rayI);
                     let rayP = 1 - rayDistances[rayI] / stage.s;
@@ -320,7 +327,6 @@
                         getYonStage(0 - rayY),
                     );
                     stage.ctx1.stroke();
-                    touchy.innerHTML += `(x: ${rayX}, y: ${rayY}, ${rayW})`;
                 }
             }
 
