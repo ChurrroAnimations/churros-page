@@ -85,20 +85,13 @@
             /* Define da varibles */ {
                 topDownGameDisplay = document.getElementById("topDownGameDisplay");
                 firstPersonGameDisplay = document.getElementById("firstPersonGameDisplay");
-                stage = {
-                    w : 480,
-                    h : 360,
-                    s : 600,
-                    ctx : topDownGameDisplay.getContext('2d'),
-                    ctx1 : firstPersonGameDisplay.getContext('2d'),
-                };
                 var player = {
                     display : {
                     },
                     real : {
                         x : 0,
                         y : 0,
-                        d : Math.PI,
+                        d : 0,
                         s : 10,
                         turn : 2 * Math.PI ,
                         step : 100,
@@ -118,6 +111,13 @@
                 //var inte = 200;
                 requestAnimationFrame(gameTick);
             }
+            stage = {
+                w : 480,
+                h : 360,
+                s : 600,
+                ctx : topDownGameDisplay.getContext('2d'),
+                ctx1 : firstPersonGameDisplay.getContext('2d'),
+            };
             const stageObjects = [
                 ['r', -240, 180, -230, -180],
                 ['r', 240, 180, 230, -180],
@@ -129,16 +129,17 @@
                 ['r', 30, -170, 20, -50],
             ];
             var rayDistances = [];
+            
             /* Keys Pressed */ {
                 window.onkeydown = keyPress;
                 window.onkeyup = keyUnpress;
-                function keyPress(keyFocus){
+                function keyPress(keyFocus) {
                     let keyDown = keyFocus.key;
                     if (keyDown.length == 1) keyDown = keyDown.toUpperCase();
                     if (keyDown == " ") keyDown = "Space";
                     if (allKeysDown.indexOf(keyDown) == -1) allKeysDown.push(keyDown);
                 }
-                function keyUnpress(keyFocus){
+                function keyUnpress(keyFocus) {
                     let keyDown = keyFocus.key;
                     if (keyDown.length == 1) keyDown = keyDown.toUpperCase();
                     if (keyDown == " ") keyDown = "Space";
@@ -147,7 +148,7 @@
                 }
                 function isKeyDown (keyFocus) {return (allKeysDown.indexOf(keyFocus) > -1);}
             }
-            
+
             function getXonStage (x) {return (x / stage.w + 0.5) * topDownGameDisplay.width;}
             function getYonStage (y) {return (y * -1 / stage.h + 0.5) * topDownGameDisplay.height;}
             function checkDisplay () {
@@ -157,12 +158,21 @@
                 firstPersonGameDisplay.height = gameContainer.offsetWidth / 4 * 3;
             }
 
-            function lineToStage (x, y) {stage.ctx.lineTo(getXonStage(x),getYonStage(y))}
-            function moveToStage (x, y) {stage.ctx.moveTo(getXonStage(x),getYonStage(y))}
+            function rad (deg = 1) {return deg * Math.PI / 180}
 
-            function castRays (x, y, d, fov) {
+            function moveToOnStage (x, y) {stage.ctx.moveTo(getXonStage(x),getYonStage(y));}
+            function drawToOnStage (x, y) {stage.ctx.lineTo(getXonStage(x),getYonStage(y));}
+            function lineToOnStage (x1, y1, x2, y2) {moveToOnStage(x1, y1); drawToOnStage(x2, y2);}
+
+            function castRays (x, y, d, FoV, res) {
                 rayDistances = [];
-                for (let cd = d + fov / 2; cd >= d - fov / 2; cd -= Math.PI / 180) rayDistances.push(singleRayCast(x, y, cd));
+                const incr = FoV / res;
+                const begDir = d - FoV / 2;
+                if (res == null) for (let cd = d + FoV / 2; cd >= d - FoV / 2; cd -= rad()) rayDistances.push(singleRayCast(x, y, cd));
+                else for (let rayI = 0; rayI < res; rayI++) {
+                    let cd = d + FoV / 2 - FoV / res * rayI;
+                    rayDistances.push(singleRayCast(x, y, cd));
+                }
             }
             function singleRayCast (x, y, d) {
                 let Ox = x, Oy = y;
@@ -200,21 +210,28 @@
                         let tExt = Math.min(tXmax, tYmax);
 
                         let iD;
-
-                        if (tEnt > tExt || tExt < 0) iD = stage.s;
+                        if (tEnt > tExt || tExt < 0) continue;
                         else {
                             let iX = Dx * tEnt, iY = Dy * tEnt;
-                            iD = Math.min(Math.sqrt((iX * iX) + (iY * iY), stage.s));
+                            iD = Math.sqrt((iX * iX) + (iY * iY), stage.s);
                         }
-
                         thisRayDistances.push(iD);
                     } else if (objFocus[0] === 'c') {
-                        
+                        let cX = objFocus[1], cY = objFocus[2], cR = objFocus[3];
+                        let cXoff = Ox - cX;
+                        let cYoff = Oy - cY;
+                        cDist = cXoff * Dx + cYoff * Dy
+                        rXc = Math.sqrt(cDist * cDist - cXoff * cXoff - cYoff * cYoff + cR * cR);
+                        if (rXc < 0) continue;
+                        else {
+                            iD = 0 - cDist - rXc;
+                            if (iD > 0) iD = Math.sqrt(iD * iD * Dx * Dx + iD * iD * Dy * Dy);
+                            thisRayDistances.push(iD);
+                        }
                     }
                 }
                 rayDist = Math.min(...thisRayDistances);
-                moveToStage(Ox, Oy);
-                lineToStage(Ox + rayDist * Dx, Oy + rayDist * Dy);
+                lineToOnStage(Ox, Oy, Ox + rayDist * Dx, Oy + rayDist * Dy);
                 return rayDist;
             }
 
@@ -234,38 +251,10 @@
             }
 
             function drawRect (x1, y1, x2, y2) {
-                stage.ctx.moveTo(
-                    getXonStage(x1),
-                    getYonStage(y1),
-                );
-                stage.ctx.lineTo(
-                    getXonStage(x2),
-                    getYonStage(y1),
-                );
-                stage.ctx.moveTo(
-                    getXonStage(x2),
-                    getYonStage(y1),
-                );
-                stage.ctx.lineTo(
-                    getXonStage(x2),
-                    getYonStage(y2),
-                );
-                stage.ctx.moveTo(
-                    getXonStage(x2),
-                    getYonStage(y2),
-                );
-                stage.ctx.lineTo(
-                    getXonStage(x1),
-                    getYonStage(y2),
-                );
-                stage.ctx.moveTo(
-                    getXonStage(x1),
-                    getYonStage(y2),
-                );
-                stage.ctx.lineTo(
-                    getXonStage(x1),
-                    getYonStage(y1),
-                );
+                lineToOnStage(x1, y1, x2, y1);
+                lineToOnStage(x2, y1, x2, y2);
+                lineToOnStage(x2, y2, x1, y2);
+                lineToOnStage(x1, y2, x1, y1);
             }
             function collideRect (x1, y1, x2, y2) {
                 let pCurX = player.real.x;
@@ -286,13 +275,11 @@
             }
             function drawCirc (x, y, r) {
                 for(let dir = 0; dir < 360; dir++) {
-                    stage.ctx.moveTo(
-                        getXonStage(x + Math.cos((dir - 1) * Math.PI / 180) * r),
-                        getYonStage(y + Math.sin((dir - 1) * Math.PI / 180) * r),
-                    );
-                    stage.ctx.lineTo(
-                        getXonStage(x + Math.cos(dir * Math.PI / 180) * r),
-                        getYonStage(y + Math.sin(dir * Math.PI / 180) * r),
+                    lineToOnStage(
+                        x + Math.cos(rad(dir - 1)) * r,
+                        y + Math.sin(rad(dir - 1)) * r,
+                        x + Math.cos(rad(dir)) * r,
+                        y + Math.sin(rad(dir)) * r,
                     );
                 }
             }
@@ -314,14 +301,16 @@
                 const rayW = stage.w / rayC;
                 const rayS = stage.w / -2 + rayW / 2;
                 
-                stage.ctx1.beginPath();
-                stage.ctx1.strokeStyle = "#bf99e6";
-                stage.ctx1.lineWidth = 7.5;
+                let r = 192, g = 154, b = 230;
                 touchy.innerHTML = "";
                 for (let rayI = 0; rayI < rayC; rayI++) {
                     let rayX = rayS + (rayW * rayI);
-                    let rayY = (1 - rayDistances[rayI] / stage.s) * (stage.h / 2);
+                    let rayP = 1 - rayDistances[rayI] / stage.s;
+                    let rayY = rayP * stage.h / 2;
                     
+                    stage.ctx1.beginPath();
+                    stage.ctx1.lineWidth = rayW;
+                    stage.ctx1.strokeStyle = `rgb(${r * rayP}, ${g * rayP}, ${b * rayP})`;
                     stage.ctx1.moveTo(
                         getXonStage(rayX),
                         getYonStage(rayY),
@@ -330,9 +319,9 @@
                         getXonStage(rayX),
                         getYonStage(0 - rayY),
                     );
-                    touchy.innerHTML += `(x: ${rayX}, y: ${rayY}, ${stage.h})`;
+                    stage.ctx1.stroke();
+                    touchy.innerHTML += `(x: ${rayX}, y: ${rayY}, ${rayW})`;
                 }
-                stage.ctx1.stroke();
             }
 
             function gameTick () {
@@ -352,7 +341,7 @@
                 if (isKeyDown("D")) deltaDrad -= 1;
                 deltaDrad *= deltaTime;
                 deltaDrad *= player.real.turn;
-                player.real.d = (player.real.d + deltaDrad + 2 * Math.PI) % (2 * Math.PI);
+                player.real.d = (player.real.d + deltaDrad + rad(360)) % (rad(360));
                 
                 /* Front back */ {
                     let deltaPos = 0;
@@ -367,8 +356,8 @@
                     let deltaPos = 0;
                     if (isKeyDown("K")) deltaPos += 1;
                     if (isKeyDown(";")) deltaPos -= 1;
-                    deltaXpos = Math.cos(player.real.d + Math.PI / 2) * deltaPos * player.real.step * deltaTime;
-                    deltaYpos = Math.sin(player.real.d + Math.PI / 2) * deltaPos * player.real.step * deltaTime;
+                    deltaXpos = Math.cos(player.real.d + rad(90)) * deltaPos * player.real.step * deltaTime;
+                    deltaYpos = Math.sin(player.real.d + rad(90)) * deltaPos * player.real.step * deltaTime;
                     player.real.x += deltaXpos;
                     player.real.y += deltaYpos;
                 }
@@ -383,16 +372,13 @@
                         stage.ctx.strokeStyle = "#bf99e6";
                         stage.ctx.lineWidth = 1;
 
-                        castRays(player.real.x, player.real.y, player.real.d, Math.PI / 3);
-                        
-                        stage.ctx.moveTo(
-                            getXonStage(player.real.x + player.real.s),
-                            getYonStage(player.real.y),
-                        );
+                        castRays(player.real.x, player.real.y, player.real.d, rad(60), 240);
                         for(let dir = 0; dir < 360; dir++) {
-                            stage.ctx.lineTo(
-                                getXonStage(player.real.x + Math.cos(dir * Math.PI / 180) * player.real.s),
-                                getYonStage(player.real.y + Math.sin(dir * Math.PI / 180) * player.real.s),
+                            lineToOnStage(
+                                player.real.x + Math.cos(rad(dir - 1)) * player.real.s,
+                                player.real.y + Math.sin(rad(dir - 1)) * player.real.s,
+                                player.real.x + Math.cos(rad(dir)) * player.real.s,
+                                player.real.y + Math.sin(rad(dir)) * player.real.s
                             );
                         }
                         stage.ctx.stroke();
@@ -403,47 +389,26 @@
                         stage.ctx.strokeStyle = "tomato";
                         stage.ctx.lineWidth = 3;
                         
-                        stage.ctx.moveTo(
-                            getXonStage(player.real.x + Math.cos(player.real.d) * player.real.s),
-                            getYonStage(player.real.y + Math.sin(player.real.d) * player.real.s),
+                        lineToOnStage(
+                            player.real.x + Math.cos(player.real.d) * player.real.s,
+                            player.real.y + Math.sin(player.real.d) * player.real.s,
+                            player.real.x + Math.cos(player.real.d + Math.PI) * player.real.s,
+                            player.real.y + Math.sin(player.real.d + Math.PI) * player.real.s
                         );
-                        stage.ctx.lineTo(
-                            getXonStage(player.real.x + Math.cos(player.real.d + Math.PI) * player.real.s),
-                            getYonStage(player.real.y + Math.sin(player.real.d + Math.PI) * player.real.s),
-                        );
-                        
-                        stage.ctx.moveTo(
-                            getXonStage(player.real.x + Math.cos(player.real.d + Math.PI / 2) * player.real.s),
-                            getYonStage(player.real.y + Math.sin(player.real.d + Math.PI / 2) * player.real.s),
-                        );
-                        stage.ctx.lineTo(
-                            getXonStage(player.real.x + Math.cos(player.real.d + 3 * Math.PI / 2) * player.real.s),
-                            getYonStage(player.real.y + Math.sin(player.real.d + 3 * Math.PI / 2) * player.real.s)
+                        lineToOnStage(
+                            player.real.x + Math.cos(player.real.d + rad(90)) * player.real.s,
+                            player.real.y + Math.sin(player.real.d + rad(90)) * player.real.s,
+                            player.real.x + Math.cos(player.real.d + 3 * rad(90)) * player.real.s,
+                            player.real.y + Math.sin(player.real.d + 3 * rad(90)) * player.real.s
                         );
                         
-                        stage.ctx.moveTo(
-                            getXonStage(player.real.x + Math.cos(player.real.d) * player.real.s),
-                            getYonStage(player.real.y + Math.sin(player.real.d) * player.real.s),
-                        );
-                        stage.ctx.lineTo(
-                            getXonStage(player.real.x + Math.cos(player.real.d + 2 * Math.PI / 3) * player.real.s),
-                            getYonStage(player.real.y + Math.sin(player.real.d + 2 * Math.PI / 3) * player.real.s),
-                        );
-                        stage.ctx.lineTo(
-                            getXonStage(player.real.x + Math.cos(player.real.d + Math.PI) * player.real.s),
-                            getYonStage(player.real.y + Math.sin(player.real.d + Math.PI) * player.real.s),
-                        );
-                        stage.ctx.lineTo(
-                            getXonStage(player.real.x + Math.cos(player.real.d + 4 * Math.PI / 3) * player.real.s),
-                            getYonStage(player.real.y + Math.sin(player.real.d + 4 * Math.PI / 3) * player.real.s),
-                        );
-                        stage.ctx.lineTo(
-                            getXonStage(player.real.x + Math.cos(player.real.d) * player.real.s),
-                            getYonStage(player.real.y + Math.sin(player.real.d) * player.real.s),
-                        );
                         
+                        moveToOnStage(player.real.x + Math.cos(player.real.d) * player.real.s, player.real.y + Math.sin(player.real.d) * player.real.s);
+                        drawToOnStage(player.real.x + Math.cos(player.real.d + 2 * Math.PI / 3) * player.real.s, player.real.y + Math.sin(player.real.d + 2 * Math.PI / 3) * player.real.s);
+                        drawToOnStage(player.real.x + Math.cos(player.real.d + Math.PI) * player.real.s, player.real.y + Math.sin(player.real.d + Math.PI) * player.real.s);
+                        drawToOnStage(player.real.x + Math.cos(player.real.d + 4 * Math.PI / 3) * player.real.s, player.real.y + Math.sin(player.real.d + 4 * Math.PI / 3) * player.real.s);
+                        drawToOnStage(player.real.x + Math.cos(player.real.d) * player.real.s, player.real.y + Math.sin(player.real.d) * player.real.s);
                         stage.ctx.stroke();
-                        
                     }
                     
                     /* Top Down Obstacles */ {
