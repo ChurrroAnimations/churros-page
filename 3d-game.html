@@ -379,7 +379,7 @@
                         stage.ctx.strokeStyle = "#bf99e6";
                         stage.ctx.lineWidth = 1;
 
-                        castRays(player.real.x, player.real.y, player.real.d, rad(60), 96000);
+                        castRays(player.real.x, player.real.y, player.real.d, rad(60), 48000);
                         for(let dir = 0; dir < 360; dir++) {
                             lineToOnStage(
                                 player.real.x + Math.cos(rad(dir - 1)) * player.real.s,
