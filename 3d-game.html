@@ -400,8 +400,10 @@
                     deltaTime = (currFrameTimestamp - prevFrameTimestamp) / 1000;
                 }
 
-                document.getElementById("testLoop").innerHTML = "Strafe left/right: K/L, move forward/back: O/L, turn left/right: A/D";
-                    //"∆t: " + deltaTime + " dir: " + player.real.d + " x: " + player.real.x + " y: " + player.real.y;
+                document.getElementById("testLoop").inneerHTML = `e
+                "Move ${controls.moveF} ${controls.strafeL} ${controls.moveB} ${controls.strafeR}, Turn: ${controls.turnL} ${controls.turnR}
+                ∆t: ${deltaTime} d: ${player.real.d} pos: (${player.real.x}, ${player.real.y})
+                `;
                 document.getElementById("allKeysDown").innerHTML = allKeysDown.join(', ');
 
                 checkDisplay();
