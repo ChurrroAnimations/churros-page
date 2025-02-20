@@ -192,21 +192,21 @@
                 }
                 function checkControls () {
                     const ctrlNames = Object.getOwnPropertyNames(controls);
-                    for (let ctrlI = 0; ctrlI < ctrlNames.length; ctrlI++) {
+                    /*for (let ctrlI = 0; ctrlI < ctrlNames.length; ctrlI++) {
                         let ctrlFocus = ctrlNames[ctrlI];
                         let ctrlKey = keyBinds[ctrlFocus];
                         ctrlKey = allKeysDown.indexOf(ctrlKey) > -1;
                         let ctrlButton = buttonDown[ctrlFocus];
                         controls[ctrlFocus] = ctrlKey || ctrlButton;
-                    }
+                    }*/
                 }
                 function btnDn (button) {
-                    let buttonFocus = button.id;
-                    if (Object.getOwnPropertyNames(buttonDown).indexOf(buttonFocus) > -1) buttonDown[buttonFocus] = True;
+                    //let buttonFocus = button.id;
+                    //if (Object.getOwnPropertyNames(buttonDown).indexOf(buttonFocus) > -1) buttonDown[buttonFocus] = True;
                 }
                 function btnUp (button) {
-                    let buttonFocus = button.id;
-                    if (Object.getOwnPropertyNames(buttonDown).indexOf(buttonFocus) > -1) buttonDown[buttonFocus] = False;
+                    //let buttonFocus = button.id;
+                    //if (Object.getOwnPropertyNames(buttonDown).indexOf(buttonFocus) > -1) buttonDown[buttonFocus] = False;
                 }
             }
 
@@ -442,7 +442,7 @@
                         stage.ctx.strokeStyle = "#bf99e6";
                         stage.ctx.lineWidth = 1;
 
-                        castRays(player.real.x, player.real.y, player.real.d, rad(60), 48000);
+                        castRays(player.real.x, player.real.y, player.real.d, rad(60), 240);
                         for(let dir = 0; dir < 360; dir++) {
                             lineToOnStage(
                                 player.real.x + Math.cos(rad(dir - 1)) * player.real.s,
