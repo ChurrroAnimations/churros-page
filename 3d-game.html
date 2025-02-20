@@ -400,9 +400,9 @@
                     deltaTime = (currFrameTimestamp - prevFrameTimestamp) / 1000;
                 }
 
-                document.getElementById("testLoop").inneerHTML = `e
-e`
-                ;
+                document.getElementById("testLoop").innerHTML = `Move ${controls.moveF} ${controls.strafeL} ${controls.moveB} ${controls.strafeR}, Turn: ${controls.turnL} ${controls.turnR}
+                ∆t: ${deltaTime} d: ${player.real.d} pos: (${player.real.x}, ${player.real.y})
+                e\ne/ne`;
                 document.getElementById("allKeysDown").innerHTML = allKeysDown.join(', ');
 
                 checkDisplay();
