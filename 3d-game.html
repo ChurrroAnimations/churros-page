@@ -151,7 +151,7 @@
             ];
             var rayDistances = [];
             
-            controls = {
+            /*controls = {
                 strafeL : False,
                 strafeR : False,
                 moveF : False,
@@ -174,7 +174,7 @@
                 moveB : False,
                 turnL : False,
                 turnR : False,
-            };
+            };*/
 
             /* Keys Pressed */ {
                 window.onkeydown = keyPress;
@@ -193,7 +193,7 @@
                     if (keyIndex > -1) allKeysDown.splice(keyIndex, 1);
                 }
                 function checkControls () {
-                    const ctrlNames = Object.getOwnPropertyNames(controls);
+                    //const ctrlNames = Object.getOwnPropertyNames(controls);
                     /*for (let ctrlI = 0; ctrlI < ctrlNames.length; ctrlI++) {
                         let ctrlFocus = ctrlNames[ctrlI];
                         let ctrlKey = keyBinds[ctrlFocus];
