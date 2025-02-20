@@ -52,9 +52,30 @@
                 <p id="testLoop">
                     200
                 </p>
-                <p id="touch">
-
-                </p>
+                <div class="mobileControls">
+                    <div class="turnControls">
+                        <button class="operationButtons" id="turnL" onmousedown="btnDn(this)" onmouseup="btnUp(this)">
+                            Turn Left
+                        </button>
+                        <button class="operationButtons" id="turnR" onmousedown="btnDn(this)" onmouseup="btnUp(this)">
+                            Turn Right
+                        </button>
+                    </div>
+                    <div class="moveControls">
+                        <button class="operationButtons" id="strafeL" onmousedown="btnDn(this)" onmouseup="btnUp(this)">
+                            Strafe Left
+                        </button>
+                        <button class="operationButtons" id="moveF" onmousedown="btnDn(this)" onmouseup="btnUp(this)">
+                            Move Fore
+                        </button>
+                        <button class="operationButtons" id="moveB" onmousedown="btnDn(this)" onmouseup="btnUp(this)">
+                            Move Back
+                        </button>
+                        <button class="operationButtons" id="strafeR" onmousedown="btnDn(this)" onmouseup="btnUp(this)">
+                            Strafe Right
+                        </button>
+                    </div>
+                </div>
                 <p id ="rD2p">
 
                 </p>
@@ -129,7 +150,30 @@
                 ['r', 30, -170, 20, -50],
             ];
             var rayDistances = [];
-            
+            var controls = {
+                strafeL = False,
+                strafeR = False,
+                moveF = False,
+                moveB = False,
+                turnL = False,
+                turnR = False,
+            };
+            var keyBinds = {
+                strafeL = "K",
+                strafeR = ";",
+                moveF = "O",
+                moveB = "L",
+                turnL = "A",
+                turnR = "D",
+            };
+            var buttonDown = {
+                strafeL = False,
+                strafeR = False,
+                moveF = False,
+                moveB = False,
+                turnL = False,
+                turnR = False,
+            };
             /* Keys Pressed */ {
                 window.onkeydown = keyPress;
                 window.onkeyup = keyUnpress;
@@ -146,7 +190,24 @@
                     let keyIndex = allKeysDown.indexOf(keyDown);
                     if (keyIndex > -1) allKeysDown.splice(keyIndex, 1);
                 }
-                function isKeyDown (keyFocus) {return (allKeysDown.indexOf(keyFocus) > -1);}
+                function checkControls () {
+                    const ctrlNames = Object.getOwnPropertyNames(controls);
+                    for (let ctrlI = 0; ctrlI < ctrlNames.length; ctrlI++) {
+                        let ctrlFocus = ctrlNames[ctrlI];
+                        let ctrlKey = keyBinds[ctrlFocus];
+                        ctrlKey = allKeysDown.indexOf(ctrlKey) > -1;
+                        let ctrlButton = buttonDown[ctrlFocus];
+                        controls[ctrlFocus] = ctrlKey || ctrlButton;
+                    }
+                }
+                function btnDn (button) {
+                    let buttonFocus = button.id;
+                    if (Object.getOwnPropertyNames(buttonDown).indexOf(buttonFocus) > -1) buttonDown[buttonFocus] = True;
+                }
+                function btnUp (button) {
+                    let buttonFocus = button.id;
+                    if (Object.getOwnPropertyNames(buttonDown).indexOf(buttonFocus) > -1) buttonDown[buttonFocus] = False;
+                }
             }
 
             function getXonStage (x) {return (x / stage.w + 0.5) * topDownGameDisplay.width;}
@@ -342,18 +403,20 @@
                 document.getElementById("allKeysDown").innerHTML = allKeysDown.join(', ');
 
                 checkDisplay();
+                checkControls();
 
-                deltaDrad = 0;
-                if (isKeyDown("A")) deltaDrad += 1;
-                if (isKeyDown("D")) deltaDrad -= 1;
-                deltaDrad *= deltaTime;
-                deltaDrad *= player.real.turn;
-                player.real.d = (player.real.d + deltaDrad + rad(360)) % (rad(360));
-                
+                /* Turn left right */ {
+                    deltaDrad = 0;
+                    if (controls.turnL) deltaDrad += 1;
+                    if (controls.turnR) deltaDrad -= 1;
+                    deltaDrad *= deltaTime;
+                    deltaDrad *= player.real.turn;
+                    player.real.d = (player.real.d + deltaDrad + rad(360)) % (rad(360));
+                }
                 /* Front back */ {
                     let deltaPos = 0;
-                    if (isKeyDown("O")) deltaPos += 1;
-                    if (isKeyDown("L")) deltaPos -= 1;
+                    if (controls.moveF) deltaPos += 1;
+                    if (controls.moveB) deltaPos -= 1;
                     deltaXpos = Math.cos(player.real.d) * deltaPos * player.real.step * deltaTime;
                     deltaYpos = Math.sin(player.real.d) * deltaPos * player.real.step * deltaTime;
                     player.real.x += deltaXpos;
@@ -361,8 +424,8 @@
                 }
                 /* Side to side */ {
                     let deltaPos = 0;
-                    if (isKeyDown("K")) deltaPos += 1;
-                    if (isKeyDown(";")) deltaPos -= 1;
+                    if (controld.strafeL) deltaPos += 1;
+                    if (controls.strafeR) deltaPos -= 1;
                     deltaXpos = Math.cos(player.real.d + rad(90)) * deltaPos * player.real.step * deltaTime;
                     deltaYpos = Math.sin(player.real.d + rad(90)) * deltaPos * player.real.step * deltaTime;
                     player.real.x += deltaXpos;
