@@ -50,7 +50,7 @@
                 <canvas id="firstPersonGameDisplay" width="10" height="100" class="subsectionTextarea primaryDivider">
                 </canvas>
                 <p id="testLoop">
-                    I like men. 
+                    I'm queer and I'm here
                 </p>
                 <div class="mobileControls">
                     <div class="turnControls">
@@ -400,9 +400,9 @@
                     deltaTime = (currFrameTimestamp - prevFrameTimestamp) / 1000;
                 }
 
-                document.getElementById("testLoop").innerHTML = `Move ${controls.moveF} ${controls.strafeL} ${controls.moveB} ${controls.strafeR}, Turn: ${controls.turnL} ${controls.turnR}
+                document.getElementById("testLoop").innerHTML = `Move ${keyBinds.moveF} ${keyBinds.strafeL} ${keyBinds.moveB} ${keyBinds.strafeR}, Turn: ${keyBinds.turnL} ${keyBinds.turnR}
                 ∆t: ${deltaTime} d: ${player.real.d} pos: (${player.real.x}, ${player.real.y})
-                e\ne/ne`;
+                e`;
                 document.getElementById("allKeysDown").innerHTML = allKeysDown.join(', ');
 
                 checkDisplay();
