@@ -401,7 +401,7 @@
                 }
 
                 document.getElementById("testLoop").innerHTML = `Move ${keyBinds.moveF} ${keyBinds.strafeL} ${keyBinds.moveB} ${keyBinds.strafeR}    Turn: ${keyBinds.turnL} ${keyBinds.turnR}`
-                + "\n" + `∆t: ${deltaTime}  d: ${player.real.d}  pos: (${player.real.x}, ${player.real.y})`;
+                `∆t: ${deltaTime}  d: ${player.real.d}  pos: (${player.real.x}, ${player.real.y})`;
                 document.getElementById("allKeysDown").innerHTML = allKeysDown.join(', ');
 
                 checkDisplay();
