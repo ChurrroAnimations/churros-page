@@ -193,14 +193,14 @@
                     if (keyIndex > -1) allKeysDown.splice(keyIndex, 1);
                 }
                 function checkControls () {
-                    //const ctrlNames = Object.getOwnPropertyNames(controls);
-                    /*for (let ctrlI = 0; ctrlI < ctrlNames.length; ctrlI++) {
+                    const ctrlNames = Object.getOwnPropertyNames(controls);
+                    for (let ctrlI = 0; ctrlI < ctrlNames.length; ctrlI++) {
                         let ctrlFocus = ctrlNames[ctrlI];
                         let ctrlKey = keyBinds[ctrlFocus];
                         ctrlKey = allKeysDown.indexOf(ctrlKey) > -1;
                         let ctrlButton = buttonDown[ctrlFocus];
                         controls[ctrlFocus] = ctrlKey || ctrlButton;
-                    }*/
+                    }
                 }
                 function btnDn (button) {
                     //let buttonFocus = button.id;
