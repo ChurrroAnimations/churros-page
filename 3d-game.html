@@ -400,7 +400,7 @@
                     deltaTime = (currFrameTimestamp - prevFrameTimestamp) / 1000;
                 }
 
-                document.getElementById("testLoop").innerHTML = "e\ne";
+                document.getElementById("testLoop").innerHTML = "e<br>e";
                     //`Move ${keyBinds.moveF} ${keyBinds.strafeL} ${keyBinds.moveB} ${keyBinds.strafeR}    Turn: ${keyBinds.turnL} ${keyBinds.turnR}`
                 //+ `∆t: ${deltaTime}  d: ${player.real.d}  pos: (${player.real.x}, ${player.real.y})`;
                 document.getElementById("allKeysDown").innerHTML = allKeysDown.join(', ');
