@@ -50,7 +50,7 @@
                 <canvas id="firstPersonGameDisplay" width="10" height="100" class="subsectionTextarea primaryDivider">
                 </canvas>
                 <p id="testLoop">
-                    I like men. 
+                    I'm queer and I'm here
                 </p>
                 <div class="mobileControls">
                     <div class="turnControls">
@@ -112,7 +112,7 @@
                     real : {
                         x : 0,
                         y : 0,
-                        d : 0.26179938779,
+                        d : -0.26179938779,
                         s : 10,
                         turn : 2 * Math.PI ,
                         step : 100,
@@ -401,7 +401,7 @@
                 }
 
                 document.getElementById("testLoop").innerHTML = `Move ${keyBinds.moveF} ${keyBinds.strafeL} ${keyBinds.moveB} ${keyBinds.strafeR}    Turn: ${keyBinds.turnL} ${keyBinds.turnR}
-                \n∆t: ${deltaTime}  d: ${player.real.d}  pos: (${player.real.x}, ${player.real.y})`;
+                \\n∆t: ${deltaTime}  d: ${player.real.d}  pos: (${player.real.x}, ${player.real.y})`;
                 document.getElementById("allKeysDown").innerHTML = allKeysDown.join(', ');
 
                 checkDisplay();
