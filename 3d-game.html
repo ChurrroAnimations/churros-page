@@ -428,7 +428,7 @@
                     player.real.y += deltaYpos;
                 }
                 /* Side to side */ {
-                    let deltaPos = 0;
+                    let deltaPos = 1;
                     //if (controls.strafeL) deltaPos += 1;
                     //if (controls.strafeR) deltaPos -= 1;
                     deltaXpos = Math.cos(player.real.d + rad(90)) * deltaPos * player.real.step * deltaTime;
