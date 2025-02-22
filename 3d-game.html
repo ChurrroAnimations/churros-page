@@ -400,11 +400,11 @@
                     deltaTime = (currFrameTimestamp - prevFrameTimestamp) / 1000;
                 }
 
-                let i1 = []; 
-                i1 = object.getOwnPropertyNames(controls);
+                //let i1 = []; 
+                //i1 = object.getOwnPropertyNames(controls);
                 //for (const [key, val] of Object.entries(controls)) {i1.append(`(${key}: ${val})`);}
                 //let i2 = []; for (const [key, val] of Object.entries(buttonDown)) {i2.append(`(${key}: ${val})`);}
-                document.getElementById("testLoop").innerHTML = i1;
+                document.getElementById("testLoop").innerHTML = "This is supposed to display some debugging stuff for Churro. It's now working for now. In the meantime enjoy the player spinning,  as the controls are screwed up and disabled so they don't screw up the rest of my calamity of a script.";
                 /*`<b>Move:</b> ${keyBinds.moveF} ${keyBinds.strafeL} ${keyBinds.moveB} ${keyBinds.strafeR}  <b>Turn:</b> ${keyBinds.turnL} ${keyBinds.turnR}
                 <br>∆t: ${deltaTime}  d: ${player.real.d}  pos: (${player.real.x}, ${player.real.y})
                 <br><b>controls</b> [${i1.join(" ")}],  <b>buttonDown</b> [${i2.join(" ")}]`;*/
