@@ -414,7 +414,7 @@
                 checkControls();
 
                 /* Turn left right */ {
-                    deltaDrad = 0;
+                    deltaDrad = 1;
                     //if (controls.turnL) deltaDrad += 1;
                     //if (controls.turnR) deltaDrad -= 1;
                     deltaDrad *= deltaTime;
@@ -431,7 +431,7 @@
                     player.real.y += deltaYpos;
                 }
                 /* Side to side */ {
-                    let deltaPos = 1;
+                    let deltaPos = 0;
                     //if (controls.strafeL) deltaPos += 1;
                     //if (controls.strafeR) deltaPos -= 1;
                     deltaXpos = Math.cos(player.real.d + rad(90)) * deltaPos * player.real.step * deltaTime;
