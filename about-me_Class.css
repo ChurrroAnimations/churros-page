@@ -48,12 +48,30 @@
         font-family: 'subsectionText';
         src: url('Resources/Fonts/Comic_Neue/ComicNeue-Regular.ttf');
     }
+    @font-face {
+        font-family: 'MSpapyrus';
+        src: url('Resources/Fonts/Microsoft_Fonts/PAPYRUS.TTF');
+    }
+    @font-face {
+        font-family: 'MScomicSans';
+        src: url('Resources/Fonts/Microsoft_Fonts/comic.ttf');
+    }
     
 .primaryContainer {
     margin: auto;
     width: 60%;
     border-radius: 50px;
     background-color: hsla(196, 100%, 80%, 0.25);
+    backdrop-filter: blur(0.1rem);
+    background-clip: padding-box;
+    border-width: 2px;
+}
+
+.blueContainer {
+    margin: auto;
+    width: 30%;
+    border-radius: 10px;
+    background-color: #0000ff;
     backdrop-filter: blur(0.1rem);
     background-clip: padding-box;
     border-width: 2px;
@@ -182,3 +200,10 @@
     width: 30px;
     margin: auto;
 }   
+
+.iLikeTurtles {
+    width: 100%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}

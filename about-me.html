@@ -23,7 +23,7 @@
         <link rel="canonical" href="https://churrroanimations.github.io/churros-page/about-me" />
     </head>
     <body>
-        <div class="backBlur"></div>
+        <div class="backBlur" id="bgFilter"></div>
 
         <p class="photoCred">
             Text Fonts: Google Fonts
@@ -51,7 +51,7 @@
                     You can also call me Cinnamon or Churro.
                     I don't care which you choose.
                     <br>
-                    I am agender. I am AMAB and transitioning.
+                    I am agender. I am AMAB and transitioning. I use any pronouns.
                     <br>
                     I am a pastafarian.
                 </p>
@@ -70,12 +70,51 @@
                 </h3>
                 <p class="subsectionText">
                     <b>
-                        F*CKING TALK TO ME! 
+                        TALK WITH ME!
                     </b>
                     <br>
-                    Have a conversation with me instead of watching me from the shadows like a creep. That's called stalking btw.
+                    Have a conversation with me. It's very difficult to get to know someone if you've only read their About Me page on their website which only gives surface level information about them. So I implore you to consider the possibiliy of talking with them face to face. :3
                 </p>
             </div>
         </div>
+        <br>
+        <div class="blueContainer primaryDivider" onclick="oldStyle()">
+            <img src="Resources/Page_Resources/I_like_turtles.gif" alt="I like turtles" class="iLikeTurtles">
+        </div>
+
+        <script>
+            function oldStyle() {
+                document.documentElement.style.backgroundImage = "url('Resources/Page_Elements/rotato_turtl.gif')";
+                document.documentElement.style.backgroundRepeat = "repeat";
+                document.documentElement.style.backgroundSize = "10%";
+                filter.style.backdropFilter = `hue-rotate(0deg)`;
+                document.getElementsByClassName("primaryContainer")[0].style.backgroundColor = "#0000ff";
+                document.getElementsByClassName("homeIconImg")[0].src = "Resources/Page_Resources/HomeNeon.svg";
+                let titel = document.getElementsByClassName("sectionHeader")[0];
+                titel.style.fontFamily = "'MSpapyrus', sans-seriff";
+                titel.style.color = "#f00"
+                let subsecs = document.getElementsByClassName("subsectionHeader");
+                for (let i = 0; i < subsecs.length; i++) {
+                    subsecs[i].style.fontFamily = "'MSpapyrus', sans-seriff";
+                    subsecs[i].style.color = "#f0f";
+                }
+                let pgrafs = document.getElementsByClassName("subsectionText");
+                for (let i = 0; i < pgrafs.length; i++) {
+                    pgrafs[i].style.fontFamily = "'MScomicSans', sans-seriff";
+                    pgrafs[i].style.color = "#0f0";
+                }
+                document.documentElement.style.setProperty("--textCyan", "#f00");
+                rainbow();
+            }
+            
+            filter =  document.getElementById("bgFilter");
+            hueRotato = 0;
+            function rainbow() {
+                hueRotato += 10;
+                if (hueRotato > 360) hueRotato -= 360;
+                filter.style.backdropFilter = `hue-rotate(${hueRotato}deg)`;
+                requestAnimationFrame(rainbow);
+            }
+        </script>
 </body>
 </html>
