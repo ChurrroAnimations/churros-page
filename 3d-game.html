@@ -45,37 +45,35 @@
                 <h3 class="subsectionHeader">
                     3D Game Thingy
                 </h3>
-                <canvas id="topDownGameDisplay" width="10" height="100" class="subsectionTextarea primaryDivider">
+                <canvas id="topDownGameDisplay" width="10" height="10" class="subsectionTextarea primaryDivider">
                 </canvas>
-                <canvas id="firstPersonGameDisplay" width="10" height="100" class="subsectionTextarea primaryDivider">
+                <canvas id="firstPersonGameDisplay" width="10" height="10" class="subsectionTextarea primaryDivider">
                 </canvas>
+                <div class="mobileControls">
+                    <button class="controlButtons" id="turnL" onmousedown="btnDn(this)" onmouseup="btnUp(this)">
+                        Turn<br>Left
+                    </button>
+                    <button class="controlButtons" id="turnR" onmousedown="btnDn(this)" onmouseup="btnUp(this)">
+                        Turn<br>Right
+                    </button>
+                    &nbsp;
+                    &nbsp;
+                    <button class="controlButtons" id="strafeL" onmousedown="btnDn(this)" onmouseup="btnUp(this)">
+                        Strafe<br>Left
+                    </button>
+                    <button class="controlButtons" id="moveF" onmousedown="btnDn(this)" onmouseup="btnUp(this)">
+                        Move<br>Fore
+                    </button>
+                    <button class="controlButtons" id="moveB" onmousedown="btnDn(this)" onmouseup="btnUp(this)">
+                        Move<br>Back
+                    </button>
+                    <button class="controlButtons" id="strafeR" onmousedown="btnDn(this)" onmouseup="btnUp(this)">
+                        Strafe<br>Right
+                    </button>
+                </div>
                 <p id="testLoop">
                     I'm queer and I'm here!
                 </p>
-                <div class="mobileControls">
-                    <div class="turnControls">
-                        <button class="operationButtons" id="turnL" onmousedown="btnDn(this)" onmouseup="btnUp(this)">
-                            Turn Left
-                        </button>
-                        <button class="operationButtons" id="turnR" onmousedown="btnDn(this)" onmouseup="btnUp(this)">
-                            Turn Right
-                        </button>
-                    </div>
-                    <div class="moveControls">
-                        <button class="operationButtons" id="strafeL" onmousedown="btnDn(this)" onmouseup="btnUp(this)">
-                            Strafe Left
-                        </button>
-                        <button class="operationButtons" id="moveF" onmousedown="btnDn(this)" onmouseup="btnUp(this)">
-                            Move Fore
-                        </button>
-                        <button class="operationButtons" id="moveB" onmousedown="btnDn(this)" onmouseup="btnUp(this)">
-                            Move Back
-                        </button>
-                        <button class="operationButtons" id="strafeR" onmousedown="btnDn(this)" onmouseup="btnUp(this)">
-                            Strafe Right
-                        </button>
-                    </div>
-                </div>
                 <p id ="rD2p">
 
                 </p>
@@ -84,19 +82,6 @@
                 </p>
             </div>
             <hr class="primaryDivider" style="border: 0px; margin-bottom: 1.2em;">
-            <div class="primaryNestedContainer primaryDivider" style="display:none;" id="memoryDiv">
-                <h2 class="subsectionHeader">
-                    Memory
-                </h2>
-                <ul class="subsectionList">
-                    <li>Data Pointer Location:</li>
-                    <li id="dataPointa">1</li>
-                    <li>Unused User Input Data:</li>
-                    <li id="userImputVar"></li>
-                </ul>
-                <ul class="subsectionList" id="memoryBank">
-                </ul>
-            </div>
         </div>
 
         <!-- Scripts -->
@@ -114,7 +99,7 @@
                         y : 0,
                         d : 0,
                         s : 10,
-                        turn : 2 * Math.PI ,
+                        turn : Math.PI ,
                         step : 100,
                     },
                 };
@@ -202,13 +187,17 @@
                         controls[ctrlFocus] = ctrlKey || ctrlButton;
                     }
                 }
+
                 function btnDn (button) {
-                    //let buttonFocus = button.id;
-                    //if (Object.getOwnPropertyNames(buttonDown).indexOf(buttonFocus) > -1) buttonDown[buttonFocus] = True;
+                    let buttonFocus = button.id;
+                    let buttonFocI = Object.getOwnPropertyNames(buttonDown).indexOf(buttonFocus);
+                    if (buttonFocI > -1) buttonDown[buttonFocus] = true;
                 }
+                
                 function btnUp (button) {
-                    //let buttonFocus = button.id;
-                    //if (Object.getOwnPropertyNames(buttonDown).indexOf(buttonFocus) > -1) buttonDown[buttonFocus] = False;
+                    let buttonFocus = button.id;
+                    let buttonFocI = Object.getOwnPropertyNames(buttonDown).indexOf(buttonFocus);
+                    if (buttonFocI > -1) buttonDown[buttonFocus] = false;
                 }
             }
 
@@ -400,31 +389,45 @@
                     deltaTime = (currFrameTimestamp - prevFrameTimestamp) / 1000;
                 }
 
-                //let i1 = []; 
-                //i1 = object.getOwnPropertyNames(controls);
-                //for (const [key, val] of Object.entries(controls)) {i1.append(`(${key}: ${val})`);}
-                //let i2 = []; for (const [key, val] of Object.entries(buttonDown)) {i2.append(`(${key}: ${val})`);}
-                document.getElementById("testLoop").innerHTML = "This is supposed to display some debugging stuff for Churro. It's now working for now. In the meantime enjoy the player spinning,  as the controls are screwed up and disabled so they don't screw up the rest of my calamity of a script.";
-                /*`<b>Move:</b> ${keyBinds.moveF} ${keyBinds.strafeL} ${keyBinds.moveB} ${keyBinds.strafeR}  <b>Turn:</b> ${keyBinds.turnL} ${keyBinds.turnR}
+                let i1 = []; 
+                {
+                    let objProps = Object.getOwnPropertyNames(controls);
+                    let objValus = Object.values(controls);
+                    for (let objI = 0; objI < objProps.length; objI++) {
+                        let objItem = `(${objProps[objI]}: ${objValus[objI]})`;
+                        i1.push(objItem);
+                    }
+                }
+                
+                let i2 = []; 
+                {
+                    let objProps = Object.getOwnPropertyNames(buttonDown);
+                    let objValus = Object.values(buttonDown);
+                    for (let objI = 0; objI < objProps.length; objI++) {
+                        let objItem = `(${objProps[objI]}: ${objValus[objI]})`;
+                        i2.push(objItem);
+                    }
+                }
+                document.getElementById("testLoop").innerHTML = `<b>Move:</b> ${keyBinds.moveF} ${keyBinds.strafeL} ${keyBinds.moveB} ${keyBinds.strafeR}  <b>Turn:</b> ${keyBinds.turnL} ${keyBinds.turnR}
                 <br>∆t: ${deltaTime}  d: ${player.real.d}  pos: (${player.real.x}, ${player.real.y})
-                <br><b>controls</b> [${i1.join(" ")}],  <b>buttonDown</b> [${i2.join(" ")}]`;*/
+                <br><b>controls</b> [${i1}],  <b>buttonDown</b> [${i2.join(" ")}]`;
                 document.getElementById("allKeysDown").innerHTML = allKeysDown.join(', ');
 
                 checkDisplay();
                 checkControls();
 
                 /* Turn left right */ {
-                    deltaDrad = 0.05;
-                    //if (controls.turnL) deltaDrad += 1;
-                    //if (controls.turnR) deltaDrad -= 1;
+                    deltaDrad = 0;
+                    if (controls.turnL) deltaDrad += 1;
+                    if (controls.turnR) deltaDrad -= 1;
                     deltaDrad *= deltaTime;
                     deltaDrad *= player.real.turn;
                     player.real.d = (player.real.d + deltaDrad + rad(360)) % (rad(360));
                 }
                 /* Front back */ {
                     let deltaPos = 0;
-                    //if (controls.moveF) deltaPos += 1;
-                    //if (controls.moveB) deltaPos -= 1;
+                    if (controls.moveF) deltaPos += 1;
+                    if (controls.moveB) deltaPos -= 1;
                     deltaXpos = Math.cos(player.real.d) * deltaPos * player.real.step * deltaTime;
                     deltaYpos = Math.sin(player.real.d) * deltaPos * player.real.step * deltaTime;
                     player.real.x += deltaXpos;
@@ -432,8 +435,8 @@
                 }
                 /* Side to side */ {
                     let deltaPos = 0;
-                    //if (controls.strafeL) deltaPos += 1;
-                    //if (controls.strafeR) deltaPos -= 1;
+                    if (controls.strafeL) deltaPos += 1;
+                    if (controls.strafeR) deltaPos -= 1;
                     deltaXpos = Math.cos(player.real.d + rad(90)) * deltaPos * player.real.step * deltaTime;
                     deltaYpos = Math.sin(player.real.d + rad(90)) * deltaPos * player.real.step * deltaTime;
                     player.real.x += deltaXpos;

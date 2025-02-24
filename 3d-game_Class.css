@@ -94,24 +94,12 @@
     margin-bottom: 0px;
 }
 
-/*Subsection Text */
-    li {
-        color: var(--textUrple);
-        font-family: 'brainf_ckMemory', sans-serif;
-        display: inline-block;
-        margin: 0 10px;
-    }
-
     .subsectionTextarea {
         border-radius: 5px;
         background-color: hwb(270 80% 10%);
         color: var(--textUrple);
     }
 
-    .brainf_ckInputTxt {
-        color: var(--textUrple);
-        font-family: 'subsectionText', sans-serif;
-    }
     .brainf_ckInputBox {
         border-radius: 5px;
         background-color: hwb(270 30% 10%);
@@ -124,11 +112,16 @@
         color: hsl(270, 50%, 68%);
     }
 
+    .mobileControls {
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center;
+    }
 
-/* Classes for the buttons */
 
-    .operationButtons {
-        width: 120px;
+    .controlButtons {
+        width: 75px;
+        height: 75px;
         margin: auto;
         text-align: center;
         border-radius: 5px;
