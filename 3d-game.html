@@ -71,11 +71,23 @@
                         Strafe<br>Right
                     </button>
                 </div>
+                <div class="tertiaryContainer">
+                    <h3>
+                        FoV:&nbsp;
+                    </h3>
+                    <input id="FoV_slider" type="range" class="controlSliders" min="0" max="360" value="45">
+                    <p id="FoV" class="sliderVal">
+                        45
+                    </p>
+                    <div class="verticalDivider primaryDivider"></div>
+                    <h3>
+                        Resolution:&nbsp;
+                    </h3>
+                    <input type="text" id="res" class="sliderVal controlButtons" style="width: auto; height: auto; margin-top: auto; margin-bottom: auto;">
+                </div>
+                
                 <p id="testLoop">
                     I'm queer and I'm here!
-                </p>
-                <p id ="rD2p">
-
                 </p>
                 <p id="allKeysDown">
 
@@ -104,6 +116,7 @@
                     },
                 };
                 var allKeysDown = [];
+                document.getElementById("res").value = 10;
                 checkDisplay();
 
                 var deltaXpos;
@@ -231,6 +244,7 @@
                 let Dx = Math.cos(d);
                 let Dy = Math.sin(d);
                 let thisRayDistances = [];
+                let iD = NaN;
                 for (let objI = 0; objI < stageObjects.length; objI++) {
                     let objFocus = stageObjects[objI];
                     if (objFocus[0] === 'r') {
@@ -261,13 +275,11 @@
                         let tEnt = Math.max(tXmin, tYmin);
                         let tExt = Math.min(tXmax, tYmax);
 
-                        let iD;
                         if (tEnt > tExt || tExt < 0) continue;
                         else {
                             let iX = Dx * tEnt, iY = Dy * tEnt;
                             iD = Math.sqrt((iX * iX) + (iY * iY), stage.s);
                         }
-                        thisRayDistances.push(iD);
                     } else if (objFocus[0] === 'c') {
                         let cX = objFocus[1], cY = objFocus[2], cR = objFocus[3];
                         let cXoff = Ox - cX;
@@ -286,12 +298,15 @@
                             else iD2 = Math.sqrt(iD2 * iD2 * Dx * Dx + iD2 * iD2 * Dy * Dy);
                             
                             iD = Math.min(iD1, iD2);
-                            thisRayDistances.push(iD);
                         }
+                    }
+                    if (iD != NaN) {
+                    thisRayDistances.push(iD);
                     }
                 }
                 rayDist = Math.min(...thisRayDistances);
                 lineToOnStage(Ox, Oy, Ox + rayDist * Dx, Oy + rayDist * Dy);
+                rayDist *= Math.cos(d - player.real.d);
                 return rayDist;
             }
 
@@ -453,7 +468,13 @@
                         stage.ctx.strokeStyle = "#bf99e6";
                         stage.ctx.lineWidth = 1;
 
-                        castRays(player.real.x, player.real.y, player.real.d, rad(60), 240);
+                        let fov = parseInt(document.getElementById("FoV_slider").value);
+                        let res = parseInt(document.getElementById("res").value);
+                        if (fov == document.getElementById("FoV_slider").max) document.getElementById("FoV").innerHTML = "yes";
+                        else document.getElementById("FoV").innerHTML = fov;
+                        res *= fov;
+                        castRays(player.real.x, player.real.y, player.real.d, rad(fov), res);
+
                         for(let dir = 0; dir < 360; dir++) {
                             lineToOnStage(
                                 player.real.x + Math.cos(rad(dir - 1)) * player.real.s,

@@ -73,8 +73,21 @@
     margin: auto;
 }
 
+.tertiaryContainer{
+    display: flex;
+    margin: auto;
+}
+
 .primaryDivider {
     border: 1px solid rgba(16, 16, 16, 0.33);
+}
+
+.verticalDivider {
+    height: 2em;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: auto;
+    margin-bottom: auto;
 }
 
 .sectionHeader {
@@ -94,41 +107,56 @@
     margin-bottom: 0px;
 }
 
-    .subsectionTextarea {
-        border-radius: 5px;
-        background-color: hwb(270 80% 10%);
-        color: var(--textUrple);
-    }
+.subsectionTextarea {
+    border-radius: 5px;
+    background-color: hwb(270 80% 10%);
+    color: var(--textUrple);
+}
 
-    .brainf_ckInputBox {
-        border-radius: 5px;
-        background-color: hwb(270 30% 10%);
-        color: var(--textUrple);
-        width: 100%;
-        resize: none;
-    }
+.brainf_ckInputBox {
+    border-radius: 5px;
+    background-color: hwb(270 30% 10%);
+    color: var(--textUrple);
+    width: 100%;
+    resize: none;
+}
 
-    ::placeholder {
-        color: hsl(270, 50%, 68%);
-    }
+::placeholder {
+    color: hsl(270, 50%, 68%);
+}
 
-    .mobileControls {
-        margin-left: auto;
-        margin-right: auto;
-        text-align: center;
-    }
+.mobileControls {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
 
+.controlSliders {
+    background-color: var(--textUrple);
+    appearance: none;
+    cursor: pointer;
+    height: 100%;
+    width: 250px;
+    border-radius: 10px;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+.sliderVal {
+    margin-top: auto;
+    margin-bottom: auto;
+}
 
-    .controlButtons {
-        width: 75px;
-        height: 75px;
-        margin: auto;
-        text-align: center;
-        border-radius: 5px;
-        background-color: hwb(270 25% 37.5%);
-        color: var(--textUrple);
-        margin-bottom: 5%;
-    }
+.controlButtons {
+    width: 75px;
+    height: 75px;
+    margin: auto;
+    text-align: center;
+    border-radius: 5px;
+    background-color: hwb(270 25% 37.5%);
+    color: var(--textUrple);
+    margin-bottom: 5%;
+    cursor: pointer;
+}
 
 .homeIconImg {
     width: 30px;
@@ -141,4 +169,4 @@
 .homeIconDiv {
     width: 30px;
     margin: auto;
-}   
+}
