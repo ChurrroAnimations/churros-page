@@ -83,6 +83,7 @@
         </div>
 
         <script>
+            canRainbow = true;
             function oldStyle() {
                 document.documentElement.style.backgroundImage = "url('Resources/Page_Elements/rotato_turtl.gif')";
                 document.documentElement.style.backgroundRepeat = "repeat";
@@ -104,7 +105,10 @@
                     pgrafs[i].style.color = "#0f0";
                 }
                 document.documentElement.style.setProperty("--textCyan", "#f00");
-                rainbow();
+                if (canRainbow) {
+                    rainbow();
+                    canRainbow = false;
+                }
             }
             
             filter =  document.getElementById("bgFilter");
