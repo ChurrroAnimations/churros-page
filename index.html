@@ -83,5 +83,31 @@
                 </a>
             </div>
         </div>
-</body>
+
+        <!-- Check if on a mobile device -->
+        <script>
+            let user = navigator.userAgent.toLowerCase();
+            let devices = ["android", "ipad", "iphone", "kindle"];
+            let isMobile = false;
+            for (i = 0; i < devices.length; i++) {
+                if (user.includes(devices[i])) {
+                    isMobile = true; break;
+                }
+            }
+            if (isMobile) {
+                document.getElementsByClassName("primaryContainer")[0].style.width = "80%";
+                document.getElementsByClassName("sectionHeader")[0].style.fontSize = "90px";
+                txts = document.getElementsByClassName("subsectionHeader");
+                for (let ti = 0; ti < txts.length; ti++) {
+                    let tf = txts[ti];
+                    tf.style.fontSize = "50px";
+                }
+                txts = document.getElementsByClassName("subsectionText");
+                for (let ti = 0; ti < txts.length; ti++) {
+                    let tf = txts[ti];
+                    tf.style.fontSize = "30px";
+                }
+            }
+        </script>
+    </body>
 </html>
