@@ -122,15 +122,15 @@
         </script>
 
         <script>
-            let user = navigator.userAgent;
+            let user = navigator.userAgent.toLowerCase();
             let devices = ["android", "ipad", "iphone", "kindle"];
             let isMobile = false;
             for (i = 0; i < devices.length; i++) {
-                if (user.includes(device[i])) {
+                if (user.includes(devices[i])) {
                     isMobile = true; break;
                 }
             }
-            if (isMobile) document.getElementsByClassName("primaryContainer")[0].width = "80%";
+            if (isMobile) document.getElementsByClassName("primaryContainer")[0].style.width = "80%";
         </script>
 </body>
 </html>
