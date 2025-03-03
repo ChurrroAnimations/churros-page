@@ -120,5 +120,17 @@
                 requestAnimationFrame(rainbow);
             }
         </script>
+
+        <script>
+            let user = navigator.userAgent;
+            let devices = ["android", "ipad", "iphone", "kindle"];
+            let isMobile = false;
+            for (i = 0; i < devices.length; i++) {
+                if (user.includes(device[i])) {
+                    isMobile = true; break;
+                }
+            }
+            if (isMobile) document.getElementsByClassName("primaryContainer")[0].width = "80%";
+        </script>
 </body>
 </html>
