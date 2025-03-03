@@ -101,7 +101,7 @@
     color: #F5FEFF;
     font-family: 'sectionHeader', sans-serif;
     font-weight: bolder;
-    font-size: 4.75vw;
+    font-size: 60px;
     margin-top: -5px;
     margin-bottom: -5px;
 }
@@ -111,7 +111,6 @@
     color: var(--textCyan);
     font-family: 'subsectionHeader', sans-serif;
     margin-bottom: -14px;
-    font-size: 1.5vw;
 }
 
 /*Subsection Text */
@@ -119,7 +118,6 @@
         margin-left: 40px;
         color: var(--textCyan);
         font-family: 'subsectionText', sans-serif;
-        font-size: 1.125vw;
     }
     .subsectionParag {
         text-indent: 25pt;
