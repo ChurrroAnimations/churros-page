@@ -177,18 +177,18 @@
             /* Keys Pressed */ {
                 window.onkeydown = keyPress;
                 window.onkeyup = keyUnpress;
-                document.getElementById("strafeL").addEventListener('pointerup', btnUp(this), false);
-                document.getElementById("strafeL").addEventListener('pointerdown', btnDn(this), false);
-                document.getElementById("strafeR").addEventListener('pointerup', btnUp(this), false);
-                document.getElementById("strafeR").addEventListener('pointerdown', btnDn(this), false);
-                document.getElementById("moveF").addEventListener('pointerup', btnUp(this), false);
-                document.getElementById("moveF").addEventListener('pointerdown', btnDn(this), false);
-                document.getElementById("moveB").addEventListener('pointerup', btnUp(this), false);
-                document.getElementById("moveB").addEventListener('pointerdown', btnDn(this), false);
-                document.getElementById("turnL").addEventListener('pointerup', btnUp(this), false);
-                document.getElementById("turnL").addEventListener('pointerdown', btnDn(this), false);
-                document.getElementById("turnR").addEventListener('pointerup', btnUp(this), false);
-                document.getElementById("turnR").addEventListener('pointerdown', btnDn(this), false);
+                document.getElementById("strafeL").addEventListener('pointerup', (event) => {btnUp(event.currentTarget);}, false);
+                document.getElementById("strafeL").addEventListener('pointerdown', (event) => {btnDn(event.currentTarget);}, false);
+                document.getElementById("strafeR").addEventListener('pointerup', (event) => {btnUp(event.currentTarget);}, false);
+                document.getElementById("strafeR").addEventListener('pointerdown', (event) => {btnDn(event.currentTarget);}, false);
+                document.getElementById("moveF").addEventListener('pointerup', (event) => {btnUp(event.currentTarget);}, false);
+                document.getElementById("moveF").addEventListener('pointerdown', (event) => {btnDn(event.currentTarget);}, false);
+                document.getElementById("moveB").addEventListener('pointerup', (event) => {btnUp(event.currentTarget);}, false);
+                document.getElementById("moveB").addEventListener('pointerdown', (event) => {btnDn(event.currentTarget);}, false);
+                document.getElementById("turnL").addEventListener('pointerup', (event) => {btnUp(event.currentTarget);}, false);
+                document.getElementById("turnL").addEventListener('pointerdown', (event) => {btnDn(event.currentTarget);}, false);
+                document.getElementById("turnR").addEventListener('pointerup', (event) => {btnUp(event.currentTarget);}, false);
+                document.getElementById("turnR").addEventListener('pointerdown', (event) => {btnDn(event.currentTarget);}, false);
                 function keyPress(keyFocus) {
                     let keyDown = keyFocus.key;
                     if (keyDown.length == 1) keyDown = keyDown.toUpperCase();
