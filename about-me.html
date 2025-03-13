@@ -85,27 +85,31 @@
         <script>
             canRainbow = true;
             function oldStyle() {
-                document.documentElement.style.backgroundImage = "url('Resources/Page_Elements/rotato_turtl.gif')";
-                document.documentElement.style.backgroundRepeat = "repeat";
-                document.documentElement.style.backgroundSize = "10%";
-                filter.style.backdropFilter = `hue-rotate(0deg)`;
-                document.getElementsByClassName("primaryContainer")[0].style.backgroundColor = "#0000ff";
-                document.getElementsByClassName("homeIconImg")[0].src = "Resources/Page_Resources/HomeNeon.svg";
-                let titel = document.getElementsByClassName("sectionHeader")[0];
-                titel.style.fontFamily = "'MSpapyrus', sans-seriff";
-                titel.style.color = "#f00"
-                let subsecs = document.getElementsByClassName("subsectionHeader");
-                for (let i = 0; i < subsecs.length; i++) {
-                    subsecs[i].style.fontFamily = "'MSpapyrus', sans-seriff";
-                    subsecs[i].style.color = "#f0f";
-                }
-                let pgrafs = document.getElementsByClassName("subsectionText");
-                for (let i = 0; i < pgrafs.length; i++) {
-                    pgrafs[i].style.fontFamily = "'MScomicSans', sans-seriff";
-                    pgrafs[i].style.color = "#0f0";
-                }
-                document.documentElement.style.setProperty("--textCyan", "#f00");
                 if (canRainbow) {
+                    document.documentElement.style.backgroundImage = "url('Resources/Page_Elements/rotato_turtl.gif')";
+                    document.documentElement.style.backgroundRepeat = "repeat";
+                    document.documentElement.style.backgroundSize = "10%";
+                    filter.style.backdropFilter = `hue-rotate(0deg)`;
+                    document.getElementsByClassName("primaryContainer")[0].style.backgroundColor = "#0000ff";
+                    document.getElementsByClassName("homeIconImg")[0].src = "Resources/Page_Resources/HomeNeon.svg";
+                    let titel = document.getElementsByClassName("sectionHeader")[0];
+                    titel.style.fontFamily = "'MSpapyrus', sans-seriff";
+                    titel.style.color = "#f00"
+                    let subsecs = document.getElementsByClassName("subsectionHeader");
+                    for (let i = 0; i < subsecs.length; i++) {
+                        subsecs[i].style.fontFamily = "'MSpapyrus', sans-seriff";
+                        subsecs[i].style.color = "#f0f";
+                    }
+                    let pgrafs = document.getElementsByClassName("subsectionText");
+                    for (let i = 0; i < pgrafs.length; i++) {
+                        pgrafs[i].style.fontFamily = "'MScomicSans', sans-seriff";
+                        pgrafs[i].style.color = "#0f0";
+                    }
+                    document.documentElement.style.setProperty("--textCyan", "#f00");
+                    let photoCred = document.getElementsByClassName("photoCred")[0];
+                    photoCred.innerHTML = "Text Fonts: Windows 10 System Files<br>Background: Aidan Bettis";
+                    photoCred.style.fontFamily = "'MSimpact', sans-seriff";
+                    photoCred.style.textShadow = "1px 1px 0px #000, 0px 1px 0px #000, -1px 1px 0px #000, 1px 0px 0px #000, -1px 0px 0px #000, 1px -1px 0px #000, 0px -1px 0px #000, -1px -1px 0px #000";
                     rainbow();
                     canRainbow = false;
                 }
