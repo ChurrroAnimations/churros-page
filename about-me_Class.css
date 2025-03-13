@@ -56,6 +56,10 @@
         font-family: 'MScomicSans';
         src: url('Resources/Fonts/Microsoft_Fonts/comic.ttf');
     }
+    @font-face {
+        font-family: 'MSimpact';
+        src: url('Resources/Fonts/Microsoft_Fonts/impact.ttf');
+    }
     
 .primaryContainer {
     margin: auto;
