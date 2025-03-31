@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Churro's Website ~ 3D Game Thingy
+        </title>
+        <link rel="stylesheet" href="3d-game_Class.css">
+        <link rel="icon" href="Resources/Page_Elements/Churro_Page_Icon.svg">
+
+        <!-- Link Embedding -->
+        <meta charset="utf-8" />
+        <meta property="og:site_name" content="Churro's Website ~ Simple 3D Engine" />
+        <meta property="og:title" content="Churro's Website ~ Simple 3D Engine" />
+        <meta name="description" content="This is Simple 3D Engine page for Churro's website." />
+        <meta property="og:description" content="This is the Simple 3D Engine compiler page Churro's website." />
+        <meta property="og:type" content="website" />
+        <meta property="og:image" content="https://churrroanimations.github.io/churros-page/Resources/External/embed-img.jpg" />
+        <meta property="og:image:type" content="image/jpeg" />
+        <meta property="og:image:width" content="1280" />
+        <meta property="og:image:height" content="800" />
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta property="og:url" content="https://churrroanimations.github.io/churros-page/3d-game" />
+        <link rel="canonical" href="https://churrroanimations.github.io/churros-page/3d-game" />
+    </head>
+    <body>
+        <div class="backBlur"></div>
+        <p class="photoCred">
+            Text Fonts: Google Fonts
+            <br>
+            Background: Aidan Bettis
+        </p>
+        <div class="primaryContainer primaryDivider">
+            <!-- Header & Home Button -->
+            <h1 class="sectionHeader">
+                3D Game Thingy
+            </h1>
+            <div class="homeIconDiv">
+                <a href="https://churrroanimations.github.io/churros-page/">
+                    <img src="Resources/Page_Resources/HomeUrpl.svg" alt="Main Menu", class="homeIconImg">
+                </a>
+            </div>
+
+            <!-- Info -->
+            <div class="secondaryContainer" id="gameContainer">
+                <h3 class="subsectionHeader">
+                    3D Game Thingy
+                </h3>
+                <canvas id="topDownGameDisplay" width="10" height="10" class="subsectionTextarea primaryDivider">
+                </canvas>
+                <canvas id="firstPersonGameDisplay" width="10" height="10" class="subsectionTextarea primaryDivider">
+                </canvas>
+                <div class="mobileControls">
+                    <button class="controlButtons" id="turnL" onmousedown="btnDn(this)" onmouseup="btnUp(this)">
+                        Turn<br>Left
+                    </button>
+                    <button class="controlButtons" id="turnR" onmousedown="btnDn(this)" onmouseup="btnUp(this)">
+                        Turn<br>Right
+                    </button>
+                    &nbsp;
+                    &nbsp;
+                    <button class="controlButtons" id="strafeL" onmousedown="btnDn(this)" onmouseup="btnUp(this)">
+                        Strafe<br>Left
+                    </button>
+                    <button class="controlButtons" id="moveF" onmousedown="btnDn(this)" onmouseup="btnUp(this)">
+                        Move<br>Fore
+                    </button>
+                    <button class="controlButtons" id="moveB" onmousedown="btnDn(this)" onmouseup="btnUp(this)">
+                        Move<br>Back
+                    </button>
+                    <button class="controlButtons" id="strafeR" onmousedown="btnDn(this)" onmouseup="btnUp(this)">
+                        Strafe<br>Right
+                    </button>
+                </div>
+                <div class="tertiaryContainer">
+                    <h3>
+                        FoV:&nbsp;
+                    </h3>
+                    <input id="FoV_slider" type="range" class="controlSliders" min="0" max="360" value="45">
+                    <p id="FoV" class="sliderVal">
+                        45
+                    </p>
+                    <div class="verticalDivider primaryDivider"></div>
+                    <h3>
+                        Resolution:&nbsp;
+                    </h3>
+                    <input type="text" id="res" class="sliderVal controlButtons" style="width: auto; height: auto; margin-top: auto; margin-bottom: auto;">
+                </div>
+                
+                <p id="testLoop">
+                    I'm queer and I'm here!
+                </p>
+                <p id="allKeysDown">
+
+                </p>
+                <p id="log">
+
+                </p>
+            </div>
+            <hr class="primaryDivider" style="border: 0px; margin-bottom: 1.2em;">
+        </div>
+
+        <!-- Scripts -->
+        <script>
+            const pLog = document.getElementById("log");
+
+            var player = {
+                p3D : {
+                    xp : 0, //left right
+                    yp : 0, // Up/down
+                    zp : 0, // forward/back
+                    xθ : 0,
+                    yθ : 0,
+                    zθ : 0,
+                },
+            };
+
+            var userInput = {
+                name : ["Strafe Left", "Strafe Right", "Move Fore", "Move Back", "Turn Left", "Turn Right", "Look Up", "Your Mom"],
+                ids : [], master : {}, keyBind : {}, keyDown : {}, buttonDown : {},
+            };
+            /* Setup User Input Object */ {
+                let inputIds = [];
+                let defaultKeyBind = "k;oladws";
+                for (let i = 0; i < userInput.name.length; i++) {
+                    nameFocus = userInput.name[i].split(" ");
+                    thisId = nameFocus[0].toLowerCase() + nameFocus[1][0];
+                    inputIds.push(thisId);
+                    userInput.master[thisId] = false;
+                    userInput.keyBind[thisId] = defaultKeyBind[i];
+                    userInput.keyDown[thisId] = false;
+                    userInput.buttonDown[thisId] = false;
+                }
+                userInput.ids = inputIds;
+                for (let elem of Object.getOwnPropertyNames(userInput)) {
+                    val = userInput[elem];
+                    if (val instanceof Array) {
+                        pLog.innerHTML += `${elem}: [${val.join(", ")}] <br>`;
+                    } else {
+                        let nestedVal = Object.getOwnPropertyNames(val);
+                        pLog.innerHTML += elem + "<br>";
+                        for (nestedElem of nestedVal) {
+                            pLog.innerHTML += `&nbsp;&nbsp;&nbsp;${nestedElem}: ${val[nestedElem]} <br>`;
+                        }
+                    }
+                }
+            }
+            /* E */ {
+                
+            }
+        </script>
+    </body>
+</html>
