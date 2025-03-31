@@ -42,11 +42,11 @@
     }
     @font-face {
         font-family: 'subsectionHeader';
-        src: url('Resources/Fonts/Lora/Static/Lora-Bold.ttf');
+        src: url('Resources/Fonts/Comic_Neue/ComicNeue-Bold.ttf');
     }
     @font-face {
         font-family: 'subsectionText';
-        src: url('Resources/Fonts/Comic_Neue/ComicNeue-Regular.ttf');
+        src: url('Resources/Fonts/Lora/Static/Lora-Bold.ttf');
     }
 
 .primaryContainer {
@@ -85,8 +85,8 @@
 }
 
 .subsectionHeader {
-    text-align: left;
-    color: var(--textPink);
+    text-align: center;
+    color: #FDF5FF;;
     font-family: 'subsectionHeader', sans-serif;
     margin-bottom: -14px;
 }
