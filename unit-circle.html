@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Churro's Website ~ Brainf*ck Compiler
+        </title>
+        <link rel="stylesheet" href="unit-circle_Class.css">
+        <link rel="icon" href="Resources/Page_Elements/Churro_Page_Icon.svg">
+
+        <!-- Link Embedding -->
+        <meta charset="utf-8" />
+        <meta property="og:site_name" content="Churro's Website ~ Brainf*ck" />
+        <meta property="og:title" content="Churro's Website ~ Brainf*ck" />
+        <meta name="description" content="This is the Brainf*ck compiler page for Churro's website." />
+        <meta property="og:description" content="This is the Brainf*ck compiler page Churro's website." />
+        <meta property="og:type" content="website" />
+        <meta property="og:image" content="https://churrroanimations.github.io/churros-page/Resources/External/embed-img.jpg" />
+        <meta property="og:image:type" content="image/jpeg" />
+        <meta property="og:image:width" content="1280" />
+        <meta property="og:image:height" content="800" />
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta property="og:url" content="https://churrroanimations.github.io/churros-page/brainf_ck" />
+        <link rel="canonical" href="https://churrroanimations.github.io/churros-page/brainf_ck" />
+    </head>
+    <body>
+        <div class="backBlur"></div>
+        <p class="photoCred">
+            Text Fonts: Google Fonts
+            <br>
+            Background: Aidan Bettis
+        </p>
+        <div class="primaryContainer primaryDivider">
+            <!-- Header & Home Button -->
+            <h1>
+                Brainf¤ck
+            </h1>
+            <div class="homeIconDiv">
+                <a href="https://churrroanimations.github.io/churros-commissions/">
+                    <img src="Resources/Page_Resources/HomeRed.svg" alt="Main Menu", class="homeIconImg">
+                </a>
+            </div>
+
+            <!-- Info -->
+            <div class="secondaryContainer">
+                <svg id="unitCircle"></svg>
+                <table class="optionsTable">
+                    <tr>
+                        <th onclick="optionToggle(this)" colspan="99" class="options">
+                            Options⇓⇑
+                        </th>
+                    </tr>
+                    <tbody>
+                        <tr>
+                            <th>
+                                Angles:
+                            </th>
+                            <td colspan="3" onclick="aToggle(this)">
+                                0°/90°
+                            </td>
+                            <td colspan="3" onclick="aToggle(this)">
+                                15°/75°
+                            </td>
+                            <td colspan="3" onclick="aToggle(this)">
+                                30°/60°
+                            </td>
+                            <td colspan="3" onclick="aToggle(this)">
+                                45°
+                            </td>
+                        </tr>
+                        <tr>
+                            <th class="emptyCell"></th>
+                            <td colspan="6" onclick="aToggle(this)">
+                                Radians (π)
+                            </td>
+                            <td colspan="6" onclick="aToggle(this)">
+                                Degrees
+                            </td>
+                        </tr>
+                    </tbody>
+                    <tbody>
+                        <tr>
+                            <th>
+                                Trig:
+                            </th>
+                            <td colspan="2" onclick="tToggle(this)">
+                                Sin
+                            </td>
+                            <td colspan="2" onclick="tToggle(this)">
+                                Cos
+                            </td>
+                            <td colspan="2" onclick="tToggle(this)">
+                                Tan
+                            </td>
+                            <td colspan="2" onclick="tToggle(this)">
+                                Csc
+                            </td>
+                            <td colspan="2" onclick="tToggle(this)">
+                                Sec
+                            </td>
+                            <td colspan="2" onclick="tToggle(this)">
+                                Cot
+                            </td>
+                        </tr>
+                        <tr>
+                            <th rowspan="9" class="emptyCell"></th>
+                            <td colspan="6" onclick="tToggle(this)">
+                                Radical
+                            </td>
+                            <td colspan="6" onclick="tToggle(this)" id="Figures">
+                                Figures: 3
+                            </td>
+                        </tr>
+                        <!--
+                        <tr>
+                            <td colspan="4" style="cursor: auto;">
+                                Scale:
+                            </td>
+                            <td colspan="8" style="cursor: default;" id="inputCont">
+                                <input type="number" value="1" id="input">
+                            </td>
+                        </tr>
+                        -->
+                    </tbody>
+                </table>
+                <p>
+                    Trig, sin cos tan csc sec cot
+                    (√6+√2) / 4 = cos 15 deg
+                    (√6-√2) / 4 = sin 15 deg
+                    √6-√2 = sec 15
+                    √6+√2 = cos 15
+                    rad, dec
+                    figs
+                    <br>
+                    1<sup>√6+√2</sup>&frasl;<sub>4</sub>
+
+                </p>
+                <p id="Lists">
+
+                </p>
+            </div>
+        </div>
+
+        <!-- Scripts -->
+        <script>
+            let width = document.getElementsByClassName("secondaryContainer")[0].clientWidth;
+            var svg = document.getElementById("unitCircle"), nameSpace = "http://www.w3.org/2000/svg";
+            //svg.width = width, svg.height = "100%", svg.viewBox = `0 0 ${width} ${width}`;
+            svg.setAttribute("width", width)
+            svg.setAttribute("height", width * 0.85)
+            var unitCircle = document.createElementNS(nameSpace, "circle");
+            let cx = width / 2, cy = cx - 45, cr = width * 0.4;
+            style = 'fill: #0000; stroke: red; stroke-width: 5px;';
+            unitCircle.setAttribute("cx", cx);
+            unitCircle.setAttribute("cy", cy);
+            unitCircle.setAttribute("r", cr);
+            unitCircle.setAttribute('style', style);
+
+            let lines = {
+                //a0 : document.createElementNS(nameSpace, 'line'),
+            }
+
+            
+            let angles = {
+                asInt : {
+                    lAll : [0, 15, 30, 45, 60, 75, 90, 105, 120, 135, 150, 165, 180, 195, 210, 225, 240, 255, 270, 285, 300, 315, 330, 345, 360],
+                    l0_90 : [0, 90, 180, 270, 360],
+                    l15_75 : [15, 75, 105, 165, 195, 255, 285, 345],
+                    l30_60 : [30, 60, 120, 150, 210, 240, 300, 330],
+                    l45 : [45, 135, 225, 315],
+                },
+                deg : {
+                    lAll : ["0°", "15°", "30°", "45°", "60°", "75°", "90°", "105°", "120°", "135°", "150°", "165°", "180°", "195°", "210°", "225°", "240°", "255°", "270°", "285°", "300°", "315°", "330°", "345°", "360°"],
+                    l0_90 : ["0°", "90°", "180°", "270°", "360°"],
+                    l15_75 : ["15°", "75°", "105°", "165°", "195°", "255°", "285°", "345°"],
+                    l30_60 : ["30°", "60°", "120°", "150°", "210°", "240°", "300°", "330°"],
+                    l45 : ["45°", "135°", "225°", "315°"],
+                },
+                rad : {
+                    π : {
+                        lAll : ["0", "<sup>π</sup>&frasl;<sub>12</sub>", "<sup>π</sup>&frasl;<sub>6</sub>", "<sup>π</sup>&frasl;<sub>4</sub>", "<sup>π</sup>&frasl;<sub>3</sub>", "<sup>5π</sup>&frasl;<sub>12</sub>", "<sup>π</sup>&frasl;<sub>2</sub>", "<sup>7π</sup>&frasl;<sub>12</sub>", "<sup>2π</sup>&frasl;<sub>3</sub>", "<sup>3π</sup>&frasl;<sub>4</sub>", "<sup>5π</sup>&frasl;<sub>6</sub>", "<sup>11π</sup>&frasl;<sub>12</sub>", "π", "<sup>13π</sup>&frasl;<sub>12</sub>", "<sup>7π</sup>&frasl;<sub>6</sub>", "<sup>5π</sup>&frasl;<sub>4</sub>", "<sup>4π</sup>&frasl;<sub>3</sub>", "<sup>17π</sup>&frasl;<sub>12</sub>", "<sup>3π</sup>&frasl;<sub>2</sub>", "<sup>19π</sup>&frasl;<sub>12</sub>", "<sup>5π</sup>&frasl;<sub>3</sub>", "<sup>7π</sup>&frasl;<sub>4</sub>", "<sup>11π</sup>&frasl;<sub>6</sub>", "<sup>23π</sup>&frasl;<sub>12</sub>", "2π"],
+                        l0_90 : ["0", "<sup>π</sup>&frasl;<sub>2</sub>", "π", "<sup>3π</sup>&frasl;<sub>2</sub>", "2π"],
+                        l15_75 : ["<sup>π</sup>&frasl;<sub>12</sub>", "<sup>5π</sup>&frasl;<sub>12</sub>", "<sup>7π</sup>&frasl;<sub>12</sub>", "<sup>11π</sup>&frasl;<sub>12</sub>", "<sup>13π</sup>&frasl;<sub>12</sub>", "<sup>17π</sup>&frasl;<sub>12</sub>", "<sup>19π</sup>&frasl;<sub>12</sub>", "<sup>23π</sup>&frasl;<sub>12</sub>"],
+                        l30_60 : ["<sup>π</sup>&frasl;<sub>6</sub>", "<sup>π</sup>&frasl;<sub>3</sub>", "<sup>2π</sup>&frasl;<sub>3</sub>", "<sup>5π</sup>&frasl;<sub>6</sub>", "<sup>7π</sup>&frasl;<sub>6</sub>", "<sup>4π</sup>&frasl;<sub>3</sub>", "<sup>5π</sup>&frasl;<sub>3</sub>", "<sup>11π</sup>&frasl;<sub>6</sub>"],
+                        l45 : ["<sup>π</sup>&frasl;<sub>4</sub>", "<sup>3π</sup>&frasl;<sub>4</sub>", "<sup>5π</sup>&frasl;<sub>4</sub>", "<sup>7π</sup>&frasl;<sub>4</sub>"],
+                    },
+                    τ : {
+                        lAll : [],
+                        l0_90 : [],
+                        l15_75 : [],
+                        l30_60 : [],
+                        l45 : [],
+                    },
+                    D : {
+                        lAll : [],
+                        l0_90 : [],
+                        l15_75 : [],
+                        l30_60 : [],
+                        l45 : [],
+                    }
+                },
+            };
+            
+            
+            {
+                function addLine(dir) {
+                    let adir = "a" + dir;
+                    lines[adir] = document.createElementNS(nameSpace, 'line');
+                    lines[adir].setAttribute('x1', cx);
+                    lines[adir].setAttribute('y1', cy);
+                    let rad = dir * Math.PI / 180;
+                    lines[adir].setAttribute('x2', (Math.cos(rad) * cr) + cx);
+                    lines[adir].setAttribute('y2', (Math.sin(rad) * cr) + cy);
+                    lines[adir].setAttribute('style', style);
+                }
+
+                let dList = angles.asInt.lAll;
+
+                for (let dir in dList) {
+                addLine(dList[dir]);
+                svg.appendChild(lines["a" + dList[dir]]);
+                }
+            }
+
+            svg.appendChild(unitCircle);
+            //svg.appendChild(lines.a15);
+
+            let urMom;
+            
+            function optionToggle (obj) {
+                //alert(obj.innerHTML "Options⇓⇑");
+                if (obj.innerHTML.includes("⇓")) {
+                    document.getElementsByTagName("tbody")[1].style.display = "none";
+                    document.getElementsByTagName("tbody")[2].style.display = "none";
+                    obj.innerHTML = "Options ⇑";
+                    //obj.innerHTML = "Options⇓"
+                } else {
+                    document.getElementsByTagName("tbody")[1].style.display = null;
+                    document.getElementsByTagName("tbody")[2].style.display = null;
+                    obj.innerHTML = "Options ⇓";
+                }
+            }
+
+            function aToggle (obj) {
+                //alert(obj.innerHTML)
+                if (obj.innerHTML.includes("Radians")) {
+                    if (obj.innerHTML.includes("π")) obj.innerHTML = "Radians (τ)";
+                    else if (obj.innerHTML.includes("τ")) obj.innerHTML = "Radians (Dec)";
+                    else if (obj.innerHTML.includes("Dec")) {
+                        obj.innerHTML = "Radians";
+                        obj.style.backgroundColor = "hsl(0, 0%, 60%)";
+                    } else {
+                        obj.innerHTML = "Radians (π)";
+                        obj.style.backgroundColor = null;
+                    }
+                }
+
+                if (obj.innerHTML.includes("Degrees")) {
+                    if (obj.style.backgroundColor == "") {
+                        obj.style.backgroundColor = "hsl(0, 0%, 60%)";
+                    } else {
+                        obj.style.backgroundColor = null;
+                    }
+                }
+
+                if (obj.innerHTML.includes("°")) {
+                    if (obj.style.backgroundColor == "") {
+                        obj.style.backgroundColor = "hsl(0, 0%, 60%)";
+                    } else {
+                        obj.style.backgroundColor = null;
+                    }
+                }
+                //°
+            }
+
+            function tToggle (obj) {
+                if (obj.innerHTML.includes("Radical")) {
+                    obj.innerHTML = "Decimal";
+                    obj.colSpan = "99";
+                    document.getElementById("Figures").style.display = "none";
+                }
+                else if (obj.innerHTML.includes("Decimal")) {
+                    obj.innerHTML = "Radical";
+                    obj.colSpan = "6";
+                    document.getElementById("Figures").style.display = null;
+                } else if (obj.innerHTML.includes("Figures")) {
+                    if (obj.innerHTML.includes("3")) obj.innerHTML = "Figures: 0";
+                    else if (obj.innerHTML.includes("0")) obj.innerHTML = "Figures: 1";
+                    else if (obj.innerHTML.includes("1")) obj.innerHTML = "Figures: 2";
+                    else if (obj.innerHTML.includes("2")) obj.innerHTML = "Figures: 3";
+                } else {
+                    if (obj.style.backgroundColor == "") {
+                        obj.style.backgroundColor = "hsl(0, 0%, 60%)";
+                    } else {
+                        obj.style.backgroundColor = null;
+                    }
+                }
+                
+            }
+
+            function deletus () {
+                svg.removeChild(unitCircle);
+            }
+        </script>
+        
+        <!-- Check if on a mobile device -->
+        <script>
+            let user = navigator.userAgent.toLowerCase();
+            let devices = ["android", "ipad", "iphone", "kindle"];
+            let isMobile = false;
+            for (i = 0; i < devices.length; i++) {
+                if (user.includes(devices[i])) {
+                    isMobile = true; break;
+                }
+            }
+            if (isMobile) {
+                document.getElementsByClassName("primaryContainer")[0].style.width = "80%";
+                document.getElementsByTagName("h1")[0].style.fontSize = "90px";
+                txts = document.getElementsByClassName("subsectionHeader");
+                for (let ti = 0; ti < txts.length; ti++) {
+                    let tf = txts[ti];
+                    tf.style.fontSize = "50px";
+                }
+                txts = document.getElementsByClassName("subsectionText");
+                for (let ti = 0; ti < txts.length; ti++) {
+                    let tf = txts[ti];
+                    tf.style.fontSize = "30px";
+                }
+            }
+
+            // Adjust the input box
+            /*inputCont = document.getElementById("inputCont");
+            input = document.getElementById("input");
+            input.style.height = inputCont.offsetHeight * 0.75 + "px";
+            input.style.width = inputCont.offsetWidth * 0.85 + "px";*/
+        </script>
+    </body>
+</html>

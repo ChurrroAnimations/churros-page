@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Churro's Website ~ Embedding
+        </title>
+        <link rel="stylesheet" href="index_Class.css">
+        <link rel="icon" href="Resources/Page_Elements/Churro_Page_Icon.svg">
+        
+        <!-- Link Embedding -->
+        <meta charset="utf-8" />
+        <meta property="og:site_name" content="Churro's Website ~ Embedding" />
+        <meta property="og:title" content="Churro's Website ~ Embedding" />
+        <meta name="description" content="Churro uses this page for embeds." />
+        <meta property="og:description" content="Churro uses this page for embeds." />
+        <meta property="og:type" content="website" />
+        <meta property="og:image" content="https://churrroanimations.github.io/churros-page/Resources/External/embed-img.jpg" />
+        <meta property="og:image:type" content="image/jpeg" />
+        <meta property="og:image:width" content="1280" />
+        <meta property="og:image:height" content="800" />
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta property="og:url" content="https://churrroanimations.github.io/churros-page/embedding" />
+        <link rel="canonical" href="https://churrroanimations.github.io/churros-page/embedding" />
+        <meta http-equiv="refresh" content="0; https://churrroanimations.github.io/churros-page" />
+    </head>
+    <body>
+        <div class="backBlur"></div>
+        <p class="photoCred">
+            <u>Text Fonts:</u> Google Fonts
+            <br>
+            <u>Background:</u> Aidan Bettis
+        </p>
+        <div class="primaryContainer primaryDivider">
+            <h1 class="sectionHeader">
+                Embedding
+            </h1>
+            <div class="linkButtons">
+                <h2 class="homeGreeting">
+                    The page should have redirected you home, but it seems as though that failed.
+                    <br>
+                    This site is for just for embedding. Nothing else; its not really meant to be viewed in your browser.
+                </h2>
+                <a href="https://churrroanimations.github.io/churros-page/", class="linkButtonsLink">
+                    <div class="filln">
+                        <p class="text">
+                            Return home
+                        </p>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        <!-- Check if on a mobile device -->
+        <script>
+            let user = navigator.userAgent.toLowerCase();
+            let devices = ["android", "ipad", "iphone", "kindle"];
+            let isMobile = false;
+            for (i = 0; i < devices.length; i++) {
+                if (user.includes(devices[i])) {
+                    isMobile = true; break;
+                }
+            }
+            if (isMobile) {
+                document.getElementsByClassName("primaryContainer")[0].style.width = "80%";
+                document.getElementsByClassName("sectionHeader")[0].style.fontSize = "90px";
+                txts = document.getElementsByClassName("subsectionHeader");
+                for (let ti = 0; ti < txts.length; ti++) {
+                    let tf = txts[ti];
+                    tf.style.fontSize = "50px";
+                }
+                txts = document.getElementsByClassName("subsectionText");
+                for (let ti = 0; ti < txts.length; ti++) {
+                    let tf = txts[ti];
+                    tf.style.fontSize = "30px";
+                }
+            }
+        </script>
+    </body>
+</html>
