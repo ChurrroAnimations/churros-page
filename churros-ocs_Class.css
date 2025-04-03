@@ -115,6 +115,10 @@
         color: var(--textGreem);
         font-family: 'subsectionText', sans-serif;
     }
+    .subsecTxtNoShift {
+        color: var(--textGreem);
+        font-family: 'subsectionText', sans-serif;
+    }
     .subsectionParag {
         text-indent: 25pt;
         text-align: justify;
