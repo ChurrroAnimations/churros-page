@@ -1,0 +1,442 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 280">
+    <defs>
+        <linearGradient id="lg1">
+            <stop
+                class="transg1"
+                offset="1%"
+            />
+            <stop
+                class="enby1"
+                offset="25%"
+            />
+            <stop
+                class="black"
+                offset="50%"
+            />
+            <stop
+                class="transf1"
+                offset="75%"
+            />
+            <stop
+                class="acespec1"
+                offset="99%"
+            />
+        </linearGradient>
+        
+        <linearGradient id="lg2">
+            <stop
+                class="transg1"
+                offset="1%"
+            />
+            <stop
+                class="enby1"
+                offset="25%"
+            />
+            <stop
+                class="g404e1"
+                offset="50%"
+            />
+            <stop
+                class="transf2"
+                offset="75%"
+            />
+            <stop
+                class="acespec1"
+                offset="99%"
+            />
+        </linearGradient>
+        
+        <linearGradient id="lg3">
+            <stop
+                class="transg2"
+                offset="1%"
+            />
+            <stop
+                class="enby1"
+                offset="25%"
+            />
+            <stop
+                class="g404e1"
+                offset="50%"
+            />
+            <stop
+                class="transf2"
+                offset="75%"
+            />
+            <stop
+                class="acespec1"
+                offset="99%"
+            />
+        </linearGradient>
+        
+        <linearGradient id="lg4">
+            <stop
+                class="transg2"
+                offset="1%"
+            />
+            <stop
+                class="white"
+                offset="25%"
+            />
+            <stop
+                class="g404e1"
+                offset="50%"
+            />
+            <stop
+                class="transf2"
+                offset="75%"
+            />
+            <stop
+                class="acespec2"
+                offset="99%"
+            />
+        </linearGradient>
+        
+        <linearGradient id="lg5">
+            <stop
+                class="transg2"
+                offset="1%"
+            />
+            <stop
+                class="white"
+                offset="25%"
+            />
+            <stop
+                class="white"
+                offset="50%"
+            />
+            <stop
+                class="transf3"
+                offset="75%"
+            />
+            <stop
+                class="acespec2"
+                offset="99%"
+            />
+        </linearGradient>
+        
+        <linearGradient id="lg6">
+            <stop
+                class="white"
+                offset="1%"
+            />
+            <stop
+                class="white"
+                offset="25%"
+            />
+            <stop
+                class="white"
+                offset="50%"
+            />
+            <stop
+                class="transf3"
+                offset="75%"
+            />
+            <stop
+                class="acespec2"
+                offset="99%"
+            />
+        </linearGradient>
+        
+        <linearGradient id="lg7">
+            <stop
+                class="white"
+                offset="1%"
+            />
+            <stop
+                class="white"
+                offset="25%"
+            />
+            <stop
+                class="g404e2"
+                offset="50%"
+            />
+            <stop
+                class="transf4"
+                offset="75%"
+            />
+            <stop
+                class="acespec2"
+                offset="99%"
+            />
+        </linearGradient>
+        
+        <linearGradient id="lg8">
+            <stop
+                class="white"
+                offset="1%"
+            />
+            <stop
+                class="enby2"
+                offset="25%"
+            />
+            <stop
+                class="g404e2"
+                offset="50%"
+            />
+            <stop
+                class="transf4"
+                offset="75%"
+            />
+            <stop
+                class="acespec3"
+                offset="99%"
+            />
+        </linearGradient>
+        
+        <linearGradient id="lg9">
+            <stop
+                class="white"
+                offset="1%"
+            />
+            <stop
+                class="enby2"
+                offset="25%"
+            />
+            <stop
+                class="white"
+                offset="50%"
+            />
+            <stop
+                class="transf3"
+                offset="75%"
+            />
+            <stop
+                class="acespec3"
+                offset="99%"
+            />
+        </linearGradient>
+        
+        <linearGradient id="lg10">
+            <stop
+                class="transg2"
+                offset="1%"
+            />
+            <stop
+                class="enby2"
+                offset="25%"
+            />
+            <stop
+                class="white"
+                offset="50%"
+            />
+            <stop
+                class="transf3"
+                offset="75%"
+            />
+            <stop
+                class="acespec3"
+                offset="99%"
+            />
+        </linearGradient>
+        
+        <linearGradient id="lg11">
+            <stop
+                class="transg2"
+                offset="1%"
+            />
+            <stop
+                class="enby2"
+                offset="25%"
+            />
+            <stop
+                class="g404e1"
+                offset="50%"
+            />
+            <stop
+                class="transf2"
+                offset="75%"
+            />
+            <stop
+                class="acespec3"
+                offset="99%"
+            />
+        </linearGradient>
+        
+        <linearGradient id="lg12">
+            <stop
+                class="transg2"
+                offset="1%"
+            />
+            <stop
+                class="enby3"
+                offset="25%"
+            />
+            <stop
+                class="g404e1"
+                offset="50%"
+            />
+            <stop
+                class="transf2"
+                offset="75%"
+            />
+            <stop
+                class="acespec4"
+                offset="99%"
+            />
+        </linearGradient>
+        
+        <linearGradient id="lg13">
+            <stop
+                class="transg1"
+                offset="1%"
+            />
+            <stop
+                class="enby3"
+                offset="25%"
+            />
+            <stop
+                class="g404e1"
+                offset="50%"
+            />
+            <stop
+                class="transf2"
+                offset="75%"
+            />
+            <stop
+                class="acespec4"
+                offset="99%"
+            />
+        </linearGradient>
+        
+        <linearGradient id="lg14">
+            <stop
+                class="transg1"
+                offset="1%"
+            />
+            <stop
+                class="enby3"
+                offset="25%"
+            />
+            <stop
+                class="black"
+                offset="50%"
+            />
+            <stop
+                class="transf1"
+                offset="75%"
+            />
+            <stop
+                class="acespec4"
+                offset="99%"
+            />
+        </linearGradient>
+    </defs>
+    <style> 
+        .black {stop-color: #000}
+        .white {stop-color: #FFF}
+        .transg1 {stop-color: #5BCFFA}
+        .transg2 {stop-color: #F5ABB9}
+        .enby1 {stop-color: #FFF430}
+        .enby2 {stop-color: #9C59D1}
+        .enby3 {stop-color: #292929}
+        .g404e1 {stop-color: #BABABA}
+        .g404e2 {stop-color: #B9F484}
+        .transf1 {stop-color: #73DEFF}
+        .transf2 {stop-color: #FFE1ED}
+        .transf3 {stop-color: #FFB5D6}
+        .transf4 {stop-color: #FE8CBF}
+        .acespec1 {stop-color: #151847}
+        .acespec2 {stop-color: #7657AE}
+        .acespec3 {stop-color: #DA92B4}
+        .acespec4 {stop-color: #FFECED}
+    </style>
+    <rect
+        width="420"
+        height="40"
+        x="0"
+        y="0"
+        fill="url(#lg1)"
+    />
+    <rect
+        width="420"
+        height="16"
+        x="0"
+        y="40"
+        fill="url(#lg2)"
+    />
+    <rect
+        width="420"
+        height="14"
+        x="0"
+        y="56"
+        fill="url(#lg3)"
+    />
+    <rect
+        width="420"
+        height="10"
+        x="0"
+        y="70"
+        fill="url(#lg4)"
+    />
+    <rect
+        width="420"
+        height="32"
+        x="0"
+        y="80"
+        fill="url(#lg5)"
+    />
+    <rect
+        width="420"
+        height="8"
+        x="0"
+        y="112"
+        fill="url(#lg6)"
+    />
+    <rect
+        width="420"
+        height="20"
+        x="0"
+        y="120"
+        fill="url(#lg7)"
+    />
+    <rect
+        width="420"
+        height="20"
+        x="0"
+        y="140"
+        fill="url(#lg8)"
+    />
+    <rect
+        width="420"
+        height="8"
+        x="0"
+        y="160"
+        fill="url(#lg9)"
+    />
+    <rect
+        width="420"
+        height="32"
+        x="0"
+        y="168"
+        fill="url(#lg10)"
+    />
+    <rect
+        width="420"
+        height="10"
+        x="0"
+        y="200"
+        fill="url(#lg11)"
+    />
+    <rect
+        width="420"
+        height="14"
+        x="0"
+        y="210"
+        fill="url(#lg12)"
+    />
+    <rect
+        width="420"
+        height="16"
+        x="0"
+        y="224"
+        fill="url(#lg13)"
+    />
+    <rect
+        width="420"
+        height="40"
+        x="0"
+        y="240"
+        fill="url(#lg14)"
+    />
+</svg>
