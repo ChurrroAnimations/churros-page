@@ -449,36 +449,17 @@
                 }
             }
             if (isMobile) {
-                txts = document.getElementsByClassName("primaryContainer");
-                for (let ti = 0; ti < txts.length; ti++) {
-                    let tf = txts[ti];
-                    tf.style.width = "80%";
-                }
-                txts = document.getElementsByClassName("div-gap");
-                for (let ti = 0; ti < txts.length; ti++) {
-                    let tf = txts[ti];
-                    tf.style.width = "80%";
-                }
-                txts = document.getElementsByClassName("sectionHeader");
-                for (let ti = 0; ti < txts.length; ti++) {
-                    let tf = txts[ti];
-                    tf.style.fontSize = "90px";
-                }
-                txts = document.getElementsByClassName("subsectionHeader");
-                for (let ti = 0; ti < txts.length; ti++) {
-                    let tf = txts[ti];
-                    tf.style.fontSize = "50px";
-                }
-                txts = document.getElementsByClassName("sectionHeaderSecondary");
-                for (let ti = 0; ti < txts.length; ti++) {
-                    let tf = txts[ti];
-                    tf.style["fontSize"] = "250px";
-                }
-                txts = document.getElementsByClassName("subsectionText");
-                for (let ti = 0; ti < txts.length; ti++) {
-                    let tf = txts[ti];
-                    tf.style.fontSize = "30px";
-                }
+                changeAttrOfClass("primaryContainer", "width", "80%");
+                changeAttrOfClass("sectionHeader", "fontSize", "90px");
+                changeAttrOfClass("subsectionHeader", "fontSize", "50px");
+                changeAttrOfClass("sectionHeaderSecondary", "fontSize", "50px");
+                changeAttrOfClass("sectionHeaderSecondary", "fontSize", "30px");
+
+
+
+
+
+        
             }
         </script>
     </body>
