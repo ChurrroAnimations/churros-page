@@ -109,7 +109,7 @@
 
         <!-- Churro the turtle plushie -->
         <div class="primaryContainer primaryDivider" id="churro-fursona">
-            <br class="h3-gap">
+            <br class="h3-gap" style="display:none; line-height:50%;">
             <h3 class="sectionHeaderSecondary">
                 Churro the turtle plushie
             </h3>
@@ -185,11 +185,11 @@
             </div>
         </div>
 
-        <br><br><br><br>
+        <br><br><br><br class="div-gap">
 
         <!-- Frida -->
         <div class="primaryContainer primaryDivider" id="frida-fursona">
-            <br class="h3-gap">
+            <br class="h3-gap" style="display:none; line-height:50%;">
             <h3 class="sectionHeaderSecondary">
                 Frida of the occult
             </h3>
@@ -241,11 +241,11 @@
             </div>
         </div>
 
-        <br><br><br><br>
+        <br><br><br><br class="div-gap">
 
         <!-- Garlic Toast -->
         <div class="primaryContainer primaryDivider" id="garlic-toast-fursona">
-            <br class="h3-gap">
+            <br class="h3-gap" style="display:none; line-height:50%;">
             <h3 class="sectionHeaderSecondary">
                 Garlic Toast
             </h3>
@@ -300,7 +300,7 @@
 
         <!-- Cinnamon Churro -->
         <div class="primaryContainer primaryDivider" id="cinnamon-churro-ponysona">
-            <br class="h3-gap">
+            <br class="h3-gap" style="display:none; line-height:50%;">
             <h3 class="sectionHeaderSecondary">
                 Cinnamon Churro
             </h3>
@@ -352,10 +352,11 @@
             </div>
         </div>
 
-        <br><br><br><br>
+        <br><br><br><br class="div-gap">
 
         <!-- Sopapilla -->
         <div class="primaryContainer primaryDivider" id="sopapilla-the-rainwing">
+            <br class="h3-gap" style="display:none; line-height:50%;">
             <h3 class="sectionHeaderSecondary">
                 Sopapilla the RainWing
             </h3>
@@ -440,8 +441,16 @@
                     isMobile = true; break;
                 }
             }
+            function changeAttrOfClass () {
+                
+            }
             if (isMobile) {
                 txts = document.getElementsByClassName("primaryContainer");
+                for (let ti = 0; ti < txts.length; ti++) {
+                    let tf = txts[ti];
+                    tf.style.width = "80%";
+                }
+                txts = document.getElementsByClassName("div-gap");
                 for (let ti = 0; ti < txts.length; ti++) {
                     let tf = txts[ti];
                     tf.style.width = "80%";
@@ -452,6 +461,11 @@
                     tf.style.fontSize = "90px";
                 }
                 txts = document.getElementsByClassName("subsectionHeader");
+                for (let ti = 0; ti < txts.length; ti++) {
+                    let tf = txts[ti];
+                    tf.style.fontSize = "45px";
+                }
+                txts = document.getElementsByClassName("sectionHeaderSecondary");
                 for (let ti = 0; ti < txts.length; ti++) {
                     let tf = txts[ti];
                     tf.style.fontSize = "50px";
