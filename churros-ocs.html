@@ -437,8 +437,16 @@
                 }
             }
             if (isMobile) {
-                document.getElementsByClassName("primaryContainer")[0].style.width = "80%";
-                document.getElementsByClassName("sectionHeader")[0].style.fontSize = "90px";
+                txts = document.getElementsByClassName("primaryContainer");
+                for (let ti = 0; ti < txts.length; ti++) {
+                    let tf = txts[ti];
+                    tf.style.fontSize = "80%";
+                }
+                txts = document.getElementsByClassName("sectionHeader");
+                for (let ti = 0; ti < txts.length; ti++) {
+                    let tf = txts[ti];
+                    tf.style.fontSize = "90px";
+                }
                 txts = document.getElementsByClassName("subsectionHeader");
                 for (let ti = 0; ti < txts.length; ti++) {
                     let tf = txts[ti];
