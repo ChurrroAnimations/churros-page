@@ -441,8 +441,12 @@
                     isMobile = true; break;
                 }
             }
-            function changeAttrOfClass () {
-                
+            function changeAttrOfClass (clas, attr, val,) {
+                txts = document.getElementsByClassName(clas);
+                for (let ti = 0; ti < txts.length; ti++) {
+                    let tf = txts[ti];
+                    tf.style[attr] = val;
+                }
             }
             if (isMobile) {
                 txts = document.getElementsByClassName("primaryContainer");
