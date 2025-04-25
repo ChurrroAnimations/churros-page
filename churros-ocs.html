@@ -171,8 +171,8 @@
                 </h3>
                 <p class="subsectionText subsectionParag randoPronouns">
                     Churro is a stuffed animal, making [Obj] very flammable and susceptible to attacks.
-                    Churro is able to regrow any damage [Sbj] has sustained, due to [PA] ability to shape shift.
-                    Churro can perfectly replicate any object, but soft and squishy to the touch, as is [PA] nature.
+                    Churro is able to regrow any damage [Sbj] has sustained, due to [Psv] ability to shape shift.
+                    Churro can perfectly replicate any object, but soft and squishy to the touch, as is [Psv] nature.
                 </p>
                 <h3 class="subsectionHeader">
                     Backstory
@@ -185,7 +185,18 @@
                 <br>
             </div>
             <script>
-                document.getElementsByClassName("randoPronouns")[0].innerHTML = "hello";
+                pElems = document.getElementsByClassName("randoPronouns")[0];
+                for (let pi = 0; pi < pElem.length; pi++) {
+                    let pFocus = pElem[pi];
+                    let pWords = pFocus.split(" ");
+                    for (let pwi = 0; pwi < pWords.length; pwi++) {
+                        pwFocus = pFocus[pwi];
+                        if (pwFocus.includes("Sbj")) {
+                            //Math.round(
+
+                        }
+                    }
+                }
             </script>
         </div>
 
