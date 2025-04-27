@@ -172,7 +172,7 @@
                 <p class="subsectionText subsectionParag randoPronouns">
                     Churro is a stuffed animal, making [Obj] very flammable and susceptible to attacks.
                     Churro is able to regrow any damage [Sbj] has sustained, due to [Psv] ability to shape shift.
-                    Churro can perfectly replicate any object, but soft and squishy to the touch, as is [Psv] nature.
+                    Churro can perfectly replicate any object, remains but soft and squishy to the touch, as is [Psv] nature.
                 </p>
                 <h3 class="subsectionHeader">
                     Backstory
@@ -200,11 +200,8 @@
                         if (pwFocus.includes("[Psv]")) pwNew = Psv[rPnoun];
                         else if (pwFocus.includes("[Sbj]")) pwNew = Sbj[rPnoun];
                         else if (pwFocus.includes("[Rfx]")) pwNew = Rfx[rPnoun];
-                        else if (pwFocus.includes("[Obj]")) pwNew = Obj[rPnoun];
-
-                        else if (pwFocus.includes("[Sbj]")) {
-
-                        } else if (pwFocus.includes("speaks") && rPnoun == 2) pwNew = "speak";
+                        else if (pwFocus.includes("[Obj]")) pwNew = Obj[rPnoun];                        
+                        else if (pwFocus.includes("speaks") && rPnoun == 2) pwNew = "speak";
                         if (pwNew != pwFocus) {
                             if (pwFocus.includes(",")) pwNew += ",";
                             if (pWords[pwi - 1] == "") {
