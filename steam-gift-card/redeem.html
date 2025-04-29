@@ -17,7 +17,7 @@
         <meta property="twitter:card" content="summary_large_image" />
         <meta property="og:url" content="https://churrroanimations.github.io/churros-page/steam/redeem" />
         <link rel="canonical" href="https://churrroanimations.github.io/steam/redeem" />
-        <meta http-equiv="refresh" content="0; https://youtu.be/dQw4w9WgXcQ" />
+        <!--meta http-equiv="refresh" content="0; https://youtu.be/dQw4w9WgXcQ" /-->
     </head>
     <body>
         <div class="backBlur"></div>
@@ -47,6 +47,34 @@
                 </a>
             </div>
         </div>
+        <svg
+            style="
+                position: fixed;
+                width: 200vw;
+                height: 200vh;
+                top: -50%;
+                left: -50%;
+            "
+            xmlns="http://www.w3.org/2000/svg"
+            class="yeetMe"
+        >
+            <rect
+                width="100%"
+                height="100%"
+                fill="white"
+            />
+        </svg>
+        <script>
+            window.addEventListener('load', slep);
+            let didSlep = false;
+            function slep () {
+                if (didSlep) document.getElementsByClassName("yeetMe")[0].remove();
+                else {
+                    didSlep = true;
+                    setTimeout(slep, 1000);
+                }
+            }
+        </script>
 
         <!-- Check if on a mobile device -->
         <script>
