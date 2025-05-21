@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Churro's Website
+        </title>
+        <link rel="stylesheet" href="index-embed_Styles.css">
+        <link rel="icon" href="Resources/Page_Elements/Churro_Page_Icon.svg">
+        
+        <!-- Link Embedding -->
+        <meta charset="utf-8" />
+        <meta property="og:site_name" content="Churro's Website" />
+        <meta property="og:title" content="Churro's Website" />
+        <meta name="description" content="This is Churro's website. To anyone reading this, if you're having a bad day, remember that it does not define you and no feeling is final. No matter how bad it may seem to get, it will get better." />
+        <meta property="og:description" content="This is Churro's website. To anyone reading this, if you're having a bad day, remember that it does not define you and no feeling is final. No matter how bad it may seem to get, it will get better." />
+        <meta property="og:type" content="website" />
+        <meta property="og:image" content="https://churrroanimations.github.io/churros-page/Resources/External/embed-img.jpg" />
+        <meta property="og:image:type" content="image/jpeg" />
+        <meta property="og:image:width" content="1280" />
+        <meta property="og:image:height" content="800" />
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta property="og:url" content="https://churrroanimations.github.io/churros-page/" />
+        <link rel="canonical" href="https://churrroanimations.github.io/churros-page/" />
+    </head>
+    <body>
+        <div class="backBlur"></div>
+
+        <p class="photoCred">
+            <u>Text Fonts:</u> Google Fonts
+            <br>
+            <u>Background:</u> Tuesday Bettis
+        </p>
+            <div class="primaryContainer primaryDivider">
+
+                <hr class="mainDivider">
+                <h1 class="sectionHeader">
+                    Churro's website
+                </h1>
+                <br>
+        </div>
+        <!-- Check if on a mobile device -->
+        <script>
+            let user = navigator.userAgent.toLowerCase();
+            let devices = ["android", "ipad", "iphone", "kindle"];
+            let isMobile = false;
+            for (i = 0; i < devices.length; i++) {
+                if (user.includes(devices[i])) {
+                    isMobile = true; break;
+                }
+            }
+            if (isMobile) {
+                document.getElementsByClassName("primaryContainer")[0].style.width = "80%";
+                document.getElementsByClassName("sectionHeader")[0].style.fontSize = "90px";
+                txts = document.getElementsByClassName("subsectionHeader");
+                for (let ti = 0; ti < txts.length; ti++) {
+                    let tf = txts[ti];
+                    tf.style.fontSize = "50px";
+                }
+                txts = document.getElementsByClassName("subsectionText");
+                for (let ti = 0; ti < txts.length; ti++) {
+                    let tf = txts[ti];
+                    tf.style.fontSize = "30px";
+                }
+            }
+        </script>
+    </body>
+</html>
