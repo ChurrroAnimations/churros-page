@@ -132,87 +132,63 @@
                     Unknown
                     <br>
                     <b><u>Age:</u></b>
-                    1 year*<sub>(See Backstory)</sub>
+                    5 years*<sub>(See Backstory)</sub>
                 </p>
                 <h3 class="subsectionHeader">
                     Physical description
                 </h3>
                 <p class="subsectionText subsectionParag randoPronounsChurro">
                     Churro is a well-loved plushie.
-                    [Psv] fabric a faded deep green, complimented by a lime coloured underbelly dulled by time. 
-                    Churro's chipped, beady eyes, seated in on either side of [Psv] squished dome head.
-                    Even whilst devoid of emotion and separated, they convey a story in unison.
+                    Her fabric a faded deep green, complimented by a lime coloured underbelly dulled by time.
+                    Churro's chipped, beady eyes, seated in on either side of her squished dome head.
+                    Even whilst devoid of emotion and separate, the pupils convey a story in unison.
                     A field of underbelly hue spanning the two with a derpy V-shaped maw equidistant.
                 </p>
                 <p class="subsectionText subsectionParag randoPronounsChurro">
                     Churro's fur a scratchy and worn fabric.
-                    A far cry from [Psv] prime, yet a seldom soft lingers, alluding [Psv] former.
-                    [Psv] stuffing deflated and firm albeit still plump and airy.
+                    A far cry from her prime, yet a seldom soft lingers, alluding her former.
+                    Her stuffing deflated and firm albeit still plump and airy.
                     Churro's nostalgic features providing condolence and comfort just the same.
                 </p>
                 <p class="subsectionText subsectionParag randoPronounsChurro">
                     A being of undecipherable androgyny, in both voice and silhouette.
-                    [Sbj] speaks in soothing and melodic form, uttered in perfect tongue.
+                    She speaks in soothing and melodic form, uttered in perfect tongue.
                     Churro's voice analogous to that of a young child.
+                </p>
                 <h3 class="subsectionHeader">
                     Personality
                 </h3>
                 <p class="subsectionText subsectionParag randoPronounsChurro">
-                    An air of mystery and unease stemming from [Psv] inexplicable origins accompanies Churro's presence.
-                    Yet, [Sbj] poses insubstantial threat, presenting as though harmless and gentle.
-                    Churro's sole reason for willing [Rfx] into existence is to offer hugs to those consenting.
-                    Churro prefers to observe from afar, inquiring about one's views on hugs, nothing more.
+                    Churro is sincere, charismatic, and gentle, though vaguely mysterious.
+                    A seldom air of unease enshrouds her, hardly detectable.
+                    The unrest layered by her ever static face acting an obstacle to intuitively determine her emotions.
+                    She has a soft, supple touch, paired with a soft-spoken, almost hypnotic voice.
+                    She prefers observe from afar, yet friendly, open and easily manipulated.
                 </p>
                 <h3 class="subsectionHeader">
                     Strengths and weaknesses
                 </h3>
                 <p class="subsectionText subsectionParag randoPronounsChurro">
-                    Churro is a stuffed animal, making [Obj] very flammable and susceptible to attacks.
-                    Churro is able to regrow any damage [Sbj] has sustained, due to [Psv] ability to shape shift.
-                    Churro can perfectly replicate any object, remains but soft and squishy to the touch, as is [Psv] nature.
+                    Churro is a turtle plushie.
+                    Thusly susceptible to many forms of damage, such as fire or cuts, exacerbated by her inability in self-repararation.
+                    However she is also pliable, squishy, and nimble.
+                    Churro's body may also function like a sponge to store scents or young quantities of fluids.
+                    Furthermore, she can bear a significant weight of blunt force.
+                    Churro is very persuasive and can ease tensions effectively.
+                    She can also mimic other objects, shifting into a plush form of it.
                 </p>
                 <h3 class="subsectionHeader">
                     Backstory
                 </h3>
                 <p class="subsectionText subsectionParag randoPronounsChurro">
-                    Churro is a extranatural entity that was first officially documented in February of 2024, with rumored mentions dating back much further.
-                    Enshrouded in such mystery, perpetuating [Rfx] to suffer a fate of Schrödinger's design as people attempt to unbox her past.
-                    Ergo, trying to quantify [Psv] age is futile.
+                    Churro is a extranatural entity that decided to spontaneously start existing one day, assuming the form of a turtle plushie.
+                    A known certainty being she dates back at least to summer of 2020, with rumors suggesting older.
+                    Though the abundance of red herrings perpetuates the final verdict to suffer a fade of Schrödinger's design as people attempt to unbox her past.
                 </p>
                 <br>
             </div>
-            <script>
-                pElems = [...document.getElementsByClassName("randoPronounsChurro")];
-                let rPnoun = Math.round(Math.random() * 3);
-                let Psv = ["his", "her", "their"];
-                let Sbj = ["he", "she", "they"];
-                let Rfx = ["himself", "herself", "themself"];
-                let Obj = ["him", "her", "them"];
-                for (let pi = 0; pi < pElems.length; pi++) {
-                    let pFocus = pElems[pi].innerHTML;
-                    let pWords = pFocus.split(" ");
-                    for (let pwi = 0; pwi < pWords.length; pwi++) {
-                        let pwFocus = pWords[pwi];
-                        let pwNew = pwFocus;
-                        if (pwFocus.includes("[Psv]")) pwNew = Psv[rPnoun];
-                        else if (pwFocus.includes("[Sbj]")) pwNew = Sbj[rPnoun];
-                        else if (pwFocus.includes("[Rfx]")) pwNew = Rfx[rPnoun];
-                        else if (pwFocus.includes("[Obj]")) pwNew = Obj[rPnoun];                        
-                        else if (pwFocus.includes("speaks") && rPnoun == 2) pwNew = "speak";
-                        if (pwNew != pwFocus) {
-                            if (pwFocus.includes(",")) pwNew += ",";
-                            if (pWords[pwi - 1] == "") {
-                                pwNew = pwNew.split(""), pwNew[0] = pwNew[0].toUpperCase(), pwNew = pwNew.join("");
-                            }
-                        }
-                        pWords[pwi] = pwNew;
-                    }
-                    pElems[pi].innerHTML = pWords.join(" ");
-
-                }
-            </script>
         </div>
-
+        
         <br><br><br><br class="divGap">
 
         <!-- Frida -->
