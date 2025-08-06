@@ -4,9 +4,9 @@
         <title>
             Churro's Website
         </title>
-        <link rel="stylesheet" href="index_Styles.css">
+        <link rel="stylesheet" href="index-seasonings.css">
         <link rel="icon" href="Resources/Page_Elements/Churro_Page_Icon.svg">
-        
+
         <!-- Link Embedding -->
         <meta charset="utf-8" />
         <meta property="og:site_name" content="Churro's Website" />
@@ -24,129 +24,41 @@
     </head>
     <body>
         <div class="backBlur"></div>
-
-        <p class="photoCred">
-            <u>Text Fonts:</u> Google Fonts
-            <br>
-            <u>Background:</u> Tuesday Bettis
+        <br>
+        
+        <p class="warningWarning">
+            WARNING!
         </p>
-        <div class="primaryContainer primaryDivider">
-            <p class="homeGreeting">
-                Hello, I'm Churro and I welcome you to my crevice of the interwebs.
-            </p>
-            <hr class="mainDivider">
-            <h1 class="sectionHeader">
-                Home Page
-            </h1>
-            <div class="linkButtons">
-                <h1 class="subsectionHeader">
-                    Basic Churro Info
+        <p class="warningInfo">
+            I am mildly deranged, and my website probably reflects that.
+            <br>
+            My website contains content that may affect photosensitive web surfers or that may be upsetting to some indivduals.
+        </p>
+        
+        <br>
+        
+        <div class="ocdTriggerer"><!-- Evil >:3c -->
+            <div class="transContainer">
+                <p class="welcome">
+                    Hello, I'm Churro and I welcome you to my crevice of the interwebs! :D
+                </p>
+                <h1 class="titl">
+                    Home Page
                 </h1>
-                <a href="https://churrroanimations.github.io/churros-page/about-churro", class="linkButtonsLink">
-                    <div class="filln">
-                        <p class="text">
-                            About Churro
-                        </p>
+                <div class="buttonHerder">
+                    <div class="buttonHerderPartTwoElectricBoogaloo">
+                        <button type="button" onclick="location.href = 'about-churro';">About Churro</button>
+                        <button type="button">More Churro</button>
+                        <button type="button">Churro's OCs</button>
+                        <button type="button">Game Vault</button>
+                        <button type="button">Brainf*ck Compiler</button>
+                        <button type="button">GitHub Repo
+                        </button>
+                        <button type="button"></button>
                     </div>
-                </a>
-                <a href="https://churrroanimations.github.io/churros-page/more-churro", class="linkButtonsLink">
-                    <div class="filln">
-                        <p class="text">
-                            More Churro
-                        </p>
-                    </div>
-                </a>
-                <a href="https://churrroanimations.github.io/churros-page/churros-ocs", class="linkButtonsLink">
-                    <div class="filln">
-                        <p class="text">
-                            Churro's OC's
-                        </p>
-                    </div>
-                </a>
-
-                <h1 class="subsectionHeader">
-                    Other Pages
-                </h1>
-                <a href="https://churrroanimations.github.io/churros-page/game-ideas", class="linkButtonsLink">
-                    <div class="filln">
-                        <p class="text">
-                            Game Ideas
-                        </p>
-                    </div>
-                </a>
-                <a href="https://churrroanimations.github.io/churros-page/brainf_ck", class="linkButtonsLink">
-                    <div class="filln">
-                        <p class="text">
-                            Brainf*ck compiler
-                        </p>
-                    </div>
-                </a>
-                <a href="https://churrroanimations.github.io/churros-page/3d-game", class="linkButtonsLink">
-                    <div class="filln">
-                        <p class="text">
-                            3D "Game"
-                        </p>
-                    </div>
-                </a>
-                <a href="https://churrroanimations.github.io/churros-page/unit-circle", class="linkButtonsLink">
-                    <div class="filln">
-                        <p class="text">
-                            Unit Circle
-                        </p>
-                    </div>
-                </a>
-
-                <h1 class="subsectionHeader">
-                    External Links
-                </h1>
-                <a href="https://github.com/ChurrroAnimations/churros-page", class="linkButtonsLink">
-                    <div class="filln">
-                        <p class="text">
-                            GitHub Repository
-                        </p>
-                    </div>
-                </a>
-                <a href="https://churrroanimations.github.io/churros-commissions/", class="linkButtonsLink">
-                    <div class="filln">
-                        <p class="text">
-                            Commissions page
-                        </p>
-                    </div>
-                </a>
-                <a href="https://www.spaghettimonster.org/", class="linkButtonsLink">
-                    <div class="filln">
-                        <p class="text">
-                            FSM Church
-                        </p>
-                    </div>
-                </a>
+                </div>
+                <br>
             </div>
         </div>
-
-        <!-- Check if on a mobile device -->
-        <script>
-            let user = navigator.userAgent.toLowerCase();
-            let devices = ["android", "ipad", "iphone", "kindle"];
-            let isMobile = false;
-            for (i = 0; i < devices.length; i++) {
-                if (user.includes(devices[i])) {
-                    isMobile = true; break;
-                }
-            }
-            if (isMobile) {
-                document.getElementsByClassName("primaryContainer")[0].style.width = "80%";
-                document.getElementsByClassName("sectionHeader")[0].style.fontSize = "90px";
-                txts = document.getElementsByClassName("subsectionHeader");
-                for (let ti = 0; ti < txts.length; ti++) {
-                    let tf = txts[ti];
-                    tf.style.fontSize = "50px";
-                }
-                txts = document.getElementsByClassName("subsectionText");
-                for (let ti = 0; ti < txts.length; ti++) {
-                    let tf = txts[ti];
-                    tf.style.fontSize = "30px";
-                }
-            }
-        </script>
     </body>
 </html>
