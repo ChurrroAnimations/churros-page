@@ -1,0 +1,89 @@
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30">
+    <!-- Chimney -->
+    <rect
+        width="3"
+        height="9"
+        x="6"
+        y="6"
+        stroke="black" 
+        stroke-width="1"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        fill="lime"
+    />
+    <!-- Main Structure -->
+    <path
+        d="
+            M 15  6
+            L  6 15
+            V 27
+            H 24
+            V 15
+            Z
+        "
+        stroke="black" 
+        stroke-width="1"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        fill="green"
+    />
+    <!-- Rooof -->
+    <path
+        d="
+            M 15  3
+            L 27 15
+            H 24
+            L 15  6
+            L  6 15
+            H  3
+            Z
+        "
+        stroke="black" 
+        stroke-width="1"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        fill="green"
+    />
+    <!-- Face -->
+    <path
+        d="
+            M 15 10
+            L 21 16
+            V 27
+            H  9
+            V 16
+            Z
+        "
+        stroke="black" 
+        stroke-width="1"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        fill="lime"
+    />
+    <!-- Eyes -->
+    <circle
+        r="2"
+        cx="9"
+        cy="18"
+        fill="black"
+    />
+    <circle
+        r="2"
+        cx="21"
+        cy="18"
+        fill="black"
+    />
+    <!-- V Mouth -->
+    <path
+        d="
+            M 11.262 21.160
+            C 12.589 21.351 15.000 22.887 15.000 22.887
+            C 15.000 22.887 17.411 21.351 18.738 21.160
+        "
+        stroke="black"
+        stroke-width="1"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        fill="none"
+    />
+</svg>
