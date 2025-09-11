@@ -3,30 +3,30 @@
 :root {
     background-size: cover;
     background-repeat: no-repeat;
-    background-image: url('resources/bAcKgRoUnD/Walker.jpg');
+    background-image: url('../Backgrounds/Walker.jpg');
     background-color: #27272C;
     background-attachment: fixed;
 }
 
 /* Fonts */
 @font-face {
-    src: url('resources/fOnTs/Microsoft_Fonts/impact.ttf');
+    src: url('../Font/Microsoft/impact.ttf');
     font-family: 'warning';
 }
 @font-face {
-    src: url('resources/fOnTs/Playwrite_HR_Lijeva/PlaywriteHRLijeva-VariableFont_wght.ttf');
+    src: url('../Font/Google/Playwrite_HR_Lijeva/PlaywriteHRLijeva-VariableFont_wght.ttf');
     font-family: 'titl';
 }
 @font-face {
-    src: url('resources/fOnTs/Microsoft_Fonts/PAPYRUS.TTF');
+    src: url('../Font/Microsoft/PAPYRUS.TTF');
     font-family: 'hover';
 }
 @font-face {
-    src: url('resources/fOnTs/Unna/Unna-Regular.ttf');
+    src: url('../Font/Google/Unna/Unna-Regular.ttf');
     font-family: 'hewwo';
 }
 @font-face {
-    src: url('resources/fOnTs/Microsoft_Fonts/comic.ttf');
+    src: url('../Font/Microsoft/comic.ttf');
     font-family: 'button';
 }
 
@@ -102,7 +102,7 @@ button {
     font-size: 20px;
     cursor: alias;
     background-color: chartreuse;
-    background-image: url('resources/girlkisser.png');
+    background-image: url('../Page/GirlKisser.png');
     background-size: contain;
     -webkit-text-stroke-width: 1px;
     color: mediumblue;
@@ -114,7 +114,7 @@ button:hover {
     background-color: deeppink;
     width: 100px;
     height: 100px;
-    background-image: url('resources/turtl.png');
+    background-image: url('../Page/Emoji.png');
     color: indigo;
     background-size: contain;
     font-size: 20px;
