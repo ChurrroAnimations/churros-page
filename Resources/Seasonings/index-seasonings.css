@@ -31,7 +31,7 @@
 }
 
 .warningWarning {
-    width: 20%;
+    width: 30%;
     text-align: center;
     margin: auto;
     font-size:xx-large;
@@ -43,7 +43,7 @@
 }
 
 .warningInfo {
-    width: 20%;
+    width: 30%;
     text-align: center;
     margin: auto;
     font-weight: lighter;
