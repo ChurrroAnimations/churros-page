@@ -1,0 +1,151 @@
+/* Everthing is sorted by reverse alphabetical. */
+
+:root {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-image: url('../../Backgrounds/Walker.jpg');
+    background-color: #27272C;
+    background-attachment: fixed;
+}
+
+/* Fonts */
+@font-face {
+    src: url('../../Font/Microsoft/impact.ttf');
+    font-family: 'Warning';
+}
+@font-face {
+    src: url('../../Font/Google/Playwrite_HR_Lijeva/PlaywriteHRLijeva-VariableFont_wght.ttf');
+    font-family: 'Titl';
+}
+@font-face {
+    src: url('../../Font/Microsoft/PAPYRUS.TTF');
+    font-family: 'Hover';
+}
+@font-face {
+    src: url('../../Font/Google/Unna/Unna-Regular.ttf');
+    font-family: 'Hewwo';
+}
+@font-face {
+    src: url('../../Font/Microsoft/MATURASC.TTF');
+    font-family: 'Button';
+}
+
+table tr {
+    background-color: rebeccapurple;
+}
+
+table th {
+    border: 4px double gold;
+}
+
+table img {
+    margin: auto;
+    width: 3em;
+    height: 3em;
+}
+
+table {
+    transform:  translateX(-50%);
+    top: auto;
+    position: fixed;
+    left: 50%;
+    font-size: 4rem;
+}
+
+rt {
+    font-size: .3em;
+    font-family: "Button", serif;
+    background: linear-gradient(to bottom, hotpink 30%, maroon 50%, salmon 90%);
+    background-clip: none;
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+}
+
+h1 {
+    text-align: center;
+    letter-spacing: 30px;
+    font-weight: bolder;
+    font-size: 40px;
+    font-family: 'Titl', sans-serif;
+    color: #FDF5FF;
+}
+
+b {
+    margin: auto;
+    font-size: 1.5rem;
+    cursor: pointer;
+    border: 5px dashed black;
+    background-color: blue;
+}
+
+.warningTitle {
+    width: 30%;
+    text-align: center;
+    margin: auto;
+    font-size: 2rem;
+    font-family: 'Warning', serif;
+    color:  black;
+    border: 5px black solid;
+    background-color: orange;
+    backdrop-filter: blur(0.1rem);
+}
+
+.warningInfo {
+    width: 30%;
+    text-align: center;
+    margin: auto;
+    font-weight: lighter;
+    font-size: 1.2rem;
+    font-family: 'Warning', serif;
+    color: black;
+    border: 5px black solid;
+    border-top: 0 transparent solid;
+    background-color: white;
+    backdrop-filter: blur(0.1rem);
+}
+
+.welcome {
+    text-align: center;
+    padding: 4px;
+    font-family: 'Hewwo', serif;
+    color: white;
+    margin-bottom: -30px;
+    margin-top: 20px;
+}
+
+.transContainer {
+    width: 60%;
+    margin: auto;
+    box-shadow:
+        0 0 0 3px rgb(91, 206, 250),
+        0 0 0 6px rgb(245, 169, 184),
+        0 0 0 9px rgb(255, 255, 255),
+        0 0 0 12px rgb(245, 169, 184),
+        0 0 0 15px rgb(91, 206, 250);
+    border: transparent;
+    border-top-left-radius: 50px;
+    border-bottom-right-radius: 50px;
+    border-top-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+    background-color: rgba(245, 169, 184, 0.75);
+    backdrop-filter: blur(0.1rem);
+}
+
+.ocdTriggerer {
+    width: 95%;
+}
+
+.no {
+    color: transparent;
+    background-image: none;
+    background-color: transparent;
+}
+
+.backBlur {
+    width: 100%;
+    top: 0;
+    position: fixed;
+    left: 0;
+    height: 100%;
+    backdrop-filter: blur(5px);
+}

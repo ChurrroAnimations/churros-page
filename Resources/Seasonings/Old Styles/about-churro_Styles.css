@@ -1,0 +1,213 @@
+:root {
+    --textCyan: hsl(190, 100%, 93%);
+    background-color: #27272C;
+    background-image: url('Resources/Page_Elements/Canyon.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.backBlur {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    backdrop-filter: blur(5px);
+}
+
+.photoCred {
+    background-color: #9B9B9B80;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    margin: 0;
+    padding: 5px;
+    font-size: small;
+    color: hsl(186, 100%, 98%);
+}
+
+/* Fonts */
+    @font-face {
+        font-family: 'homeGreeting';
+        src: url('Resources/Fonts/Unna/Unna-Regular.ttf');
+    }
+    @font-face {
+        font-family: 'sectionHeader';
+        src: url('Resources/Fonts/Playwrite_HR_Lijeva/PlaywriteHRLijeva-VariableFont_wght.ttf');
+    }
+    @font-face {
+        font-family: 'linkButtons';
+        src: url('Resources/Fonts/Ubuntu/Ubuntu-Bold.ttf');
+    }
+    @font-face {
+        font-family: 'subsectionHeader';
+        src: url('Resources/Fonts/Lora/Static/Lora-Bold.ttf');
+    }
+    @font-face {
+        font-family: 'subsectionText';
+        src: url('Resources/Fonts/Comic_Neue/ComicNeue-Regular.ttf');
+    }
+    @font-face {
+        font-family: 'MSpapyrus';
+        src: url('Resources/Fonts/Microsoft_Fonts/PAPYRUS.TTF');
+    }
+    @font-face {
+        font-family: 'MScomicSans';
+        src: url('Resources/Fonts/Microsoft_Fonts/comic.ttf');
+    }
+    @font-face {
+        font-family: 'MSimpact';
+        src: url('Resources/Fonts/Microsoft_Fonts/impact.ttf');
+    }
+    
+.primaryContainer {
+    margin: auto;
+    width: 60%;
+    border-radius: 50px;
+    background-color: hsla(196, 100%, 80%, 0.25);
+    backdrop-filter: blur(0.1rem);
+    background-clip: padding-box;
+    border-width: 2px;
+}
+
+.blueContainer {
+    margin: auto;
+    width: 30%;
+    border-radius: 10px;
+    background-color: #0000ff;
+    backdrop-filter: blur(0.1rem);
+    background-clip: padding-box;
+    border-width: 2px;
+}
+
+.secondaryContainer {
+    width: 75%;
+    margin: auto;
+}
+
+.tertiaryContainer{
+    margin: auto;
+}
+
+.primaryDivider {
+    border: 1px solid rgba(16, 16, 16, 0.33);
+}
+
+.homeGreeting {
+    text-align: center;
+    color: var(--textCyan);
+    font-family: 'homeGreeting', serif;
+}
+
+.sectionHeader {
+    text-align: center;
+    color: #F5FEFF;
+    font-family: 'sectionHeader', sans-serif;
+    font-weight: bolder;
+    font-size: 60px;
+    margin-top: -5px;
+    margin-bottom: -5px;
+}
+
+.subsectionHeader {
+    text-align: left;
+    color: var(--textCyan);
+    font-family: 'subsectionHeader', sans-serif;
+    margin-bottom: -14px;
+}
+
+/*Subsection Text */
+    .subsectionText {
+        margin-left: 40px;
+        color: var(--textCyan);
+        font-family: 'subsectionText', sans-serif;
+    }
+    .subsectionParag {
+        text-indent: 25pt;
+        text-align: justify;
+    }
+    .subsectionPoem {
+        margin-left: 30pt;
+        text-align: justify;
+    }
+    .subsectionList {
+        text-align: justify;
+        color: var(--textCyan);
+        font-family: 'subsectionText', sans-serif;
+        margin-left: 50px;
+        margin-top: -10px;
+    }
+    .subsectionScrollP {
+        text-align: center;
+        background-color: hsla(0, 0%, 0%, 0.25);
+    }
+    
+    .subsectionScrollA {
+        color: hwb(190 70% 10%);
+    }
+    .subsectionScrollA:visited {
+      color: hwb(190 60% 10%);
+      background-color: transparent;
+      text-decoration: none;
+    }
+    .subsectionScrollA:hover {
+      color: hwb(140 70% 10%);
+      background-color: transparent;
+      text-decoration: underline;
+    }
+    .subsectionScrollA:active {
+      color: hwb(140 60% 10%);
+      background-color: transparent;
+      text-decoration: underline;
+    }
+
+    .subsectionUrlPink {
+        color: var(--textCyan);
+    }
+
+/* Classes for the buttons */
+    .linkButtonsLink {
+        text-decoration: none;
+    }
+
+    .linkButtons {
+        width: 75%;
+        margin: auto;
+        text-align: center;
+        border-radius: 5px;
+    }
+
+    .linkButtons .filln {
+        margin: auto;
+        text-align: center;
+        border-radius: 5px;
+        background-color: hwb(177 40% 0%);
+    }
+
+    .linkButtons .text {
+        font-family: 'linkButtons', serif;
+        color: #FFF;
+        font-size: 30px;
+        padding: 5px;
+    }
+
+.homeIconImg {
+    width: 30px;
+    height: 30px;
+    margin: auto;
+    display: block;
+    margin-top: -5px;
+}
+
+.homeIconDiv {
+    width: 30px;
+    margin: auto;
+}   
+
+.iLikeTurtles {
+    width: 100%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}

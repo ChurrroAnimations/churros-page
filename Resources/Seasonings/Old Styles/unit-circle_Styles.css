@@ -1,0 +1,195 @@
+:root {
+    --textRed: hsl(0, 100%, 93%);
+    background-color: hsl(0, 5%, 50%);
+    background-image: url('../Backgrounds/Alley.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.backBlur {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    backdrop-filter: blur(15px);
+}
+
+.photoCred {
+    background-color: #9B9B9B80;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    margin: 0;
+    padding: 5px;
+    font-size: small;
+    color: hsl(355, 100%, 98%);
+}
+
+/* Fonts */
+    @font-face {
+        font-family: 'sectionHeader';
+        src: url('../Font/Google/Playwrite_HR_Lijeva/PlaywriteHRLijeva-VariableFont_wght.ttf');
+    }
+    @font-face {
+        font-family: 'subsectionHeader';
+        src: url('../Font/Google/Lora/Static/Lora-Bold.ttf');
+    }
+    @font-face {
+        font-family: 'subsectionText';
+        src: url('../Font/Google/Comic_Neue/ComicNeue-Regular.ttf');
+    }
+
+    
+    @font-face {
+        font-family: 'Options';
+        src: url('../Font/Google/Comic_Neue/ComicNeue-Regular.ttf');
+    }
+    @font-face {
+        font-family: 'brainf_ckMemory';
+        src: url('../Font/Google/Comic_Neue/ComicNeue-Bold.ttf');
+    }
+    
+.primaryContainer {
+    margin: auto;
+    width: 60%;
+    border-radius: 50px;
+    background-color: hsla(355, 100%, 80%, 0.25);
+    backdrop-filter: blur(0.1rem);
+    background-clip: padding-box;
+    border-width: 2px;
+}
+
+.primaryNestedContainer {
+    margin: auto;
+    width: 65%;
+    padding-left: 5%;
+    padding-right: 5%;
+    padding-bottom: 2.5%;
+    border-radius: 25px;
+    background-color: hsla(0, 100%, 80%, 0.05);
+    backdrop-filter: blur(0.1rem);
+    background-clip: padding-box;
+
+    margin-bottom: 1.2em;
+}
+
+.secondaryContainer {
+    width: 75%;
+    margin: auto;
+}
+
+.primaryDivider {
+    border: 1px solid rgba(355, 16, 16, 0.33);
+}
+
+h1 {
+    text-align: center;
+    color: hsl(6, 100%, 98%);
+    font-family: 'sectionHeader', sans-serif;
+    font-weight: bolder;
+    font-size: 60px;
+    margin-top: -5px;
+    margin-bottom: -5px;
+}
+
+.subsectionHeader {
+    text-align: left;
+    color: var(--textRed);
+    font-family: 'subsectionHeader', sans-serif;
+    margin-bottom: 0px;
+}
+
+/*Subsection Text */
+    li {
+        color: var(--textRed);
+        font-family: 'brainf_ckMemory', sans-serif;
+        display: inline-block;
+        margin: 0 10px;
+    }
+
+    table {
+        border: 1px solid hwb(0 30% 40%);
+        border-radius: 5px;
+        margin: auto;
+        margin-bottom: 1.5em;
+        font-family: 'Options', sans-serif;
+    }
+    th, td {
+        border-radius: 5px;
+        background-color: hwb(0 30% 10%);
+        color: var(--textRed);
+        border: 1px solid hwb(0 30% 40%);
+        margin: auto;
+        margin-top: 1.5em;
+        margin-bottom: 1.5em;
+        text-align: center;
+        font-size: x-large;
+    }
+    input {
+        background-color: hsl(0, 75%, 70%);
+        border-radius: 5px;
+        border: 1px solid #0000;
+        color: var(--textRed);
+        font-family: 'Options', sans-serif;
+        font-size: x-large;
+        width: 1px;
+        height: 1px;
+    }
+
+    .emptyCell {
+        background-color: #0000;
+        border: 1px solid #0000;
+    }
+
+
+    .brainf_ckInputTxt {
+        color: var(--textRed);
+        font-family: 'subsectionText', sans-serif;
+    }
+    .brainf_ckInputBox {
+        border-radius: 5px;
+        background-color: hwb(0 30% 10%);
+        color: var(--textRed);
+        width: 100%;
+        resize: none;
+    }
+
+    ::placeholder {
+        color: hsl(0, 50%, 68%);
+    }
+
+    td {
+        cursor: pointer;
+        text-align: center;
+    }
+
+.options {
+    cursor: pointer;
+}
+
+/* Classes for the buttons */
+
+    .operationButtons {
+        width: 120px;
+        margin: auto;
+        text-align: center;
+        border-radius: 5px;
+        background-color: hwb(0 25% 37.5%);
+        color: var(--textRed);
+        margin-bottom: 5%;
+    }
+
+.homeIconImg {
+    width: 30px;
+    height: 30px;
+    margin: auto;
+    display: block;
+    margin-top: -5px;
+}
+
+.homeIconDiv {
+    width: 30px;
+    margin: auto;
+}   

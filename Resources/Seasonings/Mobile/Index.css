@@ -3,51 +3,73 @@
 :root {
     background-size: cover;
     background-repeat: no-repeat;
-    background-image: url('../Backgrounds/Walker.jpg');
+    background-image: url('../../Backgrounds/Walker.jpg');
     background-color: #27272C;
     background-attachment: fixed;
 }
 
 /* Fonts */
 @font-face {
-    src: url('../Font/Microsoft/impact.ttf');
+    src: url('../../Font/Microsoft/impact.ttf');
     font-family: 'warning';
 }
 @font-face {
-    src: url('../Font/Google/Playwrite_HR_Lijeva/PlaywriteHRLijeva-VariableFont_wght.ttf');
+    src: url('../../Font/Google/Playwrite_HR_Lijeva/PlaywriteHRLijeva-VariableFont_wght.ttf');
     font-family: 'titl';
 }
 @font-face {
-    src: url('../Font/Microsoft/PAPYRUS.TTF');
+    src: url('../../Font/Microsoft/PAPYRUS.TTF');
     font-family: 'hover';
 }
 @font-face {
-    src: url('../Font/Google/Unna/Unna-Regular.ttf');
+    src: url('../../Font/Google/Unna/Unna-Regular.ttf');
     font-family: 'hewwo';
 }
 @font-face {
-    src: url('../Font/Microsoft/comic.ttf');
+    src: url('../../Font/Microsoft/comic.ttf');
     font-family: 'button';
 }
 
-.warningWarning {
-    width: 30%;
+img {
+    width: 1em;
+    height: 2em;
+}
+
+h1 {
+    text-align: center;
+    letter-spacing: 30px;
+    font-weight: bolder;
+    font-size: 40px;
+    font-family: 'titl', sans-serif;
+    color: #FDF5FF;
+}
+
+b {
+    margin: auto;
+    cursor: pointer;
+    font-size: 2.5rem;
+    border: 5px dashed black;
+    background-color: blue;
+}
+
+.warningTitle {
+    width: 70%;
     text-align: center;
     margin: auto;
-    font-size:xx-large;
+    font-size: 4rem;
     font-family: 'warning', serif;
-    color:  black;
+    color: black;
     border: 5px black solid;
-    background-color: orange;
+    background-color: red;
     backdrop-filter: blur(0.1rem);
 }
 
 .warningInfo {
-    width: 30%;
+    width: 70%;
     text-align: center;
     margin: auto;
     font-weight: lighter;
-    font-size:large;
+    font-size: 2.4rem;
     font-family: 'warning', serif;
     color:  black;
     border: 5px black solid;
@@ -83,15 +105,6 @@
     backdrop-filter: blur(0.1rem);
 }
 
-.titl {
-    text-align: center;
-    letter-spacing: 30px;
-    font-weight: bolder;
-    font-size: 40px;
-    font-family: 'titl', sans-serif;
-    color: #FDF5FF;
-}
-
 .ocdTriggerer {
     width: 95%;
 }
@@ -102,7 +115,7 @@ button {
     font-size: 20px;
     cursor: alias;
     background-color: chartreuse;
-    background-image: url('../Page/GirlKisser.png');
+    background-image: url('../../Page/GirlKisser.png');
     background-size: contain;
     -webkit-text-stroke-width: 1px;
     color: mediumblue;
@@ -114,7 +127,7 @@ button:hover {
     background-color: deeppink;
     width: 100px;
     height: 100px;
-    background-image: url('../Page/Emoji.png');
+    background-image: url('../../Page/Emoji.png');
     color: indigo;
     background-size: contain;
     font-size: 20px;
