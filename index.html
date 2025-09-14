@@ -53,6 +53,8 @@
             <br>
             &RightTriangle; This applies to the entirety of my website, so surf my crevice of the interwebs with caution.
             <br>
+            &RightTriangle; This is a genuine warning. Do not take this lightly.
+            <br>
             <br>
             <b onclick="continueClick()">
                 &emsp;&emsp;Click to continue&emsp;&emsp;
@@ -93,17 +95,20 @@
                 const noisyMachine = document.getElementsByTagName("audio")[0];
                 if (notPlaying) {
                     notPlaying = false;
-                    if (crabRave == 3) {
+                    if (crabRave == 69) {
                         console.info("JUST KIDDING!");
-                        noisyMachine.src = "Resources/Noisy/JJJ Laugh.mp4";
+                        noisyMachine.src = "Resources/Noisy/crab_rave_completely_normal_nothing_odd_whatsoever.mp4";
                         noisyMachine.play();
                         noisyMachine.onended = function() {ffsStopPlease();};
-                    } else if (crabRave < 3) {
+                    } else if (crabRave < 69) {
                         noisyMachine.src = "Resources/Noisy/discord-nofications.mp3";
                         noisyMachine.play();
                         noisyMachine.onended = function() {STAWP();};
                     }
-                } else console.log("No.");
+                } else {
+                    noisyMachine.play();
+                    console.log("No.");
+                }
             }
 
             function STAWP () {
@@ -121,7 +126,7 @@
 
         <p class="warningInfo">
             My website is currently under maintenance.
-            I last updated this page somewhere around 14 September 2025 1:15 AM MST
+            I last updated this page somewhere around 14 September 2025 11:20 AM MST
         </p>
 
 
