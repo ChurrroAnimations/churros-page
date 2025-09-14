@@ -36,6 +36,7 @@ table tr {
 
 table th {
     border: 4px double gold;
+    cursor: pointer;
 }
 
 table img {
@@ -129,6 +130,15 @@ b {
     border-bottom-left-radius: 5px;
     background-color: rgba(245, 169, 184, 0.75);
     backdrop-filter: blur(0.1rem);
+}
+
+.pleaseStopAssaultingMyEars {
+    width: 60%;
+    justify-content: center;
+    margin: auto;
+    border: transparent;
+    background-color: transparent;
+    backdrop-filter: blur(0);
 }
 
 .ocdTriggerer {

@@ -70,6 +70,8 @@
                 &emsp13;&emsp13;&#12376;&#12375;&#102;&lowbar;&comma;&#32;&rpar;&#12494;
         </p>
         <script>
+            let crabRave = 0;
+
             function continueClick () {
                 document.getElementsByClassName("ocdTriggerer")[0].style.display = "block";
                 document.getElementsByClassName("warningTitle")[0].style.display = "none";
@@ -81,8 +83,39 @@
             }
 
             function encore () {
-                document.getElementsByTagName("audio")[0].src = "Resources/Noisy/Offenbach_-_Orpheus_in_the_Underworld_-_Overture.ogg";
-                document.getElementsByTagName("audio")[0].play();
+                const noisyMachine = document.getElementsByTagName("audio")[0];
+                noisyMachine.src = "Resources/Noisy/Offenbach_-_Orpheus_in_the_Underworld_-_Overture.ogg";
+                noisyMachine.play();
+            }
+
+            let notPlaying = true;
+            function pleaseStopAssaultingMyEars () {
+                const noisyMachine = document.getElementsByTagName("audio")[0];
+                if (notPlaying) {
+                    notPlaying = false;
+                    if (crabRave == 3) {
+                        console.info("JUST KIDDING!");
+                        noisyMachine.src = "Resources/Noisy/JJJ Laugh.mp4";
+                        noisyMachine.play();
+                        noisyMachine.onended = function() {ffsStopPlease();};
+                    } else if (crabRave < 3) {
+                        noisyMachine.src = "Resources/Noisy/discord-nofications.mp3";
+                        noisyMachine.play();
+                        noisyMachine.onended = function() {STAWP();};
+                    }
+                } else console.log("No.");
+            }
+
+            function STAWP () {
+                console.info("Oki, I'll stop the music, QwQ");
+                crabRave++;
+                notPlaying = true;
+            }
+
+            function ffsStopPlease () {
+                console.info("Oki, for real this time, I will stop.");
+                crabRave++;
+                notPlaying = true;
             }
         </script>
 
@@ -179,6 +212,10 @@
                     </tr>
                 </table>
                 <img src="Resources/Page/Emoji.png" alt="T u r t l e" style="width: 100%; height: 3em;">
+            </div>
+            <hr style="height: 16.5rem;">
+            <div class="pleaseStopAssaultingMyEars">
+                <img src="Resources/Page/Please stop assaulting my ears!.gif" alt="Please stop assaulting my ears!" style="cursor: pointer; background-color: #d1a4ff48;" onclick="pleaseStopAssaultingMyEars()">
             </div>
         </div>
     </body>
