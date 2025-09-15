@@ -155,7 +155,7 @@
                     <tr class="no"><td class="no">Hewwo</td></tr>
                     <tr>
                         <!-- About Churro -->
-                        <th>
+                        <th onclick="goToPage(0)">
                             <ruby>
                                 <img src="Resources/Icons/About Churro.png" alt="&#128034; ">
                                 <rp>
@@ -167,7 +167,7 @@
                             </ruby>
                         </th>
                         <!-- Churro's Socials -->
-                        <th>
+                        <th onclick="goToPage(1)">
                             <ruby>
                                 <img src="Resources/Icons/Churros Socials.png" alt="&#128034;">
                                 <rp>
@@ -179,7 +179,7 @@
                             </ruby>
                         </th>
                         <!-- More Churro -->
-                        <th>
+                        <th onclick="goToPage(2)">
                             <ruby>
                                 <img src="Resources/Icons/More Churro.png" alt="&#128034;">
                                 <rp>
@@ -191,7 +191,7 @@
                             </ruby>
                         </th>
                         <!-- Commissions -->
-                        <th>
+                        <th onclick="goToPage(3)">
                             <ruby>
                                 <img src="Resources/Icons/Commissions.png" alt="&#128034;">
                                 <rp>
@@ -203,7 +203,7 @@
                             </ruby>
                         </th>
                         <!-- Source Code -->
-                        <th>
+                        <th onclick="goToPage(4)">
                             <ruby>
                                 <img src="Resources/Icons/Source Code.png" alt="&#128034;">
                                 <rp>
@@ -216,6 +216,17 @@
                         </th>
                     </tr>
                 </table>
+                <script>
+                    function goToPage (pageNo) {
+                        switch (pageNo) {
+                            case 0: window.location.href += "about-churro";
+                            case 1: window.location.href += "churros-socials";
+                            case 2: window.location.href += "more-churro";
+                            case 3: window.location.href = "https://churrroanimations.github.io/churros-commissions/";
+                            case 4: window.location.href = "https://github.com/ChurrroAnimations/churros-page";
+                        }
+                    }
+                </script>
                 <img src="Resources/Page/Emoji.png" alt="T u r t l e" style="width: 100%; height: 3em;">
             </div>
             <hr style="height: 16.5rem;">
@@ -225,5 +236,6 @@
         </div>
     </body>
 </html>
+
 
 <!-- Big ASCII: https://patorjk.com/software/taag/?p=display&f=Big%20Money-ne -->
