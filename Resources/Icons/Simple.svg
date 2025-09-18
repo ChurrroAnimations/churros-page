@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 18">
+  <path
+    d = "
+      M 7 1
+      v 4
+      l 4 -4
+      v 4
+      l 4 -4
+      v 4
+      l 2 2
+      v 8
+      l -2 2
+      h -12
+      l -2 -2
+      v -8
+      z
+    "
+    stroke="black" 
+    stroke-width="1"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    fill="green"
+  />
+  
+  <path
+    d = "
+      M 14 17
+      v -5
+    "
+    stroke="black" 
+    stroke-width="1"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    fill="green"
+  />
+</svg>

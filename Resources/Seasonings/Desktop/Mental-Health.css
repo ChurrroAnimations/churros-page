@@ -1,0 +1,81 @@
+:root {
+    background-image: url("../../Icons/Simple-CHQ.svg");
+    background-size: 25px;
+    background-color: #131313;
+    color: blanchedalmond;
+    font-family: Arial, sans-serif;
+}
+
+.warning p {
+    color: inherit;
+    font-family: inherit;
+}
+
+.warning hr {
+    border-top: inherit;
+    border-bottom: none;
+}
+
+.warning button {
+    background-color: inherit;
+    color: inherit;
+    font-family: inherit;
+    border: inherit;
+    background-color: rgb(33, 100, 33);
+    font-size: 1.2rem;
+}
+
+.warning {
+    border: 2px dashed blanchedalmond;
+    background-color: rgb(33, 40, 33);
+    margin: auto;
+    width: 50%;
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    padding-bottom: 15px;
+}
+
+.mainGibberish table th {
+    font-size: 1.2rem;
+    text-align: center;
+    padding: 5px;
+    border: 2px solid blanchedalmond;
+    background-color: rgb(55, 100, 55);
+}
+
+.mainGibberish table td {
+    text-align: justify;
+    background-color: rgb(65, 75, 65);
+    border: 2px solid blanchedalmond;
+    padding: 5px;
+}
+
+.mainGibberish table .no {
+    text-align: center;
+}
+
+.mainGibberish table .info {
+    background-color: rgb(55, 75, 55);
+}
+
+.mainGibberish table {
+    border-collapse: collapse;
+    margin: auto;
+}
+
+.mainGibberish p {
+    text-indent: 30px;
+    text-align: justify;
+}
+
+.mainGibberish h1 {
+    text-align: center;
+}
+
+.mainGibberish {
+    width: 50%;
+    margin: auto;
+}
