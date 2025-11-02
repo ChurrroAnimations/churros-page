@@ -132,7 +132,46 @@ b {
     backdrop-filter: blur(0.1rem);
 }
 
-.shady {}
+.shady > div >
+
+.shady > div > p:nth-child(2) {
+  width: 15px;
+  height: 15px;
+  position: sticky;
+  margin-left: auto;
+  color: black;
+  border: 1px outset white;
+  background: lightgray;
+}
+
+.shady > div > p:first-child {
+  padding: 0px;
+  margin: 2px;
+  height: 15px;
+  color: white;
+  border: none;
+  background: blue;
+  justify-items: center;
+}
+
+.shady > div {
+  width: 250px;
+  display: block;
+}
+
+.shady div {
+  font-size: 10px;
+  border: 2px outset white;
+  background: lightgray;
+}
+
+.shady * {
+}
+
+.shady {
+  display: flex;
+  border: 5px solid blue;
+}
 
 .pleaseStopAssaultingMyEars {
     width: 60%;
