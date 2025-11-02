@@ -132,6 +132,8 @@ b {
     backdrop-filter: blur(0.1rem);
 }
 
+.shady {}
+
 .pleaseStopAssaultingMyEars {
     width: 60%;
     justify-content: center;
