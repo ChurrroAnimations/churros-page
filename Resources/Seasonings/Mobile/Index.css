@@ -132,6 +132,49 @@ b {
     backdrop-filter: blur(0.1rem);
 }
 
+#shady > div > table th {
+    width: 250px;
+    text-align: left;
+    color: white;
+}
+
+#shady > div > table td {
+    width: 10px;
+    height: 10px;
+    color: black;
+    text-align: center;
+    border: 2px outset white;
+    background: lightgray;
+}
+
+#shady > div > table {
+    margin: 2px;
+    padding: 0px;
+    border-spacing: 2px;
+    background-color: blue;
+}
+
+#shady > div > p {
+    text-align: justify;
+    margin: 4px;
+}
+
+#shady > div {
+    width: 250px;
+    display: block;
+}
+
+#shady div {
+    font-size: 10px;
+    border: 2px outset white;
+    background: lightgray;
+}
+
+#shady {
+    display: flex;
+    border: 5px solid blue;
+}
+
 .pleaseStopAssaultingMyEars {
     width: 60%;
     justify-content: center;
