@@ -30,16 +30,16 @@
     font-family: 'Button';
 }
 
-table tr {
+#pageLinks tr {
     background-color: rebeccapurple;
 }
 
-table th {
+#pageLinks th {
     border: 4px double gold;
     cursor: pointer;
 }
 
-table img {
+#pageLinks img {
     margin: auto;
     width: 3em;
     height: 3em;
