@@ -30,22 +30,22 @@
     font-family: 'button';
 }
 
-table tr {
+#pageLinks tr {
     background-color: rebeccapurple;
 }
 
-table th {
+#pageLinks th {
     border: 4px double gold;
     cursor: pointer;
 }
 
-table img {
+#pageLinks img {
     margin: auto;
     width: 2.5em;
     height: 2.5em;
 }
 
-table {
+#pageLinks {
     transform:  translateX(-50%);
     top: 10rem;
     position: fixed;
@@ -173,15 +173,17 @@ b {
 #shady {
     display: flex;
     border: 5px solid blue;
+    backdrop-filter: blur(0);
+    background-color: transparent;
 }
 
 .pleaseStopAssaultingMyEars {
     width: 60%;
-    justify-content: center;
     margin: auto;
+    justify-content: center;
     border: transparent;
-    background-color: transparent;
     backdrop-filter: blur(0);
+    background-color: transparent;
 }
 
 .ocdTriggerer {
