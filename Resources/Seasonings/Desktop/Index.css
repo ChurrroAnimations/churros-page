@@ -45,7 +45,7 @@
     height: 3em;
 }
 
-table {
+#pageLinks {
     transform:  translateX(-50%);
     top: auto;
     position: fixed;
