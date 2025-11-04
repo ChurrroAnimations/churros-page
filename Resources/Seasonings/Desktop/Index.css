@@ -173,15 +173,17 @@ b {
 #shady {
     display: flex;
     border: 5px solid blue;
+    backdrop-filter: blur(0);
+    background-color: transparent;
 }
 
 .pleaseStopAssaultingMyEars {
     width: 60%;
-    justify-content: center;
     margin: auto;
+    justify-content: center;
     border: transparent;
-    background-color: transparent;
     backdrop-filter: blur(0);
+    background-color: transparent;
 }
 
 .ocdTriggerer {
