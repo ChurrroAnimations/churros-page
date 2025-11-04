@@ -172,7 +172,7 @@ b {
 
 #shady {
     display: flex;
-    border: 0px solid blue;
+    border: transparent;
     backdrop-filter: blur(0);
     background-color: transparent;
 }
