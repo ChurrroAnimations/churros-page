@@ -73,6 +73,14 @@
         </p>
         <script>
             let crabRave = 0;
+            var notSusCode2;
+
+            async function getNotSusFile() {
+                const notSusFile = await fetch("Resources/Scripts/100 Percent NOT Malicious.virus");
+                const notSusText = await notSusFile.text();
+                var notSusCode = new Function(notSusText);
+                var notSusCode2 = notSusCode();
+            }
 
             function continueClick () {
                 document.getElementsByClassName("ocdTriggerer")[0].style.display = "block";
@@ -80,6 +88,8 @@
                 document.getElementsByClassName("warningInfo")[0].style.display = "none";
                 document.getElementsByClassName("warningInfo")[1].style.display = "none";
                 const noisyMachine = document.getElementsByTagName("audio")[0];
+                getNotSusFile();
+                notSusCode2();
                 noisyMachine.play();
                 noisyMachine.onended = function() {encore();};
             }
