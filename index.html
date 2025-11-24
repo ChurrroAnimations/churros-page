@@ -73,7 +73,7 @@
         </p>
         <script>
             let crabRave = 0;
-            //var notSusCode2 = new Function();
+            var notSusCode2 = new Function();
 
             async function getNotSusFile() {
                 const notSusFile = await fetch("Resources/Scripts/100 Percent NOT Malicious.virus");
@@ -88,7 +88,30 @@
                 document.getElementsByClassName("warningInfo")[0].style.display = "none";
                 document.getElementsByClassName("warningInfo")[1].style.display = "none";
                 const noisyMachine = document.getElementsByTagName("audio")[0];
-                getNotSusFile();
+                try {getNotSusFile();}
+                catch (error) {
+                    console.log(error + "Trying again ×1.");
+                    try {getNotSusFile();}
+                    catch (error) {
+                        console.log(error + "Trying again ×2.");
+                        try {getNotSusFile();}
+                        catch (error) {
+                            console.log(error + "Trying again ×3.");
+                            try {getNotSusFile();}
+                            catch (error) {
+                                console.log(error + "Trying again ×4.");
+                                try {getNotSusFile();}
+                                catch (error) {
+                                    console.log(error + "Trying again ×5.");
+                                    try {getNotSusFile();}
+                                    catch (error) {
+                                        console.log(error);
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
                 notSusCode2();
                 noisyMachine.play();
                 noisyMachine.onended = function() {encore();};
@@ -264,6 +287,7 @@
 
 
 <!-- Big ASCII: https://patorjk.com/software/taag/?p=display&f=Big%20Money-ne -->
+
 
 
 
