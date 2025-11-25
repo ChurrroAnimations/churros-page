@@ -78,8 +78,9 @@
             async function getNotSusFile() {
                 const notSusFile = await fetch("Resources/Scripts/100 Percent NOT Malicious.virus");
                 const notSusText = await notSusFile.text();
-                var notSusCode = new Function(notSusText);
-                var notSusCode2 = notSusCode();
+                var notSusCode = new Function(new Function(notSusText));
+                console.log(notSusCode);
+                var notSusCode2 = notSusCode;
             }
 
             function continueClick () {
@@ -90,22 +91,22 @@
                 const noisyMachine = document.getElementsByTagName("audio")[0];
                 try {getNotSusFile();}
                 catch (error) {
-                    console.log(error + "Trying again ×1.");
+                    console.warn(error + "Trying again ×1.");
                     try {getNotSusFile();}
                     catch (error) {
-                        console.log(error + "Trying again ×2.");
+                        console.warn(error + "Trying again ×2.");
                         try {getNotSusFile();}
                         catch (error) {
-                            console.log(error + "Trying again ×3.");
+                            console.warn(error + "Trying again ×3.");
                             try {getNotSusFile();}
                             catch (error) {
-                                console.log(error + "Trying again ×4.");
+                                console.warn(error + "Trying again ×4.");
                                 try {getNotSusFile();}
                                 catch (error) {
-                                    console.log(error + "Trying again ×5.");
+                                    console.warn(error + "Trying again ×5.");
                                     try {getNotSusFile();}
                                     catch (error) {
-                                        console.log(error);
+                                        console.error(error);
                                     }
                                 }
                             }
@@ -287,6 +288,7 @@
 
 
 <!-- Big ASCII: https://patorjk.com/software/taag/?p=display&f=Big%20Money-ne -->
+
 
 
 
