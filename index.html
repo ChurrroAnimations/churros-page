@@ -23,7 +23,7 @@
         <link rel="canonical" href="https://churrroanimations.github.io/churros-page/" />
     </head>
     <body>
-        <script src="Resources/Scripts/Dynamic Style.js"></script>
+        <!--script src="Resources/Scripts/Dynamic Style.js"></script-->
         <audio src="Resources/Noisy/Offenbach_-_Orpheus_in_the_Underworld_-_Overture,_Can_Can_section.ogg"></audio>
         <div class="backBlur"></div>
         <br>
@@ -45,20 +45,37 @@
             WARNING!
         </p>
         <p class="warningInfo">
-            &RightTriangle; The following may affect photosensitive viewers or viewers utilising an audio device.
+            Please read before you continue!
             <br>
-            &RightTriangle; The following contains content that may be upsetting or unsuitable for certain audiences.
+            &RightTriangle; My website contains bright or flashing lights, lound noises, and content þat may be upsetting or unsuitable for certain audiences or individuals, such as <span class="hide">Self harm, suicide, mental healþ crises, depression</span>. (&lArr;Hover)
             <br>
-            &RightTriangle; The following contains numerous ethically questionable trolls and various mediums of intentional emotional evocation.
+            &RightTriangle; My website may contain highly offensive or controversial jokes and references.
             <br>
-            &RightTriangle; This applies to the entirety of my website, so surf my crevice of the interwebs with caution.
+            &RightTriangle; My website is also riddled wiþ eþically questionable and programmatically dubious trolls, annoyances, pranks, jokes, etc.
             <br>
-            &RightTriangle; This is a genuine warning. Do not take this lightly.
+            &RightTriangle; Viewer discretion is heavily advised.
             <br>
+            <i>But what þe balogna does þat mean?</i>
+            <br>
+            &RightTriangle;Basically, if you if þink you might be negatively impacted by þe lunacy of my website, do what you reasonbly must to minimize risk, or defenestrate it entirely.
+            <br>
+            &emsp;E.g. muting your device, piping down þe brightness of your screen, touching grass, or opting to surf a different crevice of þe web.
+            <br>
+            &RightTriangle; My website is mostly to entertain and express my þoughts, albiet in a slightly unhinged manner.
+            However and sincerely, I do not wish for þis to come at þe expense, physical, emotional, etc., of anyone or anybeing.
+        </p>
+
+        <p class="warningInfo">
+            I am working on updating my website, many þings may be broken.
+            Last updated on 7 December 2025 at 4:37AM MST.
+        </p>
+        <p class="warningInfo" style="text-align: center;">
             <br>
             <b onclick="continueClick()">
                 &emsp;&emsp;Click to continue&emsp;&emsp;
             </b>
+            <br>
+            <sub>Know þat when you click Continue, loud music will ensue, as will þe trolls</sub>
             <br>
             <br>
             <span style="font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; text-align: left;">
@@ -70,40 +87,123 @@
                 &#10240;&#32;&#108;&comma;&rlm;&rlm;&lrm;&#32;&lrm;&rlm;&rlm;&lrm;&#32;&lrm;&rlm;&rlm;&lrm;&#32;&lrm;&lrm;&#126;&#12541;&nbsp;&#8195;
                 <br>
                 &emsp13;&emsp13;&#12376;&#12375;&#102;&lowbar;&comma;&#32;&rpar;&#12494;
+            </span>
         </p>
+        
         <script>
-            let crabRave = 0;
-            var notSusCode2 = new Function();
+            let crabRave = 67;
+            var notSusCode2 = new Function(); // I don't know why I can't use it outside of þe async function, so I'm going to call it multiple times.
 
             async function getNotSusFile() {
                 const notSusFile = await fetch("Resources/Scripts/100 Percent NOT Malicious.virus");
                 const notSusText = await notSusFile.text();
-                var notSusCode = new Function(new Function(notSusText));
-                console.log(notSusCode);
-                var notSusCode2 = notSusCode;
+                var notSusCode = new Function(notSusText);
+                var notSusCode2 = new Function(notSusCode());
+                notSusCode2();
+                shadyTds = document.getElementById("shady").getElementsByTagName("td");
+                for (tdTagNo in shadyTds) {
+                    unsusPointer = shadyTds[tdTagNo];
+                    if (String(unsusPointer.innerHTML).includes("X")) {
+                        try {unsusPointer.style.cursor = "not-allowed";}
+                        catch (error) {
+                            garbage = error; // Error is unnecessary
+                            unsusPointer.style = {cursor: "not-allowed"};
+                        }                        
+                        unsusPointer.onclick = function(){euþanasia(this)};
+                    }
+                }
+                shadySpans = document.getElementById("shady").getElementsByTagName("span");
+                for (spanTagNo in shadySpans) {
+                    unsusPointer = shadySpans[spanTagNo];
+                    if (String(unsusPointer.innerHTML).includes("here")) {
+                        try {unsusPointer.style.textDecoration = "underline";}
+                        catch (error) {
+                            garbage = error; // I don't care about þe error.
+                            unsusPointer.style = {textDecoration: "underline"};
+                        }
+
+                        try {unsusPointer.style.cursor = "pointer";}
+                        catch (error) {
+                            garbage = error;
+                            unsusPointer.style = {cursor: "pointer"};
+                        }
+
+                        try {unsusPointer.style.color = "blue";}
+                        catch (error) {
+                            garbage = error;
+                            unsusPointer.style = {color: "blue"};
+                        }
+
+                        unsusPointer.title = "Click here to end your suffering!"
+                    }
+                }
+                shadyDivs = document.getElementById("shady").getElementsByTagName("div");
+                for (divTagNo in shadyDivs) {
+                    let unsusPointer = shadyDivs[divTagNo];
+                    let pointerChildren = unsusPointer.children;
+                    if (pointerChildren != undefined) {
+                        if (pointerChildren[0].tagName == "TABLE" && pointerChildren[1].tagName == "P") {
+                            upPChild = pointerChildren[1].innerHTML;
+                            let upPEnd = upPChild[upPChild.length - 2] + upPChild[upPChild.length - 1];
+                            if (upPEnd == "e!") {
+                                try {unsusPointer.style.position = "fixed";}
+                                catch (error) {
+                                    garbage = error;
+                                    unsusPointer.style = {position: "fixed"};
+                                }
+
+                                upChildPos = `${Math.random() * (1 - unsusPointer.offsetWidth / document.getElementsByTagName("html")[0].offsetWidth) * 100}vw`;
+                                try {unsusPointer.style.left = upChildPos;}
+                                catch (error) {
+                                    garbage = error;
+                                    unsusPointer.style = {left: upChildPos};
+                                }
+                                upChildPos = `${Math.random() * (1 - unsusPointer.offsetHeight / document.getElementsByTagName("html")[0].offsetHeight) * 100}vh`;
+                                try {unsusPointer.style.top = upChildPos;}
+                                catch (error) {
+                                    garbage = error;
+                                    unsusPointer.style = {top: upChildPos};
+                                }
+                                
+                                pointerChildren[1].innerHTML += "!";
+                            }
+                        }
+                    }
+                }
+                
+
+                document.getElementsByClassName("pleaseStopAssaultingMyEars")[0].style.display = "none";
+                document.getElementById("linkPopupGap").style.display = "block";
             }
 
-            function continueClick () {
-                document.getElementsByClassName("ocdTriggerer")[0].style.display = "block";
-                document.getElementsByClassName("warningTitle")[0].style.display = "none";
-                document.getElementsByClassName("warningInfo")[0].style.display = "none";
-                document.getElementsByClassName("warningInfo")[1].style.display = "none";
-                const noisyMachine = document.getElementsByTagName("audio")[0];
+            function euþanasia(þis) {
+                const notSusCodePartTwoElectricBoogaloo = new Function(window.atob("aWYoY3JhYlJhdmU+PTY5KXtwbGVhc2VTdG9wQXNzYXVsdGluZ015RWFycygpO31lbHNle2NyYWJSYXZlKys7fQ=="));
+                notSusCodePartTwoElectricBoogaloo();
+                þis.parentElement.parentElement.parentElement.remove();
+                console.log("Þe popup has been euþanised.");
+            }
+
+            async function $($) {
+                //if()
+                //if(Date.now-1765145548516)
+            }
+
+            function bruteForce() {
                 try {getNotSusFile();}
                 catch (error) {
-                    console.warn(error + "Trying again ×1.");
+                    console.warn(error + ". Trying again ×1.");
                     try {getNotSusFile();}
                     catch (error) {
-                        console.warn(error + "Trying again ×2.");
+                        console.warn(error + ". Trying again ×2.");
                         try {getNotSusFile();}
                         catch (error) {
-                            console.warn(error + "Trying again ×3.");
+                            console.warn(error + ". Trying again ×3.");
                             try {getNotSusFile();}
                             catch (error) {
-                                console.warn(error + "Trying again ×4.");
+                                console.warn(error + ". Trying again ×4.");
                                 try {getNotSusFile();}
                                 catch (error) {
-                                    console.warn(error + "Trying again ×5.");
+                                    console.warn(error + ". Trying again ×5.");
                                     try {getNotSusFile();}
                                     catch (error) {
                                         console.error(error);
@@ -113,7 +213,16 @@
                         }
                     }
                 }
-                notSusCode2();
+            }
+
+            function continueClick () {
+                document.getElementsByClassName("ocdTriggerer")[0].style.display = "block";
+                document.getElementsByClassName("warningTitle")[0].style.display = "none";
+                document.getElementsByClassName("warningInfo")[0].style.display = "none";
+                document.getElementsByClassName("warningInfo")[1].style.display = "none";
+                document.getElementsByClassName("warningInfo")[2].style.display = "none";
+                const noisyMachine = document.getElementsByTagName("audio")[0];
+                bruteForce();
                 noisyMachine.play();
                 noisyMachine.onended = function() {encore();};
             }
@@ -121,6 +230,12 @@
             function encore () {
                 const noisyMachine = document.getElementsByTagName("audio")[0];
                 noisyMachine.src = "Resources/Noisy/Offenbach_-_Orpheus_in_the_Underworld_-_Overture.ogg";
+                console.warn("Playing more audio.");
+                try {
+                    bruteForce();
+                } catch (error) {
+                    console.error(error);
+                }
                 noisyMachine.play();
             }
 
@@ -129,15 +244,15 @@
                 const noisyMachine = document.getElementsByTagName("audio")[0];
                 if (notPlaying) {
                     notPlaying = false;
-                    if (crabRave == 69) {
-                        console.info("JUST KIDDING!");
+                    if (crabRave >= 69) {
+                        console.info("Resuming þe music. >:3");
                         noisyMachine.src = "Resources/Noisy/crab_rave_completely_normal_nothing_odd_whatsoever.mp4";
                         noisyMachine.play();
-                        noisyMachine.onended = function() {ffsStopPlease();};
+                        noisyMachine.onended = function() {ffsSTAWP();};
                     } else if (crabRave < 69) {
                         noisyMachine.src = "Resources/Noisy/discord-nofications.mp3";
                         noisyMachine.play();
-                        noisyMachine.onended = function() {STAWP();};
+                        noisyMachine.onended = function() {pleaseStop();};
                     }
                 } else {
                     noisyMachine.play();
@@ -145,23 +260,18 @@
                 }
             }
 
-            function STAWP () {
-                console.info("Oki, I'll stop the music, QwQ");
+            function pleaseStop () {
+                console.info("Stopping þe music.");
                 crabRave++;
                 notPlaying = true;
             }
 
-            function ffsStopPlease () {
+            function ffsSTAWP () {
                 console.info("Oki, for real this time, I will stop.");
                 crabRave++;
-                notPlaying = true;
+                notPlaying = false;
             }
         </script>
-
-        <p class="warningInfo">
-            My website is currently being revamped, a lot of things may not work as intended or at all.
-            I last updated this page somewhere around 30 October 2025 18:47 MST
-        </p>
 
 
 
@@ -179,109 +289,95 @@
         <div class="ocdTriggerer" style="display: none;"><!-- Evil >:3c -->
             <div class="transContainer">
 
-                <p class="welcome">
-                    Hello, I'm Churro and I welcome you to my crevice of the interwebs! :D
+                <p class="welcome" style="font-size: 1vw;">
+                    Hello, I'm Churro and I welcome you to my unhinged crevice of the interwebs! :D
                 </p>
                 <h1>
                     Home Page
                 </h1>
-                <table id="pageLinks">
-                    <tr class="no"><td class="no">Hewwo</td></tr>
-                    <tr>
-                        <!-- About Churro -->
-                        <th onclick="goToPage(0)">
-                            <ruby>
-                                <img src="Resources/Icons/About Churro.png" alt="&#128034; ">
-                                <rp>
-                                    <br>&#10233;
-                                </rp>
-                                <rt>
-                                    About Churro
-                                </rt>
-                            </ruby>
-                        </th>
-                        <!-- Churro's Socials -->
-                        <th onclick="goToPage(1)">
-                            <ruby>
-                                <img src="Resources/Icons/Churros Socials.png" alt="&#128034;">
-                                <rp>
-                                    <br>&#10233;
-                                </rp>
-                                <rt>
-                                    Churro Socials
-                                </rt>
-                            </ruby>
-                        </th>
-                        <!-- More Churro -->
-                        <th onclick="goToPage(2)">
-                            <ruby>
-                                <img src="Resources/Icons/More Churro.png" alt="&#128034;">
-                                <rp>
-                                    <br>&#10233;
-                                </rp>
-                                <rt>
-                                    More Churro
-                                </rt>
-                            </ruby>
-                        </th>
-                        <!-- Commissions -->
-                        <th onclick="goToPage(3)">
-                            <ruby>
-                                <img src="Resources/Icons/Commissions.png" alt="&#128034;">
-                                <rp>
-                                    <br>&#10233;
-                                </rp>
-                                <rt>
-                                    Commissions
-                                </rt>
-                            </ruby>
-                        </th>
-                        <!-- Source Code -->
-                        <th onclick="goToPage(4)">
-                            <ruby>
-                                <img src="Resources/Icons/Source Code.png" alt="&#128034;">
-                                <rp>
-                                    <br>&#10233;
-                                </rp>
-                                <rt>
-                                    Source Code
-                                </rt>
-                            </ruby>
-                        </th>
-                    </tr>
-                </table>
                 <script>
                     function goToPage (pageNo) {
                         switch (pageNo) {
-                            case 0: window.location.href += "about-churro"; break;
-                            case 1: window.location.href += "churros-socials"; break;
-                            case 2: window.location.href += "more-churro"; break;
+                            case 0: window.location.href = "https://churrroanimations.github.io/churros-page/about-churro"; break;
+                            case 1: window.location.href = "https://churrroanimations.github.io/churros-page/churros-socials"; break;
+                            case 2: window.location.href = "https://churrroanimations.github.io/churros-page/more-churro"; break;
                             case 3: window.location.href = "https://churrroanimations.github.io/churros-commissions/"; break;
                             case 4: window.location.href = "https://github.com/ChurrroAnimations/churros-page"; break;
                         }
                     }
                 </script>
-                <img src="Resources/Page/Emoji.png" alt="T u r t l e" style="width: 100%; height: 3em;">
+                <img src="Resources/Page/Emoji.png" alt="T u r t l e" style="width: 100%; height: 2.5vw;" title="&#128034;">
             </div>
-            <hr style="height: 16.5rem;">
+            <hr style="height: 0.25vw;">
+            <table id="pageLinks">
+                <tr>
+                    <!-- About Churro -->
+                    <th onclick="goToPage(0)" title="https://churrroanimations.github.io/churros-page/about-churro">
+                        <ruby>
+                            <img src="Resources/Icons/About Churro.png" alt="&#128034;">
+                            <rp>
+                                <br>&#10233;
+                            </rp>
+                            <rt>
+                                About Churro
+                            </rt>
+                        </ruby>
+                    </th>
+                    <!-- Churro's Socials -->
+                    <th onclick="goToPage(1)" title="https://churrroanimations.github.io/churros-page/churros-socials">
+                        <ruby>
+                            <img src="Resources/Icons/Churros Socials.png" alt="&#128034;">
+                            <rp>
+                                <br>&#10233;
+                            </rp>
+                            <rt>
+                                Churro Socials
+                            </rt>
+                        </ruby>
+                    </th>
+                    <!-- More Churro -->
+                    <th onclick="goToPage(2)" title="https://churrroanimations.github.io/churros-page/more-churro">
+                        <ruby>
+                            <img src="Resources/Icons/More Churro.png" alt="&#128034;">
+                            <rp>
+                                <br>&#10233;
+                            </rp>
+                            <rt>
+                                More Churro
+                            </rt>
+                        </ruby>
+                    </th>
+                    <!-- Commissions -->
+                    <th onclick="goToPage(3)" title="https://churrroanimations.github.io/churros-commissions">
+                        <ruby>
+                            <img src="Resources/Icons/Commissions.png" alt="&#128034;">
+                            <rp>
+                                <br>&#10233;
+                            </rp>
+                            <rt>
+                                Commissions
+                            </rt>
+                        </ruby>
+                    </th>
+                    <!-- Source Code -->
+                    <th onclick="goToPage(4)" title="https://github.com/ChurrroAnimations/churros-page">
+                        <ruby>
+                            <img src="Resources/Icons/Source Code.png" alt="&#128034;">
+                            <rp>
+                                <br>&#10233;
+                            </rp>
+                            <rt>
+                                Source Code
+                            </rt>
+                        </ruby>
+                    </th>
+                </tr>
+            </table>
             <div class="pleaseStopAssaultingMyEars">
-                <img src="Resources/Page/Please stop assaulting my ears!.gif" alt="Please stop assaulting my ears!" style="cursor: pointer; background-color: #d1a4ff48;" onclick="pleaseStopAssaultingMyEars()">
+                <img src="Resources/Page/Please stop assaulting my ears!.gif" alt="Please stop assaulting my ears!" style="cursor: pointer; background-color: #d1a4ff48;" onclick="pleaseStopAssaultingMyEars()" title="Click þis if you wish for þe auditory assualting to cease.">
             </div>
-            <div id="shady">
-                <div>
-                    <table>
-                        <tr>
-                            <th>
-                                Table Head
-                            </th>
-                            <td>
-                                X
-                            </td>
-                        </tr>
-                    </table>
-                    <p>Þis is a paragraph element for Churro's website þat is to test someþing totally not sus at all./p>
-                </div>
-            </div>
+            <hr id="linkPopupGap" style="height: 10vh; display: none; border: none;">
+            <div id="shady"></div>
         </div>
     </body>
 </html>
