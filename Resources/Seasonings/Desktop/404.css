@@ -1,3 +1,29 @@
+@font-face {
+    src: url("https://churrroanimations.github.io/churros-page/Resources/Font/Microsoft/MAGNETOB.TTF");
+    font-family: 'MagnetOwO';
+}
 :root {
     background-color: black;
+}
+iframe {
+    z-index: -42;
+    width: 100%;
+    height: 95vh;
+}
+h1:hover {
+    letter-spacing: initial;
+    font-family: 'MagnetOwO', serif;
+}
+h1 {
+    z-index: 42;
+    width: 30vw;
+    top: 5vh;
+    text-align: center;
+    position: absolute;
+    letter-spacing: 0.15vw;
+    left: calc(50% - 15vw);
+    font-family: 'Courier New', monospace;
+    font-size: 5vh;
+    cursor: pointer;
+    color: cyan;
 }
