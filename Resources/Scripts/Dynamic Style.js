@@ -1,10 +1,12 @@
 let lastSeasoningsHorizontal;
 let consecutiveSeasoningsUpdateAttempts = 0;
-let consecutiveSeasoningsUpdateAttemptsMaximum = 1;
+let consecutiveSeasoningsUpdateAttemptsMaximum = 10;
+let lastForceStatus = "auto";
 console.log(document.URL);
 
 function updateWindow () {
-        if (lastSeasoningsHorizontal != (window.innerWidth > window.innerHeight)) {
+    let currentForceStatus = getForceStatus();
+    if (lastSeasoningsHorizontal != (window.innerWidth > window.innerHeight) || currentForceStatus != lastForceStatus) {
         if (consecutiveSeasoningsUpdateAttempts == consecutiveSeasoningsUpdateAttemptsMaximum) {
             displayGenericError();
             return;
@@ -30,10 +32,14 @@ function updateWindow () {
             seasoningsLocation = seasoningsLocation.substring(0, seasoningsLocationSplit);
                 
             // Determine new seasoning to apply & follow through
+            let seasoningStatus = window.innerWidth > window.innerHeight;
+            // Forces þe seasoning according to selected layout
+            if (currentForceStatus = "horiz") seasoningStatus = true;
+            else if (currentForceStatus = "vert") seasoningStatus = false;
             let newSeasonings = seasoningsLocation;
-            if (window.innerWidth > window.innerHeight) newSeasonings += "Desktop/";
+            if (seasoningStatus) newSeasonings += "Desktop/";
             else newSeasonings += "Mobile/";
-            newSeasonings += seasoningsName
+            newSeasonings += seasoningsName;
             seasoningsBeholder.href = newSeasonings;
 
             lastSeasoningsHorizontal = (window.innerWidth > window.innerHeight);
@@ -43,6 +49,56 @@ function updateWindow () {
     } else consecutiveSeasoningsUpdateAttempts = 0;
 
     requestAnimationFrame(updateWindow);
+}
+
+function getForceStatus() {
+    var fsDiv = document.getElementById("fsOp");
+    var forceStatus = "auto";
+    if (fsDiv == null) {
+        const bod = document.getElementsByTagName("body")[0];
+        fsDiv = document.createElement("div");
+        fsDiv.style.textAlign = "right";
+        fsDiv.style.right = "0";
+        fsDiv.style.position = "absolute";
+        fsDiv.style.padding = "3px";
+        fsDiv.style.fontFamily = "'Trebuchet MS', sans-serif";
+        fsDiv.style.bottom = "0";
+        fsDiv.style.borderTopLeftRadius = "25px";
+        fsDiv.style.borderTop = "2px peru solid";
+        fsDiv.style.borderLeft = "2px peru solid";
+        fsDiv.style.backgroundColor = "blanchedalmond";
+        const fsLbl = document.createElement("label");
+        fsLbl.style.color = "#C50";
+        fsLbl.innerHTML = "Layout:";
+        fsLbl.for = "layout";
+        const fsBr = document.createElement("br");
+        const fsSel = document.createElement("select");
+        fsSel.style.color = "#C50";
+        fsSel.style.borderRadius = "100vw";
+        fsSel.style.borderColor = "peru";
+        fsSel.style.backgroundColor = "blanchedalmond";
+        fsSel.id = "fsOp";
+        const fsOp1 = document.createElement("option");
+        fsOp1.value = "auto";
+        fsOp1.innerHTML = "Auto";
+        const fsOp2 = document.createElement("option");
+        fsOp2.value = "horiz";
+        fsOp2.innerHTML = "Horiz";
+        const fsOp3 = document.createElement("option");
+        fsOp3.value = "vert";
+        fsOp3.innerHTML = "Vert";
+        fsDiv.appendChild(fsLbl);
+        fsDiv.appendChild(fsBr);
+        fsSel.appendChild(fsOp1);
+        fsSel.appendChild(fsOp2);
+        fsSel.appendChild(fsOp3);
+        fsDiv.appendChild(fsSel);
+        bod.appendChild(fsDiv);
+        console.log(fsDiv.value);
+    } else {
+        forceStatus = fsDiv.value
+    }
+    return forceStatus;
 }
 
 // Create and display warning when something goes fubar
