@@ -45,6 +45,7 @@ function updateWindow () {
             seasoningsBeholder.href = newSeasonings;
 
             lastSeasoningsHorizontal = (window.innerWidth > window.innerHeight);
+            lastForceStatus = currentForceStatus;
         } catch (error) {
             console.error("Whoopsie doodle! " + error);
         }
