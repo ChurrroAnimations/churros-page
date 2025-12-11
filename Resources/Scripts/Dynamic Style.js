@@ -109,6 +109,10 @@ function getForceStatus() {
 
 // Create and display warning when something goes fubar
 function displayGenericError () {
+    // We don't need it anymore.
+    try {document.getElementById("fsOp").remove;}
+    catch (error) {let garbage = error;}
+    
     const genericErrorMessage = document.createElement("p");
     genericErrorMessage.style.position = "fixed";
     genericErrorMessage.style.bottom = "0";
@@ -120,7 +124,6 @@ function displayGenericError () {
     ErrorGif.style.height = "2em";
     ErrorGif.src = "Resources/Page/Error.gif";
     genericErrorMessage.appendChild(ErrorGif);
-    
     document.body.appendChild(genericErrorMessage);
     console.warn("Too many errors trying to switch the CSS. Terminating this script.");
 }
