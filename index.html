@@ -45,7 +45,7 @@
             WARNING!
         </p>
         <p class="warningInfo">
-            Please read before you continue!
+            <span style="color: indigo;">Please read before you continue!</span>
             <br>
             &RightTriangle; My website contains bright or flashing lights, lound noises, and content þat may be upsetting or unsuitable for certain audiences or individuals, such as <span class="hide">Self harm, suicide, mental healþ crises, depression</span>. (&lArr;Hover)
             <br>
@@ -55,14 +55,14 @@
             <br>
             &RightTriangle; Viewer discretion is heavily advised.
             <br>
-            <i>But what þe balogna does þat mean?</i>
+            <i style="color: midnightblue;">But what þe balogna does 'Viewer Discretion' mean?</i>
             <br>
             &RightTriangle;Basically, if you if þink you might be negatively impacted by þe lunacy of my website, do what you reasonbly must to minimize risk, or defenestrate it entirely.
             <br>
             &emsp;E.g. muting your device, piping down þe brightness of your screen, touching grass, or opting to surf a different crevice of þe web.
             <br>
-            &RightTriangle; My website is mostly to entertain and express my þoughts, albiet in a slightly unhinged manner.
-            However and sincerely, I do not wish for þis to come at þe expense, physical, emotional, etc., of anyone or anybeing.
+            <span style="color: firebrick;">&RightTriangle; My website is mostly to entertain and to express my þoughts and self.
+            </span><span style="color: maroon;">However and sincerely, I do not wish for þis to come at þe expense, physical, emotional, etc., of anyone or anybeing.</span>
         </p>
 
         <p class="warningInfo">
@@ -75,7 +75,7 @@
                 &emsp;&emsp;Click to continue&emsp;&emsp;
             </b>
             <br>
-            <sub>Know þat when you click Continue, loud music will ensue, as will þe trolls</sub>
+            <sub style="font-weight:0;">Know þat when you click Continue, loud music will ensue, as will þe trolls</sub>
             <br>
             <br>
             <span style="font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; text-align: left;">
@@ -288,28 +288,29 @@
                                                              |__/                 \______/-->
         <div class="ocdTriggerer" style="display: none;"><!-- Evil >:3c -->
             <div class="transContainer">
-
-                <p class="welcome" style="font-size: 1vw;">
-                    Hello, I'm Churro and I welcome you to my unhinged crevice of the interwebs! :D
-                </p>
                 <h1>
                     Home Page
                 </h1>
-                <script>
-                    function goToPage (pageNo) {
-                        switch (pageNo) {
-                            case 0: window.location.href = "https://churrroanimations.github.io/churros-page/about-churro"; break;
-                            case 1: window.location.href = "https://churrroanimations.github.io/churros-page/churros-socials"; break;
-                            case 2: window.location.href = "https://churrroanimations.github.io/churros-page/more-churro"; break;
-                            case 3: window.location.href = "https://churrroanimations.github.io/churros-commissions/"; break;
-                            case 4: window.location.href = "https://github.com/ChurrroAnimations/churros-page"; break;
-                        }
-                    }
-                </script>
+                <p class="welcome" style="font-size: 1vw;">
+                    Hello, I'm Churro and I welcome you to my unhinged crevice of the interwebs! :D
+                </p>
+                <br>
+                <br>
                 <img src="Resources/Page/Emoji.png" alt="T u r t l e" style="width: 100%; height: 2.5vw;" title="&#128034;">
             </div>
             <hr style="height: 0.25vw;">
-            <table id="pageLinks">
+            <script>
+                function goToPage (pageNo) {
+                    switch (pageNo) {
+                        case 0: window.location.href = "https://churrroanimations.github.io/churros-page/about-churro"; break;
+                        case 1: window.location.href = "https://churrroanimations.github.io/churros-page/churros-socials"; break;
+                        case 2: window.location.href = "https://churrroanimations.github.io/churros-page/more-churro"; break;
+                        case 3: window.location.href = "https://churrroanimations.github.io/churros-commissions/"; break;
+                        case 4: window.location.href = "https://github.com/ChurrroAnimations/churros-page"; break;
+                    }
+                }
+            </script>
+            <table id="pageLinks" class="deviceTogglDesk">
                 <tr>
                     <!-- About Churro -->
                     <th onclick="goToPage(0)" title="https://churrroanimations.github.io/churros-page/about-churro">
@@ -373,7 +374,78 @@
                     </th>
                 </tr>
             </table>
-            <div class="pleaseStopAssaultingMyEars">
+            <table id="pageLinks" class="deviceTogglMobl">
+                <tr>
+                    <!-- About Churro -->
+                    <th onclick="goToPage(0)" title="https://churrroanimations.github.io/churros-page/about-churro" colspan="2">
+                        <ruby>
+                            <img src="Resources/Icons/About Churro.png" alt="&#128034;">
+                            <rp>
+                                <br>&#10233;
+                            </rp>
+                            <rt>
+                                About Churro
+                            </rt>
+                        </ruby>
+                    </th>
+                    <!-- Churro's Socials -->
+                    <th onclick="goToPage(1)" title="https://churrroanimations.github.io/churros-page/churros-socials" colspan="2">
+                        <ruby>
+                            <img src="Resources/Icons/Churros Socials.png" alt="&#128034;">
+                            <rp>
+                                <br>&#10233;
+                            </rp>
+                            <rt>
+                                Churro Socials
+                            </rt>
+                        </ruby>
+                    </th>
+                </tr>
+                <tr>
+                    <!-- More Churro -->
+                    <th onclick="goToPage(2)" title="https://churrroanimations.github.io/churros-page/more-churro" colspan="2">
+                        <ruby>
+                            <img src="Resources/Icons/More Churro.png" alt="&#128034;">
+                            <rp>
+                                <br>&#10233;
+                            </rp>
+                            <rt>
+                                More Churro
+                            </rt>
+                        </ruby>
+                    </th>
+                    <!-- Commissions -->
+                    <th onclick="goToPage(3)" title="https://churrroanimations.github.io/churros-commissions" colspan="2">
+                        <ruby>
+                            <img src="Resources/Icons/Commissions.png" alt="&#128034;">
+                            <rp>
+                                <br>&#10233;
+                            </rp>
+                            <rt>
+                                Commissions
+                            </rt>
+                        </ruby>
+                    </th>
+                </tr>
+                <tr>
+                    <td colspan="1"></td>
+                    <!-- Source Code -->
+                    <th onclick="goToPage(4)" title="https://github.com/ChurrroAnimations/churros-page" colspan="2">
+                        <ruby>
+                            <img src="Resources/Icons/Source Code.png" alt="&#128034;">
+                            <rp>
+                                <br>&#10233;
+                            </rp>
+                            <rt>
+                                Source Code
+                            </rt>
+                        </ruby>
+                    </th>
+                    <td colspan="1"></td>
+                </tr>
+            </table>
+
+            <div class="pleaseStopAssaultingMyEars"> 
                 <img src="Resources/Page/Please stop assaulting my ears!.gif" alt="Please stop assaulting my ears!" style="cursor: pointer; background-color: #d1a4ff48;" onclick="pleaseStopAssaultingMyEars()" title="Click þis if you wish for þe auditory assualting to cease.">
             </div>
             <hr id="linkPopupGap" style="height: 10vh; display: none; border: none;">
@@ -384,13 +456,3 @@
 
 
 <!-- Big ASCII: https://patorjk.com/software/taag/?p=display&f=Big%20Money-ne -->
-
-
-
-
-
-
-
-
-
-

@@ -81,22 +81,18 @@
 
 /* Page Links */
 #pageLinks tr {
-    background-color: rebeccapurple;
     backdrop-filter: blur(0.1rem);
 }
-#pageLinks th:hover img {
-    width: 13vw;
-    transition: width 100ms ease-out, height 100ms ease-in;
-    position:sticky;
-    height: 17vw;
-
+#pageLinks th:hover {
+    filter: hue-rotate(90deg) saturate(200%);
 }
 #pageLinks th {
+    transition: filter 500ms ease;
     cursor: pointer;
     border: 0.4vw double gold;
+    background-color: rebeccapurple;
 }
 #pageLinks img {
-    transition: width 200ms ease-out, height 200ms ease-in;
     margin: auto;
     width: 15vw;
     height: 15vw;
@@ -109,6 +105,7 @@
 .welcome {
     text-align: center;
     padding: 1vw;
+    font-size: 2vw;
     font-family: 'Hewwo', serif;
     color: white;
     margin-bottom: -1.5vw;
@@ -163,6 +160,7 @@
 
 .transContainer {
     width: 60vw;
+    transition: box-shadow 500ms;
     margin: auto;
     box-shadow:
         0 0 0 0.25vw rgb(91, 206, 250),
@@ -199,6 +197,10 @@
     background-color: transparent;
 }
 
+.deviceTogglMobl {display: none !important;}
+.deviceTogglDesk {display: block !important;}
+
+
 .backBlur {
     width: 100%;
     top: 0;
@@ -221,7 +223,7 @@ h1 {
     text-align: center;
     letter-spacing: 3vw;
     font-weight: bolder;
-    font-size: 4vw;
+    font-size: 4.5vw;
     font-family: 'Titl', sans-serif;
     color: #FDF5FF;
 }

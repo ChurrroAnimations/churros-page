@@ -81,9 +81,10 @@ function checkIfForceStatus() {
         fsDiv.style.fontFamily = "'Trebuchet MS', sans-serif";
         fsDiv.style.bottom = "0";
         fsDiv.style.borderTopLeftRadius = "25px";
-        fsDiv.style.borderTop = "0.2vw peru solid";
-        fsDiv.style.borderLeft = "0.2vw peru solid";
+        fsDiv.style.borderTop = "2px peru solid";
+        fsDiv.style.borderLeft = "2px peru solid";
         fsDiv.style.backgroundColor = "blanchedalmond";
+        fsDiv.className = "layoumt";
         const fsLbl = document.createElement("label");
         fsLbl.style.color = "#C50";
         fsLbl.innerHTML = "&emsp;Layout:";
