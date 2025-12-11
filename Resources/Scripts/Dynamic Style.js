@@ -111,7 +111,7 @@ function getForceStatus() {
 // Create and display warning when something goes fubar
 function displayGenericError () {
     // We don't need it anymore.
-    try {document.getElementById("fsOp").remove;}
+    try {document.getElementById("fsOp").parentElement.remove();}
     catch (error) {let garbage = error;}
     
     const genericErrorMessage = document.createElement("p");
