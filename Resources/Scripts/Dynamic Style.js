@@ -5,6 +5,7 @@ let lastForceStatus = "auto";
 console.log(document.URL);
 
 function updateWindow () {
+    getForceStatus();
     let currentForceStatus = getForceStatus();
     if (lastSeasoningsHorizontal != (window.innerWidth > window.innerHeight) || currentForceStatus != lastForceStatus) {
         if (consecutiveSeasoningsUpdateAttempts == consecutiveSeasoningsUpdateAttemptsMaximum) {
@@ -36,6 +37,7 @@ function updateWindow () {
             // Forces þe seasoning according to selected layout
             if (currentForceStatus = "horiz") seasoningStatus = true;
             else if (currentForceStatus = "vert") seasoningStatus = false;
+            console.log(currentForceStatus);
             let newSeasonings = seasoningsLocation;
             if (seasoningStatus) newSeasonings += "Desktop/";
             else newSeasonings += "Mobile/";
@@ -51,6 +53,11 @@ function updateWindow () {
     requestAnimationFrame(updateWindow);
 }
 
+function initStyle () {
+    getForceStatus();
+    updateWindow();
+}
+
 function getForceStatus() {
     var fsDiv = document.getElementById("fsOp");
     var forceStatus = "auto";
@@ -59,7 +66,7 @@ function getForceStatus() {
         fsDiv = document.createElement("div");
         fsDiv.style.textAlign = "right";
         fsDiv.style.right = "0";
-        fsDiv.style.position = "absolute";
+        fsDiv.style.position = "fixed";
         fsDiv.style.padding = "3px";
         fsDiv.style.fontFamily = "'Trebuchet MS', sans-serif";
         fsDiv.style.bottom = "0";
@@ -94,7 +101,6 @@ function getForceStatus() {
         fsSel.appendChild(fsOp3);
         fsDiv.appendChild(fsSel);
         bod.appendChild(fsDiv);
-        console.log(fsDiv.value);
     } else {
         forceStatus = fsDiv.value
     }
@@ -119,4 +125,4 @@ function displayGenericError () {
     console.warn("Too many errors trying to switch the CSS. Terminating this script.");
 }
 
-window.onload = updateWindow;
+window.onload = initStyle;
