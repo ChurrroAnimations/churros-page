@@ -2,11 +2,10 @@ let lastSeasoningsHorizontal;
 let consecutiveSeasoningsUpdateAttempts = 0;
 let consecutiveSeasoningsUpdateAttemptsMaximum = 10;
 let lastForceStatus = "auto";
-console.log(document.URL);
 
 function updateWindow () {
-    getForceStatus();
-    let currentForceStatus = getForceStatus();
+    checkIfForceStatus();
+    let currentForceStatus = document.getElementById("fsOp").value;
     if (lastSeasoningsHorizontal != (window.innerWidth > window.innerHeight) || currentForceStatus != lastForceStatus) {
         if (consecutiveSeasoningsUpdateAttempts == consecutiveSeasoningsUpdateAttemptsMaximum) {
             displayGenericError();
@@ -25,23 +24,18 @@ function updateWindow () {
             }
             
             // Get info about the seasonings
-            seasoningsLocation = seasoningsBeholder.href;
-            seasoningsLocationSplit = seasoningsLocation.search("Seasonings/") + 11;
-            seasoningsName = seasoningsLocation.substring(seasoningsLocationSplit);
-            seasoningsName = seasoningsName.split("/");
-            seasoningsName = seasoningsName[seasoningsName.length - 1];
-            seasoningsLocation = seasoningsLocation.substring(0, seasoningsLocationSplit);
-                
-            // Determine new seasoning to apply & follow through
+            let seasoningsHref = seasoningsBeholder.href.split("Seasonings/");
+            let newSeasonings = seasoningsHref[0];
+            newSeasonings += "Seasonings/";
+            let seasoningsLocation = seasoningsHref[1].split("/");
+                            
+            // Determine new seasoning to apply & follow þrough
             let seasoningStatus = window.innerWidth > window.innerHeight;
-            // Forces þe seasoning according to selected layout
-            if (currentForceStatus = "horiz") seasoningStatus = true;
-            else if (currentForceStatus = "vert") seasoningStatus = false;
-            console.log(currentForceStatus);
-            let newSeasonings = seasoningsLocation;
-            if (seasoningStatus) newSeasonings += "Desktop/";
-            else newSeasonings += "Mobile/";
-            newSeasonings += seasoningsName;
+            if (currentForceStatus == "horiz") seasoningStatus = true;
+            else if (currentForceStatus == "vert") seasoningStatus = false;
+            if (seasoningStatus) seasoningsLocation[0] = "Desktop";
+            else seasoningsLocation[0] = "Mobile";
+            newSeasonings += seasoningsLocation.join("/");
             seasoningsBeholder.href = newSeasonings;
 
             lastSeasoningsHorizontal = (window.innerWidth > window.innerHeight);
@@ -52,60 +46,6 @@ function updateWindow () {
     } else consecutiveSeasoningsUpdateAttempts = 0;
 
     requestAnimationFrame(updateWindow);
-}
-
-function initStyle () {
-    getForceStatus();
-    updateWindow();
-}
-
-function getForceStatus() {
-    var fsDiv = document.getElementById("fsOp");
-    var forceStatus = "auto";
-    if (fsDiv == null) {
-        const bod = document.getElementsByTagName("body")[0];
-        fsDiv = document.createElement("div");
-        fsDiv.style.textAlign = "right";
-        fsDiv.style.right = "0";
-        fsDiv.style.position = "fixed";
-        fsDiv.style.padding = "3px";
-        fsDiv.style.fontFamily = "'Trebuchet MS', sans-serif";
-        fsDiv.style.bottom = "0";
-        fsDiv.style.borderTopLeftRadius = "25px";
-        fsDiv.style.borderTop = "2px peru solid";
-        fsDiv.style.borderLeft = "2px peru solid";
-        fsDiv.style.backgroundColor = "blanchedalmond";
-        const fsLbl = document.createElement("label");
-        fsLbl.style.color = "#C50";
-        fsLbl.innerHTML = "Layout:";
-        fsLbl.for = "layout";
-        const fsBr = document.createElement("br");
-        const fsSel = document.createElement("select");
-        fsSel.style.color = "#C50";
-        fsSel.style.borderRadius = "100vw";
-        fsSel.style.borderColor = "peru";
-        fsSel.style.backgroundColor = "blanchedalmond";
-        fsSel.id = "fsOp";
-        const fsOp1 = document.createElement("option");
-        fsOp1.value = "auto";
-        fsOp1.innerHTML = "Auto";
-        const fsOp2 = document.createElement("option");
-        fsOp2.value = "horiz";
-        fsOp2.innerHTML = "Horiz";
-        const fsOp3 = document.createElement("option");
-        fsOp3.value = "vert";
-        fsOp3.innerHTML = "Vert";
-        fsDiv.appendChild(fsLbl);
-        fsDiv.appendChild(fsBr);
-        fsSel.appendChild(fsOp1);
-        fsSel.appendChild(fsOp2);
-        fsSel.appendChild(fsOp3);
-        fsDiv.appendChild(fsSel);
-        bod.appendChild(fsDiv);
-    } else {
-        forceStatus = fsDiv.value
-    }
-    return forceStatus;
 }
 
 // Create and display warning when something goes fubar
@@ -129,4 +69,50 @@ function displayGenericError () {
     console.warn("Too many errors trying to switch the CSS. Terminating this script.");
 }
 
-window.onload = initStyle;
+function checkIfForceStatus() {
+    if (document.getElementById("fsOp") == null) {
+        const bod = document.getElementsByTagName("body")[0];
+        fsDiv = document.createElement("div");
+        
+        fsDiv.style.textAlign = "right";
+        fsDiv.style.right = "0";
+        fsDiv.style.position = "fixed";
+        fsDiv.style.padding = "0.3vw";
+        fsDiv.style.fontFamily = "'Trebuchet MS', sans-serif";
+        fsDiv.style.bottom = "0";
+        fsDiv.style.borderTopLeftRadius = "25px";
+        fsDiv.style.borderTop = "0.2vw peru solid";
+        fsDiv.style.borderLeft = "0.2vw peru solid";
+        fsDiv.style.backgroundColor = "blanchedalmond";
+        const fsLbl = document.createElement("label");
+        fsLbl.style.color = "#C50";
+        fsLbl.innerHTML = "&emsp;Layout:";
+        fsLbl.for = "fsOp";
+        const fsBr = document.createElement("br");
+        const fsSel = document.createElement("select");
+        //fsSel.style.fontSize = "1.25vh";
+        fsSel.style.color = "#C50";
+        fsSel.style.borderRadius = "100vw";
+        fsSel.style.borderColor = "peru";
+        fsSel.style.backgroundColor = "blanchedalmond";
+        fsSel.id = "fsOp";
+        const fsOp1 = document.createElement("option");
+        fsOp1.value = "auto";
+        fsOp1.innerHTML = "Auto";
+        const fsOp2 = document.createElement("option");
+        fsOp2.value = "horiz";
+        fsOp2.innerHTML = "Horiz";
+        const fsOp3 = document.createElement("option");
+        fsOp3.value = "vert";
+        fsOp3.innerHTML = "Vert";
+        fsDiv.appendChild(fsLbl);
+        fsDiv.appendChild(fsBr);
+        fsSel.appendChild(fsOp1);
+        fsSel.appendChild(fsOp2);
+        fsSel.appendChild(fsOp3);
+        fsDiv.appendChild(fsSel);
+        bod.appendChild(fsDiv);
+    }
+}
+
+window.onload = updateWindow;
