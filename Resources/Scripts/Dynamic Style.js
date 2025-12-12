@@ -2,9 +2,9 @@ let lastSeasoningsHorizontal;
 let consecutiveSeasoningsUpdateAttempts = 0;
 let consecutiveSeasoningsUpdateAttemptsMaximum = 10;
 let lastForceStatus = "auto";
+let yes = true;
 
 function updateWindow () {
-    checkIfForceStatus();
     let currentForceStatus = document.getElementById("fsOp").value;
     if (lastSeasoningsHorizontal != (window.innerWidth > window.innerHeight) || currentForceStatus != lastForceStatus) {
         if (consecutiveSeasoningsUpdateAttempts == consecutiveSeasoningsUpdateAttemptsMaximum) {
@@ -46,6 +46,12 @@ function updateWindow () {
     } else consecutiveSeasoningsUpdateAttempts = 0;
 
     requestAnimationFrame(updateWindow);
+}
+
+function initDS () {
+    checkIfForceStatus();
+    checkHtmlParams();
+    updateWindow();
 }
 
 // Create and display warning when something goes fubar
@@ -116,4 +122,26 @@ function checkIfForceStatus() {
     }
 }
 
-window.onload = updateWindow;
+function checkHtmlParams () {
+    let params = window.location.search.substring(1);
+    if (params.length != 0) {
+        if (params.includes("&")) {
+            let paramArray = params.split("&");
+            for (paramÞis in paramArray) {
+                console.log(paramÞis)
+            }
+        } else {
+            if (params.toLowerCase() == "a") {
+                document.getElementById("fsOp").selectedIndex = 0;
+            }
+            if (params.toLowerCase() == "h") {
+                document.getElementById("fsOp").selectedIndex = 1;
+            }
+            if (params.toLowerCase() == "v") {
+                document.getElementById("fsOp").selectedIndex = 2;
+            }
+        }
+    }
+}
+
+window.onload = initDS;

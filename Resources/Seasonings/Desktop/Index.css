@@ -92,6 +92,10 @@
     border: 0.4vw double gold;
     background-color: rebeccapurple;
 }
+#pageLinks td {
+    transform: scaleY(0%);
+    color: transparent;
+}
 #pageLinks img {
     margin: auto;
     width: 15vw;
@@ -99,13 +103,13 @@
 }
 #pageLinks {
     font-size: 5vw;
-    width: 90vw;
+    width: 60vw;
 }
 
 .welcome {
     text-align: center;
     padding: 1vw;
-    font-size: 2vw;
+    font-size: 1.5vw;
     font-family: 'Hewwo', serif;
     color: white;
     margin-bottom: -1.5vw;
