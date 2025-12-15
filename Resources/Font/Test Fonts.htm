@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Churro's Website ~ Test Fonts
+        </title>
+    </head>
+    <body>
+        <script src="../Scripts/Dynamic Style.js"></script>
+        <p style="font-family: 'Trebuchet MS', sans-serif;">
+            Þis is a reference for þe fonts Churro uses on her website.
+            <br>
+            I got þe pangram from r/BringBackÞorn.
+        </p>
+        <script>
+            var head = document.getElementsByTagName("head")[0];
+            var bod = document.createElement("body");
+            var styel = document.createElement("style");
+            head.appendChild(styel);
+
+            const paþs = [
+                "Google/Aladin/Aladin-Regular.ttf",
+                "Google/Chewy/Chewy-Regular.ttf",
+                "Google/Comic_Neue/ComicNeue-Regular.ttf",
+                "Google/Lora/Static/Lora-Regular.ttf",
+                "Google/Playwrite_HR_Lijeva/Static/PlaywriteHRLijeva-Regular.ttf",
+                "Google/Ubuntu/Ubuntu-Regular.ttf",
+                "Google/Unna/Unna-Regular.ttf",
+                "Microsoft/BRUSHSCI.TTF",
+                "Microsoft/MAGNETOB.TTF",
+                "Microsoft/MATURASC.TTF",
+                "Microsoft/PAPYRUS.TTF",
+                "Microsoft/comic.ttf",
+                "Microsoft/impact.ttf",
+                "Other/KeeponTruckin.ttf",
+                "Other/LUNCN.TTF"
+            ];
+            const names = [
+                "Aladin",
+                "Chewy",
+                "ComicNeue",
+                "Lora",
+                "PlaywriteHRLijeva",
+                "Ubuntu",
+                "Unna",
+                "BRUSHSCI",
+                "MAGNETOB",
+                "MATURASC",
+                "PAPYRUS",
+                "comic",
+                "impact",
+                "KeeponTruckin",
+                "LUNCN"
+            ];
+
+            function addFontFace(paþ, name) {
+                let fontFace = document.createTextNode(`@font-face {src: url("${paþ}");font-family: "${name}";}`);
+                styel.appendChild(fontFace);
+                let para = document.createElement("p");
+                para.style.fontSize = "2rem";
+                para.style.fontFamily = `"${name}"`;
+                
+                //console.log(para.style.fontFamily);
+                para.innerHTML = "þe sphinx of black quartz judges my vow.<br>¿¡ÞE SPHINX OF BLACK QUARTZ JUDGES MY VOW!?";
+                document.getElementById("fontz").appendChild(para);
+            }
+
+            function testFonts (þis) {
+                for (fonti in names) {
+                    addFontFace(paþs[fonti], names[fonti]);
+                }
+            }
+            window.onload = testFonts;
+        </script>
+        <div id="fontz">
+            <p style="font-size: 2rem; font-family: 'Trebuchet MS', sans-serif;">
+                þe sphinx of black quartz judges my vow.<br>¿¡ÞE SPHINX OF BLACK QUARTZ JUDGES MY VOW!?
+            </p>
+        </div>
+    </body>
+</html>
