@@ -1,0 +1,51 @@
+/* Colors
+mediumvioletred
+darkorange
+gold
+firebrick
+midnightblue
+mediumseagreen
+*/
+
+@font-face {
+    src: url("../../Font/Other/SuperMagic.ttf");
+    font-family: "Super Magic";
+}
+
+:root {
+    background-color: darkorange;
+}
+
+.Yband video {
+    width: 90vw;
+    top: 1vw;
+    position: absolute;
+    object-fit: fill;
+    margin: auto;
+    left: 5vw;
+    height: 10vw;
+    display: none;
+}
+
+.Yband h3 {
+    text-indent: 25vw;
+    margin-top: -2.5vw;
+}
+
+.Yband {
+    color: mediumvioletred;
+    width: 100vw;
+    text-align: center;
+    position: absolute;
+    left: 0;
+    font-size: 2vw;
+    font-family: "Super Magic";
+    background-color: gold;
+}
+
+.hide {
+    z-index: calc(-infinity);
+    width: 90vw;
+    position: static;
+    color: transparent;
+}

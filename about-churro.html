@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Churro's Website ~ About Churro
+        </title>
+        <link rel="stylesheet" href="Resources/Seasonings/Desktop/About-Churro.css">
+        <link rel="icon" href="Resources/Icons/About Churro.png">
+        
+        <!-- Link Embedding -->
+        <meta charset="utf-8" />
+        <meta property="og:site_name" content="Churro's Website ~ About Churro" />
+        <meta property="og:title" content="Churro's Website ~ About Churro" />
+        <meta name="description" content="Some basic information about Churro." />
+        <meta property="og:description" content="Some basic information about Churro." />
+        <meta property="og:type" content="website" />
+        <meta property="og:image" content="https://churrroanimations.github.io/churros-page/Resources/External/embed-img-about-churro.jpg" />
+        <meta property="og:image:type" content="image/jpeg" />
+        <meta property="og:image:width" content="1280" />
+        <meta property="og:image:height" content="800" />
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta property="og:url" content="https://churrroanimations.github.io/churros-page/about-churro" />
+        <link rel="canonical" href="https://churrroanimations.github.io/churros-page/about-churro" />
+    </head>
+    <body>
+        <script src="Resources/Scripts/Dynamic Style.js"></script>
+        <div class="Yband" style="top: 0;">
+            <h1 onclick="wtfIsÞis()">
+                What þe Fuck is Þis Piece of Shit?
+            </h1>
+            <h3 onclick="wtfIsÞis()">
+                ~ Joe Pesci, 1992
+            </h3>
+            <video id="quoteVid">
+                <source src="Resources/Noisy/JJJ Laugh.mp4" type="video/mp4">
+            </video>
+            <script>
+                var qVid = document.getElementById("quoteVid");
+                function wtfIsÞis () {
+                    qVid.style.display = "block";
+                    qVid.play();
+                }
+
+                function addQVidEnd () {
+                    console.log(qVid);
+                    qVid.onened = function() {hideQVid};
+                }
+
+
+                function hideQVid () {
+                    qVid.style.display = "none";
+                }
+
+                window.onload = addQVidEnd;
+            </script>
+        </div>
+        <div class="Yband hide" style="top: 0;">
+            <h1>
+                What þe Fuck is Þis Piece of Shit?
+            </h1>
+            <h3>
+                ~ Joe Pesci, 1992
+            </h3>
+        </div>
+        <p>Test</p>
+    </body>
+</html>
