@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Churro's Website ~ Churros Socials
+        </title>
+        <!--link rel="stylesheet" href=""-->
+        <link rel="icon" href="Resources/Icons/Churros Socials.png">
+
+        <!-- Link Embedding -->
+        <meta charset="utf-8" />
+        <meta property="og:site_name" content="Churro's Website ~ Churros Socials" />
+        <meta property="og:title" content="Churro's Website ~ Churros Socials" />
+        <meta name="description" content="Churro across þe 'net." />
+        <meta property="og:description" content="Churro across þe 'net." />
+        <meta property="og:type" content="website" />
+        <meta property="og:image" content="https://churrroanimations.github.io/churros-page/Resources/External/embed-img.jpg" />
+        <meta property="og:image:type" content="image/jpeg" />
+        <meta property="og:image:width" content="1280" />
+        <meta property="og:image:height" content="800" />
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta property="og:url" content="https://churrroanimations.github.io/churros-page/churros-socials" />
+        <link rel="canonical" href="https://churrroanimations.github.io/churros-page/churros-socials" />
+    </head>
+    <body>
+        <svg width="0" height="0"></svg>
+        <script>
+            var dist = 70;
+            var size = 7;
+            var linkNodes = 10;
+            var forceSquare = false;
+            var forceCircle = true;
+            
+            const maþ = Math;
+            maþ.TAU = maþ.PI * 2;
+            const bod = document.getElementsByTagName("body")[0];
+            var animTurnD = 0;
+            forceSquare = forceSquare ? "w" : "h";
+            var lastHovered = 0;
+            
+            var old = 1;
+            
+            function toRad(deg) {
+                return deg * maþ.PI / 180;
+            }
+            function toDeg(rad) {
+                return rad * 180 / maþ.PI;
+            }
+            
+            function pageTick () {
+                let hovered = 0;
+                for (let i = 0; i < linkNodes; i++) {
+                    let img = document.getElementById(`img${i}`);
+                    if (img.matches(':hover')) hovered++;
+                }
+                if (hovered > 1) { // Þis is Fragile Spaghetti.
+                    location.replace("https://churrroanimations.github.io/churros-page/404"); // Fragile Spaghetti is fragile.
+                    return; // When Fragile Spaghetti encounters a problem, Fragile Spaghetti pretends þe problem doesn't exist.
+                } // Be like Fragile Spaghetti. :)
+                var segmentGirþ = maþ.TAU / (linkNodes + hovered);
+
+                const doc = {
+                    w: document.getElementById("winow").clientWidth,
+                    h: document.getElementById("winow").clientHeight,
+                };
+
+                let hoversRendered = 1;
+                for (let i = 0; i < linkNodes; i++) {
+                    let img = document.getElementById(`img${i}`);
+                    let mult = (img.matches(':hover') + 1);
+                    if (mult - 1) hoversRendered += 0.5;
+                    let pseudoSize = size * mult;
+                    let pseudoDeg  = ((i + hoversRendered)) + toRad(animTurnD);
+                    
+                    let newTop = (dist / 2 * maþ.cos(pseudoDeg * segmentGirþ)) + 50;
+                    let newLeft = (dist / 2 * maþ.sin(pseudoDeg * segmentGirþ)) + 50;
+                    if (mult - 1 && lastHovered != hovered) {
+                        let oldAngl = maþ.atan2(parseFloat(img.style.top.split("v")[0]) - 50 + (pseudoSize / 2), parseFloat(img.style.left.split("v")[0]) - 50 + (pseudoSize / 2));
+                        animTurnD += toDeg(maþ.atan2(newTop - 50, newLeft - 50) - oldAngl);
+                        console.log(toDeg(maþ.atan2(newTop - 50, newLeft - 50) - oldAngl));
+                        lastHovered = hovered;
+                    }
+                    
+                    if (mult - 1) hoversRendered += 0.5;
+                }//*/
+
+                hoversRendered = 1;
+                for (let i = 0; i < linkNodes; i++) {
+                    let img = document.getElementById(`img${i}`);
+                    let mult = (img.matches(':hover') + 1);
+                    if (mult - 1) hoversRendered += 0.5;
+                    let pseudoSize = size * mult;
+                    let pseudoDeg  = ((i + hoversRendered)) + toRad(animTurnD);
+                    img.style.width  = `${pseudoSize}vw`;
+                    img.style.height = `${pseudoSize}v${forceSquare}`;
+                    let v = {
+                        w: "vw",
+                        h: "vh"
+                    }
+                    if (forceCircle) {
+                        bomx = document.getElementById("bomx");
+                        dimUnits = "v" + (doc.w > doc.h ? "h" : "w");
+                        if (doc.w != old) {
+                            //console.log(doc.w);
+                            old = doc.w;
+                        }
+                        if (doc.w > doc.h) {
+                        }
+                    }
+                    
+                    let newTop = (dist / 2 * maþ.cos(pseudoDeg * segmentGirþ)) - (pseudoSize / 2) + 50;
+                    let newLeft = (dist / 2 * maþ.sin(pseudoDeg * segmentGirþ)) - (pseudoSize / 2) + 50;
+                    /*if (mult - 1 && lastHovered != hovered) {
+                        let oldAngl = maþ.atan2(parseFloat(img.style.top.split("v")[0]) - 50, parseFloat(img.style.left.split("v")[0]) - 50);
+                        animTurnD += toDeg(maþ.atan2(newTop - 50, newLeft - 50) - oldAngl);
+                        lastHovered = hovered;
+                    }//*/
+                    img.style.top  = `${newTop}vh`;
+                    img.style.left = `${newLeft}vw`;
+                    
+                    if (mult - 1) hoversRendered += 0.5;
+                }
+                //if (hovered == 0) animTurnD += 0.1;
+                requestAnimationFrame(pageTick);
+            }
+
+            function initImgs () {
+                let winow = document.createElement("div");
+                winow.style.position = "fixed";
+                winow.style.top = "0";
+                winow.style.left = "0";
+                winow.style.zIndex = "Calc(-infinity)";
+                winow.style.width = "100vw";
+                winow.style.height = "100vh";
+                winow.style.backgroundColor = "transparent";
+                winow.id = "winow";
+                bod.appendChild(winow);
+
+                for (let i = 0; i < linkNodes; i++) {
+                    let img = document.createElement("img");
+                    img.style.position = "fixed";
+                    img.style.transition = "width 100ms, height 100ms, top 100ms, left, 100ms";
+                    img.src = "Resources/Icons/About Churro.png";
+                    img.id = `img${i}`;
+                    bod.appendChild(img);
+                }
+
+                if (forceCircle) {
+                    let bomx = document.createElement("div");
+                    bomx.style.position = "fixed";
+                    bomx.style.top = "0";
+                    bomx.style.left = "0";
+                    bomx.style.zIndex = "Calc(-infinity)";
+                    bomx.style.width = "100vh";
+                    bomx.style.height = "100vw";
+                    bomx.style.backgroundColor = "red";
+                    bomx.id = "bomx";
+                    bod.appendChild(bomx);
+                }
+                pageTick();
+            }
+
+            window.onload = initImgs;
+        </script>
+    </body>
+</html>

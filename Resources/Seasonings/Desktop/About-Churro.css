@@ -17,12 +17,11 @@ mediumseagreen
 }
 
 .Yband video {
-    width: 90vw;
+    width: 100vw;
     top: 1vw;
     position: absolute;
     object-fit: fill;
     margin: auto;
-    left: 5vw;
     height: 10vw;
     display: none;
 }
