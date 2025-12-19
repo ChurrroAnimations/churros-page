@@ -1,0 +1,11 @@
+:root {
+    background-color: greenyellow;
+}
+
+#refrigerator {
+    width: 100vw;
+    top: 0;
+    position: fixed;
+    left: 0;
+    height: 100vh;
+}
