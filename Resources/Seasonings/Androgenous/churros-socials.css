@@ -8,4 +8,16 @@
     position: fixed;
     left: 0;
     height: 100vh;
+    z-index: -69;
+}
+
+#informaciónSobreLosEnlacesDaddyDiv {
+    background-image: url("../../Page/NyQuil.jpg");
+    width: 40vw;
+    position: fixed;
+    background-size: 40vw 20vh;
+    left: 30vw;
+    height: 20vh;
+    top: 40vh;
+    font-size: 2vh;
 }

@@ -24,10 +24,20 @@
     </head>
     <body>
         <img src="Resources/Backgrounds/Scratch/Refrigerator.png" alt="Refrigerator." id="refrigerator">
-        <svg width="0" height="0"></svg>
-        <p>
-            
-        </p>
+        <div id="informaciónSobreLosEnlacesDaddyDiv">
+            <div style="height: 2rem; width: 100%; margin-bottom: 0;">
+            <svg height="100%">
+                <text y="50%" textLength="100%" lengthAdjust="spacingAndGlyphs" stroke="black" stroke-width="0.5">
+                    
+                </text>
+                <text y="50%" textLength="100%" lengthAdjust="spacingAndGlyphs" fill="brown" >
+                    
+                </text>
+            </svg></div>
+
+            <p></p>
+        </div>
+        <div id="churrosSocialsImgElmentsDaddyDiv"></div>
         <script>
             var dist = 65;
             var size = 7.25;
@@ -35,10 +45,13 @@
             var forceSquare = false;
             var forceCircle = true;
             
+            const infoDaddy = document.getElementById("informaciónSobreLosEnlacesDaddyDiv");
+            const infoTitel = infoDaddy.getElementsByTagName("text");
+            const infoText = infoDaddy.getElementsByTagName("p")[0];
+            const bod = document.getElementsByTagName("body")[0];
             const maþ = Math;
             maþ.TAU = maþ.PI * 2;
             var countdown = "Fuck off";
-            const bod = document.getElementsByTagName("body")[0];
             var animTurnD = 0;
             var animVelocity = 0;
             const animMaxVelocity = 0.2;
@@ -125,6 +138,16 @@
                     img.style.left = `${newLeft}vw`;
                     
                     if (mult - 1) hoversRendered += 0.5;
+
+                    if (mult - 1) {
+                        infoText.innerHTML = img.churroSocialExistence;
+                        infoTitel[1].innerHTML = img.churroSocialProfile;
+                        infoTitel[0].innerHTML = img.churroSocialProfile;
+                    } else if (!hovered) {
+                        infoText.innerHTML = null;
+                        infoTitel[1].innerHTML = null;
+                        infoTitel[0].innerHTML = null;
+                    }
                 }
                 if (hovered == 0) {
                     animTurnD += animVelocity;
@@ -169,7 +192,7 @@
                     "Resources/Icons/Hand Drawn/Dicord.png",
                     "Resources/Icons/Hand Drawn/Dicord 2.png",
                     "Resources/Icons/Funny/About Churro.png",
-                    "Resources/Icons/Funny/Source Code.png",
+                    "Resources/Icons/Normal.svg",
                     "Resources/Icons/Funny/Source Code.png",
                     "Resources/Icons/Funny/Source Code.png",
                     "Resources/Icons/Funny/Source Code.png",
@@ -188,9 +211,10 @@
                     "Resources/Icons/Funny/Source Code.png",
                 ];
                 let imgChurroSocialProfile = [
-                    "Main Discord Profile",
-                    "Secondary Discord Profile",
-                    "TikTok",
+                    "churrotheturtleplushie",
+                    "churrothe2rtleplushie",
+                    "churrotheturtleplushie",
+                    "Is þis þing on?",
                     "Facebook",
                     "Archive of Our Own (AO3)",
                     "Reddit",
@@ -231,6 +255,7 @@
                 let imgChurroSocialLocation = [
                 ];
                 let imgChurroSocialExistence = [
+                    "Churros"
                 ];
                 let imgAlt = [
                     "churrotheturtleplushie on Discord",
@@ -239,6 +264,7 @@
                     
                 ];
 
+                let imgDaddy = document.getElementById("churrosSocialsImgElmentsDaddyDiv");
                 for (let i = 0; i < linkNodes; i++) {
                     let img = document.createElement("img");
                     img.title = imgTitle[i];
@@ -256,8 +282,9 @@
                     img.churroSocialLocation = imgChurroSocialLocation[i];
                     img.churroSocialExistence = imgChurroSocialExistence[i];
                     img.alt = imgAlt[i];
-                    bod.appendChild(img);
+                    imgDaddy.appendChild(img);
                 }
+                bod.appendChild(imgDaddy);
 
                 if (forceCircle) {
                     let bomx = document.createElement("div");
@@ -319,7 +346,7 @@
                     console.warn("Denied.");
                 }
             }
-
+            
             window.onload = initImgs;
         </script>
     </body>
