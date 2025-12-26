@@ -11,13 +11,22 @@
     z-index: -69;
 }
 
+
+#informaciónSobreLosEnlacesDaddyDiv h1 {
+    -webkit-text-stroke: 0.025em white;
+}
+
+#informaciónSobreLosEnlacesDaddyDiv p {
+    background-color: white;
+}
+
 #informaciónSobreLosEnlacesDaddyDiv {
-    background-image: url("../../Page/NyQuil.jpg");
     width: 40vw;
+    top: 40vh;
     position: fixed;
-    background-size: 40vw 20vh;
     left: 30vw;
     height: 20vh;
-    top: 40vh;
     font-size: 2vh;
+    background-size: 100% 100%;
+    background-image: url("../../Page/NyQuil.jpg");
 }
