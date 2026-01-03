@@ -22,7 +22,12 @@ function updateWindow () {
                     break investigation;
                 }
             }
-            
+                        
+            if (String(seasoningsBeholder.href).includes("Androgenous")) {
+                console.error("Churro did define Androgenous in Dynamic Seasonings.js.");
+                return;
+            }
+
             // Get info about the seasonings
             let seasoningsHref = seasoningsBeholder.href.split("Seasonings/");
             let newSeasonings = seasoningsHref[0];
@@ -49,6 +54,7 @@ function updateWindow () {
 }
 
 function initDS () {
+    console.info("Starting Dynamic Styles");
     checkIfForceStatus();
     checkHtmlParams();
     updateWindow();
@@ -108,10 +114,10 @@ function checkIfForceStatus() {
         fsOp1.innerHTML = "Auto";
         const fsOp2 = document.createElement("option");
         fsOp2.value = "horiz";
-        fsOp2.innerHTML = "Horiz";
+        fsOp2.innerHTML = "PC";
         const fsOp3 = document.createElement("option");
         fsOp3.value = "vert";
-        fsOp3.innerHTML = "Vert";
+        fsOp3.innerHTML = "Mobile";
         fsDiv.appendChild(fsLbl);
         fsDiv.appendChild(fsBr);
         fsSel.appendChild(fsOp1);
@@ -125,19 +131,17 @@ function checkIfForceStatus() {
 function checkHtmlParams () {
     let params = window.location.search.substring(1);
     if (params.length != 0) {
-        if (params.includes("&")) {
-            let paramArray = params.split("&");
-            for (paramÞis in paramArray) {
-                console.log(paramÞis)
-            }
-        } else {
-            if (params.toLowerCase() == "a") {
+        let paramArray = params.split("&");
+        for (paramÞisNumber in paramArray) {
+            console.log(paramArray[paramÞisNumber])
+            let paramÞis = paramArray[paramÞisNumber].toLowerCase();
+            if (["auto", "l=a", "l=0"].includes(paramÞis)) {
                 document.getElementById("fsOp").selectedIndex = 0;
             }
-            if (params.toLowerCase() == "h") {
+            if (["horiz", "l=h", "l=1", "pc"].includes(paramÞis)) {
                 document.getElementById("fsOp").selectedIndex = 1;
             }
-            if (params.toLowerCase() == "v") {
+            if (["vert", "l=v", "l=2", "mobile"].includes(paramÞis)) {
                 document.getElementById("fsOp").selectedIndex = 2;
             }
         }

@@ -23,6 +23,7 @@
         <link rel="canonical" href="https://churrroanimations.github.io/churros-page/brainf_ck" />
     </head>
     <body>
+        <script src="Resources/Scripts/Dynamic Seasonings.js"></script>
         <img src="Resources/Backgrounds/Scratch/Refrigerator.png" alt="Refrigerator." id="refrigerator">
         <div id="informaciónSobreLosEnlacesDaddyDiv">
             <!--div style="height: 2rem; width: 100%; margin-bottom: 0;">
@@ -141,7 +142,7 @@
 
                     if (mult - 1) {
                         infoText.innerHTML = img.churroSocialExistence;
-                        infoTitel.innerHTML = img.churroSocialProfile;
+                        infoTitel.innerHTML = `${img.churroSocialProfile}&nbsp;on&nbsp;${img.churroSocialPlatform}`;
                     } else if (!hovered) {
                         infoText.innerHTML = null;
                         infoTitel.innerHTML = null;
@@ -187,10 +188,15 @@
                     ""
                 ];
                 let imgSrc = [
+                    "Resources/Icons/Hand Drawn/Tock.png",
+                    "Resources/Icons/Hand Drawn/Stim.png",
+                    "Resources/Icons/Hand Drawn/Scruct 1.png",
+                    "Resources/Icons/Hand Drawn/Scruct 2.png",
+                    "Resources/Icons/Hand Drawn/Scruct 3.png",
+                    "Resources/Icons/Hand Drawn/Scruct 4.png",
                     "Resources/Icons/Hand Drawn/Dicord.png",
                     "Resources/Icons/Hand Drawn/Dicord 2.png",
                     "Resources/Icons/Funny/About Churro.png",
-                    "Resources/Icons/Normal.svg",
                     "Resources/Icons/Funny/Source Code.png",
                     "Resources/Icons/Funny/Source Code.png",
                     "Resources/Icons/Funny/Source Code.png",
@@ -210,6 +216,7 @@
                 ];
                 let imgChurroSocialProfile = [
                     "churrotheturtleplushie",
+                    "theturtlethatplaysgames",
                     "churrothe2rtleplushie",
                     "churrotheturtleplushie",
                     "Is þis þing on?",
@@ -230,32 +237,33 @@
                     "Nitrotype",
                 ];
                 let imgChurroSocialPlatform = [
-                    "Discord",
-                    "Discord",
                     "TikTok",
-                    "Facebook",
-                    "Archive of Our Own (AO3)",
-                    "Reddit",
-                    "GitHub",
-                    "Az Furs",
-                    "Instagram",
-                    "Itch.io",
-                    "Scratch",
-                    "Scratch",
-                    "Scratch",
-                    "Scratch",
-                    "Electronic Mail",
-                    "Coolmath",
-                    "iNaturalist",
-                    "Nitrotype",
                     "Steam",
+                    "Scratch",
+                    "Scratch",
+                    "Scratch",
+                    "Scratch",
+                    "Reddit",
+                    "Nitrotype",
+                    "Itch.io",
+                    "Instagram",
+                    "iNaturalist",
+                    "GitHub",
+                    "Facebook",
+                    "Electronic Mail",
+                    "Discord",
+                    "Discord",
+                    "Coolmath",
+                    "Az Furs",
+                    "Archive of Our Own (AO3)",
                 ];
                 let imgChurroSocialLocation = [
                 ];
                 let imgChurroSocialExistence = [
-                    "Churros"
+                    ":3"
                 ];
                 let imgAlt = [
+                    "Hand drawn TikTok Logo",
                     "churrotheturtleplushie on Discord",
                     "churrothe2rtleplushie Discord",
                     "TikTok"
@@ -310,10 +318,6 @@
                     //document.getElementById(`img${autodefenestratee.divorce}`).src = "Resources/Icons/Funny/More Churro.png";
                     switch (parseInt(autodefenestratee.divorce)) {
                         case 0:
-                            break;
-                        case 1:
-                            break;
-                        case 2:
                             autodefenestrateeElement = document.getElementById(`img${autodefenestratee.divorce}`);
                             let funnyVideo = document.createElement("video");
                             funnyVideo.style.objectFit = "fill";
@@ -339,13 +343,19 @@
                             bod.appendChild(funnyVideo);
                             countdown = 10;
                             break;
+                        case 1:
+                            break;
+                        case 2:
+                            break;
                     }
                 } else {
                     console.warn("Denied.");
                 }
             }
-            
-            window.onload = initImgs;
+
+            window.addEventListener("load", (event) => {
+                initImgs();
+            });
         </script>
     </body>
 </html>
