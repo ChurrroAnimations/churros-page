@@ -24,7 +24,7 @@ function updateWindow () {
             }
                         
             if (String(seasoningsBeholder.href).includes("Androgenous")) {
-                console.error("Churro did define Androgenous in Dynamic Seasonings.js.");
+                console.error("Churro did not define Androgenous in Dynamic Seasonings.js.");
                 return;
             }
 

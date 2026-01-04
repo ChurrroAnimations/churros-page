@@ -11,9 +11,9 @@
     z-index: -69;
 }
 
-
 #informaciónSobreLosEnlacesDaddyDiv h1 {
     -webkit-text-stroke: 0.025em white;
+    text-align: center;
 }
 
 #informaciónSobreLosEnlacesDaddyDiv p {

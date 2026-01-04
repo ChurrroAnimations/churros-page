@@ -24,17 +24,9 @@
     </head>
     <body>
         <script src="Resources/Scripts/Dynamic Seasonings.js"></script>
-        <img src="Resources/Backgrounds/Scratch/Refrigerator.png" alt="Refrigerator." id="refrigerator">
+        <img src="Resources/Backgrounds/Scratch/Refrigerator.png" alt="Refrigerator." id="refrigerator" onclick="OwO();">
+        <audio src="Resources/Noisy/pleased.mp3" id="hmmmmmm"></audio>
         <div id="informaciónSobreLosEnlacesDaddyDiv">
-            <!--div style="height: 2rem; width: 100%; margin-bottom: 0;">
-            <svg height="100%">
-                <text y="50%" textLength="100%" lengthAdjust="spacingAndGlyphs" stroke="black" stroke-width="0.5">
-                    
-                </text>
-                <text y="50%" textLength="100%" lengthAdjust="spacingAndGlyphs" fill="brown" >
-                    
-                </text>
-            </svg></div-->
             <h1></h1>
             <p></p>
         </div>
@@ -45,7 +37,9 @@
             var linkNodes = 20;
             var forceSquare = false;
             var forceCircle = true;
+            var forceClicked = 1;
             
+            var fsSel = NaN;
             const infoDaddy = document.getElementById("informaciónSobreLosEnlacesDaddyDiv");
             const infoTitel = infoDaddy.getElementsByTagName("h1")[0];
             const infoText = infoDaddy.getElementsByTagName("p")[0];
@@ -88,6 +82,22 @@
                         }
                     }
                 }
+
+                const doc = {
+                    w: document.getElementById("winow").clientWidth,
+                    h: document.getElementById("winow").clientHeight,
+                };
+
+                // Check for fsOp
+                fsSel = document.getElementById("fsOp");
+                if (fsSel != null) {
+                    fsSel = document.getElementById("fsOp").value;
+                    if (fsSel == "auto") fsSel = doc.w > doc.h ? "horiz" : "vert";
+                    if (fsSel == "vert") hovered = forceClicked > -1;
+                    else forceClicked = -1;
+                }
+
+
                 var segmentGirþ = maþ.TAU / (linkNodes + hovered);
                 if (!hovered) didntBumpyÞing = 2;
 
@@ -98,17 +108,19 @@
                     didntBumpyÞing = 0;
                 }//*/
 
-                const doc = {
-                    w: document.getElementById("winow").clientWidth,
-                    h: document.getElementById("winow").clientHeight,
-                };
-
                 let hoversRendered = 1;
 
                 hoversRendered = 1;
                 for (let i = 0; i < linkNodes; i++) {
                     let img = document.getElementById(`img${i}`);
+                    img.src = img.ogSrc;
                     let mult = (img.matches(':hover') + 1);
+                    if (fsSel == "vert") {
+                        mult = 1;
+                        if (i == forceClicked) {
+                            mult++;
+                        }
+                    }
                     if (mult - 1) hoversRendered += 0.5;
                     let pseudoSize = size * (mult + ((mult - 1) * 0.2));
                     let pseudoRad = ((i + hoversRendered) * segmentGirþ) + toRad(animTurnD);
@@ -142,7 +154,7 @@
 
                     if (mult - 1) {
                         infoText.innerHTML = img.churroSocialExistence;
-                        infoTitel.innerHTML = `${img.churroSocialProfile}&nbsp;on&nbsp;${img.churroSocialPlatform}`;
+                        infoTitel.innerHTML = `${img.churroSocialProfile} on ${img.churroSocialPlatform}`;
                     } else if (!hovered) {
                         infoText.innerHTML = null;
                         infoTitel.innerHTML = null;
@@ -171,6 +183,15 @@
                 requestAnimationFrame(pageTick);
             }
 
+            function OwO () {
+                if (fsSel == "vert") {
+                    forceClicked = -1;
+                    let hmmmmmm = document.getElementById("hmmmmmm");
+                    if (hmmmmmm.paused) hmmmmmm.play();
+                    else hmmmmmm.currentTime = 0;
+                }
+            }
+
             function initImgs () {
                 let winow = document.createElement("div");
                 winow.style.position = "fixed";
@@ -184,57 +205,36 @@
                 bod.appendChild(winow);
 
                 let imgTitle = [
-                    "https://discord.com/users/1097351319204929656",
-                    ""
+                    
                 ];
                 let imgSrc = [
                     "Resources/Icons/Hand Drawn/Tock.png",
                     "Resources/Icons/Hand Drawn/Stim.png",
-                    "Resources/Icons/Hand Drawn/Scruct 1.png",
-                    "Resources/Icons/Hand Drawn/Scruct 2.png",
+                    "Resources/Icons/Hand Drawn/Scruct 5.png",
                     "Resources/Icons/Hand Drawn/Scruct 3.png",
                     "Resources/Icons/Hand Drawn/Scruct 4.png",
+                    "Resources/Icons/Hand Drawn/Scruct 1.png",
+                    "Resources/Icons/Hand Drawn/Scruct 2.png",
+                    "Resources/Icons/Hand Drawn/Ridt.png",
+                    "Resources/Icons/Hand Drawn/Nini Tip.png",
+                    "Resources/Icons/Hand Drawn/Ic.OwO.png",
+                    "Resources/Icons/Hand Drawn/Isagwam.png",
                     "Resources/Icons/Hand Drawn/Dicord.png",
                     "Resources/Icons/Hand Drawn/Dicord 2.png",
-                    "Resources/Icons/Funny/About Churro.png",
-                    "Resources/Icons/Funny/Source Code.png",
-                    "Resources/Icons/Funny/Source Code.png",
-                    "Resources/Icons/Funny/Source Code.png",
-                    "Resources/Icons/Funny/Source Code.png",
-                    "Resources/Icons/Funny/Source Code.png",
-                    "Resources/Icons/Funny/Source Code.png",
-                    "Resources/Icons/Funny/Source Code.png",
-                    "Resources/Icons/Funny/Source Code.png",
-                    "Resources/Icons/Funny/Source Code.png",
-                    "Resources/Icons/Funny/Source Code.png",
-                    "Resources/Icons/Funny/Source Code.png",
-                    "Resources/Icons/Funny/Source Code.png",
-                    "Resources/Icons/Funny/Source Code.png",
-                    "Resources/Icons/Funny/Source Code.png",
-                    "Resources/Icons/Funny/Source Code.png",
-                    "Resources/Icons/Funny/Source Code.png",
                 ];
                 let imgChurroSocialProfile = [
                     "churrotheturtleplushie",
                     "theturtlethatplaysgames",
-                    "churrothe2rtleplushie",
+                    "MobileAxolotl",
+                    "eevee_in_a_box",
+                    "eevee_box_ANIMATIONS",
+                    "dirtydiaperguy",
+                    "ChurroAnimations",
+                    "u/TheInternetTurtle",
+                    "8turtles",
+                    "Churro the Turtle",
                     "churrotheturtleplushie",
-                    "Is þis þing on?",
-                    "Facebook",
-                    "Archive of Our Own (AO3)",
-                    "Reddit",
-                    "GitHub",
-                    "Az Furs",
-                    "Instagram",
-                    "Itch.io",
-                    "Scratch",
-                    "Scratch",
-                    "Scratch",
-                    "Scratch",
-                    "Electronic Mail",
-                    "Coolmath",
-                    "iNaturalist",
-                    "Nitrotype",
+                    "churrothe2rtleplushie",
                 ];
                 let imgChurroSocialPlatform = [
                     "TikTok",
@@ -243,11 +243,13 @@
                     "Scratch",
                     "Scratch",
                     "Scratch",
+                    "Scratch",
                     "Reddit",
                     "Nitrotype",
                     "Itch.io",
                     "Instagram",
                     "iNaturalist",
+                    "Home Page",
                     "GitHub",
                     "Facebook",
                     "Electronic Mail",
@@ -258,15 +260,43 @@
                     "Archive of Our Own (AO3)",
                 ];
                 let imgChurroSocialLocation = [
+                    "",
+                    
                 ];
                 let imgChurroSocialExistence = [
-                    ":3"
+                    ">:3",
+                    "I play very few of þe games in my library. Most of þem I got for free.",
+                    "Yet anoþer Scratch account, supposedly being a &ldquo;test account.&rdquo;",
+                    "It was my primary Scratch account. For some reason I was acting as þough it was a different person to ChurroAnimations.",
+                    "It was my secondary Scratch account.",
+                    "My first Scratch account I made for a computer class or someþing back in elementary school, grade 5 I believe. Seeing how þat class ended several years ago, Scratch locked me out of þis account. Þis was þe final nail in þe proverbial coffin þat led me to abandon Scratch and move onto oþer shenanigans.",
+                    "My main Scratch account. It is effectively dead. I ocassionally log in to check my notifications.",
+                    "I sometimes log in to scroll r/Furry to assert dominance I suppose &mdash; UwU &mdash; or privately at home to browse more <i>captivating</i> subreddits.&lpar;&#32;&#865;&deg;&#32;&#860;&#662;&#32;&#865;&deg;&rpar;",
+                    "I made þis Nitro Type account for a computer class in middle school &mdash; probably grade 7 &mdash; for a computer class. Þis account is dead.",
+                    "Itch.io someþng I looked at for my website before choosing GitHub Pages. Today, I most oft just play Monster Layer on Itch.io",
+                    "I don't post to Instagram. I mostly use it to follow people.",
+                    "I made þis account for a biology class I had sophomore year of high school.",
+                    "Return to þe Home Page.",
+                    "I don't remember why I made a GitHub account, but it had been already conceived when I was looking for alternatives to Carrd.",
+                    "I post my poetry to my Facebook because I don't want to go viral.",
+                    "Please don't abuse þis knowledge.",
+                    "My main Discord account. I'm almost terminally online. XwX",
+                    "My alternate Discord account. I join a lot of random Discord servers wiþ it. Also ignore þat my alt is older þan my main account.",
+                    "I'm a totally tubular gamer.",
+                    "I'm a furry and I was born in Arizona.",
+                    "Archive of Our Own; I post random writings here."
                 ];
                 let imgAlt = [
-                    "Hand drawn TikTok Logo",
-                    "churrotheturtleplushie on Discord",
-                    "churrothe2rtleplushie Discord",
-                    "TikTok"
+                    "A drawn TikTok logo.",
+                    "A drawn Steam logo.",
+                    "A drawn Scratch cat wiþ a 5.",
+                    "A drawn Scratch cat wiþ a 3.",
+                    "A drawn Scratch cat wiþ a 4.",
+                    "A drawn Scratch cat.",
+                    "A drawn Scratch cat wiþ a 2.",
+                    "A drawn Discord logo.",
+                    "A drawn Discord logo wiþ a 2.",
+                    "A drawn Nitro Type logo.",
                     
                 ];
 
@@ -281,6 +311,7 @@
                     img.src = imgSrc[i];
                     img.onclick = function(){autodefenestration(this);};
                     /*Mom, can we get Windex? No sweetie, we have Windex at home. Windex at home:*/ img.ogZindex = i + 42;
+                    img.ogSrc = imgSrc[i];
                     img.id = `img${i}`;
                     img.divorce = String(i);
                     img.churroSocialProfile = imgChurroSocialProfile[i]
@@ -316,40 +347,43 @@
             function autodefenestration (autodefenestratee) {
                 if (countdown == "Fuck off") {
                     //document.getElementById(`img${autodefenestratee.divorce}`).src = "Resources/Icons/Funny/More Churro.png";
-                    switch (parseInt(autodefenestratee.divorce)) {
-                        case 0:
-                            autodefenestrateeElement = document.getElementById(`img${autodefenestratee.divorce}`);
-                            let funnyVideo = document.createElement("video");
-                            funnyVideo.style.objectFit = "fill";
-                            funnyVideo.style.height = autodefenestrateeElement.style.height;
-                            funnyVideo.style.width = autodefenestratee.style.width
-                            funnyVideo.style.left = autodefenestrateeElement.style.left;
-                            funnyVideo.play();
-                            funnyVideo.style.top = autodefenestrateeElement.style.top;
-                            funnyVideo.style.zIndex = autodefenestrateeElement.style.zIndex + 1;
-                            funnyVideo.onended = function () {
-                                requestAnimationFrame(pageTick);
-                                countdown = "Fuck off";
-                                this.remove();
-                            }
-                            funnyVideo.id = "goGoGadgetGirþee";
-                            let funnySource = document.createElement("source");
-                            funnyVideo.appendChild(funnySource);
-                            funnySource.type = "video/mp4";
-                            funnySource.src = "Resources/Noisy/JJJ Laugh.mp4";
-                            funnyVideo.style.position = "fixed";
-                            let animDelaysPotatoChips = "10s linear"
-                            funnyVideo.style.transition = `width ${animDelaysPotatoChips}, left, ${animDelaysPotatoChips}`;
-                            bod.appendChild(funnyVideo);
-                            countdown = 10;
-                            break;
-                        case 1:
-                            break;
-                        case 2:
-                            break;
-                    }
+                    if (fsSel == "horiz" || autodefenestratee.divorce == forceClicked) {
+                        switch (parseInt(autodefenestratee.divorce)) {
+                            case 0:
+                                autodefenestrateeElement = document.getElementById(`img${autodefenestratee.divorce}`);
+                                let funnyVideo = document.createElement("video");
+                                funnyVideo.style.objectFit = "fill";
+                                funnyVideo.style.height = autodefenestrateeElement.style.height;
+                                funnyVideo.style.width = autodefenestratee.style.width
+                                funnyVideo.style.left = autodefenestrateeElement.style.left;
+                                funnyVideo.play();
+                                funnyVideo.style.top = autodefenestrateeElement.style.top;
+                                funnyVideo.style.zIndex = autodefenestrateeElement.style.zIndex + 1;
+                                funnyVideo.onended = function () {
+                                    requestAnimationFrame(pageTick);
+                                    countdown = "Fuck off";
+                                    this.remove();
+                                }
+                                funnyVideo.id = "goGoGadgetGirþee";
+                                let funnySource = document.createElement("source");
+                                funnyVideo.appendChild(funnySource);
+                                funnySource.type = "video/mp4";
+                                funnySource.src = "Resources/Noisy/JJJ Laugh.mp4";
+                                funnyVideo.style.position = "fixed";
+                                let animDelaysPotatoChips = "10s linear"
+                                funnyVideo.style.transition = `width ${animDelaysPotatoChips}, left, ${animDelaysPotatoChips}`;
+                                bod.appendChild(funnyVideo);
+                                countdown = 10;
+                                break;
+                            case 1:
+                                break;
+                            case 2:
+                                break;
+                        }
+                    } else forceClicked = autodefenestratee.divorce;
                 } else {
                     console.warn("Denied.");
+                    autodefenestratee.src = "Resources/Icons/Hand Drawn/No.png";
                 }
             }
 
