@@ -78,7 +78,7 @@
                                 //console.log("boom")
                             }
                         } else {
-                            location.replace("https://churrroanimations.github.io/churros-page/404");
+                            ohFuckPanic();
                         }
                     }
                 }
@@ -154,7 +154,8 @@
 
                     if (mult - 1) {
                         infoText.innerHTML = img.churroSocialExistence;
-                        infoTitel.innerHTML = `${img.churroSocialProfile} on ${img.churroSocialPlatform}`;
+                        infoTitel.innerHTML = img.churroSocialProfile;
+                        if (img.churroSocialPlatform != undefined) infoTitel.innerHTML += `on ${img.churroSocialPlatform}`;
                     } else if (!hovered) {
                         infoText.innerHTML = null;
                         infoTitel.innerHTML = null;
@@ -192,6 +193,10 @@
                 }
             }
 
+            function ohFuckPanic () {
+                location.replace("https://churrroanimations.github.io/churros-page/404");
+            }
+
             function initImgs () {
                 let winow = document.createElement("div");
                 winow.style.position = "fixed";
@@ -205,7 +210,27 @@
                 bod.appendChild(winow);
 
                 let imgTitle = [
-                    
+                    "TikTok",
+                    "https://steamcommunity.com/id/churrotheturtle/",
+                    "https://scratch.mit.edu/users/MobileAxolotl/",
+                    "https://scratch.mit.edu/users/eevee_in_a_box/",
+                    "https://scratch.mit.edu/users/eevee_box_ANIMATIONS/",
+                    "https://scratch.mit.edu/users/dirtydiaperguy/",
+                    "https://scratch.mit.edu/users/ChurroAnimations/",
+                    "https://www.reddit.com/u/TheInternetTurtle/",
+                    "https://www.nitrotype.com/racer/8turtles",
+                    "https://churro-the-turtle.itch.io",
+                    "https://www.instagram.com/churrotheturtl/",
+                    "https://inaturalist.org/people/TheHerbivorousTurtle",
+                    "https://churrroanimations.github.io/churros-page/",
+                    "https://github.com/ChurrroAnimations",
+                    "https://www.facebook.com/profile.php?id=61556262638570",
+                    "bettis.aidan.g@gmail.com",
+                    "https://discord.com/users/1097351319204929656",
+                    "https://discord.com/users/994095388824973442",
+                    "https://www.coolmathgames.com/profile/fussyturtle802",
+                    "https://azfurs.com/community/my-profile/3154-aidan-bettis.html",
+                    "Ao3",
                 ];
                 let imgSrc = [
                     "Resources/Icons/Hand Drawn/Tock.png",
@@ -219,8 +244,16 @@
                     "Resources/Icons/Hand Drawn/Nini Tip.png",
                     "Resources/Icons/Hand Drawn/Ic.OwO.png",
                     "Resources/Icons/Hand Drawn/Isagwam.png",
+                    "iNaturalist",
+                    "Home Page",
+                    "GitHub",
+                    "Facebook",
+                    "Electronic Mail",
                     "Resources/Icons/Hand Drawn/Dicord.png",
                     "Resources/Icons/Hand Drawn/Dicord 2.png",
+                    "Coolmath",
+                    "Az Furs",
+                    "Archive of Our Own (AO3)",
                 ];
                 let imgChurroSocialProfile = [
                     "churrotheturtleplushie",
@@ -233,8 +266,17 @@
                     "u/TheInternetTurtle",
                     "8turtles",
                     "Churro the Turtle",
+                    "churrotheturtl",
+                    "TheHerbivorousTurtle",
+                    "Return to Home Page",
+                    "ChurrroAnimations",
+                    "Tuesday Bettis",
+                    "Churro's Electronic Mail",
                     "churrotheturtleplushie",
                     "churrothe2rtleplushie",
+                    "fussyturtle802",
+                    "Az Furs",
+                    "Archive of Our Own (AO3)",
                 ];
                 let imgChurroSocialPlatform = [
                     "TikTok",
@@ -249,10 +291,10 @@
                     "Itch.io",
                     "Instagram",
                     "iNaturalist",
-                    "Home Page",
+                    undefined,
                     "GitHub",
                     "Facebook",
-                    "Electronic Mail",
+                    undefined,
                     "Discord",
                     "Discord",
                     "Coolmath",
@@ -260,8 +302,27 @@
                     "Archive of Our Own (AO3)",
                 ];
                 let imgChurroSocialLocation = [
-                    "",
-                    
+                    "TikTok",
+                    "https://steamcommunity.com/id/churrotheturtle/",
+                    "https://scratch.mit.edu/users/MobileAxolotl/",
+                    "https://scratch.mit.edu/users/eevee_in_a_box/",
+                    "https://scratch.mit.edu/users/eevee_box_ANIMATIONS/",
+                    "https://scratch.mit.edu/users/dirtydiaperguy/",
+                    "https://scratch.mit.edu/users/ChurroAnimations/",
+                    "https://www.reddit.com/u/TheInternetTurtle/",
+                    "https://www.nitrotype.com/racer/8turtles",
+                    "https://churro-the-turtle.itch.io",
+                    "https://www.instagram.com/churrotheturtl/",
+                    "https://inaturalist.org/people/TheHerbivorousTurtle",
+                    "https://churrroanimations.github.io/churros-page/",
+                    "https://github.com/ChurrroAnimations",
+                    "https://www.facebook.com/profile.php?id=61556262638570",
+                    "mailto:bettis.aidan.g@gmail.com",
+                    "https://discord.com/users/1097351319204929656",
+                    "https://discord.com/users/994095388824973442",
+                    "https://www.coolmathgames.com/profile/fussyturtle802",
+                    "https://azfurs.com/community/my-profile/3154-aidan-bettis.html",
+                    "Ao3",
                 ];
                 let imgChurroSocialExistence = [
                     ">:3",
@@ -270,7 +331,7 @@
                     "It was my primary Scratch account. For some reason I was acting as þough it was a different person to ChurroAnimations.",
                     "It was my secondary Scratch account.",
                     "My first Scratch account I made for a computer class or someþing back in elementary school, grade 5 I believe. Seeing how þat class ended several years ago, Scratch locked me out of þis account. Þis was þe final nail in þe proverbial coffin þat led me to abandon Scratch and move onto oþer shenanigans.",
-                    "My main Scratch account. It is effectively dead. I ocassionally log in to check my notifications.",
+                    "My main Scratch account. I ocassionally log in to check notifications, but tis oþerwise dead.",
                     "I sometimes log in to scroll r/Furry to assert dominance I suppose &mdash; UwU &mdash; or privately at home to browse more <i>captivating</i> subreddits.&lpar;&#32;&#865;&deg;&#32;&#860;&#662;&#32;&#865;&deg;&rpar;",
                     "I made þis Nitro Type account for a computer class in middle school &mdash; probably grade 7 &mdash; for a computer class. Þis account is dead.",
                     "Itch.io someþng I looked at for my website before choosing GitHub Pages. Today, I most oft just play Monster Layer on Itch.io",
@@ -294,10 +355,20 @@
                     "A drawn Scratch cat wiþ a 4.",
                     "A drawn Scratch cat.",
                     "A drawn Scratch cat wiþ a 2.",
+                    "A drawn Snoo from Reddit.",
+                    "A drawn Nitro Type logo.",
+                    "Itch.io",
+                    "Instagram",
+                    "iNaturalist",
+                    "Home Page",
+                    "GitHub",
+                    "Facebook",
+                    "Electronic Mail",
                     "A drawn Discord logo.",
                     "A drawn Discord logo wiþ a 2.",
-                    "A drawn Nitro Type logo.",
-                    
+                    "Coolmath",
+                    "Az Furs",
+                    "Archive of Our Own (AO3)",
                 ];
 
                 let imgDaddy = document.getElementById("churrosSocialsImgElmentsDaddyDiv");
@@ -348,8 +419,7 @@
                 if (countdown == "Fuck off") {
                     //document.getElementById(`img${autodefenestratee.divorce}`).src = "Resources/Icons/Funny/More Churro.png";
                     if (fsSel == "horiz" || autodefenestratee.divorce == forceClicked) {
-                        switch (parseInt(autodefenestratee.divorce)) {
-                            case 0:
+                        if (autodefenestratee.imgChurroSocialLocation == "TikTok") {
                                 autodefenestrateeElement = document.getElementById(`img${autodefenestratee.divorce}`);
                                 let funnyVideo = document.createElement("video");
                                 funnyVideo.style.objectFit = "fill";
@@ -374,11 +444,8 @@
                                 funnyVideo.style.transition = `width ${animDelaysPotatoChips}, left, ${animDelaysPotatoChips}`;
                                 bod.appendChild(funnyVideo);
                                 countdown = 10;
-                                break;
-                            case 1:
-                                break;
-                            case 2:
-                                break;
+                        } else {
+                            window.location.href = autodefenestratee.imgChurroSocialLocation;
                         }
                     } else forceClicked = autodefenestratee.divorce;
                 } else {

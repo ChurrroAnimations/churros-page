@@ -18,7 +18,7 @@ mediumseagreen
 
 .Yband video {
     width: 100vw;
-    top: 1vw;
+    top: 0vw;
     position: absolute;
     object-fit: fill;
     margin: auto;

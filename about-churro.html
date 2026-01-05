@@ -24,8 +24,16 @@
     </head>
     <body>
         <script src="Resources/Scripts/Dynamic Style.js"></script>
+        <div class="notif">
+            <p>
+                Joe Pesci playing Vic Stetson in S4 E11, "Split Personality," of ‹Tales of þe Crypt›, 26 August 1992.
+            </p>
+            <p>
+                Karen Black plays Gladys Fitzpatrick in Bad Manners, 1 June 1984.
+            </p>
+        </div>
         <div class="Yband" style="top: 0;">
-            <h1 onclick="wtfIsÞis()">
+            <h1 onclick="">
                 What þe Fuck is Þis Piece of Shit?
             </h1>
             <h3 onclick="wtfIsÞis()">
@@ -34,34 +42,68 @@
             <video id="quoteVid">
                 <source src="Resources/Noisy/JJJ Laugh.mp4" type="video/mp4">
             </video>
-            <script>
-                var qVid = document.getElementById("quoteVid");
-                function wtfIsÞis () {
-                    qVid.style.display = "block";
-                    qVid.play();
-                }
-
-                function addQVidEnd () {
-                    console.log(qVid);
-                    qVid.onended = function() {hideQVid();};
-                }
-
-
-                function hideQVid () {
-                    qVid.style.display = "none";
-                }
-
-                window.onload = addQVidEnd;
-            </script>
         </div>
-        <div class="Yband hide" style="top: 0;">
-            <h1>
-                What þe Fuck is Þis Piece of Shit?
+        <p>
+            In þe middle of spring 2024 I wished to start receiving art commissions, turning to Carrd to hastily bang out a page. To it I kept expanding, even make a second Carrd þat was just a Spanish translation. However, I was using þe free plan, meaning I was limited to 3 Carrds, 50 elements for each, a few megabytes of supported images and no coding tomfoolery. And þat sucks harder þan þe Byford Dolphin. Fast forward to winter þat year and I realised þis. All fewer þan þree quarters of a dozen alternatives I looked had similar arbitrary restrictions under þe free price plan or f♪ck all. Also tools to help þe user.
+        </p>
+        <p>
+            Butt apparently I'm mildly masochistic and have þe humour of a 10 year old because þat grammatically error is intentional and I chose GitHub Pages sans any template online. I already have a GitHub account, coding knowledge and a brain. I just want a crevice to do damn near whatever I bloody please. My first attempt was a copy of my Carrd wiþ a fresh coat of CSS, so into þe dumpster. And þat's how we got þis affront to developers.
+        </p>
+        
+        <div class="Yband">
+            <h1 onclick="">
+                Who in þe Shit Are You?
             </h1>
-            <h3>
-                ~ Joe Pesci, 1992
+            <h3 onclick="wtfIsÞis()">
+                ~ Karen Black, 1984
             </h3>
+            <video id="quoteVid">
+                <source src="Resources/Noisy/JJJ Laugh.mp4" type="video/mp4">
+            </video>
         </div>
         <p>Test</p>
+        
+        <script>
+            function playQvid(imdicks) {
+                switch (imdicks) {
+                    case 0:
+                        
+                        break;
+                    case 1:
+                        
+                        break;
+                    default:
+                        ohFuckPanic();
+                        break;
+                }
+            }
+
+
+            function ohFuckPanic () {
+                location.replace("https://churrroanimations.github.io/churros-page/404");
+            }
+
+            var qVid = document.getElementById("quoteVid");
+            function wtfIsÞis () {
+                qVid.style.display = "block";
+                qVid.play();
+            }
+
+
+            //function addQvid
+
+            function addQVidEnd () {
+                console.log(qVid);
+                qVid.onended = function() {hideQVid();};
+            }
+
+            function hideQVid () {
+                qVid.style.display = "none";
+            }
+
+            window.addEventListener("load", (event) => {
+                addQVidEnd();
+            });
+        </script>
     </body>
 </html>
