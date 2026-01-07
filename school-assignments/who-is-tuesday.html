@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Churro's Website ~ Brainf*ck Compiler
+        </title>
+        <link rel="stylesheet" href="../Resources/Seasonings/Androgenous/churros-socials.css">
+        <link rel="icon" href="../Resources/Icons/Funny/Churros Socials.png">
+
+        <!-- Link Embedding -->
+        <meta charset="utf-8" />
+        <meta property="og:site_name" content="Churro's Website ~ Brainf*ck" />
+        <meta property="og:title" content="Churro's Website ~ Brainf*ck" />
+        <meta name="description" content="This is the Brainf*ck compiler page for Churro's website." />
+        <meta property="og:description" content="This is the Brainf*ck compiler page Churro's website." />
+        <meta property="og:type" content="website" />
+        <meta property="og:image" content="https://churrroanimations.github.io/churros-page/../Resources/External/embed-img.jpg" />
+        <meta property="og:image:type" content="image/jpeg" />
+        <meta property="og:image:width" content="1280" />
+        <meta property="og:image:height" content="800" />
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta property="og:url" content="https://churrroanimations.github.io/churros-page/brainf_ck" />
+        <link rel="canonical" href="https://churrroanimations.github.io/churros-page/brainf_ck" />
+    </head>
+    <body>
+        <script src="../Resources/Scripts/Dynamic Seasonings.js"></script>
+        <img src="../Resources/Backgrounds/Scratch/Refrigerator.png" alt="Refrigerator." id="refrigerator" onclick="OwO();">
+        <audio src="../Resources/Noisy/pleased.mp3" id="hmmmmmm"></audio>
+        <div id="informaciónSobreLosEnlacesDaddyDiv">
+            <h1></h1>
+            <p></p>
+        </div>
+        <div id="churrosSocialsImgElmentsDaddyDiv"></div>
+        <script>
+            var dist = 75;
+            var size = 7.25;
+            var linkNodes = 12;
+            var forceSquare = false;
+            var forceCircle = true;
+            var forceClicked = 1;
+            
+            var fsSel = NaN;
+            const infoDaddy = document.getElementById("informaciónSobreLosEnlacesDaddyDiv");
+            const infoTitel = infoDaddy.getElementsByTagName("h1")[0];
+            const infoText = infoDaddy.getElementsByTagName("p")[0];
+            const bod = document.getElementsByTagName("body")[0];
+            const maþ = Math;
+            maþ.TAU = maþ.PI * 2;
+            var countdown = "Fuck off";
+            var animTurnD = 0;
+            var animVelocity = 0;
+            const animMaxVelocity = 0.2;
+            const animAcceleration = 0.0025;
+            //forceSquare = forceSquare ? "w" : "h";
+            var lastHovered = 0;
+            
+            var old = 1;
+            
+            function toRad(deg) {
+                return deg * maþ.PI / 180;
+            }
+            function toDeg(rad) {
+                return rad * 180 / maþ.PI;
+            }
+            
+            var didntBumpyÞing = 2;
+            function pageTick () {
+                let hoveri = -1;
+                let hovered = 0;
+                for (let i = 0; i < linkNodes; i++) {
+                    let img = document.getElementById(`img${i}`);
+                    if (img.matches(':hover')) {
+                        if (!hovered) {
+                            hovered++;
+                            hoveri = i * 1;
+                            if (didntBumpyÞing == 2) {
+                                didntBumpyÞing = 1;
+                                //console.log("boom")
+                            }
+                        } else {
+                            ohFuckPanic();
+                        }
+                    }
+                }
+
+                const doc = {
+                    w: document.getElementById("winow").clientWidth,
+                    h: document.getElementById("winow").clientHeight,
+                };
+
+                // Check for fsOp
+                fsSel = document.getElementById("fsOp");
+                if (fsSel != null) {
+                    fsSel = document.getElementById("fsOp").value;
+                    if (fsSel == "auto") fsSel = doc.w > doc.h ? "horiz" : "vert";
+                    if (fsSel == "vert") hovered = forceClicked > -1;
+                    else forceClicked = -1;
+                }
+
+
+                var segmentGirþ = maþ.TAU / (linkNodes + hovered);
+                if (!hovered) didntBumpyÞing = 2;
+
+                if (didntBumpyÞing == 1 && hovered) {
+                    ee2 = (segmentGirþ * (hoveri + 0.5)) - (maþ.TAU / linkNodes * hoveri);
+                    //animTurnD -= 0.5;
+                    //animTurnD += toDeg(ee2);
+                    didntBumpyÞing = 0;
+                }//*/
+
+                let hoversRendered = 1;
+
+                hoversRendered = 1;
+                for (let i = 0; i < linkNodes; i++) {
+                    let img = document.getElementById(`img${i}`);
+                    //img.src = img.ogSrc;
+                    let mult = (img.matches(':hover') + 1);
+                    if (fsSel == "vert") {
+                        mult = 1;
+                        if (i == forceClicked) {
+                            mult++;
+                        }
+                    }
+                    if (mult - 1) hoversRendered += 0.5;
+                    let pseudoSize = size * (mult + ((mult - 1) * 0.2));
+                    let pseudoRad = ((i + hoversRendered) * segmentGirþ) + toRad(animTurnD);
+                    img.style.width  = `${pseudoSize}vw`;
+                    if ((!forceSquare && mult - 1) || forceSquare) img.style.height = `${pseudoSize}vw`;
+                    else img.style.height = `${pseudoSize}vh`;
+                    let pseudoHeight = mult - 1 ? img.clientHeight / doc.h * 100 : pseudoSize;
+                    img.style.zIndex = img.ogZindex;
+                    if (mult - 1) img.style.zIndex += linkNodes;
+                    let v = {
+                        w: "vw",
+                        h: "vh"
+                    };
+                    /*if (forceCircle) {
+                        bomx = document.getElementById("bomx");
+                        dimUnits = "v" + (doc.w > doc.h ? "h" : "w");
+                        if (doc.w != old) {
+                            //console.log(doc.w);
+                            old = doc.w;
+                        }
+                        if (doc.w > doc.h) {
+                        }
+                    }//*/
+                    
+                    let newTop = (dist / 2 * maþ.cos(pseudoRad)) - (pseudoHeight / 2) + 50;
+                    let newLeft = (dist / 2 * maþ.sin(pseudoRad)) - (pseudoSize / 2) + 50;
+                    img.style.top  = `${newTop}vh`;
+                    img.style.left = `${newLeft}vw`;
+                    
+                    if (mult - 1) hoversRendered += 0.5;
+
+                    if (mult - 1) {
+                        infoText.innerHTML = img.churroSocialExistence;
+                        infoTitel.innerHTML = img.churroSocialProfile;
+                        if (img.churroSocialPlatform != undefined) infoTitel.innerHTML += `on ${img.churroSocialPlatform}`;
+                    } else if (!hovered) {
+                        infoText.innerHTML = null;
+                        infoTitel.innerHTML = null;
+                    }
+                }
+                if (hovered == 0) {
+                    animTurnD += animVelocity;
+                    if (animVelocity < animMaxVelocity) {
+                        animVelocity += animAcceleration;
+                    }
+                    if (animVelocity > animMaxVelocity) {
+                        animVelocity = animMaxVelocity * 1;
+                    }
+                } else {
+                    animVelocity = animMaxVelocity / -5;
+                }
+
+                if (countdown != "Fuck off") {
+                    if (countdown > 0) countdown--;
+                    if (countdown == 0) {
+                        goGoGadgetGirþify();
+                        return;
+                    }
+                }
+                
+                requestAnimationFrame(pageTick);
+            }
+
+            function OwO () {
+                if (fsSel == "vert") {
+                    forceClicked = -1;
+                    let hmmmmmm = document.getElementById("hmmmmmm");
+                    if (hmmmmmm.paused) hmmmmmm.play();
+                    else hmmmmmm.currentTime = 0;
+                }
+            }
+
+            function ohFuckPanic () {
+                location.replace("https://churrroanimations.github.io/churros-page/404");
+            }
+
+            let imgSrc = [
+                "../Resources/Icons/Hand Drawn/Tock.png",
+                "../Resources/Icons/Hand Drawn/Stim.png",
+                "../Resources/Icons/Hand Drawn/Scruct 5.png",
+                "../Resources/Icons/Hand Drawn/Scruct 3.png",
+                "../Resources/Icons/Hand Drawn/Scruct 4.png",
+                "../Resources/Icons/Hand Drawn/Scruct 1.png",
+                "../Resources/Icons/Hand Drawn/Scruct 2.png",
+                "../Resources/Icons/Hand Drawn/Ridt.png",
+                "../Resources/Icons/Hand Drawn/Nini Tip.png",
+                "../Resources/Icons/Hand Drawn/Ic.OwO.png",
+                "../Resources/Icons/Hand Drawn/Isagwam.png",
+                "iNaturalist",
+                "Home Page",
+                "GitHub",
+                "Facebook",
+                "Electronic Mail",
+                "../Resources/Icons/Hand Drawn/Dicord.png",
+                "../Resources/Icons/Hand Drawn/Dicord 2.png",
+                "Coolmath",
+                "Az Furs",
+                "Archive of Our Own (AO3)",
+            ];
+            let imgChurroSocialProfile = [
+                "churrotheturtleplushie",
+                "theturtlethatplaysgames",
+                "MobileAxolotl",
+                "eevee_in_a_box",
+                "eevee_box_ANIMATIONS",
+                "dirtydiaperguy",
+                "ChurroAnimations",
+                "u/TheInternetTurtle",
+                "8turtles",
+                "Churro the Turtle",
+                "churrotheturtl",
+                "TheHerbivorousTurtle",
+                "Return to Home Page",
+                "ChurrroAnimations",
+                "Tuesday Bettis",
+                "Churro's Electronic Mail",
+                "churrotheturtleplushie",
+                "churrothe2rtleplushie",
+                "fussyturtle802",
+                "Az Furs",
+                "Archive of Our Own (AO3)",
+            ];
+            let imgChurroSocialPlatform = [
+                "TikTok",
+                "Steam",
+                "Scratch",
+                "Scratch",
+                "Scratch",
+                "Scratch",
+                "Scratch",
+                "Reddit",
+                "Nitrotype",
+                "Itch.io",
+                "Instagram",
+                "iNaturalist",
+                undefined,
+                "GitHub",
+                "Facebook",
+                undefined,
+                "Discord",
+                "Discord",
+                "Coolmath",
+                "Az Furs",
+                "Archive of Our Own (AO3)",
+            ];
+            let imgChurroSocialExistence = [
+                ">:3",
+                "I play very few of þe games in my library. Most of þem I got for free.",
+                "Yet anoþer Scratch account, supposedly being a &ldquo;test account.&rdquo;",
+                "It was my primary Scratch account. For some reason I was acting as þough it was a different person to ChurroAnimations.",
+                "It was my secondary Scratch account.",
+                "My first Scratch account I made for a computer class or someþing back in elementary school, grade 5 I believe. Seeing how þat class ended several years ago, Scratch locked me out of þis account. Þis was þe final nail in þe proverbial coffin þat led me to abandon Scratch and move onto oþer shenanigans.",
+                "My main Scratch account. I ocassionally log in to check notifications, but tis oþerwise dead.",
+                "I sometimes log in to scroll r/Furry to assert dominance I suppose &mdash; UwU &mdash; or privately at home to browse more <i>captivating</i> subreddits.&lpar;&#32;&#865;&deg;&#32;&#860;&#662;&#32;&#865;&deg;&rpar;",
+                "I made þis Nitro Type account for a computer class in middle school &mdash; probably grade 7 &mdash; for a computer class. Þis account is dead.",
+                "Itch.io someþng I looked at for my website before choosing GitHub Pages. Today, I most oft just play Monster Layer on Itch.io",
+                "I don't post to Instagram. I mostly use it to follow people.",
+                "I made þis account for a biology class I had sophomore year of high school.",
+                "Return to þe Home Page.",
+                "I don't remember why I made a GitHub account, but it had been already conceived when I was looking for alternatives to Carrd.",
+                "I post my poetry to my Facebook because I don't want to go viral.",
+                "Please don't abuse þis knowledge.",
+                "My main Discord account. I'm almost terminally online. XwX",
+                "My alternate Discord account. I join a lot of random Discord servers wiþ it. Also ignore þat my alt is older þan my main account.",
+                "I'm a totally tubular gamer.",
+                "I'm a furry and I was born in Arizona.",
+                "Archive of Our Own; I post random writings here."
+            ];
+            let imgAlt = [
+                "A drawn TikTok logo.",
+                "A drawn Steam logo.",
+                "A drawn Scratch cat wiþ a 5.",
+                "A drawn Scratch cat wiþ a 3.",
+                "A drawn Scratch cat wiþ a 4.",
+                "A drawn Scratch cat.",
+                "A drawn Scratch cat wiþ a 2.",
+                "A drawn Snoo from Reddit.",
+                "A drawn Nitro Type logo.",
+                "Itch.io",
+                "Instagram",
+                "iNaturalist",
+            ];
+            let winow = document.createElement("div");
+            winow.style.position = "fixed";
+            winow.style.top = "0";
+            winow.style.left = "0";
+            winow.style.zIndex = "Calc(-infinity)";
+            winow.style.width = "100vw";
+            winow.style.height = "100vh";
+            winow.style.backgroundColor = "transparent";
+            winow.id = "winow";
+            bod.appendChild(winow);
+                
+            function initImgs () {
+                let imgDaddy = document.getElementById("churrosSocialsImgElmentsDaddyDiv");
+                while (imgDaddy.firstChild) imgDaddy.removeChild(imgDaddy.firstChild);
+                for (let i = 0; i < linkNodes; i++) {
+                    let img = document.createElement("img");
+                    img.style.zIndex = i + 42;
+                    img.style.position = "fixed";
+                    let animDelaysPotatoChips = "200ms"
+                    img.style.transition = `width ${animDelaysPotatoChips}, height ${animDelaysPotatoChips}, top ${animDelaysPotatoChips}, left, ${animDelaysPotatoChips}`;
+                    img.src = imgSrc[i];
+                    img.onclick = function(){autodefenestration(this);};
+                    /*Mom, can we get Windex? No sweetie, we have Windex at home. Windex at home:*/ img.ogZindex = i + 42;
+                    img.ogSrc = imgSrc[i];
+                    img.id = `img${i}`;
+                    img.divorce = String(i);
+                    img.churroSocialProfile = imgChurroSocialProfile[i]
+                    img.churroSocialPlatform = imgChurroSocialPlatform[i];
+                    img.churroSocialExistence = imgChurroSocialExistence[i];
+                    img.alt = imgAlt[i];
+                    imgDaddy.appendChild(img);
+                }
+                bod.appendChild(imgDaddy);
+
+                if (forceCircle) {
+                    let bomx = document.createElement("div");
+                    bomx.style.position = "fixed";
+                    bomx.style.top = "0";
+                    bomx.style.left = "0";
+                    bomx.style.zIndex = "Calc(-infinity)";
+                    bomx.style.width = "100vh";
+                    bomx.style.height = "100vw";
+                    bomx.style.backgroundColor = "red";
+                    bomx.id = "bomx";
+                    bod.appendChild(bomx);
+                }
+            }
+
+            function goGoGadgetGirþify () {
+                goGoGadgetGirþee = document.getElementById("goGoGadgetGirþee");
+                goGoGadgetGirþee.style.width = "150vw";
+                goGoGadgetGirþee.style.left = "-25vw";
+            }
+
+            function autodefenestration (autodefenestratee) {
+                if (countdown == "Fuck off") {
+                    //document.getElementById(`img${autodefenestratee.divorce}`).src = "../Resources/Icons/Funny/More Churro.png";
+                    if (fsSel == "horiz" || autodefenestratee.divorce == forceClicked) {
+                        if (false) {
+                                autodefenestrateeElement = document.getElementById(`img${autodefenestratee.divorce}`);
+                                let funnyVideo = document.createElement("video");
+                                funnyVideo.style.objectFit = "fill";
+                                funnyVideo.style.height = autodefenestrateeElement.style.height;
+                                funnyVideo.style.width = autodefenestratee.style.width
+                                funnyVideo.style.left = autodefenestrateeElement.style.left;
+                                funnyVideo.play();
+                                funnyVideo.style.top = autodefenestrateeElement.style.top;
+                                funnyVideo.style.zIndex = autodefenestrateeElement.style.zIndex + 1;
+                                funnyVideo.onended = function () {
+                                    requestAnimationFrame(pageTick);
+                                    countdown = "Fuck off";
+                                    this.remove();
+                                }
+                                funnyVideo.id = "goGoGadgetGirþee";
+                                let funnySource = document.createElement("source");
+                                funnyVideo.appendChild(funnySource);
+                                funnySource.type = "video/mp4";
+                                funnySource.src = "../Resources/Noisy/JJJ Laugh.mp4";
+                                funnyVideo.style.position = "fixed";
+                                let animDelaysPotatoChips = "10s linear"
+                                funnyVideo.style.transition = `width ${animDelaysPotatoChips}, left, ${animDelaysPotatoChips}`;
+                                bod.appendChild(funnyVideo);
+                                countdown = 10;
+                        } else {
+                            autodefenestrateeImdex = autodefenestratee.ogZindex - 42
+                            imgSrc.splice(autodefenestrateeImdex, 1);
+                            imgChurroSocialProfile.splice(autodefenestrateeImdex, 1);
+                            imgChurroSocialPlatform.splice(autodefenestrateeImdex, 1);
+                            imgChurroSocialExistence.splice(autodefenestrateeImdex, 1);
+                            imgAlt.splice(autodefenestrateeImdex, 1);
+                            linkNodes--; initImgs();
+                        }
+                    } else forceClicked = autodefenestratee.divorce;
+                } else {
+                    console.warn("Denied.");
+                    autodefenestratee.src = "../Resources/Icons/Hand Drawn/No.png";
+                }
+            }
+
+            window.addEventListener("load", (event) => {
+                initImgs();
+                pageTick();
+            });
+        </script>
+    </body>
+</html>
