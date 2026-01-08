@@ -2,43 +2,52 @@
 <html>
     <head>
         <title>
-            Churro's Website ~ Brainf*ck Compiler
+            Churro's School Shenanigans ~ Who Is Tuesday
         </title>
         <link rel="stylesheet" href="../Resources/Seasonings/Androgenous/churros-socials.css">
-        <link rel="icon" href="../Resources/Icons/Funny/Churros Socials.png">
+        <link rel="icon" href="../Resources/Icons/Normal.svg">
 
         <!-- Link Embedding -->
         <meta charset="utf-8" />
-        <meta property="og:site_name" content="Churro's Website ~ Brainf*ck" />
-        <meta property="og:title" content="Churro's Website ~ Brainf*ck" />
-        <meta name="description" content="This is the Brainf*ck compiler page for Churro's website." />
-        <meta property="og:description" content="This is the Brainf*ck compiler page Churro's website." />
+        <meta property="og:site_name" content="Churro's School shenanigans ~ Who Is Tuesday" />
+        <meta property="og:title" content="Churro's School shenanigans ~ Who Is Tuesday" />
+        <meta name="description" content="An assignment to introduce myself in my healþ class." />
+        <meta property="og:description" content="An assignment to introduce myself in my healþ class." />
         <meta property="og:type" content="website" />
-        <meta property="og:image" content="https://churrroanimations.github.io/churros-page/../Resources/External/embed-img.jpg" />
-        <meta property="og:image:type" content="image/jpeg" />
-        <meta property="og:image:width" content="1280" />
-        <meta property="og:image:height" content="800" />
         <meta property="twitter:card" content="summary_large_image" />
-        <meta property="og:url" content="https://churrroanimations.github.io/churros-page/brainf_ck" />
-        <link rel="canonical" href="https://churrroanimations.github.io/churros-page/brainf_ck" />
+        <meta property="og:url" content="https://churrroanimations.github.io/churros-page/school-assignments/who-is-tuesday.html" />
+        <link rel="canonical" href="https://churrroanimations.github.io/churros-page/school-assignments/who-is-tuesday.html" />
     </head>
     <body>
-        <script src="../Resources/Scripts/Dynamic Seasonings.js"></script>
-        <img src="../Resources/Backgrounds/Scratch/Refrigerator.png" alt="Refrigerator." id="refrigerator" onclick="OwO();">
-        <audio src="../Resources/Noisy/pleased.mp3" id="hmmmmmm"></audio>
-        <div id="informaciónSobreLosEnlacesDaddyDiv">
-            <h1></h1>
-            <p></p>
+        <script src="../Resources/Scripts/Dynamic Seasonings.js"></script> 
+        <!-- Photographs/Birb.jpg -->
+        <img src="../Resources/Backgrounds/Photographs/Birb.jpg" alt="Refrigerator." id="refrigerator" onclick="OwO();">
+        <div id="informaciónSobreLosEnlacesDaddyDiv" style="
+                                                         left: 15vw;
+                                                         border-radius: 30%;
+                                                         width: 70vw;
+                                                         top: 15vh;
+                                                         height: 70vh;
+                                                         z-index: 420;
+                                                         font-size: 3vw;
+                                                         background-image: url('../Resources/Page/NyQuil.jpg');
+                                                     " onclick="OwO();">
+            <h1 style="margin-top: -0.25vh; font-size: 1.75em;" onclick="OwO();"></h1>
+            <p style="margin-top: -10vh;" onclick="OwO();"></p>
         </div>
         <div id="churrosSocialsImgElmentsDaddyDiv"></div>
         <script>
-            var dist = 75;
-            var size = 7.25;
-            var linkNodes = 12;
+            var dist = 92.5;
+            var size = 7.5;
+            var linkNodes = 10;
             var forceSquare = false;
             var forceCircle = true;
-            var forceClicked = 1;
+            var forceClicked = 0;
+            var expandOnClick = false;
+            var expandOnClickÞreshold = -1;
             
+            var transitionalNode = -1;
+            var transitionalNodeWait = false;
             var fsSel = NaN;
             const infoDaddy = document.getElementById("informaciónSobreLosEnlacesDaddyDiv");
             const infoTitel = infoDaddy.getElementsByTagName("h1")[0];
@@ -90,7 +99,15 @@
 
                 // Check for fsOp
                 fsSel = document.getElementById("fsOp");
+                try {
+                    
+                    fsSel.parentElement.style.display = "none";
+                } catch (uhOh) {
+                    console.log(uhOh);
+                }
+                
                 if (fsSel != null) {
+                    fsSel.value = "vert";
                     fsSel = document.getElementById("fsOp").value;
                     if (fsSel == "auto") fsSel = doc.w > doc.h ? "horiz" : "vert";
                     if (fsSel == "vert") hovered = forceClicked > -1;
@@ -98,7 +115,7 @@
                 }
 
 
-                var segmentGirþ = maþ.TAU / (linkNodes + hovered);
+                var segmentGirþ = maþ.TAU / (linkNodes + (hovered && expandOnClick) + transitionalNodeWait);
                 if (!hovered) didntBumpyÞing = 2;
 
                 if (didntBumpyÞing == 1 && hovered) {
@@ -121,12 +138,13 @@
                             mult++;
                         }
                     }
-                    if (mult - 1) hoversRendered += 0.5;
+                    if (i == transitionalNode) hoversRendered++;
+                    if (mult - 1 && expandOnClick) hoversRendered += 0.5;
                     let pseudoSize = size * (mult + ((mult - 1) * 0.2));
                     let pseudoRad = ((i + hoversRendered) * segmentGirþ) + toRad(animTurnD);
-                    img.style.width  = `${pseudoSize}vw`;
-                    if ((!forceSquare && mult - 1) || forceSquare) img.style.height = `${pseudoSize}vw`;
-                    else img.style.height = `${pseudoSize}vh`;
+                    img.style.width  = `${pseudoSize * 0.75}vw`;
+                    if ((!forceSquare && mult - 1) || forceSquare) img.style.height = `${pseudoSize * 0.75}vw`;
+                    else img.style.height = `${pseudoSize * 0.75}vh`;
                     let pseudoHeight = mult - 1 ? img.clientHeight / doc.h * 100 : pseudoSize;
                     img.style.zIndex = img.ogZindex;
                     if (mult - 1) img.style.zIndex += linkNodes;
@@ -150,16 +168,24 @@
                     img.style.top  = `${newTop}vh`;
                     img.style.left = `${newLeft}vw`;
                     
-                    if (mult - 1) hoversRendered += 0.5;
+                    if (mult - 1 && expandOnClick) hoversRendered += 0.5;
 
                     if (mult - 1) {
                         infoText.innerHTML = img.churroSocialExistence;
                         infoTitel.innerHTML = img.churroSocialProfile;
-                        if (img.churroSocialPlatform != undefined) infoTitel.innerHTML += `on ${img.churroSocialPlatform}`;
+                        if (img.ChurroPresentationBg != undefined) infoDaddy.style.backgroundImage = img.ChurroPresentationBg;
+                        else infoDaddy.style.backgroundImage = "url('../Resources/Page/NyQuil.jpg')";
+                        //if (img.churroSocialPlatform != undefined) infoTitel.innerHTML += `on ${img.churroSocialPlatform}`;
                     } else if (!hovered) {
                         infoText.innerHTML = null;
                         infoTitel.innerHTML = null;
+                        infoDaddy.style.backgroundImage = "url('../Resources/Page/NyQuil.jpg')";
                     }
+
+                }
+                if (transitionalNodeWait) {
+                    transitionalNodeWait = false;
+                    transitionalNode = -1;
                 }
                 if (hovered == 0) {
                     animTurnD += animVelocity;
@@ -187,9 +213,6 @@
             function OwO () {
                 if (fsSel == "vert") {
                     forceClicked = -1;
-                    let hmmmmmm = document.getElementById("hmmmmmm");
-                    if (hmmmmmm.paused) hmmmmmm.play();
-                    else hmmmmmm.currentTime = 0;
                 }
             }
 
@@ -197,8 +220,17 @@
                 location.replace("https://churrroanimations.github.io/churros-page/404");
             }
 
+            let presentationBg = [
+                "url('../Resources/Escuela/Steve.jpg')",
+                "url('../Resources/Page/Transgender_Pride_flag.svg')",
+                "url('../Resources/Escuela/Touched_by_His_Noodly_Appendage_HD_Sensored.jpg')",
+                "url('../Resources/Escuela/Home Page.png')",
+                "url('../Resources/Escuela/fire-write.gif')",
+                "url('../Resources/Escuela/My Little Pony Friendship is Magic+Black Clover.png')",
+                "url('../Resources/Escuela/James Bond Goldfingering+A Nightmare on Elm Street 1984.png')",
+            ];
             let imgSrc = [
-                "../Resources/Icons/Hand Drawn/Tock.png",
+                "../Resources/Icons/Funny/About Churro.png",
                 "../Resources/Icons/Hand Drawn/Stim.png",
                 "../Resources/Icons/Hand Drawn/Scruct 5.png",
                 "../Resources/Icons/Hand Drawn/Scruct 3.png",
@@ -209,11 +241,6 @@
                 "../Resources/Icons/Hand Drawn/Nini Tip.png",
                 "../Resources/Icons/Hand Drawn/Ic.OwO.png",
                 "../Resources/Icons/Hand Drawn/Isagwam.png",
-                "iNaturalist",
-                "Home Page",
-                "GitHub",
-                "Facebook",
-                "Electronic Mail",
                 "../Resources/Icons/Hand Drawn/Dicord.png",
                 "../Resources/Icons/Hand Drawn/Dicord 2.png",
                 "Coolmath",
@@ -221,73 +248,34 @@
                 "Archive of Our Own (AO3)",
             ];
             let imgChurroSocialProfile = [
-                "churrotheturtleplushie",
-                "theturtlethatplaysgames",
-                "MobileAxolotl",
-                "eevee_in_a_box",
-                "eevee_box_ANIMATIONS",
-                "dirtydiaperguy",
-                "ChurroAnimations",
-                "u/TheInternetTurtle",
-                "8turtles",
-                "Churro the Turtle",
-                "churrotheturtl",
-                "TheHerbivorousTurtle",
-                "Return to Home Page",
-                "ChurrroAnimations",
-                "Tuesday Bettis",
-                "Churro's Electronic Mail",
-                "churrotheturtleplushie",
-                "churrothe2rtleplushie",
-                "fussyturtle802",
-                "Az Furs",
-                "Archive of Our Own (AO3)",
-            ];
-            let imgChurroSocialPlatform = [
-                "TikTok",
-                "Steam",
-                "Scratch",
-                "Scratch",
-                "Scratch",
-                "Scratch",
-                "Scratch",
-                "Reddit",
-                "Nitrotype",
-                "Itch.io",
-                "Instagram",
-                "iNaturalist",
-                undefined,
-                "GitHub",
-                "Facebook",
-                undefined,
-                "Discord",
-                "Discord",
-                "Coolmath",
-                "Az Furs",
-                "Archive of Our Own (AO3)",
+                "Who þe flip are you?",
+                "Why are you weird?",
+                "What's wiþ þe hat?",
+                "What's þis presentation?",
+                "I like to write.",
+                "Movies & TV Shows",
+                "Movies & TV Cont.",
+                "I like turtles.",
+                "I am a furry.",
+                "I like to draw and paint.",
+                "I like to draw and paint.",
+                "I like to draw and paint.",
+                "I like to draw and paint.",
             ];
             let imgChurroSocialExistence = [
-                ">:3",
-                "I play very few of þe games in my library. Most of þem I got for free.",
-                "Yet anoþer Scratch account, supposedly being a &ldquo;test account.&rdquo;",
-                "It was my primary Scratch account. For some reason I was acting as þough it was a different person to ChurroAnimations.",
-                "It was my secondary Scratch account.",
-                "My first Scratch account I made for a computer class or someþing back in elementary school, grade 5 I believe. Seeing how þat class ended several years ago, Scratch locked me out of þis account. Þis was þe final nail in þe proverbial coffin þat led me to abandon Scratch and move onto oþer shenanigans.",
-                "My main Scratch account. I ocassionally log in to check notifications, but tis oþerwise dead.",
-                "I sometimes log in to scroll r/Furry to assert dominance I suppose &mdash; UwU &mdash; or privately at home to browse more <i>captivating</i> subreddits.&lpar;&#32;&#865;&deg;&#32;&#860;&#662;&#32;&#865;&deg;&rpar;",
-                "I made þis Nitro Type account for a computer class in middle school &mdash; probably grade 7 &mdash; for a computer class. Þis account is dead.",
-                "Itch.io someþng I looked at for my website before choosing GitHub Pages. Today, I most oft just play Monster Layer on Itch.io",
-                "I don't post to Instagram. I mostly use it to follow people.",
-                "I made þis account for a biology class I had sophomore year of high school.",
-                "Return to þe Home Page.",
-                "I don't remember why I made a GitHub account, but it had been already conceived when I was looking for alternatives to Carrd.",
-                "I post my poetry to my Facebook because I don't want to go viral.",
-                "Please don't abuse þis knowledge.",
-                "My main Discord account. I'm almost terminally online. XwX",
-                "My alternate Discord account. I join a lot of random Discord servers wiþ it. Also ignore þat my alt is older þan my main account.",
-                "I'm a totally tubular gamer.",
-                "I'm a furry and I was born in Arizona.",
-                "Archive of Our Own; I post random writings here."
+                "My name is Tuesday. My deadname is Aidan. I am 17 and I was born and raised here in Tucson.",
+                "I am a transgender woman and I leave my gender and sexuality unlabelled. I am single and perfectly content, UwU.",
+                "I am a pastafarian. One of þe beliefs of pastafarianism is þat humans evolved from pirates, hence why I wear a pirate hat.",
+                "I like to code. I am working on making a website. I reused some code to MacGyver þis monstrosity togeþer.",
+                "I write poetry. Most of my completed poetry is about my gender identity. But I have started to write more beyond my gender.",
+                "I like to watch movies and TV shows. I am currently making my way þrough My Little Pony: Friendship is Magic and Black Clover. ",
+                "Wiþ my dad, I am watching þe old James Bond films. And wiþ my stepmoþer, I am watching þrough nightmare on elm street.",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
             ];
             let imgAlt = [
                 "A drawn TikTok logo.",
@@ -304,7 +292,7 @@
                 "iNaturalist",
             ];
             let winow = document.createElement("div");
-            winow.style.position = "fixed";
+            winow.style.position = "/fixed";
             winow.style.top = "0";
             winow.style.left = "0";
             winow.style.zIndex = "Calc(-infinity)";
@@ -329,8 +317,8 @@
                     img.ogSrc = imgSrc[i];
                     img.id = `img${i}`;
                     img.divorce = String(i);
-                    img.churroSocialProfile = imgChurroSocialProfile[i]
-                    img.churroSocialPlatform = imgChurroSocialPlatform[i];
+                    img.ChurroPresentationBg = presentationBg[i];
+                    img.churroSocialProfile = imgChurroSocialProfile[i];
                     img.churroSocialExistence = imgChurroSocialExistence[i];
                     img.alt = imgAlt[i];
                     imgDaddy.appendChild(img);
@@ -387,13 +375,18 @@
                                 bod.appendChild(funnyVideo);
                                 countdown = 10;
                         } else {
-                            autodefenestrateeImdex = autodefenestratee.ogZindex - 42
+                            autodefenestratee.style.display = "none";
+                            autodefenestratee.remove();
+                            autodefenestrateeImdex = autodefenestratee.ogZindex - 42;
                             imgSrc.splice(autodefenestrateeImdex, 1);
                             imgChurroSocialProfile.splice(autodefenestrateeImdex, 1);
-                            imgChurroSocialPlatform.splice(autodefenestrateeImdex, 1);
                             imgChurroSocialExistence.splice(autodefenestrateeImdex, 1);
                             imgAlt.splice(autodefenestrateeImdex, 1);
-                            linkNodes--; initImgs();
+                            linkNodes--;
+                            transitionalNode = autodefenestrateeImdex;
+                            transitionalNodeWait = true;
+                            forceClicked = -1;
+                            initImgs();
                         }
                     } else forceClicked = autodefenestratee.divorce;
                 } else {
