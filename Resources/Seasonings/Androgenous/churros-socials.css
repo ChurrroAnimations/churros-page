@@ -1,5 +1,6 @@
 :root {
     background-color: greenyellow;
+    --vs: calc(sqrt(1vw * 1vw + 1vh * 1vh));
 }
 
 #refrigerator {
