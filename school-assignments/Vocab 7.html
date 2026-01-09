@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Vocabulary 7
+        </title>
+        <!-- /$$$$$$   /$$               /$$
+            /$$__  $$ | $$              | $$
+           | $$  \__//$$$$$$   /$$   /$$| $$  /$$$$$$
+           |  $$$$$$|_  $$_/  | $$  | $$| $$ /$$__  $$
+            \____  $$ | $$    | $$  | $$| $$| $$$$$$$$
+            /$$  \ $$ | $$ /$$| $$  | $$| $$| $$_____/
+           |  $$$$$$/ |  $$$$/|  $$$$$$$| $$|  $$$$$$$
+            \______/   \___/   \____  $$|__/ \_______/
+                               /$$  | $$
+                              |  $$$$$$/
+                               \______/ -->
+        <link rel="icon" href="../Resources/Icons/Eepy.svg">
+        <style>
+            @font-face {
+                font-family: 'papyrus';
+                src: url('../Resources/Fonts/Microsoft_Fonts/PAPYRUS.TTF');
+            }
+            :root {
+                background-color: darkslategray;
+            }
+            div {
+                background-color: transparent;
+                height: 100vh;
+                left: 0;
+                position: fixed;
+                top: 0;
+                width: 100vw;
+                z-index: 69420;
+            }
+            p {
+                color: blanchedalmond;
+                font-family: 'papyrus', serif;
+                margin: auto;
+                text-align: center;
+                -webkit-text-stroke-color: khaki;
+                -webkit-text-stroke-width: 0.25px;
+            }
+            
+            a {
+                color: blanchedalmond;
+                font-family: 'papyrus', serif;
+                margin: auto;
+                text-align: center;
+                -webkit-text-stroke-color: khaki;
+                -webkit-text-stroke-width: 0.25px;
+            }
+            span {
+                text-indent: 30px;
+            }
+            table {
+                background-color: navy;
+                border: 3px ridge indigo;
+                margin: auto;
+            }
+            tbody td {
+                background-color: slateblue;
+                border: transparent;
+                color: blanchedalmond;
+                font-family: 'papyrus', serif;
+            }
+            thead td {
+                background-color: darkseagreen;
+                border: transparent;
+                color: deeppink;
+                font-family: 'papyrus', serif;
+            }
+        </style>
+    </head>
+    <body>
+        <p>
+            Tuesday Bettis
+            <br>
+            23 Sep 2025
+            <br>
+            Period 6
+        </p>
+        <table>
+            <thead>
+                <tr>
+                    <td rowspan="2">
+                        <b>Word</b>: definition
+                    </td>
+                    <td rowspan="1">
+                        <b>
+                            2 synonyms
+                        </b>                        
+                    </td>
+                    <td rowspan="2">
+                        <b>
+                            Sentence
+                        </b>
+                    </td>
+                </tr>
+                <tr>
+                    <td rowspan="1">
+                        <b>
+                            2 antonyms
+                        </b>
+                    </td>
+                </tr>
+            </thead>
+
+
+            <!-- /$$    /$$                              /$$      
+                | $$   | $$                             | $$      
+                | $$   | $$ /$$$$$$   /$$$$$$$  /$$$$$$ | $$$$$$$ 
+                |  $$ / $$//$$__  $$ /$$_____/ |____  $$| $$__  $$
+                 \  $$ $$/| $$  \ $$| $$        /$$$$$$$| $$  \ $$
+                  \  $$$/ | $$  | $$| $$       /$$__  $$| $$  | $$
+                   \  $/  |  $$$$$$/|  $$$$$$$|  $$$$$$$| $$$$$$$/
+                    \_/    \______/  \_______/ \_______/|_______/ -->
+            <tbody>
+                <script>
+                    vocabSec = document.getElementsByTagName("tbody")[0];
+                    breamk = "&#128034;";
+                    bricc = `
+Artificial: adj. something made; not occurring naturally.${breamk}Manufactured unnatural Natural authentic${breamk}Artificial food dye taste like a T-boned motorcycle.
+Authenticity: n. the quality of being real and true instead of fake and contrived.${breamk}Genuineness verity Artificiality fictitious${breamk}The authenticity of this totally not plagiarised essay is off the charts!
+Benevolent: adj. kind, generous.${breamk}Kind generous${breamk}The benevolent turtle enjoys exercising their second amendment rights.
+Bittersweet: adj. tinged with a feeling of sadness.${breamk}Ambivalent poignant Numb indifferent${breamk}Being spanked is bittersweet.
+Coarse: adj. indicating a rough texture.${breamk}Grainy rough Smooth creamy${breamk}You won't slide very far on a coarse bed of gravel, you should lubricate it first.
+Competent: adj. sufficiently qualified.${breamk}Qualified proficient Incompetent unqualified${breamk}I know mouldy water bottles more competent than you.
+Condone: v. to overlook, approve, or allow.${breamk}Omit overlook Notice acknowledge${breamk}An officer will likely condone your sketchy business with a little bit of dough. ;3
+Constitute: v. to form or compose (part of) something.${breamk}Form compose Outlie extra${breamk}Tuesday hopes her semicoherent ramblings may constitute the example sentences.
+Conventional: adj. abiding by accepted standards.${breamk}Meet customary Unconventional informal${breamk}I can't think of a conventional sentence that utilises the vocabulary word.
+Decree: v. to declare formally and with authority.${breamk}Declare order Rescind cancel${breamk}I decree your liver to be distracting.
+                    `;
+                    liness = bricc.split("\n").slice(1, this.length - 2);
+
+                    for (let daLine of liness) {
+                        let bits = daLine.split(breamk);
+
+                        // Word and definition
+                        let bitWormds = bits[0].split(" ");
+                        let vWormd = bitWormds[0].split(":")[0];
+                        const koBold = document.createElement("b");
+                        koBold.innerHTML = vWormd;
+                        const vDef = document.createElement("td");
+                        vDef.rowSpan = 2;
+                        vDef.append(koBold, `(${bitWormds[1]}): ${bitWormds.slice(2).join(" ")}`);
+
+                        // Synonyms & Antonyms
+                        bitWormds = bits[1].split(" ");
+                        const synnamons = document.createElement("td");
+                        synnamons.rowSpan = 1;
+                        synnamons.innerHTML = `${bitWormds[0]}, ${bitWormds[1]}`;
+                        const antonyms = document.createElement("td");
+                        antonyms.rowSpan = 1;
+                        antonyms.innerHTML = `${bitWormds[2]}, ${bitWormds[3]}`;
+
+                        // Sentence
+                        const OgSentence = document.createElement("td");
+                        OgSentence.rowSpan = 2;
+                        OgSentence.innerHTML = bits[2];
+
+                        // Assemble bits into something cohesive
+                        const vModuleA = document.createElement("tr");
+                        vModuleA.append(vDef, synnamons, OgSentence);
+                        const vModuleB = document.createElement("tr");
+                        vModuleB.append(antonyms);
+
+                        // Add it to the vocab
+                        vocabSec.append(vModuleA, vModuleB);
+                    }
+                </script>
+
+
+                <!-- /$$$$$$$                                       
+                    | $$__  $$                                      
+                    | $$  \ $$ /$$$$$$   /$$$$$$  /$$$$$$   /$$$$$$ 
+                    | $$$$$$$/|____  $$ /$$__  $$|____  $$ /$$__  $$
+                    | $$____/  /$$$$$$$| $$  \__/ /$$$$$$$| $$  \ $$
+                    | $$      /$$__  $$| $$      /$$__  $$| $$  | $$
+                    | $$     |  $$$$$$$| $$     |  $$$$$$$|  $$$$$$$
+                    |__/      \_______/|__/      \_______/ \____  $$
+                                                           /$$  \ $$
+                                                          |  $$$$$$/
+                                                           \______/ -->
+                <tr>
+                    <td colspan="3">
+                        <b>
+                            Vocabulary Paragraph
+                        </b>
+                        <br>
+                        <br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<u>Authenticity</u> is what makes people believe you and trust you.
+                        When they find out your words were <u>artificial</u> they will be left with a <u>bittersweet</u> feeling where they remembered what you did to make them like you, but they feel sad because of the way you ultimately portrayed yourself.
+                        It is better to be <u>benevolent</u> all the time, because kindness is truly the best policy.
+                        <br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;If your desire to be mean <u>constitute</u>s who you are, then I cannot <u>condone</u> your behavior.
+                        You are like the grass when it is frozen over in the morning &mdash; it looks like if you fall down it will not hurt, but instead it is <u>coarse</u>.
+                        I know that people have <u>decree</u>d everyone has the right to be the way they want to be, but being mean is not <u>conventional</u>. Everyone should be kind. You are not <u>competent</u> to be a doctor.
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <div></div>
+    

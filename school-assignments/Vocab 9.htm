@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Vocabulary 9
+        </title>
+        <!-- /$$$$$$   /$$               /$$
+            /$$__  $$ | $$              | $$
+           | $$  \__//$$$$$$   /$$   /$$| $$  /$$$$$$
+           |  $$$$$$|_  $$_/  | $$  | $$| $$ /$$__  $$
+            \____  $$ | $$    | $$  | $$| $$| $$$$$$$$
+            /$$  \ $$ | $$ /$$| $$  | $$| $$| $$_____/
+           |  $$$$$$/ |  $$$$/|  $$$$$$$| $$|  $$$$$$$
+            \______/   \___/   \____  $$|__/ \_______/
+                               /$$  | $$
+                              |  $$$$$$/
+                               \______/ -->
+        <link rel="icon" href="../Resources/Icons/Eepy.svg">
+        <style>
+            @font-face {
+                font-family: 'papyrus';
+                src: url('../Resources/Fonts/Microsoft_Fonts/PAPYRUS.TTF');
+            }
+            :root {
+                background-color: darkslategray;
+            }
+            div {
+                background-color: transparent;
+                height: 100vh;
+                left: 0;
+                position: fixed;
+                top: 0;
+                width: 100vw;
+                z-index: 69420;
+            }
+            p {
+                color: blanchedalmond;
+                font-family: 'papyrus', serif;
+                margin: auto;
+                text-align: center;
+                -webkit-text-stroke-color: khaki;
+                -webkit-text-stroke-width: 0.25px;
+            }
+            
+            a {
+                color: blanchedalmond;
+                font-family: 'papyrus', serif;
+                margin: auto;
+                text-align: center;
+                -webkit-text-stroke-color: khaki;
+                -webkit-text-stroke-width: 0.25px;
+            }
+            span {
+                text-indent: 30px;
+            }
+            table {
+                background-color: navy;
+                border: 3px ridge indigo;
+                margin: auto;
+            }
+            tbody td {
+                background-color: slateblue;
+                border: transparent;
+                color: blanchedalmond;
+                font-family: 'papyrus', serif;
+            }
+            thead td {
+                background-color: darkseagreen;
+                border: transparent;
+                color: deeppink;
+                font-family: 'papyrus', serif;
+            }
+        </style>
+    </head>
+    <body>
+        <p>
+            Tuesday Bettis
+            <br>
+            15 Oct 2025
+            <br>
+            Period 6
+        </p>
+        <table>
+            <thead>
+                <tr>
+                    <td rowspan="2">
+                        <b>Word</b>: definition
+                    </td>
+                    <td rowspan="1">
+                        <b>
+                            2 synonyms
+                        </b>                        
+                    </td>
+                    <td rowspan="2">
+                        <b>
+                            Sentence
+                        </b>
+                    </td>
+                </tr>
+                <tr>
+                    <td rowspan="1">
+                        <b>
+                            2 antonyms
+                        </b>
+                    </td>
+                </tr>
+            </thead>
+
+
+            <!-- /$$    /$$                              /$$      
+                | $$   | $$                             | $$      
+                | $$   | $$ /$$$$$$   /$$$$$$$  /$$$$$$ | $$$$$$$ 
+                |  $$ / $$//$$__  $$ /$$_____/ |____  $$| $$__  $$
+                 \  $$ $$/| $$  \ $$| $$        /$$$$$$$| $$  \ $$
+                  \  $$$/ | $$  | $$| $$       /$$__  $$| $$  | $$
+                   \  $/  |  $$$$$$/|  $$$$$$$|  $$$$$$$| $$$$$$$/
+                    \_/    \______/  \_______/ \_______/|_______/ -->
+            <tbody>
+                <script>
+                    vocabSec = document.getElementsByTagName("tbody")[0];
+                    breamk = "&#128034;";
+                    bricc = `
+Sentiment: n. a tender or moving gesture.${breamk}Notion opinion Apathy disinterest${breamk}The arsonist complimented the mortuary as a nice sentiment.
+Teeming: adj. abundantly filled (usu. with living organisms).${breamk}Bursting abundant Empty devoid${breamk}The noxious water bottle was teeming with detritus.
+Tentative: adj. not yet finalized.${breamk}Incomplete indefinite Definite final${breamk}To&ntilde;o tepidly typed a tentative timetable but tei titled ter tabulations terribly.
+Ubiquitous: adj. being everywhere at once.${breamk}Omnipresent infinite Finite confined${breamk}In an instant, the children playing in the minefield became an ubiquitous presence.
+Unveil: v. to make visible; to reveal.${breamk}Reveal Unearth Veil conceal${breamk}The students' inappropriate science fair project coincidentally exploded mere moments before it was to be unveiled.
+Urge: v. to encourage or persuade.${breamk}Encourage persuade Discourage deter${breamk}I urge you to touch grass.
+Vital: adj. urgently necessary.${breamk}Urgent critical Unimportant insignificant${breamk}The staff at the CRC took my vitals twice a day.
+Vow: v. to promise.${breamk}Pledge promise Disavow deny${breamk}I vow unto myself a refusal to ever end it all.
+Warrant: v. to prove to be reasonable.${breamk}Authorise permit Unauthorize refuse${breamk}I understand my darkly example sentences may warrent concern, but note that I write them in hesitent jest towards recent personal happenings.
+Yield: v. to produce or supply.${breamk}Supply produce Withold consume${breamk}The grille of the car careening down the road yielded the children using the crosswalk.
+                    `;
+                    liness = bricc.split("\n").slice(1, this.length - 1);
+
+                    for (let daLine of liness) {
+                        let bits = daLine.split(breamk);
+
+                        // Word and definition
+                        let bitWormds = bits[0].split(" ");
+                        let vWormd = bitWormds[0].split(":")[0];
+                        const koBold = document.createElement("b");
+                        koBold.innerHTML = vWormd;
+                        const vDef = document.createElement("td");
+                        vDef.rowSpan = 2;
+                        vDef.append(koBold, `(${bitWormds[1]}): ${bitWormds.slice(2).join(" ")}`);
+
+                        // Synonyms & Antonyms
+                        bitWormds = bits[1].split(" ");
+                        const synnamons = document.createElement("td");
+                        synnamons.rowSpan = 1;
+                        synnamons.innerHTML = `${bitWormds[0]}, ${bitWormds[1]}`;
+                        const antonyms = document.createElement("td");
+                        antonyms.rowSpan = 1;
+                        antonyms.innerHTML = `${bitWormds[2]}, ${bitWormds[3]}`;
+
+                        // Sentence
+                        const OgSentence = document.createElement("td");
+                        OgSentence.rowSpan = 2;
+                        OgSentence.innerHTML = bits[2];
+
+                        // Assemble bits into something cohesive
+                        const vModuleA = document.createElement("tr");
+                        vModuleA.append(vDef, synnamons, OgSentence);
+                        const vModuleB = document.createElement("tr");
+                        vModuleB.append(antonyms);
+
+                        // Add it to the vocab
+                        vocabSec.append(vModuleA, vModuleB);
+                    }
+                </script>
+
+
+                <!-- /$$$$$$$                                       
+                    | $$__  $$                                      
+                    | $$  \ $$ /$$$$$$   /$$$$$$  /$$$$$$   /$$$$$$ 
+                    | $$$$$$$/|____  $$ /$$__  $$|____  $$ /$$__  $$
+                    | $$____/  /$$$$$$$| $$  \__/ /$$$$$$$| $$  \ $$
+                    | $$      /$$__  $$| $$      /$$__  $$| $$  | $$
+                    | $$     |  $$$$$$$| $$     |  $$$$$$$|  $$$$$$$
+                    |__/      \_______/|__/      \_______/ \____  $$
+                                                           /$$  \ $$
+                                                          |  $$$$$$/
+                                                           \______/ -->
+                <tr>
+                    <td colspan="3">
+                        <b>
+                            Vocabulary Paragraph
+                        </b>
+                        <br>
+                        <br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;The <u>sentiment</u> of the gift seemed kind, but I knew otherwise.
+                        I am allergic to chocolate, and she knew that.
+                        The gift was <u>teeming</u> with chocolate frogs, and if I hadn't reacted quickly the situation would have <u>warrented</u> a trip to the hospital.
+                        My husband <u>urged</u> me to let it go, but I was angry.
+                        I <u>vowed</u> that I would seek revenge on her actions.
+                        Therefore, I plotted to <u>unveil</u> a gift of <u>ubiquitous</u> bacteria that would cause her to become very sick.
+                        It would first u a cough, then a runny nose, and finally a fever.
+                        However, it was <u>vital</u> that she open the gift away from others to avoid getting innocent people sick.
+                        Therefore, my plan was still <u>tentative</u>.
+                        I would have to think of how to get her alone.
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <p>
+            Dark humour is like Flight 103; it will never land.
+        </p>
+        <div></div>
+    

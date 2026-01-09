@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Vocabulary 11
+        </title>
+        <!-- /$$$$$$   /$$               /$$
+            /$$__  $$ | $$              | $$
+           | $$  \__//$$$$$$   /$$   /$$| $$  /$$$$$$
+           |  $$$$$$|_  $$_/  | $$  | $$| $$ /$$__  $$
+            \____  $$ | $$    | $$  | $$| $$| $$$$$$$$
+            /$$  \ $$ | $$ /$$| $$  | $$| $$| $$_____/
+           |  $$$$$$/ |  $$$$/|  $$$$$$$| $$|  $$$$$$$
+            \______/   \___/   \____  $$|__/ \_______/
+                               /$$  | $$
+                              |  $$$$$$/
+                               \______/ -->
+        <link rel="icon" href="../Resources/Icons/Eepy.svg">
+        <style>
+            @font-face {
+                font-family: 'papyrus';
+                src: url('../Resources/Fonts/Microsoft_Fonts/PAPYRUS.TTF');
+            }
+            :root {
+                background-color: darkslategray;
+            }
+            div {
+                background-color: transparent;
+                height: 100vh;
+                left: 0;
+                position: fixed;
+                top: 0;
+                width: 100vw;
+                z-index: 69420;
+            }
+            p {
+                color: blanchedalmond;
+                font-family: 'papyrus', serif;
+                margin: auto;
+                text-align: center;
+                -webkit-text-stroke-color: khaki;
+                -webkit-text-stroke-width: 0.25px;
+            }
+            
+            a {
+                color: blanchedalmond;
+                font-family: 'papyrus', serif;
+                margin: auto;
+                text-align: center;
+                -webkit-text-stroke-color: khaki;
+                -webkit-text-stroke-width: 0.25px;
+            }
+            span {
+                text-indent: 30px;
+            }
+            table {
+                background-color: navy;
+                border: 3px ridge indigo;
+                margin: auto;
+            }
+            tbody td {
+                background-color: slateblue;
+                border: transparent;
+                color: blanchedalmond;
+                font-family: 'papyrus', serif;
+            }
+            thead td {
+                background-color: darkseagreen;
+                border: transparent;
+                color: deeppink;
+                font-family: 'papyrus', serif;
+            }
+        </style>
+    </head>
+    <body>
+        <p>
+            Tuesday Bettis
+            <br>
+            31 Oct 2025
+            <br>
+            Period 6
+        </p>
+        <table>
+            <thead>
+                <tr>
+                    <td rowspan="2">
+                        <b>Word</b>: definition
+                    </td>
+                    <td rowspan="1">
+                        <b>
+                            2 synonyms
+                        </b>                        
+                    </td>
+                    <td rowspan="2">
+                        <b>
+                            Sentence
+                        </b>
+                    </td>
+                </tr>
+                <tr>
+                    <td rowspan="1">
+                        <b>
+                            2 antonyms
+                        </b>
+                    </td>
+                </tr>
+            </thead>
+
+
+            <!-- /$$    /$$                              /$$      
+                | $$   | $$                             | $$      
+                | $$   | $$ /$$$$$$   /$$$$$$$  /$$$$$$ | $$$$$$$ 
+                |  $$ / $$//$$__  $$ /$$_____/ |____  $$| $$__  $$
+                 \  $$ $$/| $$  \ $$| $$        /$$$$$$$| $$  \ $$
+                  \  $$$/ | $$  | $$| $$       /$$__  $$| $$  | $$
+                   \  $/  |  $$$$$$/|  $$$$$$$|  $$$$$$$| $$$$$$$/
+                    \_/    \______/  \_______/ \_______/|_______/ -->
+            <tbody>
+                <script>
+                    vocabSec = document.getElementsByTagName("tbody")[0];
+                    breamk = "&#128034;";
+                    bricc = `
+                        Bode: v. indicate by signs.${breamk}Foretell predict Unforeseen veiled${breamk}Þe protestors bode discord.
+                        Destabilize: v. upset þe stability of; cause unrest in.${breamk}Disgruntle undermine Stabilise rest${breamk}Þe horse was destabilized.
+                        Galvanize: v. shock or excite someone, typically into taking action.${breamk}Arouse excite Jade deter${breamk}Þe galvanized and erratic pipes gave þe flight attendant two cavities so zey were to be taught how to meetly fold þe beige and chartreuse polkadot crayons.
+                        Chronic: adj. not likely to change over time.${breamk}Constant perpetual Ocassional temporary${breamk}You better watch your chronic intake or you'll bust þe scale!
+                        Archetype: n. classic example of.${breamk}Model example Antiþesis offshoot${breamk}Þe prior sentence is an archetype of malapropisms.
+                        Clemency: n. mercy.${breamk}Mercy pardon Cruelty brutality${breamk}Sure, þe raw vacuum of space is cold, dark, existentially provocative, nobeing can hear your cries of desperation as you quickly asphyxiate, inflate like a balloon, turn rotisserie chicken from the solar radiation and drift away from everyþing you've ever known, but its clemency and ample room for everyone make it þe perfect vacation destination!
+                        Sophomoric: adj. juvenile; immature.${breamk}Juvenile immature Knowledgable mature ${breamk}Tuesday finds þis list of vocabulary words insolent and sophomoric.
+                        Flout: v. defy, reject.${breamk}Mock scorn Praise approve${breamk}Tuesday flouts your red marker because language is a social construct in which Tuesday follows of her own accord.
+                        Ingrate: n. ungrateful person.${breamk}Þankless opportunist Grateful appreciative${breamk}Tuesday does not intend to be an ingrate wiþ þe second sentence prior, Tuesday just mildly hyperbolized her þoughts.
+                        Articulate: adj. clear; lucid; eloquent.${breamk}Clear vocal Inarticulate incoherent${breamk}Tuesday is piqued in þought of how she could described as articulate.
+                    `;
+
+                    liness = (bricc + "    ").split("\n                        ").slice(1, this.length - 1); // Spaghetti but it works!
+
+                    for (let daLine of liness) {
+                        let bits = (daLine + breamk).split(breamk); // Furþer spaghetti but it works.
+
+
+                        // Word and definition
+                        let bitWormds = bits[0].split(" ");
+                        let vWormd = bitWormds[0].split(":")[0];
+                        const koBold = document.createElement("b");
+                        koBold.innerHTML = vWormd;
+                        const vDef = document.createElement("td");
+                        vDef.rowSpan = 2;
+                        vDef.append(koBold, `(${bitWormds[1]}): ${bitWormds.slice(2).join(" ")}`);
+
+                        // Synonyms & Antonyms
+                        bitWormds = bits[1].split(" ");
+                        if (bitWormds.length < 4) {
+                            dateMeow = String(Date.now() / 2);
+                            dateMeow = dateMeow[dateMeow.length - 1];
+                            if (dateMeow == "5") bitWormds = ["Tuesday's", "code", "sh*t", "itself. :("];
+                            else bitWormds = ["Tuesday", "screwed", "something", "up"];
+                        };
+                        const synnamons = document.createElement("td");
+                        synnamons.rowSpan = 1;
+                        synnamons.innerHTML = `${bitWormds[0]}, ${bitWormds[1]}`;
+                        const antonyms = document.createElement("td");
+                        antonyms.rowSpan = 1;
+                        antonyms.innerHTML = `${bitWormds[2]}, ${bitWormds[3]}`;
+                        // Sentence
+                        const OgSentence = document.createElement("td");
+                        OgSentence.rowSpan = 2;
+                        OgSentence.innerHTML = bits[2];
+
+                        // Assemble bits into something cohesive
+                        const vModuleA = document.createElement("tr");
+                        vModuleA.append(vDef, synnamons, OgSentence);
+                        const vModuleB = document.createElement("tr");
+                        vModuleB.append(antonyms);
+
+                        // Add it to the vocab
+                        vocabSec.append(vModuleA, vModuleB);
+                    }
+                </script>
+
+
+                <!-- /$$$$$$$                                       
+                    | $$__  $$                                      
+                    | $$  \ $$ /$$$$$$   /$$$$$$  /$$$$$$   /$$$$$$ 
+                    | $$$$$$$/|____  $$ /$$__  $$|____  $$ /$$__  $$
+                    | $$____/  /$$$$$$$| $$  \__/ /$$$$$$$| $$  \ $$
+                    | $$      /$$__  $$| $$      /$$__  $$| $$  | $$
+                    | $$     |  $$$$$$$| $$     |  $$$$$$$|  $$$$$$$
+                    |__/      \_______/|__/      \_______/ \____  $$
+                                                           /$$  \ $$
+                                                          |  $$$$$$/
+                                                           \______/ -->
+                <tr>
+                    <td colspan="3">
+                        <b>
+                            Vocabulary Paragraph
+                        </b>
+                        <br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Þe <u>sentiment</u> of þe gift seemed kind, but I knew oþerwise.
+                        I am allergic to chocolate, and she knew þat.
+                        Þe gift was <u>teeming</u> wiþ chocolate frogs, and if I hadn't reacted quickly þe situation would have <u>warrented</u> a trip to þe hospital.
+                        My husband <u>urged</u> me to let it go, but I was angry.
+                        I <u>vowed</u> þat I would seek revenge on her actions.
+                        Þerefore, I plotted to <u>unveil</u> a gift of <u>ubiquitous</u> bacteria þat would cause her to become very sick.
+                        It would first u a cough, þen a runny nose, and finally a fever.
+                        However, it was <u>vital</u> þat she open þe gift away from oþers to avoid getting innocent people sick.
+                        Þerefore, my plan was still <u>tentative</u>.
+                        I would have to þink of how to get her alone.
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <div></div>
+    

@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Frankenstein Vocabulary 5
+        </title>
+        <!-- /$$$$$$   /$$               /$$
+            /$$__  $$ | $$              | $$
+           | $$  \__//$$$$$$   /$$   /$$| $$  /$$$$$$
+           |  $$$$$$|_  $$_/  | $$  | $$| $$ /$$__  $$
+            \____  $$ | $$    | $$  | $$| $$| $$$$$$$$
+            /$$  \ $$ | $$ /$$| $$  | $$| $$| $$_____/
+           |  $$$$$$/ |  $$$$/|  $$$$$$$| $$|  $$$$$$$
+            \______/   \___/   \____  $$|__/ \_______/
+                               /$$  | $$
+                              |  $$$$$$/
+                               \______/ -->
+        <link rel="icon" href="../Resources/Icons/Eepy.svg">
+        <style>
+            @font-face {
+                font-family: 'papyrus';
+                src: url('../Resources/Fonts/Microsoft_Fonts/PAPYRUS.TTF');
+            }
+            :root {
+                background-color: darkslategray;
+            }
+            div {
+                background-color: transparent;
+                height: 100vh;
+                left: 0;
+                position: fixed;
+                top: 0;
+                width: 100vw;
+                z-index: 69420;
+            }
+            p {
+                color: blanchedalmond;
+                font-family: 'papyrus', serif;
+                margin: auto;
+                text-align: center;
+                -webkit-text-stroke-color: khaki;
+                -webkit-text-stroke-width: 0.25px;
+            }
+            
+            a {
+                color: blanchedalmond;
+                font-family: 'papyrus', serif;
+                margin: auto;
+                text-align: center;
+                -webkit-text-stroke-color: khaki;
+                -webkit-text-stroke-width: 0.25px;
+            }
+            span {
+                text-indent: 30px;
+            }
+            table {
+                background-color: navy;
+                border: 3px ridge indigo;
+                margin: auto;
+            }
+            tbody td {
+                background-color: slateblue;
+                border: transparent;
+                color: blanchedalmond;
+                font-family: 'papyrus', serif;
+            }
+            thead td {
+                background-color: darkseagreen;
+                border: transparent;
+                color: deeppink;
+                font-family: 'papyrus', serif;
+            }
+        </style>
+    </head>
+    <body>
+        <p>
+            Tuesday Bettis
+            <br>
+            11 December 2025
+            <br>
+            Period 6 English 12
+        </p>
+        <table>
+            <thead>
+                <tr>
+                    <td rowspan="2">
+                        <b>Word</b>: definition
+                    </td>
+                    <td rowspan="1">
+                        <b>
+                            2 synonyms
+                        </b>                        
+                    </td>
+                    <td rowspan="2">
+                        <b>
+                            Sentence
+                        </b>
+                    </td>
+                </tr>
+                <tr>
+                    <td rowspan="1">
+                        <b>
+                            2 antonyms
+                        </b>
+                    </td>
+                </tr>
+            </thead>
+
+
+            <!-- /$$    /$$                              /$$      
+                | $$   | $$                             | $$      
+                | $$   | $$ /$$$$$$   /$$$$$$$  /$$$$$$ | $$$$$$$ 
+                |  $$ / $$//$$__  $$ /$$_____/ |____  $$| $$__  $$
+                 \  $$ $$/| $$  \ $$| $$        /$$$$$$$| $$  \ $$
+                  \  $$$/ | $$  | $$| $$       /$$__  $$| $$  | $$
+                   \  $/  |  $$$$$$/|  $$$$$$$|  $$$$$$$| $$$$$$$/
+                    \_/    \______/  \_______/ \_______/|_______/ -->
+            <tbody>
+                <script>
+                    vocabSec = document.getElementsByTagName("tbody")[0];
+                    breamk = "&#128034;";
+                    bricc = `
+                        Ardently: av. Wiþ intense passion or enþusiasm; fervently.${breamk}Fervent zealous Detached dispassionate${breamk}Þe enby ardently handcuffed its partner to þe bed.
+                        Vindictive: adj. Having or showing a strong desire for revenge; spiteful.${breamk}Spiteful revengeful Benign merciful${breamk}Þe hatter's vindictive words left customers perplexingly enþralled.
+                        Imprecate: v. To utter a curse or invoke evil upon someone.${breamk}Curse hex Bless commend${breamk}Þe children were imprecated to þe mines.
+                        Exasperation: n. A feeling of intense irritation or annoyance.${breamk}Ire annoyance Delight pleasure${breamk}Þe repetition of vocabulary words leaves Tuesday wiþ exasperation.
+                        Progeny: n. Descendants or offspring; a result or outcome of someþing.${breamk}Offspring children Forebear parent${breamk}Tuesday's scars are progeny of a yonder she vows never to return.
+                        Obdurate: adj. Stubbornly refusing to change one's opinion or course of action; unyielding.${breamk}Unyielding stubborn Yielding pliable${breamk}Your obdurate gullibility is unsettling.
+                        Cursory: adj. Hasty and þerefore not þorough or detailed; superficial.${breamk}Spontaneous rushed Deliberate calculated${breamk}She gave a cursory introduction to þe task force before driving þem bankrupt.
+                        Enigmatic: adj. Difficult to interpret or understand; mysterious.${breamk}Mysterious ambiguous Crystal unambiguous${breamk}Þose decorous hard hats vanished into þe enigmatic concrete shell.
+                        Imprecate: v. To invoke or call down (a curse) upon someone.${breamk}Curse hex Bless commend${breamk}Þe children imprecated to þe mines organised a rebellion.
+                        Languor: n. A state of weakness or fatigue; a lack of energy or vitality.${breamk}Weakness fatigue Vitality spirited${breamk}Your languor sprouts my day long.
+                    `;
+
+                    liness = (bricc + "    ").split("\n                        ").slice(1, this.length - 1); // Spaghetti but it works!
+
+                    for (let daLine of liness) {
+                        let bits = (daLine + breamk + breamk).split(breamk); // Furþer spaghetti but it works.
+
+
+                        // Word and definition
+                            let bitWormds = bits[0].split(" ");
+                            let vWormd = bitWormds[0].split(":")[0];
+                            const koBold = document.createElement("b");
+                            koBold.innerHTML = vWormd;
+                            const vDef = document.createElement("td");
+                            vDef.rowSpan = 2;
+                            vDef.append(koBold);
+                            if (bitWormds[1] == "" || bitWormds[1] == undefined) vDef.appendChild((()=> {
+                                const enbyGrad = "linear-gradient(90deg,rgba(252, 244, 52, 1) 0%, rgba(252, 244, 52, 1) 25%, rgba(255, 255, 255, 1) 25%, rgba(255, 255, 255, 1) 50%, rgba(156, 89, 209, 1) 50%, rgba(156, 89, 209, 1) 75%, rgba(44, 44, 44, 1) 75%, rgba(44, 44, 44, 1) 100%)";
+                                spamn = document.createElement("span");
+                                spamn.style.color = "transparent";
+                                spamn.style.backgroundImage = enbyGrad;
+                                spamn.style.backgroundClip = "text";
+                                spamn.innerHTML = "Tuesday's code forgor what it means.";
+                                vDef.style.backgroundColor = "blue";
+                                vDef.append(": ");
+                                return spamn;
+                            })());
+                            else vDef.append(`(${bitWormds[1]}): ${bitWormds.slice(2).join(" ")}`);
+
+                        // Synonyms & Antonyms
+                        bitWormds = bits[1].split(" ");
+                        const synnamons = document.createElement("td");
+                        const antonyms = document.createElement("td");
+                        synnamons.rowSpan = 1;
+                        antonyms.rowSpan = 1;
+                        const transGrad = "linear-gradient(90deg, rgba(91, 206, 250, 1) 0%, rgba(91, 206, 250, 1) 20%, rgba(245, 169, 184, 1) 20%, rgba(245, 169, 184, 1) 40%, rgba(255, 255, 255, 1) 40%, rgba(255, 255, 255, 1) 60%, rgba(245, 169, 184, 1) 60%, rgba(245, 169, 184, 1) 80%, rgba(91, 206, 250, 1) 80%, rgba(91, 206, 250, 1) 100%)";
+                        if (bitWormds.length != 4) {
+                            dateMeow = Date.now() % 2;
+                            synnamons.appendChild((()=>{
+                                spamn = document.createElement("span");
+                                spamn.style.color = "transparent";
+                                spamn.style.backgroundImage = transGrad;
+                                spamn.style.backgroundClip = "text";
+                                if (dateMeow) spamn.innerHTML = "Tuesday's code";
+                                else spamn.innerHTML = "Tuesday screwed";
+                                return spamn;
+                            })());
+                            synnamons.style.backgroundColor = "blue";
+                            antonyms.appendChild((()=>{
+                                spamn = document.createElement("span");
+                                spamn.style.color = "transparent";
+                                spamn.style.backgroundImage = transGrad;
+                                spamn.style.backgroundClip = "text";
+                                if (dateMeow == "5") spamn.innerHTML = "Sh*t itself. xwx";
+                                else spamn.innerHTML = "Someþing up. :(";
+                                return spamn;
+                            })());
+                            antonyms.style.backgroundColor = "blue";
+                        } else {
+                            synnamons.innerHTML = `${bitWormds[0]}, ${bitWormds[1]}`;
+                            antonyms.innerHTML = `${bitWormds[2]}, ${bitWormds[3]}`;
+                        }
+                        // Sentence
+                        const OgSentence = document.createElement("td");
+                        OgSentence.rowSpan = 2;
+                        if (bits[2] == "") {
+                            OgSentence.style.backgroundColor = "blue";
+                            OgSentence.appendChild((()=>{
+                                spamn = document.createElement("span");
+                                spamn.style.color = "transparent";
+                                spamn.style.backgroundImage = transGrad;
+                                spamn.style.backgroundClip = "text";
+                                if (Date.now() % 2) spamn.innerHTML = "Tuesday's script is vainly in essence of our noodly goodness and has failed to uphold its function.";
+                                else spamn.innerHTML = "Tuesday's code appers to be unresponsive and curled up in fetal position, sobbing."
+                                return spamn;
+                            })());
+                        } else OgSentence.innerHTML = bits[2];
+
+                        // Assemble bits into something cohesive
+                        const vModuleA = document.createElement("tr");
+                        vModuleA.append(vDef, synnamons, OgSentence);
+                        const vModuleB = document.createElement("tr");
+                        vModuleB.append(antonyms);
+
+                        // Add it to the vocab
+                        vocabSec.append(vModuleA, vModuleB);
+                    }
+                </script>
+
+
+                <!-- /$$$$$$$                                       
+                    | $$__  $$                                      
+                    | $$  \ $$ /$$$$$$   /$$$$$$  /$$$$$$   /$$$$$$ 
+                    | $$$$$$$/|____  $$ /$$__  $$|____  $$ /$$__  $$
+                    | $$____/  /$$$$$$$| $$  \__/ /$$$$$$$| $$  \ $$
+                    | $$      /$$__  $$| $$      /$$__  $$| $$  | $$
+                    | $$     |  $$$$$$$| $$     |  $$$$$$$|  $$$$$$$
+                    |__/      \_______/|__/      \_______/ \____  $$
+                                                           /$$  \ $$
+                                                          |  $$$$$$/
+                                                           \______/ -->
+                <tr>
+                    <td colspan="3">
+                        <b>
+                            Vocabulary Paragraph
+                        </b>
+                        <br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; In þe midst of <u>languor</u> þat enveloped þe room, she <u>ardently</u> expressed her feelings, battling against þe <u>vindictive</u> þoughts þat clouded her mind.
+                        Þe <u>cursory</u> glance at her surroundings did little to alleviate her <u>exasperation</u> wiþ þe situation, as she felt like a mere <u>progeny</u> of her own tumultuous emotions.
+                        Þe <u>obdurate</u> nature of her friend made it impossible to reach a resolution, and in a moment of frustration, she might <u>imprecate</u> him, wishing for some sort of karmic retribution.
+                        Yet, þe <u>enigmatic</u> nature of human relationships often leaves one pondering þe depþ of þeir connections and þe repercussions of þeir actions.
+                        <br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+                        <i>
+                            How transparent had she been? His presence invoked a fever in her, and she despise him for it.
+                            A vortex of loaþing how she felt ought to have dragged her down, if she didn't condone it for its auþenticity.
+                            After monþs biding her misnomered hatred, she finally banded her courage and to ask him on a date.
+                            She couldn't subdue a creeping pessimism of misinterpretation from her friends and classmates, even when she'd received her answer.
+                            She loved him, not as a romantic, nor more, but more þan platonic.
+                            She felt dischronometric to þe setting sun but þe most she could do was endure þe enternity between her call and his response.
+                        </i>
+                        <br>
+                        <sub>
+                            I was bored and wanted to write.
+                        </sub>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <div></div>
+    

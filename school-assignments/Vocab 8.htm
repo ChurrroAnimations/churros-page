@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Vocabulary 8
+        </title>
+        <!-- /$$$$$$   /$$               /$$
+            /$$__  $$ | $$              | $$
+           | $$  \__//$$$$$$   /$$   /$$| $$  /$$$$$$
+           |  $$$$$$|_  $$_/  | $$  | $$| $$ /$$__  $$
+            \____  $$ | $$    | $$  | $$| $$| $$$$$$$$
+            /$$  \ $$ | $$ /$$| $$  | $$| $$| $$_____/
+           |  $$$$$$/ |  $$$$/|  $$$$$$$| $$|  $$$$$$$
+            \______/   \___/   \____  $$|__/ \_______/
+                               /$$  | $$
+                              |  $$$$$$/
+                               \______/ -->
+        <link rel="icon" href="../Resources/Icons/Eepy.svg">
+        <style>
+            @font-face {
+                font-family: 'papyrus';
+                src: url('../Resources/Fonts/Microsoft_Fonts/PAPYRUS.TTF');
+            }
+            :root {
+                background-color: darkslategray;
+            }
+            div {
+                background-color: transparent;
+                height: 100vh;
+                left: 0;
+                position: fixed;
+                top: 0;
+                width: 100vw;
+                z-index: 69420;
+            }
+            p {
+                color: blanchedalmond;
+                font-family: 'papyrus', serif;
+                margin: auto;
+                text-align: center;
+                -webkit-text-stroke-color: khaki;
+                -webkit-text-stroke-width: 0.25px;
+            }
+            
+            a {
+                color: blanchedalmond;
+                font-family: 'papyrus', serif;
+                margin: auto;
+                text-align: center;
+                -webkit-text-stroke-color: khaki;
+                -webkit-text-stroke-width: 0.25px;
+            }
+            span {
+                text-indent: 30px;
+            }
+            table {
+                background-color: navy;
+                border: 3px ridge indigo;
+                margin: auto;
+            }
+            tbody td {
+                background-color: slateblue;
+                border: transparent;
+                color: blanchedalmond;
+                font-family: 'papyrus', serif;
+            }
+            thead td {
+                background-color: darkseagreen;
+                border: transparent;
+                color: deeppink;
+                font-family: 'papyrus', serif;
+            }
+        </style>
+    </head>
+    <body>
+        <p>
+            Tuesday Bettis
+            <br>
+            30 Sep 2025
+            <br>
+            Period 6
+        </p>
+        <table>
+            <thead>
+                <tr>
+                    <td rowspan="2">
+                        <b>Word</b>: definition
+                    </td>
+                    <td rowspan="1">
+                        <b>
+                            2 synonyms
+                        </b>                        
+                    </td>
+                    <td rowspan="2">
+                        <b>
+                            Sentence
+                        </b>
+                    </td>
+                </tr>
+                <tr>
+                    <td rowspan="1">
+                        <b>
+                            2 antonyms
+                        </b>
+                    </td>
+                </tr>
+            </thead>
+
+
+            <!-- /$$    /$$                              /$$      
+                | $$   | $$                             | $$      
+                | $$   | $$ /$$$$$$   /$$$$$$$  /$$$$$$ | $$$$$$$ 
+                |  $$ / $$//$$__  $$ /$$_____/ |____  $$| $$__  $$
+                 \  $$ $$/| $$  \ $$| $$        /$$$$$$$| $$  \ $$
+                  \  $$$/ | $$  | $$| $$       /$$__  $$| $$  | $$
+                   \  $/  |  $$$$$$/|  $$$$$$$|  $$$$$$$| $$$$$$$/
+                    \_/    \______/  \_______/ \_______/|_______/ -->
+            <tbody>
+                <script>
+                    vocabSec = document.getElementsByTagName("tbody")[0];
+                    breamk = "&#128034;";
+                    bricc = `
+Egregious: adj. extremely bad.${breamk}Rank horrendous Benign appealing${breamk}The egregious plagiarism in the student's essay.
+Endow: v. to equip or bestow (usu. a quality or ability).${breamk}Equip bestow Disendow strip${breamk}The child was endowed with an egregious lack of common sense.
+Entrenched: adj. firmly established.${breamk}Rooted embedded Removed detached${breamk}Tuesday feels entrenched in a downwards spiral.
+Ferocity: n. viciousness, violence.${breamk}Brutality cruelty Clemency mercy${breamk}The ferocity within me wants to order a Double Smoked Bacon Brisket Smash, no pickles, a side of Smash Fries and an appy juice box.
+Foment: v. to stir up.${breamk}Incite provoke Restrain curb${breamk}I'm about to foment some shiz.
+Hostile: adj. harmful, dangerous.${breamk}Harmful dangerous Benign inoccent${breamk}The hostile mailbox jumped at every opportunity to bite the mailman.
+Impartiality: n. the equal and objective treatment of opposing views.${breamk}Neutrality equity Bias favorance${breamk}Tuesday lies lies more in indifference rather than impartialty towards her life.
+Lament: v. to feel sorrow for; to mourn.${breamk}Mourn greive Rejoice revel${breamk}Tuesday laments her sanity.
+Momentous: adj. historically significant.${breamk}Historic substantial Negiligible petty${breamk}Sterile bandages were a momentous invention.
+Omnipotent: adj. almighty and all powerful.${breamk}Almighty all-powerful Impotent powerless${breamk}The omnipotent mother requests your presence at once.
+                    `;
+                    liness = bricc.split("\n").slice(1, this.length - 1);
+
+                    for (let daLine of liness) {
+                        let bits = daLine.split(breamk);
+
+                        // Word and definition
+                        let bitWormds = bits[0].split(" ");
+                        let vWormd = bitWormds[0].split(":")[0];
+                        const koBold = document.createElement("b");
+                        koBold.innerHTML = vWormd;
+                        const vDef = document.createElement("td");
+                        vDef.rowSpan = 2;
+                        vDef.append(koBold, `(${bitWormds[1]}): ${bitWormds.slice(2).join(" ")}`);
+
+                        // Synonyms & Antonyms
+                        bitWormds = bits[1].split(" ");
+                        const synnamons = document.createElement("td");
+                        synnamons.rowSpan = 1;
+                        synnamons.innerHTML = `${bitWormds[0]}, ${bitWormds[1]}`;
+                        const antonyms = document.createElement("td");
+                        antonyms.rowSpan = 1;
+                        antonyms.innerHTML = `${bitWormds[2]}, ${bitWormds[3]}`;
+
+                        // Sentence
+                        const OgSentence = document.createElement("td");
+                        OgSentence.rowSpan = 2;
+                        OgSentence.innerHTML = bits[2];
+
+                        // Assemble bits into something cohesive
+                        const vModuleA = document.createElement("tr");
+                        vModuleA.append(vDef, synnamons, OgSentence);
+                        const vModuleB = document.createElement("tr");
+                        vModuleB.append(antonyms);
+
+                        // Add it to the vocab
+                        vocabSec.append(vModuleA, vModuleB);
+                    }
+                </script>
+
+
+                <!-- /$$$$$$$                                       
+                    | $$__  $$                                      
+                    | $$  \ $$ /$$$$$$   /$$$$$$  /$$$$$$   /$$$$$$ 
+                    | $$$$$$$/|____  $$ /$$__  $$|____  $$ /$$__  $$
+                    | $$____/  /$$$$$$$| $$  \__/ /$$$$$$$| $$  \ $$
+                    | $$      /$$__  $$| $$      /$$__  $$| $$  | $$
+                    | $$     |  $$$$$$$| $$     |  $$$$$$$|  $$$$$$$
+                    |__/      \_______/|__/      \_______/ \____  $$
+                                                           /$$  \ $$
+                                                          |  $$$$$$/
+                                                           \______/ -->
+                <tr>
+                    <td colspan="3">
+                        <b>
+                            Vocabulary Paragraph
+                        </b>
+                        <br>
+                        <br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;The girl was <u>endowed</u> with the ability to see into the future, which is how she knew the <u>hostile</u> criminal was ready to <u>foment</u> the town.
+                        Normally, she tried to maintain <u>Impartiality</u> and not relay what was going to happen in the future to the people around her, but this time what was going to happen was too <u>egregious</u> to ignore.
+                        The criminal reacted with <u>ferocity</u> when the police came to his door.
+                        He was <u>entrenched</u>.
+                        He tried to escape, but the girl was <u>omnipotent</u> and she knew what all his actions would be as she changed the direction of the future.
+                        The town was pleased that the girl helped them avoid an event that would have caused them to <u>lament</u>, and even as the criminal screamed the girl with her power was the problem, the girl was too <u>momentous</u> in the town for them to turn against her.
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <div></div>
+    
