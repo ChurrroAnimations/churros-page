@@ -40,7 +40,7 @@
         <script>
             var dist = 92.5;
             var size = 7.5;
-            var linkNodes = 13;
+            var linkNodes = 14;
             var forceSquare = false;
             var forceCircle = true;
             var forceClicked = 0;
@@ -174,7 +174,7 @@
                     if (mult - 1) {
                         infoText.innerHTML = img.churroSocialExistence;
                         infoTitel.innerHTML = img.churroSocialProfile;
-                        if (img.ChurroPresentationBg != undefined) infoDaddy.style.backgroundImage = img.ChurroPresentationBg;
+                        if (img.ChurroPresentationBg != undefined && img.ogZindex != 55) infoDaddy.style.backgroundImage = img.ChurroPresentationBg;
                         else infoDaddy.style.backgroundImage = "url('../Resources/Page/NyQuil.jpg')";
                         //if (img.churroSocialPlatform != undefined) infoTitel.innerHTML += `on ${img.churroSocialPlatform}`;
                     } else if (!hovered) {
@@ -235,6 +235,7 @@
                 "url('../Resources/Escuela/20251112_083036.jpg')",
                 "url('../Resources/Escuela/SPOILER_NSFW-Churro.jpg')",
                 "url('../Resources/Escuela/20250929_104843.jpg')",
+                "https://churrroanimations.github.io/churros-page/",
             ];
             let imgSrc = [
                 "../Resources/Icons/Funny/About Churro.png",
@@ -250,6 +251,7 @@
                 "../Resources/Escuela/20251112_083036.jpg",
                 "../Resources/Escuela/SPOILER_NSFW-Churro.jpg",
                 "../Resources/Escuela/20250929_104843.jpg",
+                "../Resources/Icons/Cttp base.png"
             ];
             let imgChurroSocialProfile = [
                 "Who þe flip are you?",
@@ -280,6 +282,7 @@
                 "",
                 "",
                 "",
+                "Return to þe home page.",
             ];
             let imgAlt = [
                 "&OpenCurlyQuote;I am steve&CloseCurlyQuote; meme from A Minecraft Movie.",
@@ -294,7 +297,8 @@
                 "A drawing of Girlkisser.",
                 "Tuesday's Heritage Painting for her art class, senior year of high school, showing Tuesday's name and þe text &OpenCurlyQuote;Not Aidan anymore&CloseCurlyQuote;",
                 "A NSFW drawing of Churro þe turtle plushie &mdash; her beig unsafe on a ladder by overreaching and keeping two points of contact on a ladder &mdash; and þe caption &OpenCurlyQuote;My first NSFW art of my fursona.&CloseCurlyQuote;",
-                "A drawing of rosie þe riveter wiþ Girlkisser's head and a blue speech bubble wiþ þe text &OpenCurlyQuote;You know we can do it! Don't&CloseCurlyQuote;"
+                "A drawing of rosie þe riveter wiþ Girlkisser's head and a blue speech bubble wiþ þe text &OpenCurlyQuote;You know we can do it! Don't&CloseCurlyQuote;",
+                "Churro þe turtle plushie's face."
             ];
             let winow = document.createElement("div");
             winow.style.position = "/fixed";
@@ -354,31 +358,8 @@
                 if (countdown == "Fuck off") {
                     //document.getElementById(`img${autodefenestratee.divorce}`).src = "../Resources/Icons/Funny/More Churro.png";
                     if (fsSel == "horiz" || autodefenestratee.divorce == forceClicked) {
-                        if (false) {
-                                autodefenestrateeElement = document.getElementById(`img${autodefenestratee.divorce}`);
-                                let funnyVideo = document.createElement("video");
-                                funnyVideo.style.objectFit = "fill";
-                                funnyVideo.style.height = autodefenestrateeElement.style.height;
-                                funnyVideo.style.width = autodefenestratee.style.width
-                                funnyVideo.style.left = autodefenestrateeElement.style.left;
-                                funnyVideo.play();
-                                funnyVideo.style.top = autodefenestrateeElement.style.top;
-                                funnyVideo.style.zIndex = autodefenestrateeElement.style.zIndex + 1;
-                                funnyVideo.onended = function () {
-                                    requestAnimationFrame(pageTick);
-                                    countdown = "Fuck off";
-                                    this.remove();
-                                }
-                                funnyVideo.id = "goGoGadgetGirþee";
-                                let funnySource = document.createElement("source");
-                                funnyVideo.appendChild(funnySource);
-                                funnySource.type = "video/mp4";
-                                funnySource.src = "../Resources/Noisy/JJJ Laugh.mp4";
-                                funnyVideo.style.position = "fixed";
-                                let animDelaysPotatoChips = "10s linear"
-                                funnyVideo.style.transition = `width ${animDelaysPotatoChips}, left, ${animDelaysPotatoChips}`;
-                                bod.appendChild(funnyVideo);
-                                countdown = 10;
+                        if (autodefenestratee.ogZindex != 55) {
+                            window.location.href = autodefenestratee.ChurroPresentationBg;
                         } else {
                             autodefenestratee.style.display = "none";
                             autodefenestratee.remove();
