@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Vocabulary List 18
+        </title>
+        <!-- /$$$$$$   /$$               /$$
+            /$$__  $$ | $$              | $$
+           | $$  \__//$$$$$$   /$$   /$$| $$  /$$$$$$
+           |  $$$$$$|_  $$_/  | $$  | $$| $$ /$$__  $$
+            \____  $$ | $$    | $$  | $$| $$| $$$$$$$$
+            /$$  \ $$ | $$ /$$| $$  | $$| $$| $$_____/
+           |  $$$$$$/ |  $$$$/|  $$$$$$$| $$|  $$$$$$$
+            \______/   \___/   \____  $$|__/ \_______/
+                               /$$  | $$
+                              |  $$$$$$/
+                               \______/ -->
+        <link rel="icon" href="https://churrroanimations.github.io/churros-page/Resources/Icons/Eepy.svg">
+        <style>
+            @font-face {
+                font-family: 'papyrus';
+                src: url('https://raw.githack.com/ChurrroAnimations/churros-page/main/Resources/Fonts/Microsoft_Fonts/PAPYRUS.TTF');
+            }
+            :root {
+                background-color: darkslategray;
+            }
+            div {
+                background-color: transparent;
+                height: 100vh;
+                left: 0;
+                position: fixed;
+                top: 0;
+                width: 100vw;
+                z-index: 69420;
+            }
+            p {
+                color: blanchedalmond;
+                font-family: 'papyrus', serif;
+                margin: auto;
+                text-align: center;
+                -webkit-text-stroke-color: khaki;
+                -webkit-text-stroke-width: 0.25px;
+            }
+            
+            a {
+                color: blanchedalmond;
+                font-family: 'papyrus', serif;
+                margin: auto;
+                text-align: center;
+                -webkit-text-stroke-color: khaki;
+                -webkit-text-stroke-width: 0.25px;
+            }
+            span {
+                text-indent: 30px;
+            }
+            table {
+                background-color: navy;
+                border: 3px ridge indigo;
+                margin: auto;
+            }
+            tbody td {
+                background-color: slateblue;
+                border: transparent;
+                color: blanchedalmond;
+                font-family: 'papyrus', serif;
+            }
+            thead td {
+                background-color: darkseagreen;
+                border: transparent;
+                color: deeppink;
+                font-family: 'papyrus', serif;
+            }
+        </style>
+    </head>
+    <body>
+        <p>
+            Tuesday Bettis
+            <br>
+            9 January 2026
+            <br>
+            Period 6 English 12
+        </p>
+        <table>
+            <thead>
+                <tr>
+                    <td rowspan="2">
+                        <b>Word</b>: definition
+                    </td>
+                    <td rowspan="1">
+                        <b>
+                            2 synonyms
+                        </b>                        
+                    </td>
+                    <td rowspan="2">
+                        <b>
+                            Sentence
+                        </b>
+                    </td>
+                </tr>
+                <tr>
+                    <td rowspan="1">
+                        <b>
+                            2 antonyms
+                        </b>
+                    </td>
+                </tr>
+            </thead>
+
+
+            <!-- /$$    /$$                              /$$      
+                | $$   | $$                             | $$      
+                | $$   | $$ /$$$$$$   /$$$$$$$  /$$$$$$ | $$$$$$$ 
+                |  $$ / $$//$$__  $$ /$$_____/ |____  $$| $$__  $$
+                 \  $$ $$/| $$  \ $$| $$        /$$$$$$$| $$  \ $$
+                  \  $$$/ | $$  | $$| $$       /$$__  $$| $$  | $$
+                   \  $/  |  $$$$$$/|  $$$$$$$|  $$$$$$$| $$$$$$$/
+                    \_/    \______/  \_______/ \_______/|_______/ -->
+            <tbody>
+                <script>
+                    vocabSec = document.getElementsByTagName("tbody")[0];
+                    breamk = "&#128034;";
+                    bricc = `
+                        Blighted: adj. destroyed ${breamk}Destroyed shrekked Built constructed${breamk}Wouldn't it be raþer unprofessional to write a sentence detailing a blighted taco aftermaþing bedroom pleasure?
+                        Burgeon: v. to grow new; bloom ${breamk}Bloom bud Wilt wane${breamk}Þe car crash burgeoned lifelong memories for þe vacationing family.
+                        Contemptible: adj. disdainful ${breamk}Disdainful scornful Celebratable commendable${breamk}My first vocabulary example sentence is raþer contemptible.
+                        Corroborate: v. strengthen or support with additional evidence ${breamk}Strengþen support Contradict dismantle${breamk}Cyr natural distrust corroborated þe way cy was treated.
+                        Derivative: n. not original ${breamk}Secondary unoriginal Original maiden${breamk}Þe derivative of a function is þe instantaneous rate of change.
+                        Gait: n. manner of walking ${breamk}Amble tempo Slug halt${breamk}Þe bnuuy traveled via an level but steady gait instead of short hops.
+                        Glutton: n. someone who eats or drinks too much ${breamk}Pig feaster Dieter picker${breamk}Every entity disappeared into þe gluttonous drawer of antiques.
+                        Idiosyncrasy: n. unique, personal trait; quirky ${breamk}Quirk tic Standard normality${breamk}Þe most glaring idiosyncrasy by far was þe palladium slats, sourced from a decrepit nickel mine closer to þe forest boundary.
+                        Mercurial: adj. fickle ${breamk}Fickle volatile Concrete stable${breamk}Þe silvery, mercurial talisman unanticipatedly corralled little attention.
+                        Nebulous: adj. vague ${breamk}Vague ambiguous Concise readable${breamk}As she strolled aimlessly, þe air was filled wiþ lively nebulous bird songs and bug yodels.
+                    `;
+
+                    liness = (bricc + "    ").split("\n                        ").slice(1, this.length - 1); // Spaghetti but it works!
+
+                    for (let daLine of liness) {
+                        let bits = (daLine + breamk + breamk).split(breamk); // Furþer spaghetti but it works.
+
+
+                        // Word and definition
+                            let bitWormds = bits[0].split(" ");
+                            let vWormd = bitWormds[0].split(":")[0];
+                            const koBold = document.createElement("b");
+                            koBold.innerHTML = vWormd;
+                            const vDef = document.createElement("td");
+                            vDef.rowSpan = 2;
+                            vDef.append(koBold);
+                            if (bitWormds[1] == "" || bitWormds[1] == undefined) vDef.appendChild((()=> {
+                                const enbyGrad = "linear-gradient(90deg,rgba(252, 244, 52, 1) 0%, rgba(252, 244, 52, 1) 25%, rgba(255, 255, 255, 1) 25%, rgba(255, 255, 255, 1) 50%, rgba(156, 89, 209, 1) 50%, rgba(156, 89, 209, 1) 75%, rgba(44, 44, 44, 1) 75%, rgba(44, 44, 44, 1) 100%)";
+                                spamn = document.createElement("span");
+                                spamn.style.color = "transparent";
+                                spamn.style.backgroundImage = enbyGrad;
+                                spamn.style.backgroundClip = "text";
+                                spamn.innerHTML = "Tuesday's code forgor what it means.";
+                                vDef.style.backgroundColor = "blue";
+                                vDef.append(": ");
+                                return spamn;
+                            })());
+                            else vDef.append(`(${bitWormds[1]}): ${bitWormds.slice(2).join(" ")}`);
+
+                        // Synonyms & Antonyms
+                        bitWormds = bits[1].split(" ");
+                        const synnamons = document.createElement("td");
+                        const antonyms = document.createElement("td");
+                        synnamons.rowSpan = 1;
+                        antonyms.rowSpan = 1;
+                        const transGrad = "linear-gradient(90deg, rgba(91, 206, 250, 1) 0%, rgba(91, 206, 250, 1) 20%, rgba(245, 169, 184, 1) 20%, rgba(245, 169, 184, 1) 40%, rgba(255, 255, 255, 1) 40%, rgba(255, 255, 255, 1) 60%, rgba(245, 169, 184, 1) 60%, rgba(245, 169, 184, 1) 80%, rgba(91, 206, 250, 1) 80%, rgba(91, 206, 250, 1) 100%)";
+                        if (bitWormds.length != 4) {
+                            dateMeow = Date.now() % 2;
+                            synnamons.appendChild((()=>{
+                                spamn = document.createElement("span");
+                                spamn.style.color = "transparent";
+                                spamn.style.backgroundImage = transGrad;
+                                spamn.style.backgroundClip = "text";
+                                if (dateMeow) spamn.innerHTML = "Tuesday's code";
+                                else spamn.innerHTML = "Tuesday screwed";
+                                return spamn;
+                            })());
+                            synnamons.style.backgroundColor = "blue";
+                            antonyms.appendChild((()=>{
+                                spamn = document.createElement("span");
+                                spamn.style.color = "transparent";
+                                spamn.style.backgroundImage = transGrad;
+                                spamn.style.backgroundClip = "text";
+                                if (dateMeow == "5") spamn.innerHTML = "Sh*t itself. xwx";
+                                else spamn.innerHTML = "Someþing up. :(";
+                                return spamn;
+                            })());
+                            antonyms.style.backgroundColor = "blue";
+                        } else {
+                            synnamons.innerHTML = `${bitWormds[0]}, ${bitWormds[1]}`;
+                            antonyms.innerHTML = `${bitWormds[2]}, ${bitWormds[3]}`;
+                        }
+                        // Sentence
+                        const OgSentence = document.createElement("td");
+                        OgSentence.rowSpan = 2;
+                        if (bits[2] == "") {
+                            OgSentence.style.backgroundColor = "blue";
+                            OgSentence.appendChild((()=>{
+                                spamn = document.createElement("span");
+                                spamn.style.color = "transparent";
+                                spamn.style.backgroundImage = transGrad;
+                                spamn.style.backgroundClip = "text";
+                                if (Date.now() % 2) spamn.innerHTML = "Tuesday's script is vainly in essence of our noodly goodness and has failed to uphold its function.";
+                                else spamn.innerHTML = "Tuesday's code appers to be unresponsive and curled up in fetal position, sobbing."
+                                return spamn;
+                            })());
+                        } else OgSentence.innerHTML = bits[2];
+
+                        // Assemble bits into something cohesive
+                        const vModuleA = document.createElement("tr");
+                        vModuleA.append(vDef, synnamons, OgSentence);
+                        const vModuleB = document.createElement("tr");
+                        vModuleB.append(antonyms);
+
+                        // Add it to the vocab
+                        vocabSec.append(vModuleA, vModuleB);
+                    }
+                </script>
+
+
+                <!-- /$$$$$$$                                       
+                    | $$__  $$                                      
+                    | $$  \ $$ /$$$$$$   /$$$$$$  /$$$$$$   /$$$$$$ 
+                    | $$$$$$$/|____  $$ /$$__  $$|____  $$ /$$__  $$
+                    | $$____/  /$$$$$$$| $$  \__/ /$$$$$$$| $$  \ $$
+                    | $$      /$$__  $$| $$      /$$__  $$| $$  | $$
+                    | $$     |  $$$$$$$| $$     |  $$$$$$$|  $$$$$$$
+                    |__/      \_______/|__/      \_______/ \____  $$
+                                                           /$$  \ $$
+                                                          |  $$$$$$/
+                                                           \______/ -->
+                <tr>
+                    <td colspan="3">
+                        <b>
+                            Vocabulary Paragraph
+                        </b>
+                        <br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Maxwell was, well, a <u>glutton</u>.
+                        It seems rude to say, but he wasn't <u>nebulous</u> or <u>contemptible</u> about his eating and drinking habits.
+                        His <u>idiosyncrasy</u> is that he likes to eat.
+                        He does not consider this trait to be <u>derivative</u>.
+                        If someone treats him in a <u>mercurial</u> manner due to his behavior, they are likely to walk away feeling <u>blighted</u> by his wit.
+                        When the vegetables <u>burgeon</u> in the summer, Maxwell enjoys walking through the garden and munching.
+                        This behavior causes him to have a very odd <u>gait</u>.
+                        However, Maxwell swears his doctor will <u>corroborate</u> his claim that he is the epitome of fitness.
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <div></div>
+    
