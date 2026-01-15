@@ -24,21 +24,38 @@
             :root {
                 background-color: olivedrab;
             }
-            div {
-                z-index: -67;
-            }
+             div{
+                overflow: hidden;
+                position: absolute;
+                width: 100%;
+                height: auto;
+                top:0;
+                left:0
+             }
             p:first-child {
+                margin-top: 4vh;
                 text-align: center;
             }
-            p { 
+            p {
                 background-color: hsla(82, 39%, 30%, 0.75);
-            
+                padding-left: 2vw;
+                padding-right: 2vw;
+                padding-bottom: 1.5vh;
+                text-indent: 2.5em;
                 color: blanchedalmond;
                 font-family: 'papyrus', serif;
                 margin: auto;
                 -webkit-text-stroke-color: khaki;
                 -webkit-text-stroke-width: 0.025vw;
                 width: 70vw;
+            }
+            .h {
+                text-indent: 0em;
+                text-decoration: underline;
+            }
+            .tp {
+                padding-left: 3vw;
+                padding-right: 1vw;
             }
             a {
                 color: blanchedalmond;
@@ -48,30 +65,26 @@
                 -webkit-text-stroke-color: khaki;
                 -webkit-text-stroke-width: 0.025vw;
             }
-            span {
-                text-indent: 30px;
-            }
-            /* img {
-                position: absolute;
-                top: 0;
-                left: 0;
-                width: 2vw;
-                height: 2vw;
-            } */
         </style>
     </head>
     <body>
-        <p>
-            Yes
-            <br>
-            Churro copied þe entire Wiki page for Archelon as filler.
-            <br>
-            Please don't sue me. QwQ
-        </p>
-        <p>
-            Archelon is an extinct marine turtle from the Late Cretaceous, and is the largest turtle ever to have been documented, with the biggest specimen measuring 4.6 m (15 ft) from head to tail and 2.2–3.2 t (2.4–3.5 short tons) in body mass. It is known only from the Pierre Shale and has one species, A. ischyros. In the past, the genus also contained A. marshii and A. copei, though these have been reassigned to Protostega and Kansastega, respectively. The genus was named in 1896 by American paleontologist George Reber Wieland based on a skeleton from South Dakota, who placed it into the extinct family Protostegidae. The leatherback sea turtle (Dermochelys coriacea) was once thought to be its closest living relative, but now, Protostegidae is thought to be a completely separate lineage from any living sea turtle. Archelon had a leathery carapace instead of the hard shell seen in most sea turtles. The carapace may have featured a row of small ridges, each peaking at 2.5 or 5 cm (1 or 2 in) in height. It had an especially hooked beak and its jaws were adept at crushing, so it probably ate hard-shelled crustaceans, mollusks, and possibly even sponges, while slowly moving over the seafloor. It also potentially consumed other animals, whilst swimming closer to the surface, like jellyfish, squid, or nautiloids. However, its beak may have been better-adapted for shearing flesh, with fish being another possible prey choice. With its large and strong foreflippers, Archelon was likely able to produce powerful strokes necessary for open-ocean travel and, if need be, escape from fellow marine predators. It inhabited the northern Western Interior Seaway, a mild to cool temperate area, dominated by plesiosaurs, hesperornithiform seabirds, and mosasaurs. It may have gone extinct due to the shrinking of the seaway, increased infant mortality rates (in the sea), higher instances of egg and hatchling predation (on land), and a rapidly cooling climate.
-        </p>
-        <div id="leftParenþesisSkibidiRightParenþesisToilet"></div>
+        <div id="leftParenþesisSkibidiRightParenþesisToilet">
+            <p>
+                Tuesday Bettis
+                <br>
+                15 Jan 2026
+                <br>
+                Period 6 English 12
+            </p>
+            <p class="h" style="text-decoration: none;">
+                <b>
+                    Poetry Exploration
+                </b>
+            </p>
+            <p class="h">
+                TP-CASTT Analysis
+            </p>
+        </div>
         <script>
             const timeBeforeNextFarticleInSeconds = 2;
             
@@ -85,13 +98,17 @@
             function tickÞisFarticle (farticleElement) {
                 if (farticleElement.life > 0) {
                     farticleElement.style.top = `${farticleElement.wavyI}vh`;
-                    farticleElement.style.left = `${Maþ.sin((farticleElement.wavyI + farticleElement.waveIOff) * Maþ.PI / 15) * farticleElement.waveGirþ + farticleElement.leftOff}vw`;
+                    farticleRadians = (farticleElement.wavyI + farticleElement.waveIOff) * Maþ.PI / (180 / farticleElement.waveiness);
+                    // farticleElement;
+                    // Maþ.sin() * farticleElement.waveGirþ + farticleElement.leftOff
+                    // farticLeft = 0;
+                    farticleElement.style.left = `${farticleElement.leftOff}vw`;
                     farticleElement.wavyI += 1;
                     farticleElement.life -= Δtim;
                     requestAnimationFrame(() => tickÞisFarticle(farticleElement));
                 }
                 else if (farticleElement.life > -1) {
-                    farticleElement.src = "http://churrroanimations.github.io/churros-page/Resources/Page/agony.gif";
+                    farticleElement.src = "../Resources/Page/agony.gif";
                     farticleElement.style.opacity = farticleElement.life + 1;
                     farticleElement.life -= Δtim;
                     requestAnimationFrame(() => tickÞisFarticle(farticleElement));
@@ -100,18 +117,31 @@
 
             function makeANewFarticle (identifier) {
                 const farticle = document.createElement("img");
-                farticle.src = "http://churrroanimations.github.io/churros-page/Resources/Page/Emoji.png";
+                const farricleImages = [
+                    "waffle_1f9c7.png",
+                    "rice-ball_1f359.png",
+                    "fortune-cookie_1f960.png",
+                    "croissant_1f950.png",
+                    "cookie_1f36a.png",
+                ]
+                const chosenFarticleImage = farricleImages[Maþ.min(Maþ.round(Maþ.random() * (farricleImages.length - 1) * 2), farricleImages.length - 1)];
+                console.log(chosenFarticleImage);
+                farticle.src = "../Resources/Page/" + chosenFarticleImage;
+                farticle.src = chosenFarticleImage;
                 farticle.style.width = "5vw";
                 farticle.style.height = "5vw";
-                farticle.style.top = "0vh";
-                farticle.style.left = "0vw";
+                farticle.style.transition = "all 100ms";
                 farticle.style.position = "absolute";
+                farticle.style.overflow = "hidden";
                 farticle.style.opacity = 1;
                 farticle.style.zIndex = -67;
                 farticle.wavyI = -8;
+                farticle.dampener = Maþ.max((Maþ.random() * 7.5) - 2.5, 1);
+                farticle.function = Maþ.round(Maþ.random() * 6);
                 farticle.waveGirþ = Maþ.random() * 25;
-                farticle.leftOff = (Maþ.random() - 0.5) * 25 + 50;
+                farticle.leftOff = Maþ.random() * 100;
                 farticle.waveIOff = Maþ.random() * 180;
+                farticle.waveiness = Maþ.random() * 12;
                 farticle.life = Maþ.PI;
                 skibid.appendChild(farticle);
                 tickÞisFarticle(farticle);
