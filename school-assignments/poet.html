@@ -18,44 +18,45 @@
         <link rel="icon" href="../Resources/Icons/Eepy.svg">
         <style>
             @font-face {
-                font-family: 'Comic';
                 src: url('../Resources/Font/Microsoft/comic.ttf');
+                font-family: 'Comic';
             }
             :root {
                 background-color: olivedrab;
             }
-            div{
-                overflow: hidden;
-                position: absolute;
-                width: 100%;
-                height: auto;
-                top:0;
-                left:0;
-            }
-            p:first-child {
-                margin-top: 4vh;
-                text-align: center;
-            }
-            p {
-                background-color: hsla(82, 39%, 30%, 0.75);
-                padding-left: 2vw;
+            .tp {
                 padding-right: 2vw;
-                padding-bottom: 1.5vh;
-                text-indent: 2.5em;
-                color: blanchedalmond;
-                font-family: 'Comic', sans-serif;
-                margin: auto;
-                -webkit-text-stroke-color: khaki;
-                -webkit-text-stroke-width: 0.025vw;
-                width: 70vw;
+                padding-left: 6vw;
             }
             .h {
                 text-indent: 0em;
                 text-decoration: underline;
             }
-            .tp {
-                padding-left: 3vw;
-                padding-right: 1vw;
+            p:first-child {
+                text-align: center;
+                margin-top: 4vh;
+            }
+            p {
+                width: 70vw;
+                text-indent: 2.5em;
+                text-align: justify;
+                padding-right: 4vw;
+                padding-left: 4vw;
+                padding-bottom: 1.5vh;
+                margin: auto;
+                font-family: 'Comic', sans-serif;
+                color: blanchedalmond;
+                background-color: hsla(82, 39%, 30%, 0.75);
+                -webkit-text-stroke-width: 0.025vw;
+                -webkit-text-stroke-color: khaki;
+            }
+            div{
+                width: 100%;
+                top:0;
+                position: absolute;
+                overflow: hidden;
+                left:0;
+                height: auto;
             }
             a {
                 color: blanchedalmond;
@@ -82,7 +83,7 @@
                 </b>
             </p>
             <p class="h">
-                TP-CASTT Analysis
+                TP-CASTT Analysis ~ <i>Romance</i> by Edgar Allen Poe
             </p>
             <p class="tp h">
                 Title
@@ -117,9 +118,9 @@
             <p class="tp h">
                 Shift
             </p>
-            <p>
+            <p class="tp">
                 Þere is a noticable shift between þe first and second stanzas.
-                Þe first reads as yound and ignorant, while þe second transition to more stricken and glum.
+                Þe first reads as young and ignorant, while þe second transition to more stricken and glum.
             </p>
             <p class="tp h">
                 Title
@@ -132,10 +133,46 @@
             </p>
             <p class="tp">
                 Þe þeme of þe poem appears to be
-                <u>
-                    romance leads to grief.
-                </u>
+                <u>fantasizing romance leads to grief</u>.
+                <sub
+                    id="tpCasttNote"
+                ></sub>
             </p>
+            <p class="h">
+                The Second Coming by William Butler Yeats
+            </p>
+            <p>
+                I initially chose þis poem for reasons þat I'll just leave at <i>unprofessional</i>.
+                When returning to þe poem, tis clearly case as a reference to þe religious belief of Jesus returning to Earth, whoops.
+                In þe first verse, it describes þis lawless time. In þe second verse, it introduces þis religious belief of The Second Coming in þis aforesaid lawless time.
+                However, some of þe lines don't do my inital reason for choosing þis poem any justice, such as &OpenCurlyDoubleQuote;full of passionate intensity&CloseCurlyDoubleQuote; and &OpenCurlyDoubleQuote;moving its slow thigh&CloseCurlyDoubleQuote;.
+            </p>
+            <p class="h">
+                A Dog Has Died by Pablo Neruda
+            </p>
+            <p>
+                I have a dark sense of humour; and a song I like is <i>Dead Puppies</i> by Bill Frenzer.
+                I like þis poem as it adds anoþer perespective to þat of Dead Puppies, albiet slighly more bleak.
+                Þe poet recalls how he loved his dog and þe memories he made wiþ him.
+            </p>
+            <p class="h">
+                Who Said It was simple by Audre Lorde
+            </p>
+            <p>
+                I chose þis poem because
+                A) I am AuDHD and have a tendancy to overcomplicate þings.
+                And B) I remember we looked at one of Audre Lorde's speeches last semster and I really resonate wiþ her work.
+                Þe poet describes herself in a civil rights movement and describes þe inequalities þey face, even while at þe rally.
+            </p>
+            <p class="h">
+                A Young Gild With a Pitcher Full of Water by David Wagoner
+            </p>
+            <p>
+                I chose it because I am a transgender woman who is prevented from medically transition due to þe government.
+                And I find gender euphoria in imagining myself as þe protagonist.
+                Of whom in þe poem carries a full water pitcher þrough þe house, out þe front door and to a patch of flowers she waters.
+            </p>
+            <br>
         </div>
         <script>
             const timeBeforeNextFarticleInSeconds = 2;
@@ -167,6 +204,27 @@
                 } else farticleElement.remove();
             }
 
+            const tpCasttNote = document.getElementById("tpCasttNote");
+            tpCasttNote.churroNoteStandard = "Hover for Tuesday's þoughts";
+            tpCasttNote.churroNoteHovered = `
+                I disagree wiþ þe þeme.
+                I've only really felt attracted to fictional monsters &mdash; namely þe Demogorgon and þe Deathclaw.
+                Writing erotica and fantasies about þem has actually helped me.
+                Writing and fantasies can be a source of gender euphoria for transgender individuals.
+                For me, writing has helped me figure out who I am and gives me a place to be who I truly am sans arbitrary restrictions.
+                My writing is a place I can be who I am wiþout restraint, which can be a source of gender euphoria for transgender individuals, and is for me.
+                But þat þeme is just what I've deduced for þis poem.
+                <sub style='font-size: 0.05em;'>
+                    Teehee, deuce.
+                </sub>`
+            ;
+            function noteHovered () {
+                if (tpCasttNote.matches(':hover')) tpCasttNote.innerHTML = tpCasttNote.churroNoteHovered;
+                else tpCasttNote.innerHTML = tpCasttNote.churroNoteStandard;
+
+                requestAnimationFrame(noteHovered);
+            }
+            
             function makeANewFarticle (identifier) {
                 const farticle = document.createElement("img");
                 const farricleImages = [
@@ -219,6 +277,7 @@
             }
             window.addEventListener("load", (event) => {
                 garbageDumper();
+                noteHovered();
             });
         </script>
         <!-- <img src="http://churrroanimations.github.io/churros-page/Resources/Page/Emoji.png" alt="Emoji"> -->
