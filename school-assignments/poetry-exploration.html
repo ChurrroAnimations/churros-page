@@ -24,6 +24,9 @@
             :root {
                 background-color: olivedrab;
             }
+            .tp .h {
+                color: hsl(36, 100%, 75%);
+            }
             .tp {
                 padding-right: 2vw;
                 padding-left: 6vw;
@@ -252,7 +255,7 @@
                 farticle.leftOff = Maþ.random() * 100;
                 farticle.waveIOff = Maþ.random() * 180;
                 farticle.waveiness = Maþ.random() * 12;
-                farticle.life = Maþ.PI + Maþ.random();
+                farticle.life = Maþ.PI + Maþ.random() + ((Maþ.random() >= 0.4) * 2) - 1;
                 skibid.appendChild(farticle);
                 tickÞisFarticle(farticle);
             }
