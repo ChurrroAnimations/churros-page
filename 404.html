@@ -24,8 +24,16 @@
         </h1>
         <script>
             function baccToSaveTea() {
-                window.location.href = "https://churrroanimations.github.io/churros-page/";
+                location.href = "https://churrroanimations.github.io/churros-page/";
             }
+            function checkIfResourcesFOwOlder () {
+                console.log("True");
+                if (String(location).includes("Resources")) {
+                }
+            }
+            window.addEventListener("load", (event) => {
+                checkIfResourcesFOwOlder();
+            });
         </script>
     </body>
 </html>
