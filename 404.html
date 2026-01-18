@@ -29,13 +29,11 @@
 
             async function checkIfResourcesFOwOlder () {
                 if (String(location).includes("Resources")) {
-                    const resourceFOwOldersImdiksRequemst = await fetch("https://churrroanimations.github.io/churros-page/Resources/index.html");
+                    const resourceFOwOldersImdiksRequemst = await fetch("https://churrroanimations.github.io/churros-page/Resources/");
                     const resourceFOwOldersImdiksResponce = await resourceFOwOldersImdiksRequemst.text();
 
-                    var resourceFOwOldersImdeksPoopy = resourceFOwOldersImdiksResponce.split("body")[1];
-                    document.getElementsByTagName("body")[0].innerHTML = resourceFOwOldersImdeksPoopy.slice(1, resourceFOwOldersImdeksPoopy.length - 2);
-                    document.getElementsByTagName("link")[0].href = "https://churrroanimations.github.io/churros-page/Resources/" + resourceFOwOldersImdiksResponce.split(`"`)[3];
-                    document.getElementsByTagName("link")[1].href = "https://churrroanimations.github.io/churros-page/Resources/" + resourceFOwOldersImdiksResponce.split(`"`)[7];
+                    var resourceFOwOldersImdeksPoopy = resourceFOwOldersImdiksResponce.split("html")[2];
+                    document.getElementsByTagName("html")[0].innerHTML = resourceFOwOldersImdeksPoopy.slice(1, resourceFOwOldersImdeksPoopy.length - 2);
                 }
             }
             
