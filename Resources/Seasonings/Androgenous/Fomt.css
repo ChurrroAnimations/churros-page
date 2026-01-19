@@ -1,6 +1,35 @@
-.sextArea textarea{
+:root {
+    font-family: 'Trebuchet MS', sans-serif;
+}
+.sextArea textarea {
+    width: 12.5vw;
+    resize: none;
     height: 100%;
+    margin: auto;
+    background-color: #80808080;
+}
+.sextArea div label {
+    background-color: #80808080;
+    display: block;
+    height: 20%;
+    font-size: 0.7rem;
+    width: 100%;
+}
+.sextArea div input {
+    width: 100%;
+    height: 4rem;
+    padding: 1%;
+    background-color: blue;
+}
+.sextArea div {
+    height: 100%;
+    margin: auto;
+    display: inline;
+    width: 4vw;
 }
 .sextArea {
+    width: 20vw;
+    display: inline-flex;
     height: 5em;
+    padding: 1em;
 }

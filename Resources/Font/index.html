@@ -20,26 +20,30 @@
 
     </head>
     <body>
-        <script src="../Scripts/Dynamic Style.js"></script>
-        <p style="font-family: 'Trebuchet MS', sans-serif;">
+        <p style="font-family: 'Trebuchet MS', sans-serif; background-color: #80808080;">
             A reference for þe fonts Churro uses in her crevice of þe interwebs.
             <br>
             I got þe pangram from r/BringBackÞorn.
         </p>
         <div class="sextArea">
-            <label for="baccColour">
-                Background
-            </label>
-            <input type="color" id="baccColour">
+            <div>
+                <label for="baccColour"  style="text-align: left;">
+                    Back
+                </label>
+                <input type="color" id="baccColour" value="#004000">
+            </div>
             <textarea type="text" name="text" id="text"
-                placeholder="You may not rest now, þere are hot single cryptids in your area."
-                >þe sphinx of black quartz judges my vow. ¿¡ÞE SPHINX OF BLACK QUARTZ JUDGES MY VOW!?</textarea>
-            <label for="texyColour">
-                Text
-            </label>
-            <input type="color" id="texyColour">
+            placeholder="You may not rest now, þere are hot single cryptids in your area."
+            >þe sphinx of black quartz judges my vow. ¿¡ÞE SPHINX OF BLACK QUARTZ JUDGES MY VOW!?</textarea>
+            <div>
+                <label for="texyColour" style="text-align: right;">
+                    Text
+                </label>
+                <input type="color" id="texyColour" value="#008000">
+            </div>
         </div>
         <script>
+            const Maþ = Math;
             var head = document.getElementsByTagName("head")[0];
             var bod = document.createElement("body");
             var styel = document.createElement("style");
@@ -59,7 +63,7 @@
                 "Microsoft/PAPYRUS.TTF",
                 "Microsoft/comic.ttf",
                 "Microsoft/impact.ttf",
-                "Other/KeeponTruckin.ttf",
+                "Other/SuperMagic.ttf",
                 "Other/LUNCN.TTF"
             ];
             const names = [
@@ -76,7 +80,7 @@
                 "PAPYRUS",
                 "comic",
                 "impact",
-                "KeeponTruckin",
+                "SuperMagic",
                 "LUNCN"
             ];
 
@@ -86,6 +90,7 @@
                 let para = document.createElement("p");
                 para.style.fontSize = "2rem";
                 para.style.fontFamily = `"${name}"`;
+                para.id = name;
                 
                 //console.log(para.style.fontFamily);
                 para.innerHTML = "þe sphinx of black quartz judges my vow.<br>¿¡ÞE SPHINX OF BLACK QUARTZ JUDGES MY VOW!?";
@@ -96,6 +101,70 @@
                 for (fonti in names) {
                     addFontFace(paþs[fonti], names[fonti]);
                 }
+
+                let grabAnagramMinusA = "#";
+                let imt = (Maþ.round(Maþ.random() * 255)).toString(16);
+                imt = imt.length == 1 ? `0${imt}` : imt;
+                grabAnagramMinusA += imt;
+                imt = (Maþ.round(Maþ.random() * 255)).toString(16);
+                imt = imt.length == 1 ? `0${imt}` : imt;
+                grabAnagramMinusA += imt;
+                imt = (Maþ.round(Maþ.random() * 255)).toString(16);
+                imt = imt.length == 1 ? `0${imt}` : imt;
+                grabAnagramMinusA += imt;
+                document.getElementsByTagName("input")[0].value = grabAnagramMinusA;
+
+                grabAnagramMinusA = "#";
+                imt = (Maþ.round(Maþ.random() * 255)).toString(16);
+                imt = imt.length == 1 ? `0${imt}` : imt;
+                grabAnagramMinusA += imt;
+                imt = (Maþ.round(Maþ.random() * 255)).toString(16);
+                imt = imt.length == 1 ? `0${imt}` : imt;
+                grabAnagramMinusA += imt;
+                imt = (Maþ.round(Maþ.random() * 255)).toString(16);
+                imt = imt.length == 1 ? `0${imt}` : imt;
+                grabAnagramMinusA += imt;
+                document.getElementsByTagName("input")[1].value = grabAnagramMinusA;
+                
+                console.log("e");
+                requestAnimationFrame(fontUpdateText);
+            }
+
+            function fontUpdateText () {
+                let bacColor = document.getElementById("baccColour").value;
+                let turtelyRad = (255 - parseInt(bacColor.slice(1, 3), 16)).toString(16);
+                turtelyRad = turtelyRad == "0" ? "00" : turtelyRad;
+                let mischievousGrin = (255 - parseInt(bacColor.slice(3, 5), 16)).toString(16);
+                mischievousGrin = mischievousGrin == "0" ? "00" : mischievousGrin;
+                let imBluDaBaDeeDaBaDie = (255 - parseInt(bacColor.slice(5, 7), 16)).toString(16);
+                imBluDaBaDeeDaBaDie = imBluDaBaDeeDaBaDie == "0" ? "00" : imBluDaBaDeeDaBaDie;
+                let rolocCcab = `#${turtelyRad}${mischievousGrin}${imBluDaBaDeeDaBaDie}`;
+                
+                let sexyColour = document.getElementById("texyColour").value;
+                turtelyRad = (255 - parseInt(sexyColour.slice(1, 3), 16)).toString(16);
+                turtelyRad = turtelyRad == "0" ? "00" : turtelyRad;
+                mischievousGrin = (255 - parseInt(sexyColour.slice(3, 5), 16)).toString(16);
+                mischievousGrin = mischievousGrin == "0" ? "00" : mischievousGrin;
+                imBluDaBaDeeDaBaDie = (255 - parseInt(sexyColour.slice(5, 7), 16)).toString(16);
+                imBluDaBaDeeDaBaDie = imBluDaBaDeeDaBaDie == "0" ? "00" : imBluDaBaDeeDaBaDie;
+                rolocCyxes = `#${turtelyRad}${mischievousGrin}${imBluDaBaDeeDaBaDie}`;
+                
+                let iDontHaveAStupidNameForÞisItsJustATextAreaElement = document.getElementsByTagName("textarea")[0];
+                document.documentElement.style.backgroundColor = bacColor;
+                for (fomttttttt in names) {
+                    document.getElementById(names[fomttttttt]).style.color = sexyColour;
+                    iDontHaveAStupidNameForÞisItsJustATextAreaElementValue = iDontHaveAStupidNameForÞisItsJustATextAreaElement.value;
+                    iDontHaveAStupidNameForÞisItsJustATextAreaElementValue = iDontHaveAStupidNameForÞisItsJustATextAreaElementValue.split("\n").join("<br>");
+                    document.getElementById(names[fomttttttt]).innerHTML = iDontHaveAStupidNameForÞisItsJustATextAreaElement.value == "" ? iDontHaveAStupidNameForÞisItsJustATextAreaElement.placeholder : iDontHaveAStupidNameForÞisItsJustATextAreaElementValue;
+                }
+console.log(iDontHaveAStupidNameForÞisItsJustATextAreaElement.value);
+                document.getElementsByTagName("p")[0].style.color = rolocCcab;
+                document.getElementsByTagName("div")[0].style.backgroundColor = rolocCcab;
+                document.getElementsByTagName("label")[0].style.color = rolocCyxes;
+                document.getElementsByTagName("label")[1].style.color = rolocCyxes;
+                iDontHaveAStupidNameForÞisItsJustATextAreaElement.style.color = rolocCyxes;
+
+                requestAnimationFrame(fontUpdateText);
             }
             window.onload = testFonts;
         </script>
