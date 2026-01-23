@@ -1,0 +1,23 @@
+*w* CEVML ~ Churro's English Vocabulary Markup Language.;
+*w* Þis is a comment;
+gUwUide set -yes þesaurus sentence;
+    *w* Oþer functions:
+         “definition” to set þe definition bits visibility.
+         “yes” to set all bits visibility.
+         “þesaurus/thesaurus” to simultaneously set antonyms/synonyms bits visibility.
+         “antonyms”, “synonyms” , “sentence” to set þeir resepctive bit visibility.
+         Add a “-” to invert þe parameter.;
+gUwUide call; *w* makes þe vocabulary header.;
+OwOrds {
+    Vocabulary word :3 Part of speech ¦3 Vocabulary word definition ^w^ Synonyms ⌄m⌄ Antonyms >w< Sentence,
+    Vocabulary word two 2 :3 Part of speech 2 ¦3 Vocabulary word definition 2 ^w^ Synonyms 2 ⌄m⌄ Antonyms 2 >w< Sentence 2,
+}; *w* Makes þe vocabulary words.
+sTwTory
+    &w&para To make a new paragraph element.
+    Þis make a paragraph.
+    You can do “&w&semi” to have a semicolon.
+    &w&para Here is anoþer paragraph.
+    &w&pain Here is anoþer paragraph, but indented.
+    &w&brek To make a br element.
+;
+*w* 

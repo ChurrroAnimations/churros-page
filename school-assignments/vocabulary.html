@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Churro's School Shenanigans ~ English Vocabulary
+        </title>
+        <!-- Link Embedding -->
+        <meta charset="utf-8" />
+        <meta property="og:site_name" content="Churro's School Shenanigans ~ English Vocabulary" />
+        <meta property="og:title" content="Churro's School Shenanigans ~ English Vocabulary" />
+        <meta name="description" content="Þe English Vocabulary for Churro's English 12 class." />
+        <meta property="og:description" content="Þe English Vocabulary for Churro's English 12 class." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://churrroanimations.github.io/churros-page/school-assignments/vocabulary" />
+        <link rel="canonical" href="https://churrroanimations.github.io/churros-page/school-assignments/vocabulary" />
+        <!-- /$$$$$$   /$$               /$$
+            /$$__  $$ | $$              | $$
+           | $$  \__//$$$$$$   /$$   /$$| $$  /$$$$$$
+           |  $$$$$$|_  $$_/  | $$  | $$| $$ /$$__  $$
+            \____  $$ | $$    | $$  | $$| $$| $$$$$$$$
+            /$$  \ $$ | $$ /$$| $$  | $$| $$| $$_____/
+           |  $$$$$$/ |  $$$$/|  $$$$$$$| $$|  $$$$$$$
+            \______/   \___/   \____  $$|__/ \_______/
+                               /$$  | $$
+                              |  $$$$$$/
+                               \______/ -->
+        <link rel="icon" href="../Resources/Icons/Eepy.svg">
+        <style>
+            @font-face {
+                font-family: 'papyrus';
+                src: url('../Resources/Font/Microsoft/PAPYRUS.TTF');
+            }
+            :root {
+                background-color: darkslategray;
+            }
+            div {
+                background-color: transparent;
+                height: 100vh;
+                left: 0;
+                position: fixed;
+                top: 0;
+                width: 100vw;
+                z-index: 69420;
+            }
+            p {
+                color: blanchedalmond;
+                font-family: 'papyrus', serif;
+                margin: auto;
+                text-align: center;
+                -webkit-text-stroke-color: khaki;
+                -webkit-text-stroke-width: 0.25px;
+            }
+            
+            a {
+                color: blanchedalmond;
+                font-family: 'papyrus', serif;
+                margin: auto;
+                text-align: center;
+                -webkit-text-stroke-color: khaki;
+                -webkit-text-stroke-width: 0.25px;
+            }
+            /*span {
+                text-indent: 30px;
+            }*/
+            table {
+                background-color: navy;
+                border: 3px ridge indigo;
+                margin: auto;
+            }
+            tbody td {
+                background-color: slateblue;
+                border: transparent;
+                color: blanchedalmond;
+                font-family: 'papyrus', serif;
+            }
+            thead td {
+                background-color: darkseagreen;
+                border: transparent;
+                color: deeppink;
+                font-family: 'papyrus', serif;
+            }
+        </style>
+    </head>
+    <body>
+        <p id="inwnfo">
+            Tuesday Bettis
+            <br>
+            <span id="dAwAte">
+                14 January 2026
+            </span>
+            <br>
+            Period 6 English 12
+        </p>
+        <table>
+        </table>
+
+        <script>
+            const bricc = `
+
+*w* CEVML ~ Churro's English Vocabulary Markup Language.;
+*w* Þis is a comment;
+*w* gUwUide set definition;
+    *w* Oþer functions:
+        “definition” to set þe definition bits visibility.
+        “yes” to set all bits visibility.
+        “þesaurus/thesaurus” to simultaneously set antonyms/synonyms bits visibility.
+        “antonyms”, “synonyms”, “sentence” to set þeir resepctive bit visibility.
+        Add a “-” to invert þe parameter.;
+gUwUide set -yes;
+
+gUwUide call; *w* makes þe vocabulary header.
+OwOrds {
+    Vocabulary word :3 Part of speech ¦3 Vocabulary word definition ^w^ Synonyms ⌄m⌄ Antonyms >w< Sentence,
+    Vocabulary word two 2 :3 Part of speech 2 ¦3 Vocabulary word definition 2 ^w^ Synonyms 2 ⌄m⌄ Antonyms 2 >w< Sentence 2,
+}; *w* Makes þe vocabulary words.
+sTwTory
+    &w&para To make a new paragraph element.
+    Þis make a paragraph.
+    You can do “&w&semi” to have a semicolon.
+    &w&para Here is anoþer paragraph.
+    &w&pain Here is anoþer paragraph, but indented.
+    &w&brek To make a br element.
+;
+                    `;
+            function runCevmlFiwel (cevmlBricc) {
+                const vocabSec = document.getElementsByTagName("table")[0];
+                const briccOneLine = cevmlBricc.replaceAll("\n", " ");
+                const liness = briccOneLine.split(";").filter((þingy) => þingy != "");
+                const instructionRootz = ["inwnfo", "dAwAte", "gUwUide", "OwOrds", "sTwTory", "*w*"];
+                var vocabTableStack = "";
+                var setInstr = {
+                    uncalled : true,
+                    parametersExcwudesQty : 0,
+                    parametersIncwudesQty : 0,
+                    parametersBeenDefined : {
+                        yassssss : false,
+                        definite : false,
+                        þesaurus : false,
+                        antonimz : false,
+                        synonimz : false,
+                        sentemce : false,
+                    },
+                    parametersDefinedValue : {
+                        yassssss : true,
+                        definite : true,
+                        þesaurus : true,
+                        antonimz : true,
+                        synonimz : true,
+                        sentemce : true,
+                    },
+                };
+                
+                for (const lineElem of liness) {
+                    lineBloccs = lineElem.split(" ").filter((þingy) => þingy != "");
+                    let instructionFomd = false;
+                    let lineInstructionRoot = "";
+                    let lastArticelInstruct = "";
+                    
+                    articelIteration: for (const lineArticel of lineBloccs) {
+                        if (instructionFomd) {
+                            if (lineArticel == lineInstructionRoot) {
+                                console.error(`Error: “${lineArticel}” cannot be called twice in one line.`);
+                                break articelIteration;
+                            } else {
+                                switch (lineInstructionRoot) {
+                                    case "gUwUide" :
+                                        switch (lastArticelInstruct) {
+                                            case "gUwUide" :
+                                                switch (lineArticel) {
+                                                    case "call" :
+                                                        if (lineBloccs.length != lineBloccs.indexOf(lineInstructionRoot) + 2) {
+                                                            console.error(`Error: parameters unexpected after “gUwUide call”.`);
+                                                        } else {
+                                                            // gUwUide call
+                                                        }
+                                                        break articelIteration;
+                                                    case "set" :
+                                                        if (lineBloccs.length == lineBloccs.indexOf(lineInstructionRoot) + 2) {
+                                                            console.error(`Error: parameters expected after “gUwUide set”.`);
+                                                            break articelIteration;
+                                                        } else {
+                                                            lastArticelInstruct = lineArticel;
+                                                            setInstr.uncalled = false;
+                                                        }
+                                                        break;
+                                                    default:
+                                                        console.error(`Error: only “set” or “call” expected after “gUwUide”, not whatever þe heck “${lineArticel}” is.`);
+                                                        break articelIteration;
+                                                }
+                                                break;
+                                            case "set" :
+                                                if (lineArticel == "yes" || lineArticel == "-yes") {
+                                                    if (setInstr.parametersBeenDefined.yassssss == NaN) {
+                                                        console.error(`Error: parameters unexpected before “gUwUide set ${lineArticel}”.`);
+                                                        break articelIteration;
+                                                    } else if (lineBloccs.length != lineBloccs.indexOf(lineInstructionRoot) + 3) {
+                                                        console.error(`Error: parameters unexpected after “gUwUide set ${lineArticel}”.`);
+                                                        break articelIteration;
+                                                    } else {
+                                                        setInstr.parametersDefinedValue.yassssss = lineArticel[0] != "-";
+                                                        setInstr.parametersDefinedValue.definite = setInstr.parametersDefinedValue.yassssss;
+                                                        setInstr.parametersDefinedValue.antonimz = setInstr.parametersDefinedValue.yassssss;
+                                                        setInstr.parametersDefinedValue.synonimz = setInstr.parametersDefinedValue.yassssss;
+                                                        setInstr.parametersDefinedValue.sentemce = setInstr.parametersDefinedValue.yassssss;
+                                                        break;
+                                                    }
+                                                } else {
+                                                    setInstr.parametersBeenDefined.yassssss = NaN;
+                                                    switch (lineArticel) {
+                                                        case "definition":
+                                                        case "-definition":
+                                                            if (setInstr.parametersBeenDefined.definite) {
+                                                                console.error(`Error: “definition” has already been set to ${setInstr.parametersDefinedValue.definite}`);
+                                                            } else {
+                                                                setInstr.parametersDefinedValue.definite = lineArticel[0] != "-";
+                                                                setInstr.parametersBeenDefined.definite = true;
+                                                            }
+                                                            break;
+                                                        case "þesaurus":
+                                                        case "thesaurus":
+                                                        case "-þesaurus":
+                                                        case "-thesaurus":
+                                                            if (setInstr.parametersBeenDefined.þesaurus) {
+                                                                console.error(`Error: “þesaurus” has already been set to ${setInstr.parametersDefinedValue.þesaurus}`);
+                                                                break articelIteration;
+                                                            } else if (setInstr.parametersBeenDefined.antonimz || setInstr.parametersBeenDefined.synonimz) {
+                                                                if (setInstr.parametersBeenDefined.antonimz) {
+                                                                    console.error(`Error: “þesaurus” cannot be set because “antonyms” has already been set to ${setInstr.parametersDefinedValue.antonimz}`);
+                                                                }
+                                                                if (setInstr.parametersBeenDefined.synonimz) {
+                                                                    console.error(`Error: “þesaurus” cannot be set because “synonyms” has already been set to ${setInstr.parametersDefinedValue.synonimz}`);
+                                                                }
+                                                            } else {
+                                                                setInstr.parametersDefinedValue.þesaurus = lineArticel[0] != "-";
+                                                                setInstr.parametersDefinedValue.antonimz = setInstr.parametersDefinedValue.þesaurus;
+                                                                setInstr.parametersDefinedValue.synonimz = setInstr.parametersDefinedValue.þesaurus;
+                                                                setInstr.parametersBeenDefined.þesaurus = true;
+                                                            }
+                                                            break;
+                                                        case "antonyms":
+                                                        case "-antonyms":
+                                                            if (setInstr.parametersBeenDefined.antonimz) {
+                                                                console.error(`Error: “antonyms” has already been set to ${setInstr.parametersDefinedValue.antonimz}`);
+                                                            } else if (setInstr.parametersBeenDefined.þesaurus) {
+                                                                console.error(`Error: “antonyms” cannot be set because “þesaurus” has already set it to ${setInstr.parametersDefinedValue.þesaurus}`);
+                                                            } else {
+                                                                setInstr.parametersDefinedValue.antonimz = lineArticel[0] != "-";
+                                                                setInstr.parametersBeenDefined.antonimz = true;
+                                                            }
+                                                            break;
+                                                        case "synonyms":
+                                                        case "-synonyms":
+                                                            if (setInstr.parametersBeenDefined.synonimz) {
+                                                                console.error(`Error: “synonyms” has already been set to ${setInstr.parametersDefinedValue.synonimz}`);
+                                                            } else if (setInstr.parametersBeenDefined.þesaurus) {
+                                                                console.error(`Error: “synonyms” cannot be set because “þesaurus” has already set it to it ${setInstr.parametersDefinedValue.þesaurus}`);
+                                                            } else {
+                                                                setInstr.parametersDefinedValue.synonimz = lineArticel[0] != "-";
+                                                                setInstr.parametersBeenDefined.synonimz = true;
+                                                            }
+                                                            break;
+                                                    }
+                                                }
+                                                break;
+                                            default:
+                                                console.error(`Error: "${lineArticel}" is not defined.`);
+                                                break articelIteration;
+                                        }
+                                        break;
+                                }
+                            }
+                        } else {
+                            if (instructionRootz.includes(lineArticel)) {
+                                instructionFomd = true;
+                                lineInstructionRoot = lineArticel;
+                                lastArticelInstruct = lineArticel;
+                                if (lineArticel == "*w*") break articelIteration;
+                            } else {
+                                console.error(`Error: "${lineArticel}" is not defined.`);
+                                break articelIteration;
+                            }
+                        }
+                    }
+                }
+        }
+                
+
+
+                    // liness = (bricc + "    ").split("\n                        ").slice(1, this.length - 1); // Spaghetti but it works!
+
+                    // for (let daLine of liness) {
+                    //     let bits = (daLine + breamk + breamk).split(breamk); // Furþer spaghetti but it works.
+
+
+                    //     // Word and definition
+                    //         let bitWormds = bits[0].split(" ");
+                    //         let vWormd = bitWormds[0].split(":")[0];
+                    //         const koBold = document.createElement("b");
+                    //         koBold.innerHTML = vWormd;
+                    //         const vDef = document.createElement("td");
+                    //         vDef.rowSpan = 2;
+                    //         vDef.append(koBold);
+                    //         if (bitWormds[1] == "" || bitWormds[1] == undefined) vDef.appendChild((()=> {
+                    //             const enbyGrad = "linear-gradient(90deg,rgba(252, 244, 52, 1) 0%, rgba(252, 244, 52, 1) 25%, rgba(255, 255, 255, 1) 25%, rgba(255, 255, 255, 1) 50%, rgba(156, 89, 209, 1) 50%, rgba(156, 89, 209, 1) 75%, rgba(44, 44, 44, 1) 75%, rgba(44, 44, 44, 1) 100%)";
+                    //             spamn = document.createElement("span");
+                    //             spamn.style.color = "transparent";
+                    //             spamn.style.backgroundImage = enbyGrad;
+                    //             spamn.style.backgroundClip = "text";
+                    //             spamn.innerHTML = "Tuesday's code forgor what it means.";
+                    //             vDef.style.backgroundColor = "blue";
+                    //             vDef.append(": ");
+                    //             return spamn;
+                    //         })());
+                    //         else vDef.append(`(${bitWormds[1]}): ${bitWormds.slice(2).join(" ")}`);
+
+                    //     // Synonyms & Antonyms
+                    //     bitWormds = bits[1].split(" ");
+                    //     const synnamons = document.createElement("td");
+                    //     const antonyms = document.createElement("td");
+                    //     synnamons.rowSpan = 1;
+                    //     antonyms.rowSpan = 1;
+                    //     const transGrad = "linear-gradient(90deg, rgba(91, 206, 250, 1) 0%, rgba(91, 206, 250, 1) 20%, rgba(245, 169, 184, 1) 20%, rgba(245, 169, 184, 1) 40%, rgba(255, 255, 255, 1) 40%, rgba(255, 255, 255, 1) 60%, rgba(245, 169, 184, 1) 60%, rgba(245, 169, 184, 1) 80%, rgba(91, 206, 250, 1) 80%, rgba(91, 206, 250, 1) 100%)";
+                    //     if (bitWormds.length != 4) {
+                    //         dateMeow = Date.now() % 2;
+                    //         synnamons.appendChild((()=>{
+                    //             spamn = document.createElement("span");
+                    //             spamn.style.color = "transparent";
+                    //             spamn.style.backgroundImage = transGrad;
+                    //             spamn.style.backgroundClip = "text";
+                    //             if (dateMeow) spamn.innerHTML = "Tuesday's code";
+                    //             else spamn.innerHTML = "Tuesday screwed";
+                    //             return spamn;
+                    //         })());
+                    //         synnamons.style.backgroundColor = "blue";
+                    //         antonyms.appendChild((()=>{
+                    //             spamn = document.createElement("span");
+                    //             spamn.style.color = "transparent";
+                    //             spamn.style.backgroundImage = transGrad;
+                    //             spamn.style.backgroundClip = "text";
+                    //             if (dateMeow == "5") spamn.innerHTML = "Sh*t itself. xwx";
+                    //             else spamn.innerHTML = "Someþing up. :(";
+                    //             return spamn;
+                    //         })());
+                    //         antonyms.style.backgroundColor = "blue";
+                    //     } else {
+                    //         synnamons.innerHTML = `${bitWormds[0]}, ${bitWormds[1]}`;
+                    //         antonyms.innerHTML = `${bitWormds[2]}, ${bitWormds[3]}`;
+                    //     }
+                    //     // Sentence
+                    //     const OgSentence = document.createElement("td");
+                    //     OgSentence.rowSpan = 2;
+                    //     if (bits[2] == "") {
+                    //         OgSentence.style.backgroundColor = "blue";
+                    //         OgSentence.appendChild((()=>{
+                    //             spamn = document.createElement("span");
+                    //             spamn.style.color = "transparent";
+                    //             spamn.style.backgroundImage = transGrad;
+                    //             spamn.style.backgroundClip = "text";
+                    //             if (Date.now() % 2) spamn.innerHTML = "Tuesday's script is vainly in essence of our noodly goodness and has failed to uphold its function.";
+                    //             else spamn.innerHTML = "Tuesday's code appers to be unresponsive and curled up in fetal position, sobbing."
+                    //             return spamn;
+                    //         })());
+                    //     } else OgSentence.innerHTML = bits[2];
+
+                    //     // Assemble bits into something cohesive
+                    //     const vModuleA = document.createElement("tr");
+                    //     vModuleA.append(vDef, synnamons, OgSentence);
+                    //     const vModuleB = document.createElement("tr");
+                    //     vModuleB.append(antonyms);
+
+                    //     // Add it to the vocab
+                    //     vocabSec.append(vModuleA, vModuleB);
+                    // }
+                    
+                    document.addEventListener("load", (event) => {
+                        runCevmlFiwel(bricc);
+                    });
+                </script>
+
+
+                <!-- /$$$$$$$                                       
+                    | $$__  $$                                      
+                    | $$  \ $$ /$$$$$$   /$$$$$$  /$$$$$$   /$$$$$$ 
+                    | $$$$$$$/|____  $$ /$$__  $$|____  $$ /$$__  $$
+                    | $$____/  /$$$$$$$| $$  \__/ /$$$$$$$| $$  \ $$
+                    | $$      /$$__  $$| $$      /$$__  $$| $$  | $$
+                    | $$     |  $$$$$$$| $$     |  $$$$$$$|  $$$$$$$
+                    |__/      \_______/|__/      \_______/ \____  $$
+                                                           /$$  \ $$
+                                                          |  $$$$$$/
+                                                           \______/ -->
+                <!-- <tr>
+                    <td colspan="3">
+                        <b>
+                            Vocabulary Paragraph
+                        </b>
+                        <br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;The drought <u>parched</u> the lake, which is why the actor who looked like an <u>automaton</u> broke character when he first saw it.
+                        Then he demanded to know who in the set crew was responsible for the <u>transient</u> work that led to filming a lake scene next to a dried-up lake.
+                        Afterall, the movie was titled <i>Robots and the Lake</i>.
+                        The director explained that the cost of changing settings was too <u>exorbitant</u> to justify moving the crew.
+                        The actor was <u>belligerent</u>, and he accused the director of trying to tank the movie, because the crew was always <u>slipshod</u>.
+                        The director had a <u>wry</u> sense of humor, which is why he laughed at the actor.
+                        The actor responded with <u>fanaticism</u>, and he threw his props.
+                        The actor's desire for greatness was <u>inherent</u>, and his ability to act was <u>facile</u>, which is why he was so frustrated with this turn of events.
+                    </td>
+                </tr>
+            </tbody>
+        </table> -->
+        <div></div>
+    </body>
+
+</html>
