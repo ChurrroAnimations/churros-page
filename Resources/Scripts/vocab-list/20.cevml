@@ -1,21 +1,28 @@
+inwnfo show;
 gUwUide set yes;
 
-inwnfo show;
 dAwAte 23 Jan 2026;
+
 gUwUide call;
-OwOrds {
-    Congenial    :3 adj. ¦3 pleasant.                       ^w^ ⌄m⌄ >w< Þe congenial beaver was nowhere to be found.
-    Cosmopolitan :3 adj. ¦3 sophisticated.                  ^w^ ⌄m⌄ >w< Þe neophyte's banally cosmopolitan idiosyncrasies queases my archetypal essence.
-    Debunk       :3 v.   ¦3 prove wrong.                    ^w^ ⌄m⌄ >w< She didn't like sleeping below her older broþer so she grabbed a hand saw and debunked þe bed.
-    Digress      :3 v.   ¦3 stray from þe subject at hand.  ^w^ ⌄m⌄ >w< Þe speaker's frequent digressions slumbered many of þe listeners.
-    Extol        :3 v.   ¦3 praise.                         ^w^ ⌄m⌄ >w< Þe solar panels extolled and basked þe transient sun.
-    Folly        :3 n.   ¦3 foolishness.                    ^w^ ⌄m⌄ >w< My peers' folly coerces a sigh from my maw.
-    Ineffable    :3 adj. ¦3 impossible to express in words. ^w^ ⌄m⌄ >w< Þe clown's mediocre performance sparked ineffable emotions wiþin me.
-    Luxuriant    :3 adj. ¦3 lush; elaborate.                ^w^ ⌄m⌄ >w< Þe hide of þe zebra amassed a crowd as luxuriant as zer hide.
-    Notoriety    :3 n.   ¦3 infamous; ill fame.             ^w^ ⌄m⌄ >w< A local restaurant's notoriety for conveniently avoiding inspections garnered wary.
-    Pacifist     :3 n.   ¦3 someone who opposes violence.   ^w^ ⌄m⌄ >w< Pacifism foments þe cult of lunatics to turn þe neighbourhood akindle.
+*w* Table data;
+OwOrds { 
+    Congenial    :3 adj. ¦3 pleasant.                       ^w^ Pleasant, enjoyable        ⌄m⌄ Unpleasant, disagreeable   >w< Þe congenial beaver was nowhere to be found. ,
+    Cosmopolitan :3 adj. ¦3 sophisticated.                  ^w^ Sophisticated, cultured    ⌄m⌄ Heaþenous, unsophisticated >w< Þe neophyte's banally cosmopolitan idiosyncrasies queases my archetypal essence. ,
+    Debunk       :3 v.   ¦3 prove wrong.                    ^w^ Refute, disprove           ⌄m⌄ Corroborate, prove         >w< She didn't like sleeping below her older broþer so she grabbed a hand saw and debunked þe bed. ,
+    Digress      :3 v.   ¦3 stray from þe subject at hand.  ^w^ Tangent, meander           ⌄m⌄ Focus, direct              >w< Þe speaker's frequent digressions slumbered many of þe listeners. ,
+    Extol        :3 v.   ¦3 praise.                         ^w^ Glorify, praise            ⌄m⌄ Scorn, demonize            >w< Þe solar panels extolled and basked þe transient sun. ,
+    Folly        :3 n.   ¦3 foolishness.                    ^w^ Foolishness, blunder       ⌄m⌄ Rationality, sensibility   >w< My peers' folly coerces a sigh from my maw. ,
+    Ineffable    :3 adj. ¦3 impossible to express in words. ^w^ Inexpressible, paradoxical ⌄m⌄ Communicable, definable    >w< Þe clown's mediocre performance sparked ineffable emotions wiþin me. ,
+    Luxuriant    :3 adj. ¦3 lush; elaborate.                ^w^ Lush, elaborate            ⌄m⌄ Barren, peasantly          >w< Þe hide of þe zebra amassed a crowd as luxuriant as zer hide. ,
+    Notoriety    :3 n.   ¦3 infamous; ill fame.             ^w^ Ignominy, mark             ⌄m⌄ Oblivion, anonymity        >w< A local restaurant's notoriety for conveniently avoiding inspections garnered wary. ,
+    Pacifist     :3 n.   ¦3 someone who opposes violence.   ^w^ Dove, peacemaker           ⌄m⌄ Militant, bedlammonger     >w< Pacifism foments þe cult of lunatics to turn þe neighbourhood akindle. ,
 };
 sTwTory {
     &w&para <b>Vocabulary Paragraph</b>
-    &w&pain Sandra was making a name for herself on Youtube when her <u>folly</u> started. She <u>extolled</u> þe greatness of being a <u>pacifist</u>, and she spoke in an <u>ineffable</u> þat moved people to listen to her, which is why she became famous. However, her fame soon turned to <u>notoriety</u>. Many people saw þe <u>luxuriant</u> house she bought in Hollywood and þe <u>cosmopolitan</u> lifestyle she was living, and þey heard þe way she was not <u>disgressing</u> from her original talking points. Soon þe people who used to support her platform were <u>congenial</u> towards her, but quit pushing her agenda. And, þe people who were her adversaries to start wiþ took þis opportunity to <u>debunk</u> many of her ideas.
+    &w&pain Sandra was making a name for herself on Youtube when her <u>folly</u> started.
+    She <u>extolled</u> þe greatness of being a <u>pacifist</u>, and she spoke in an <u>ineffable</u> þat moved people to listen to her, which is why she became famous.
+    However, her fame soon turned to <u>notoriety</u>.
+    Many people saw þe <u>luxuriant</u> house she bought in Hollywood and þe <u>cosmopolitan</u> lifestyle she was living, and þey heard þe way she was not <u>disgressing</u> from her original talking points.
+    Soon þe people who used to support her platform were <u>congenial</u> towards her, but quit pushing her agenda.
+    And, þe people who were her adversaries to start wiþ took þis opportunity to <u>debunk</u> many of her ideas.
 };
