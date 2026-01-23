@@ -122,10 +122,23 @@ sTwTory
     &w&brek To make a br element.
 ;
                     `;
+                    
             function runCevmlFiwel (cevmlBricc) {
                 const vocabSec = document.getElementsByTagName("table")[0];
                 const briccOneLine = cevmlBricc.replaceAll("\n", " ");
                 const liness = briccOneLine.split(";").filter((þingy) => þingy != "");
+                
+                // const gUwUideInstrLinez = liness.filter((þingy) => þingy.includes("gUwUide"));
+                // for (const gUwUideLime in gUwUideInstrLinez) {
+                //     const gUwUideLimeBloccs = gUwUideLime.split(" ").filter((þingy) => þingy != "");
+                //     if (gUwUideLimeBloccs[0] == "*w*");
+                //     else if (gUwUideInstrLinez[1] == "set") {
+                //         liness.splice(liness.indexOf(gUwUideLime), 1);
+                //     }
+                // }
+
+
+                
                 const instructionRootz = ["inwnfo", "dAwAte", "gUwUide", "OwOrds", "sTwTory", "*w*"];
                 var vocabTableStack = "";
                 var setInstr = {
@@ -151,7 +164,7 @@ sTwTory
                 };
                 
                 for (const lineElem of liness) {
-                    lineBloccs = lineElem.split(" ").filter((þingy) => þingy != "");
+                    const lineBloccs = lineElem.split(" ").filter((þingy) => þingy != "");
                     let instructionFomd = false;
                     let lineInstructionRoot = "";
                     let lastArticelInstruct = "";
@@ -177,6 +190,9 @@ sTwTory
                                                     case "set" :
                                                         if (lineBloccs.length == lineBloccs.indexOf(lineInstructionRoot) + 2) {
                                                             console.error(`Error: parameters expected after “gUwUide set”.`);
+                                                            break articelIteration;
+                                                        } else if (!setInstr.uncalled) {
+                                                            console.error(`Error: “gUwUide set” can only be called once.`);
                                                             break articelIteration;
                                                         } else {
                                                             lastArticelInstruct = lineArticel;
@@ -284,7 +300,8 @@ sTwTory
                 }
             }
             
-            document.addEventListener("load", (event) => {
+            window.addEventListener("load", (event) => {
+                console.log("Runnin");
                 runCevmlFiwel(bricc);
             });
         </script>
