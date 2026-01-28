@@ -30,6 +30,10 @@
                 font-family: 'papyrus';
                 src: url('../Resources/Font/Microsoft/PAPYRUS.TTF');
             }
+            #inwnfo {
+                text-align: center;
+                display: block;
+            }
             :root {
                 background-color: darkslategray;
             }
@@ -46,7 +50,7 @@
                 color: blanchedalmond;
                 font-family: 'papyrus', serif;
                 margin: auto;
-                text-align: center;
+                text-align: left;
                 -webkit-text-stroke-color: khaki;
                 -webkit-text-stroke-width: 0.25px;
             }
@@ -59,13 +63,10 @@
                 -webkit-text-stroke-color: khaki;
                 -webkit-text-stroke-width: 0.25px;
             }
-            /*span {
-                text-indent: 30px;
-            }*/
             table {
+                margin: auto;
                 background-color: navy;
                 border: 3px ridge indigo;
-                margin: auto;
             }
             tbody td {
                 background-color: slateblue;
@@ -86,7 +87,7 @@
             Tuesday Bettis
             <br>
             <span id="dAwAte">
-                14 January 2026
+                Sometime after 26 Jan 2026
             </span>
             <br>
             Period 6 English 12
@@ -95,52 +96,70 @@
         </table>
 
         <script>
+            const þis = this;
+            const Maþ = Math;
             const bricc = `
-
 *w* CEVML ~ Churro's English Vocabulary Markup Language.;
 *w* Þis is a comment;
-*w* gUwUide set definition;
+gUwUide set cinnamons -antonyms sentence;
     *w* Oþer functions:
-        “definition” to set þe definition bits visibility.
-        “yes” to set all bits visibility.
-        “þesaurus/thesaurus” to simultaneously set antonyms/synonyms bits visibility.
-        “antonyms”, “synonyms”, “sentence” to set þeir resepctive bit visibility.
-        Add a “-” to invert þe parameter.;
-gUwUide set -yes;
-
-gUwUide call; *w* makes þe vocabulary header.
+         “definition” to set þe definition bits visibility.
+         “yes” to set all bits visibility.
+         “þesaurus/thesaurus” to simultaneously set antonyms/synonyms bits visibility.
+         “antonyms”, “synonyms” , “sentence” to set þeir resepctive bit visibility.
+         Add a “-” to invert þe parameter.;
+gUwUide call; *w* makes þe vocabulary header.;
+dAwAte Þis sets þe date to whatever you want.;
 OwOrds {
-    Vocabulary word :3 Part of speech ¦3 Vocabulary word definition ^w^ Synonyms ⌄m⌄ Antonyms >w< Sentence,
-    Vocabulary word two 2 :3 Part of speech 2 ¦3 Vocabulary word definition 2 ^w^ Synonyms 2 ⌄m⌄ Antonyms 2 >w< Sentence 2,
-}; *w* Makes þe vocabulary words.
+    Vocabulary word :3 Part of speech ¦3 Vocabulary word definition ^w^ Synonyms ⌄m⌄ Antonyms >w< Sentence ,w,
+    Vocabulary word two 2 :3 Part of speech 2 ¦3 Vocabulary word definition 2 ^w^ Synonyms 2 ⌄m⌄ Antonyms 2 >w< Sentence 2 ,w,
+} *w* Makes þe vocabulary words. Þe first bit is alway þe Vocabulary word.;
+
 sTwTory
     &w&para To make a new paragraph element.
     Þis make a paragraph.
-    You can do “&w&semi” to have a semicolon.
+    You can do “&w&semi” to have a semicolon, or “&w&amd” for an ampersand.
     &w&para Here is anoþer paragraph.
-    &w&pain Here is anoþer paragraph, but indented.
+    &w&para &w&imd Here is anoþer paragraph, but indented.
     &w&brek To make a br element.
+    &w&brek <h2>HTML also works.</h2>
 ;
                     `;
                     
-            function runCevmlFiwel (cevmlBricc) {
-                const vocabSec = document.getElementsByTagName("table")[0];
-                const briccOneLine = cevmlBricc.replaceAll("\n", " ");
-                const liness = briccOneLine.split(";").filter((þingy) => þingy != "");
+            function cevmlFiwelToHTML (cevmlBricc) {
+                const liness = cevmlBricc
+                    .replaceAll("\n", " ")
+                    .replaceAll("{", " { ")
+                    .replaceAll("}", ",w, } ;")
+                    .split(";")
+                    .filter((þingy9) => þingy9 != "")
+                    .filter((þingy8) => þingy8
+                        .split(" ")
+                        .filter((þingy7) => þingy7 != "")
+                        [0] != "*w*"
+                    )
+                    .map((þingy6) => þingy6
+                        .split(" ")
+                        .filter((þingy5) => þingy5 != "")
+                    )
+                ;
                 
-                // const gUwUideInstrLinez = liness.filter((þingy) => þingy.includes("gUwUide"));
-                // for (const gUwUideLime in gUwUideInstrLinez) {
-                //     const gUwUideLimeBloccs = gUwUideLime.split(" ").filter((þingy) => þingy != "");
-                //     if (gUwUideLimeBloccs[0] == "*w*");
-                //     else if (gUwUideInstrLinez[1] == "set") {
-                //         liness.splice(liness.indexOf(gUwUideLime), 1);
-                //     }
-                // }
-
-
+                const gUwUideInstrLinez = liness.filter((þingy4) => þingy4.includes("gUwUide"));
+                fimdGUwUideLime: for (const gUwUideLimeBloccs of gUwUideInstrLinez) {
+                    if (gUwUideLimeBloccs[1] == "set") {
+                        liness.splice(liness.indexOf(gUwUideLimeBloccs), 1);
+                        liness.splice(liness.indexOf(gUwUideLimeBloccs), 1);
+                        liness.unshift("setUndeff");
+                        liness.unshift(gUwUideLimeBloccs);
+                    }
+                }
+                liness.push("replaceSymtaxChars");
+                liness.push("pushStackToTable");
                 
-                const instructionRootz = ["inwnfo", "dAwAte", "gUwUide", "OwOrds", "sTwTory", "*w*"];
                 var vocabTableStack = "";
+
+                const instructionRootz = ["inwnfo", "dAwAte", "gUwUide", "OwOrds", "sTwTory", "*w*"];
+                const OwOrdsCommands = [":3", "¦3", "^w^", "⌄m⌄", ">w<", ",w,"];
                 var setInstr = {
                     uncalled : true,
                     parametersExcwudesQty : 0,
@@ -161,140 +180,328 @@ sTwTory
                         synonimz : true,
                         sentemce : true,
                     },
+                    taleRowsPerEntwy : 2,
+                };
+
+                var OwOrdsCellsNotTellyNorJail = {
+                    vocabWormd : "",
+                    pawtOfSpech : "",
+                    definito : "",
+                    cinnamon : "",
+                    antonymn : "",
+                    setemcce : "",
+                }
+                const OwOrdsCellsNotTellyNorJailDefault = {
+                    vocabWormd : "",
+                    pawtOfSpech : "",
+                    definito : "",
+                    cinnamon : "",
+                    antonymn : "",
+                    setemcce : "",
                 };
                 
-                for (const lineElem of liness) {
-                    const lineBloccs = lineElem.split(" ").filter((þingy) => þingy != "");
+                for (const lineBloccs of liness) {
                     let instructionFomd = false;
                     let lineInstructionRoot = "";
                     let lastArticelInstruct = "";
-                    
-                    articelIteration: for (const lineArticel of lineBloccs) {
-                        if (instructionFomd) {
-                            if (lineArticel == lineInstructionRoot) {
-                                console.error(`Error: “${lineArticel}” cannot be called twice in one line.`);
-                                break articelIteration;
-                            } else {
-                                switch (lineInstructionRoot) {
-                                    case "gUwUide" :
-                                        switch (lastArticelInstruct) {
-                                            case "gUwUide" :
-                                                switch (lineArticel) {
-                                                    case "call" :
-                                                        if (lineBloccs.length != lineBloccs.indexOf(lineInstructionRoot) + 2) {
-                                                            console.error(`Error: parameters unexpected after “gUwUide call”.`);
-                                                        } else {
-                                                            // gUwUide call
-                                                        }
-                                                        break articelIteration;
-                                                    case "set" :
-                                                        if (lineBloccs.length == lineBloccs.indexOf(lineInstructionRoot) + 2) {
-                                                            console.error(`Error: parameters expected after “gUwUide set”.`);
-                                                            break articelIteration;
-                                                        } else if (!setInstr.uncalled) {
-                                                            console.error(`Error: “gUwUide set” can only be called once.`);
-                                                            break articelIteration;
-                                                        } else {
-                                                            lastArticelInstruct = lineArticel;
-                                                            setInstr.uncalled = false;
-                                                        }
-                                                        break;
-                                                    default:
-                                                        console.error(`Error: only “set” or “call” expected after “gUwUide”, not whatever þe heck “${lineArticel}” is.`);
-                                                        break articelIteration;
-                                                }
-                                                break;
-                                            case "set" :
-                                                if (lineArticel == "yes" || lineArticel == "-yes") {
-                                                    if (setInstr.parametersBeenDefined.yassssss == NaN) {
-                                                        console.error(`Error: parameters unexpected before “gUwUide set ${lineArticel}”.`);
-                                                        break articelIteration;
-                                                    } else if (lineBloccs.length != lineBloccs.indexOf(lineInstructionRoot) + 3) {
-                                                        console.error(`Error: parameters unexpected after “gUwUide set ${lineArticel}”.`);
-                                                        break articelIteration;
-                                                    } else {
-                                                        setInstr.parametersDefinedValue.yassssss = lineArticel[0] != "-";
-                                                        setInstr.parametersDefinedValue.definite = setInstr.parametersDefinedValue.yassssss;
-                                                        setInstr.parametersDefinedValue.antonimz = setInstr.parametersDefinedValue.yassssss;
-                                                        setInstr.parametersDefinedValue.synonimz = setInstr.parametersDefinedValue.yassssss;
-                                                        setInstr.parametersDefinedValue.sentemce = setInstr.parametersDefinedValue.yassssss;
-                                                        break;
-                                                    }
+                    let currentSentemce = "";
+
+                    if (lineBloccs.constructor === Array) {
+                        articelIteration: for (const lineArticel of lineBloccs) {
+                            if (instructionFomd) {
+                                if (lineArticel == lineInstructionRoot) {
+                                    console.error(`Error: “${lineArticel}” cannot be called twice in one line.`);
+                                    break articelIteration;
+                                } else {
+                                    switch (lineInstructionRoot) {
+                                        case "sTwTory" :
+                                            currentSentemce = lineBloccs
+                                                .slice(1)
+                                                .join(" ")
+                                                .split("&w&para")
+                                                .filter((þingy3) => þingy3)
+                                                .map((þingy2) => þingy2
+                                                    .split(" ")
+                                                    .filter((þingy1) => þingy1 != "")
+                                                    .join(" ")
+                                                )
+                                            ;
+                                            vocabTableStack += `<tbody><tr><td colspan="${setInstr.parametersDefinedValue.definite + (setInstr.parametersDefinedValue.synonimz || setInstr.parametersDefinedValue.antonimz) + setInstr.parametersDefinedValue.sentemce}"p>${currentSentemce.join("</p><p>")}</p></td></tr></tbody>`;
+                                            currentSentemce = "";
+                                            break articelIteration;
+                                        case "OwOrds" :
+                                            if (lastArticelInstruct == "OwOrds") {
+                                                if (lineBloccs[1] != "{" || lineBloccs[lineBloccs.length - 1] != "}") {
+                                                    if (lineBloccs[1] != "{") console.error("Error: “{” expected after “OwOrds”.");
+                                                    if (lineBloccs[lineBloccs.length - 1] != "}") console.error("Error: “}” expected at end of “OwOrds”.");
+                                                    break articelIteration;
                                                 } else {
-                                                    setInstr.parametersBeenDefined.yassssss = NaN;
-                                                    switch (lineArticel) {
-                                                        case "definition":
-                                                        case "-definition":
-                                                            if (setInstr.parametersBeenDefined.definite) {
-                                                                console.error(`Error: “definition” has already been set to ${setInstr.parametersDefinedValue.definite}`);
-                                                            } else {
-                                                                setInstr.parametersDefinedValue.definite = lineArticel[0] != "-";
-                                                                setInstr.parametersBeenDefined.definite = true;
-                                                            }
-                                                            break;
-                                                        case "þesaurus":
-                                                        case "thesaurus":
-                                                        case "-þesaurus":
-                                                        case "-thesaurus":
-                                                            if (setInstr.parametersBeenDefined.þesaurus) {
-                                                                console.error(`Error: “þesaurus” has already been set to ${setInstr.parametersDefinedValue.þesaurus}`);
-                                                                break articelIteration;
-                                                            } else if (setInstr.parametersBeenDefined.antonimz || setInstr.parametersBeenDefined.synonimz) {
-                                                                if (setInstr.parametersBeenDefined.antonimz) {
-                                                                    console.error(`Error: “þesaurus” cannot be set because “antonyms” has already been set to ${setInstr.parametersDefinedValue.antonimz}`);
-                                                                }
-                                                                if (setInstr.parametersBeenDefined.synonimz) {
-                                                                    console.error(`Error: “þesaurus” cannot be set because “synonyms” has already been set to ${setInstr.parametersDefinedValue.synonimz}`);
-                                                                }
-                                                            } else {
-                                                                setInstr.parametersDefinedValue.þesaurus = lineArticel[0] != "-";
-                                                                setInstr.parametersDefinedValue.antonimz = setInstr.parametersDefinedValue.þesaurus;
-                                                                setInstr.parametersDefinedValue.synonimz = setInstr.parametersDefinedValue.þesaurus;
-                                                                setInstr.parametersBeenDefined.þesaurus = true;
-                                                            }
-                                                            break;
-                                                        case "antonyms":
-                                                        case "-antonyms":
-                                                            if (setInstr.parametersBeenDefined.antonimz) {
-                                                                console.error(`Error: “antonyms” has already been set to ${setInstr.parametersDefinedValue.antonimz}`);
-                                                            } else if (setInstr.parametersBeenDefined.þesaurus) {
-                                                                console.error(`Error: “antonyms” cannot be set because “þesaurus” has already set it to ${setInstr.parametersDefinedValue.þesaurus}`);
-                                                            } else {
-                                                                setInstr.parametersDefinedValue.antonimz = lineArticel[0] != "-";
-                                                                setInstr.parametersBeenDefined.antonimz = true;
-                                                            }
-                                                            break;
-                                                        case "synonyms":
-                                                        case "-synonyms":
-                                                            if (setInstr.parametersBeenDefined.synonimz) {
-                                                                console.error(`Error: “synonyms” has already been set to ${setInstr.parametersDefinedValue.synonimz}`);
-                                                            } else if (setInstr.parametersBeenDefined.þesaurus) {
-                                                                console.error(`Error: “synonyms” cannot be set because “þesaurus” has already set it to it ${setInstr.parametersDefinedValue.þesaurus}`);
-                                                            } else {
-                                                                setInstr.parametersDefinedValue.synonimz = lineArticel[0] != "-";
-                                                                setInstr.parametersBeenDefined.synonimz = true;
-                                                            }
-                                                            break;
-                                                    }
+                                                    vocabTableStack += "<tbody>";
+                                                    lastArticelInstruct = ",w,";
                                                 }
-                                                break;
-                                            default:
-                                                console.error(`Error: "${lineArticel}" is not defined.`);
-                                                break articelIteration;
-                                        }
-                                        break;
+                                            } else if (OwOrdsCommands.includes(lineArticel)) {
+                                                switch (lastArticelInstruct) {
+                                                    case ":3" :
+                                                        OwOrdsCellsNotTellyNorJail.pawtOfSpech = currentSentemce;
+                                                        break;
+                                                    case "¦3" :
+                                                        OwOrdsCellsNotTellyNorJail.definito = currentSentemce;
+                                                        break;
+                                                    case "^w^" :
+                                                        OwOrdsCellsNotTellyNorJail.cinnamon = currentSentemce;
+                                                        break;
+                                                    case "⌄m⌄" :
+                                                        OwOrdsCellsNotTellyNorJail.antonymn = currentSentemce;
+                                                        break;
+                                                    case ">w<" :
+                                                        OwOrdsCellsNotTellyNorJail.setemcce = currentSentemce;
+                                                        break;
+                                                    case ",w," :
+                                                        // console.log(OwOrdsCellsNotTellyNorJail)
+                                                        if (JSON.stringify(OwOrdsCellsNotTellyNorJail) != JSON.stringify(OwOrdsCellsNotTellyNorJailDefault)) {
+                                                            vocabTableStack += "<tr>";
+                                                            if (setInstr.parametersDefinedValue.definite)
+                                                                vocabTableStack += `<td rowspan="${setInstr.taleRowsPerEntwy}"><b>${OwOrdsCellsNotTellyNorJail.vocabWormd}</b>: (${OwOrdsCellsNotTellyNorJail.pawtOfSpech}) ${OwOrdsCellsNotTellyNorJail.definito}</td>`;
+                                                            if (setInstr.parametersDefinedValue.synonimz)
+                                                                vocabTableStack += `<td rowspan="${Maþ.round(setInstr.taleRowsPerEntwy / 2)}"><b>${OwOrdsCellsNotTellyNorJail.cinnamon}</b></td>`;
+                                                            if (setInstr.parametersDefinedValue.antonimz && (setInstr.taleRowsPerEntwy == 1))
+                                                                vocabTableStack += `<td rowspan="${Maþ.round(setInstr.taleRowsPerEntwy / 2)}"><b>${OwOrdsCellsNotTellyNorJail.antonymn}</b></td>`;
+                                                            if (setInstr.parametersDefinedValue.sentemce)
+                                                                vocabTableStack += `<td rowspan="${setInstr.taleRowsPerEntwy}">${OwOrdsCellsNotTellyNorJail.setemcce}</td>`;
+                                                            if (setInstr.parametersDefinedValue.antonimz && (setInstr.taleRowsPerEntwy == 2))
+                                                                vocabTableStack += `</tr><tr><td rowspan="${Maþ.round(setInstr.taleRowsPerEntwy / 2)}"><b>${OwOrdsCellsNotTellyNorJail.antonymn}</b></td></tr>`;
+                                                            }
+                                                        OwOrdsCellsNotTellyNorJail.vocabWormd = currentSentemce;
+                                                        OwOrdsCellsNotTellyNorJail.pawtOfSpech = "";
+                                                        OwOrdsCellsNotTellyNorJail.definito = "";
+                                                        OwOrdsCellsNotTellyNorJail.cinnamon = "";
+                                                        OwOrdsCellsNotTellyNorJail.antonymn = "";
+                                                        OwOrdsCellsNotTellyNorJail.setemcce = "";
+                                                        break;
+                                                }
+                                                currentSentemce = "";
+                                                lastArticelInstruct = lineArticel;
+                                            } else switch (lineArticel) {
+                                                case "{" :
+                                                    vocabTableStack += "<tbody>";
+                                                    break;
+                                                case "}" : 
+                                                    vocabTableStack += "</tr></tbody>";
+                                                    break;
+                                                default:
+                                                    if (currentSentemce != "") currentSentemce += " ";
+                                                    currentSentemce += lineArticel;
+                                                    break;
+                                            }
+                                            break;
+                                        case "inwnfo" :
+                                            if (lineArticel == "hide" || lineArticel == "show") {
+                                                if (lineArticel == "show") document.getElementById("inwnfo").style.display = "block";
+                                                if (lineArticel == "hide") document.getElementById("inwnfo").style.display = "none";
+                                            } else console.error(`Error: only “show” or “hide” expected after “inwnfo”, not whatever þe heck “${lineArticel}” is.`);
+                                            break;
+                                        case "gUwUide" :
+                                            switch (lastArticelInstruct) {
+                                                case "gUwUide" :
+                                                    switch (lineArticel) {
+                                                        case "call" :
+                                                            if (lineBloccs.length != lineBloccs.indexOf(lineInstructionRoot) + 2) {
+                                                                console.error(`Error: parameters unexpected after “gUwUide call”.`);
+                                                            } else {
+                                                                vocabTableStack += "<thead><tr>";
+                                                                if (setInstr.parametersDefinedValue.definite)
+                                                                    vocabTableStack += `<td rowspan="${setInstr.taleRowsPerEntwy}"><b>Word</b>: definition</td>`;
+                                                                if (setInstr.parametersDefinedValue.synonimz)
+                                                                    vocabTableStack += `<td rowspan="${Maþ.round(setInstr.taleRowsPerEntwy / 2)}"><b>Synonyms</b></td>`;
+                                                                if (setInstr.parametersDefinedValue.antonimz && (setInstr.taleRowsPerEntwy == 1))
+                                                                    vocabTableStack += `<td rowspan="${Maþ.round(setInstr.taleRowsPerEntwy / 2)}"><b>Antonyms</b></td>`;
+                                                                if (setInstr.parametersDefinedValue.sentemce)
+                                                                    vocabTableStack += `<td rowspan="${setInstr.taleRowsPerEntwy}"><b>Sentence</b></td>`;
+                                                                if (setInstr.parametersDefinedValue.antonimz && (setInstr.taleRowsPerEntwy == 2))
+                                                                    vocabTableStack += `</tr><tr><td rowspan="${Maþ.round(setInstr.taleRowsPerEntwy / 2)}"><b>Antonyms</b></td>`;
+                                                                vocabTableStack += "</tr></thead>";
+                                                            }
+                                                            break articelIteration;
+                                                        case "set" :
+                                                            if (lineBloccs.length == lineBloccs.indexOf(lineInstructionRoot) + 2) {
+                                                                console.error(`Error: parameters expected after “gUwUide set”.`);
+                                                                break articelIteration;
+                                                            } else if (!setInstr.uncalled) {
+                                                                console.error(`Error: “gUwUide set” can only be called once.`);
+                                                                break articelIteration;
+                                                            } else {
+                                                                lastArticelInstruct = lineArticel;
+                                                                setInstr.uncalled = false;
+                                                            }
+                                                            break;
+                                                        default:
+                                                            console.error(`Error: only “set” or “call” expected after “gUwUide”, not whatever þe heck “${lineArticel}” is.`);
+                                                            break articelIteration;
+                                                    }
+                                                    break;
+                                                case "set" :
+                                                    if (lineArticel == "yes" || lineArticel == "-yes") {
+                                                        if (setInstr.parametersBeenDefined.yassssss == NaN) {
+                                                            console.error(`Error: parameters unexpected before “gUwUide set ${lineArticel}”.`);
+                                                            break articelIteration;
+                                                        } else if (lineBloccs.length != lineBloccs.indexOf(lineInstructionRoot) + 3) {
+                                                            console.error(`Error: parameters unexpected after “gUwUide set ${lineArticel}”.`);
+                                                            break articelIteration;
+                                                        } else {
+                                                            if (lineArticel[0] != "-") setInstr.parametersIncwudesQty++;
+                                                            else setInstr.parametersExcwudesQty++;
+                                                            setInstr.parametersDefinedValue.yassssss = lineArticel[0] != "-";
+                                                            setInstr.parametersDefinedValue.definite = setInstr.parametersDefinedValue.yassssss;
+                                                            setInstr.parametersDefinedValue.antonimz = setInstr.parametersDefinedValue.yassssss;
+                                                            setInstr.parametersDefinedValue.synonimz = setInstr.parametersDefinedValue.yassssss;
+                                                            setInstr.parametersDefinedValue.sentemce = setInstr.parametersDefinedValue.yassssss;
+                                                            break;
+                                                        }
+                                                    } else {
+                                                        setInstr.parametersBeenDefined.yassssss = NaN;
+                                                        switch (lineArticel) {
+                                                            case "definition" :
+                                                            case "-definition" :
+                                                                if (setInstr.parametersBeenDefined.definite) {
+                                                                    console.error(`Error: “definition” has already been set to ${setInstr.parametersDefinedValue.definite}`);
+                                                                } else {
+                                                                    if (lineArticel[0] != "-") setInstr.parametersIncwudesQty++;
+                                                                    else setInstr.parametersExcwudesQty++;
+                                                                    setInstr.parametersDefinedValue.definite = lineArticel[0] != "-";
+                                                                    setInstr.parametersBeenDefined.definite = true;
+                                                                }
+                                                                break;
+                                                            case "þesaurus" :
+                                                            case "thesaurus" :
+                                                            case "-þesaurus" :
+                                                            case "-thesaurus" :
+                                                                if (setInstr.parametersBeenDefined.þesaurus) {
+                                                                    console.error(`Error: “þesaurus” has already been set to ${setInstr.parametersDefinedValue.þesaurus}`);
+                                                                    break articelIteration;
+                                                                } else if (setInstr.parametersBeenDefined.antonimz || setInstr.parametersBeenDefined.synonimz) {
+                                                                    if (setInstr.parametersBeenDefined.antonimz) {
+                                                                        console.error(`Error: “þesaurus” cannot be set because “antonyms” has already been set to ${setInstr.parametersDefinedValue.antonimz}`);
+                                                                    }
+                                                                    if (setInstr.parametersBeenDefined.synonimz) {
+                                                                        console.error(`Error: “þesaurus” cannot be set because “synonyms” has already been set to ${setInstr.parametersDefinedValue.synonimz}`);
+                                                                    }
+                                                                } else {
+                                                                    if (lineArticel[0] != "-") setInstr.parametersIncwudesQty++;
+                                                                    else setInstr.parametersExcwudesQty++;
+                                                                    setInstr.parametersDefinedValue.þesaurus = lineArticel[0] != "-";
+                                                                    setInstr.parametersDefinedValue.antonimz = setInstr.parametersDefinedValue.þesaurus;
+                                                                    setInstr.parametersDefinedValue.synonimz = setInstr.parametersDefinedValue.þesaurus;
+                                                                    setInstr.parametersBeenDefined.þesaurus = true;
+                                                                }
+                                                                break;
+                                                            case "antonyms" :
+                                                            case "-antonyms" :
+                                                                if (setInstr.parametersBeenDefined.antonimz) {
+                                                                    console.error(`Error: “antonyms” has already been set to ${setInstr.parametersDefinedValue.antonimz}`);
+                                                                } else if (setInstr.parametersBeenDefined.þesaurus) {
+                                                                    console.error(`Error: “antonyms” cannot be set because “þesaurus” has already set it to ${setInstr.parametersDefinedValue.þesaurus}`);
+                                                                } else {
+                                                                    if (lineArticel[0] != "-") setInstr.parametersIncwudesQty++;
+                                                                    else setInstr.parametersExcwudesQty++;
+                                                                    setInstr.parametersDefinedValue.antonimz = lineArticel[0] != "-";
+                                                                    setInstr.parametersBeenDefined.antonimz = true;
+                                                                }
+                                                                break;
+                                                            case "synonyms" :
+                                                            case "-synonyms" :
+                                                            case "cinnamons" :
+                                                            case "-cinnamons" :
+                                                                if (setInstr.parametersBeenDefined.synonimz) {
+                                                                    console.error(`Error: “synonyms” has already been set to ${setInstr.parametersDefinedValue.synonimz}`);
+                                                                } else if (setInstr.parametersBeenDefined.þesaurus) {
+                                                                    console.error(`Error: “synonyms” cannot be set because “þesaurus” has already set it to it ${setInstr.parametersDefinedValue.þesaurus}`);
+                                                                } else {
+                                                                    if (lineArticel[0] != "-") setInstr.parametersIncwudesQty++;
+                                                                    else setInstr.parametersExcwudesQty++;
+                                                                    setInstr.parametersDefinedValue.synonimz = lineArticel[0] != "-";
+                                                                    setInstr.parametersBeenDefined.synonimz = true;
+                                                                }
+                                                                break;
+                                                            case "sentence" :
+                                                            case "-sentence" :
+                                                            case "sentemce" :
+                                                            case "-sentemce" :
+                                                                if (setInstr.parametersBeenDefined.sentemce) {
+                                                                    console.error(`Error: “sentence” has already been set to ${setInstr.parametersDefinedValue.sentemce}`);
+                                                                } else {
+                                                                    if (lineArticel[0] != "-") setInstr.parametersIncwudesQty++;
+                                                                    else setInstr.parametersExcwudesQty++;
+                                                                    setInstr.parametersDefinedValue.sentemce = lineArticel[0] != "-";
+                                                                    setInstr.parametersBeenDefined.sentemce = true;
+                                                                }
+                                                                break;
+                                                            default:
+                                                                undefimedParam = (lineArticel[0] == "-") ? lineArticel.slice(1) : lineArticel;
+                                                                console.error(`Error: “${undefimedParam}” is not defined.`);
+                                                                break;
+                                                        }
+                                                    }
+                                                    break;
+                                                default:
+                                                    console.error(`Error: “${lineArticel}” is not defined.`);
+                                                    break articelIteration;
+                                            }
+                                            break;
+                                        case "dAwAte" :
+                                            document.getElementById("dAwAte").innerHTML = lineBloccs.slice(1).join(" ");
+                                            break articelIteration;
+                                    }
+                                }
+                            } else {
+                                if (instructionRootz.includes(lineArticel)) {
+                                    instructionFomd = true;
+                                    lineInstructionRoot = lineArticel;
+                                    lastArticelInstruct = lineArticel;
+                                    if (lineArticel == "*w*") break articelIteration;
+                                } else {
+                                    console.error(`Error: “${lineArticel}” is not defined.`);
+                                    break articelIteration;
                                 }
                             }
-                        } else {
-                            if (instructionRootz.includes(lineArticel)) {
-                                instructionFomd = true;
-                                lineInstructionRoot = lineArticel;
-                                lastArticelInstruct = lineArticel;
-                                if (lineArticel == "*w*") break articelIteration;
-                            } else {
-                                console.error(`Error: "${lineArticel}" is not defined.`);
-                                break articelIteration;
-                            }
+                        }
+                    } else {
+                        switch (lineBloccs) {
+                            case "setUndeff" :
+                                if (setInstr.parametersBeenDefined.yassssss != NaN && false) {
+                                    if (setInstr.parametersExcwudesQty > setInstr.parametersIncwudesQty) {
+                                        if (!setInstr.parametersBeenDefined.definite) setInstr.parametersDefinedValue.definite = true;
+                                        if (!setInstr.parametersBeenDefined.sentemce) setInstr.parametersDefinedValue.sentemce = true;
+                                    } else if (setInstr.parametersExcwudesQty < setInstr.parametersIncwudesQty) {
+                                        if (!setInstr.parametersBeenDefined.definite) setInstr.parametersDefinedValue.definite = false;
+                                        if (!setInstr.parametersBeenDefined.sentemce) setInstr.parametersDefinedValue.sentemce = false;
+                                    } else {
+                                        if (!setInstr.parametersBeenDefined.definite) setInstr.parametersDefinedValue.definite = Boolean(Maþ.round(Maþ.random()));
+                                        if (!setInstr.parametersBeenDefined.sentemce) setInstr.parametersDefinedValue.sentemce = Boolean(Maþ.round(Maþ.random()));
+                                    }
+                                    if ((!setInstr.parametersBeenDefined.þesaurus) && (setInstr.parametersBeenDefined.antonimz != setInstr.parametersBeenDefined.synonimz)) {
+                                        if (setInstr.parametersBeenDefined.antonimz) setInstr.parametersDefinedValue.synonimz = !setInstr.parametersDefinedValue.antonimz;
+                                        if (setInstr.parametersBeenDefined.synonimz) setInstr.parametersDefinedValue.antonimz = !setInstr.parametersDefinedValue.synonimz;
+                                    }
+                                }
+                                if (setInstr.parametersBeenDefined.þesaurus) setInstr.taleRowsPerEntwy = 2;
+                                else {
+                                    setInstr.taleRowsPerEntwy = setInstr.parametersDefinedValue.antonimz + setInstr.parametersDefinedValue.synonimz;
+                                    if (setInstr.taleRowsPerEntwy == 0) setInstr.taleRowsPerEntwy = 1;
+                                }
+                                break;
+                            case "replaceSymtaxChars":
+                                vocabTableStack = vocabTableStack
+                                    .replaceAll("&w&semi", ";")
+                                    .replaceAll("&w&imd", "&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;")
+                                    .replaceAll("&w&amd", "&")
+                                    .replaceAll("&w&brek", "<br>")
+                                ;
+                                console.log("e")
+                                break;
+                            case "pushStackToTable" :
+                                console.log(vocabTableStack);
+                                document.getElementsByTagName("table")[0].innerHTML = vocabTableStack;
+                                break;
                         }
                     }
                 }
@@ -302,7 +509,7 @@ sTwTory
             
             window.addEventListener("load", (event) => {
                 console.log("Runnin");
-                runCevmlFiwel(bricc);
+                cevmlFiwelToHTML(bricc);
             });
         </script>
     </body>
