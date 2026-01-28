@@ -176,6 +176,7 @@ sTwTory
                     urlSearccBitz.append("vocab-list", 20);
                     history.replaceState([decompedCevmlKey, decompedCevml], "", `${location.pathname}?${String(urlSearccBitz)}`)
                 }
+                document.getElementById("cevmlFiwelSelecc").value = urlSearccBitz.get("vocab-list");
             }
 
             function cevmlFiwelToHTML (cevmlBricc) {
@@ -585,7 +586,7 @@ sTwTory
                 background-color: mistyrose;
             ">
                 <label style="color: mediumvioletred;">
-                    File:
+                    List:
                 </label>
                 <br>
                 <select
