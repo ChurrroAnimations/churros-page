@@ -151,14 +151,12 @@ sTwTory
                 }
             }
 
-            function updateCevmlDisplayed (þis) {
-                setUwlSearchPawams(þis.value);
+            function updateCevmlDisplayed (elem) {
+                setUwlSearchPawams(elem.value);
                 lookupCevmlFiel();
             }
 
-            function setUwlSearchPawams (vocabMlismdValuWishToSet) {
-                if (vocabMlismdValuWishToSet) vocabLishValueSet = vocabMlismdValuWishToSet;
-                else vocabLishValueSet = 20;
+            function setUwlSearchPawams (vocabLishValueSet) {
                 urlSearccBitz = new URLSearchParams(location.search);
                 urlSearccBitz.set("vocab-list", vocabLishValueSet);
                 history.replaceState([decompedCevmlKey, decompedCevml], "", `${location.pathname}?${String(urlSearccBitz)}`)
@@ -171,6 +169,15 @@ sTwTory
                     decompedCevml.loaded = olDecompCevml.loaded.concat(decompedCevml.loaded);
                 }
             }
+
+            function initSearccPawams () {
+                urlSearccBitz = new URLSearchParams(location.search);
+                if (!urlSearccBitz.get("vocab-list")) {
+                    urlSearccBitz.append("vocab-list", 20);
+                    history.replaceState([decompedCevmlKey, decompedCevml], "", `${location.pathname}?${String(urlSearccBitz)}`)
+                }
+            }
+
             function cevmlFiwelToHTML (cevmlBricc) {
                 const liness = cevmlBricc
                     .replaceAll("\n", " ")
@@ -550,7 +557,6 @@ sTwTory
                                 ;
                                 break;
                             case "pushStackToTable" :
-                                console.log(vocabTableStack);
                                 document.getElementsByTagName("table")[0].innerHTML = vocabTableStack;
                                 break;
                         }
@@ -561,7 +567,7 @@ sTwTory
             window.addEventListener("load", (event) => {
                 console.log("Runnin");
                 setDecompedCevml();
-                setUwlSearchPawams();
+                initSearccPawams();
                 lookupCevmlFiel();
             });
         </script>
@@ -590,7 +596,7 @@ sTwTory
                         border-color: orchid;
                         background-color: mistyrose;
                     "
-                    onchange="updateCevmlDisplayed(þis);"
+                    onchange="updateCevmlDisplayed(this);"
                 >
                 <option value="20">
                     List #20
