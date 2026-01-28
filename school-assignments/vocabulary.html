@@ -37,15 +37,6 @@
             :root {
                 background-color: darkslategray;
             }
-            div {
-                background-color: transparent;
-                height: 100vh;
-                left: 0;
-                position: fixed;
-                top: 0;
-                width: 100vw;
-                z-index: 69420;
-            }
             p {
                 color: blanchedalmond;
                 font-family: 'papyrus', serif;
@@ -53,8 +44,7 @@
                 text-align: left;
                 -webkit-text-stroke-color: khaki;
                 -webkit-text-stroke-width: 0.25px;
-            }
-            
+            }            
             a {
                 color: blanchedalmond;
                 font-family: 'papyrus', serif;
@@ -109,9 +99,10 @@ gUwUide set cinnamons -antonyms sentence;
          “antonyms”, “synonyms” , “sentence” to set þeir resepctive bit visibility.
          Add a “-” to invert þe parameter.;
 gUwUide call; *w* makes þe vocabulary header.;
-dAwAte Þis sets þe date to whatever you want.;
+dAwAte Þis sets þe date to whatever you want.; *w* Gives an error if “inwnfo” is set after it. But þis basically does noþing since we have “inwnfo”.;
+inwnfo custom Hello þis is custom titel.;
 OwOrds {
-    Vocabulary word :3 Part of speech ¦3 Vocabulary word definition ^w^ Synonyms ⌄m⌄ Antonyms >w< Sentence ,w,
+    Vocabulary word :3 Part of speech  ^w^ Synonyms ⌄m⌄ Antonyms ¦3 Vocabulary word definition >w< Sentence ,w,
     Vocabulary word two 2 :3 Part of speech 2 ¦3 Vocabulary word definition 2 ^w^ Synonyms 2 ⌄m⌄ Antonyms 2 >w< Sentence 2 ,w,
 } *w* Makes þe vocabulary words. Þe first bit is alway þe Vocabulary word.;
 
@@ -125,7 +116,61 @@ sTwTory
     &w&brek <h2>HTML also works.</h2>
 ;
                     `;
-                    
+
+            const decompedCevmlKey = "Hewwo, here is þe decomped CEVMl";
+            var decompedCevml = {
+                titel : [],
+                loaded : [],
+            };
+
+            async function lookupCevmlFiel () {
+                cevmlName = (new URLSearchParams(location.search)).get("vocab-list");
+                InCevmlName = decompedCevml.titel.indexOf(cevmlName);
+                const inwnfoElem = document.getElementById("inwnfo")
+                const tAwAbleElem = document.getElementsByTagName("table")[0];
+                if (InCevmlName < 0) {
+                    try {
+                        const wesponcc = await fetch(`../Resources/Scripts/vocab-list/${cevmlName}.cevml`);
+                        const cevmlTxt = await wesponcc.text();
+                        cevmlFiwelToHTML(cevmlTxt);
+                        decompedCevml.titel.push(cevmlName);
+                        decompedCevml.loaded.push([inwnfoElem.innerHTML, tAwAbleElem.innerHTML]);
+                    } catch (ohNo) {
+                        cevmlFiwelToHTML(`
+                            inwnfo hide;
+                            sTwTory
+                                ${ohNo}.
+                                &w&brek
+                                Check console for more.
+                            ;
+                        `);
+                    }
+                } else {
+                    inwnfoElem = decompedCevml.loaded[InCevmlName][0];
+                    tAwAbleElem = decompedCevml.loaded[InCevmlName][1];
+                }
+            }
+
+            function updateCevmlDisplayed (þis) {
+                setUwlSearchPawams(þis.value);
+                lookupCevmlFiel();
+            }
+
+            function setUwlSearchPawams (vocabMlismdValuWishToSet) {
+                if (vocabMlismdValuWishToSet) vocabLishValueSet = vocabMlismdValuWishToSet;
+                else vocabLishValueSet = 20;
+                urlSearccBitz = new URLSearchParams(location.search);
+                urlSearccBitz.set("vocab-list", vocabLishValueSet);
+                history.replaceState([decompedCevmlKey, decompedCevml], "", `${location.pathname}?${String(urlSearccBitz)}`)
+            }
+
+            function setDecompedCevml () {
+                if (history.state) if (history.state[0] == decompedCevmlKey) {
+                    let olDecompCevml = history.state[1];
+                    decompedCevml.titel = olDecompCevml.titel.concat(decompedCevml.titel);
+                    decompedCevml.loaded = olDecompCevml.loaded.concat(decompedCevml.loaded);
+                }
+            }
             function cevmlFiwelToHTML (cevmlBricc) {
                 const liness = cevmlBricc
                     .replaceAll("\n", " ")
@@ -199,6 +244,8 @@ sTwTory
                     antonymn : "",
                     setemcce : "",
                 };
+
+                var inwnfoBeenUncalled = true;
                 
                 for (const lineBloccs of liness) {
                     let instructionFomd = false;
@@ -226,7 +273,7 @@ sTwTory
                                                     .join(" ")
                                                 )
                                             ;
-                                            vocabTableStack += `<tbody><tr><td colspan="${setInstr.parametersDefinedValue.definite + (setInstr.parametersDefinedValue.synonimz || setInstr.parametersDefinedValue.antonimz) + setInstr.parametersDefinedValue.sentemce}"p>${currentSentemce.join("</p><p>")}</p></td></tr></tbody>`;
+                                            vocabTableStack += `<tbody><tr><td colspan="${(setInstr.parametersDefinedValue.definite + (setInstr.parametersDefinedValue.synonimz || setInstr.parametersDefinedValue.antonimz) + setInstr.parametersDefinedValue.sentemce) || 1}"><p>${currentSentemce.join("</p><p>")}</p></td></tr></tbody>`;
                                             currentSentemce = "";
                                             break articelIteration;
                                         case "OwOrds" :
@@ -257,7 +304,6 @@ sTwTory
                                                         OwOrdsCellsNotTellyNorJail.setemcce = currentSentemce;
                                                         break;
                                                     case ",w," :
-                                                        // console.log(OwOrdsCellsNotTellyNorJail)
                                                         if (JSON.stringify(OwOrdsCellsNotTellyNorJail) != JSON.stringify(OwOrdsCellsNotTellyNorJailDefault)) {
                                                             vocabTableStack += "<tr>";
                                                             if (setInstr.parametersDefinedValue.definite)
@@ -295,10 +341,15 @@ sTwTory
                                             }
                                             break;
                                         case "inwnfo" :
-                                            if (lineArticel == "hide" || lineArticel == "show") {
+                                            if (lineArticel == "hide" || lineArticel == "show" || lineArticel == "custom") {
                                                 if (lineArticel == "show") document.getElementById("inwnfo").style.display = "block";
                                                 if (lineArticel == "hide") document.getElementById("inwnfo").style.display = "none";
-                                            } else console.error(`Error: only “show” or “hide” expected after “inwnfo”, not whatever þe heck “${lineArticel}” is.`);
+                                                if (lineArticel == "custom") {
+                                                    document.getElementById("inwnfo").innerHTML = lineBloccs.slice(2).join(" ");
+                                                    inwnfoBeenUncalled = false;
+                                                    break articelIteration;
+                                                }
+                                            } else console.error(`Error: only “show” or “hide” or “custom” expected after “inwnfo”, not whatever þe heck “${lineArticel}” is.`);
                                             break;
                                         case "gUwUide" :
                                             switch (lastArticelInstruct) {
@@ -448,7 +499,8 @@ sTwTory
                                             }
                                             break;
                                         case "dAwAte" :
-                                            document.getElementById("dAwAte").innerHTML = lineBloccs.slice(1).join(" ");
+                                            if (inwnfoBeenUncalled) document.getElementById("dAwAte").innerHTML = lineBloccs.slice(1).join(" ");
+                                            else console.error(`Error: cannot set dAwAte wiþ a custom “inwnfo”.`);
                                             break articelIteration;
                                     }
                                 }
@@ -496,7 +548,6 @@ sTwTory
                                     .replaceAll("&w&amd", "&")
                                     .replaceAll("&w&brek", "<br>")
                                 ;
-                                console.log("e")
                                 break;
                             case "pushStackToTable" :
                                 console.log(vocabTableStack);
@@ -509,8 +560,45 @@ sTwTory
             
             window.addEventListener("load", (event) => {
                 console.log("Runnin");
-                cevmlFiwelToHTML(bricc);
+                setDecompedCevml();
+                setUwlSearchPawams();
+                lookupCevmlFiel();
             });
         </script>
+        <div
+            style="
+                text-align: right;
+                right: 0px;
+                position: fixed;
+                padding: 0.3vw;
+                font-family: 'Trebuchet MS', sans-serif;
+                bottom: 0px;
+                border-top-left-radius: 25px;
+                border-top: 2px solid orchid;
+                border-left: 2px solid orchid;
+                background-color: mistyrose;
+            ">
+                <label style="color: mediumvioletred;">
+                    File:
+                </label>
+                <br>
+                <select
+                    id="cevmlFiwelSelecc" 
+                    style="
+                        color: mediumvioletred;
+                        border-radius: 100vw;
+                        border-color: orchid;
+                        background-color: mistyrose;
+                    "
+                    onchange="updateCevmlDisplayed(þis);"
+                >
+                <option value="20">
+                    List #20
+                </option>
+                <option value="../example">
+                    Example
+                </option>
+            </select>
+        </div>
     </body>
 </html>
