@@ -137,9 +137,10 @@ sTwTory
                     cevmlFiwelToHTML(bricc);
                 } else if (InCevmlName < 0) {
                     try {
-                        console.info(`Fetching “${cevmlName}.cevml” as it was not found in memory.`);
+                        console.info(`Fetching: “${cevmlName}.cevml” as it was not found in memory.`);
                         const wesponcc = await fetch(`../Resources/Scripts/vocab-list/${cevmlName}.cevml`);
                         const cevmlTxt = await wesponcc.text();
+                        console.info(`Fetched: “${cevmlName}.cevml” as text, “${cevmlTxt}”.`)
                         cevmlFiwelToHTML(cevmlTxt);
                         decompedCevml.titel.push(cevmlName);
                         decompedCevml.loaded.push([inwnfoElem.innerHTML, tAwAbleElem.innerHTML]);
@@ -300,7 +301,11 @@ sTwTory
                                                     .join(" ")
                                                 )
                                             ;
-                                            vocabTableStack += `<tbody><tr><td colspan="${(setInstr.parametersDefinedValue.definite + (setInstr.parametersDefinedValue.synonimz || setInstr.parametersDefinedValue.antonimz) + setInstr.parametersDefinedValue.sentemce) || 1}"><p>${currentSentemce.join("</p><p>")}</p></td></tr></tbody>`;
+                                            console.log(`sTwTory: ${currentSentemce}`)
+                                            vocabTableStack += `<tbody><tr>
+                                                <td colspan="${(setInstr.parametersDefinedValue.definite + (setInstr.parametersDefinedValue.synonimz || setInstr.parametersDefinedValue.antonimz) + setInstr.parametersDefinedValue.sentemce) || 1}">
+                                                    <p>${currentSentemce.join("</p><p>")}</p>
+                                                </td></tr></tbody>`;
                                             currentSentemce = "";
                                             break articelIteration;
                                         case "OwOrds" :
