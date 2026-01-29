@@ -182,7 +182,7 @@ sTwTory
                     daNewTitel += " ~ ";
                     daNewTitel += elem.options[elem.selectedIndex].text;
                 }
-                document.getElementsByTagName("title").innerHTML = daNewTitel;
+                document.getElementsByTagName("title")[0].innerHTML = daNewTitel;
             }
 
             function setDecompedCevml () {
@@ -196,11 +196,14 @@ sTwTory
             function initSearccPawams () {
                 const urlSearccBitz = new URLSearchParams(location.search);
                 const defauwtVocabListVal = location.protocol === "file:" ? "Current" : 21;
+                const daNewTitel = `Churro's School Shenanigans ~ English Vocabulary ~ ${defauwtVocabListVal}`;
                 if (!urlSearccBitz.get("vocab-list")) {
                     urlSearccBitz.append("vocab-list", defauwtVocabListVal);
-                    history.replaceState([decompedCevmlKey, decompedCevml], "", `${location.pathname}?${String(urlSearccBitz)}`)
+                    history.replaceState([decompedCevmlKey, decompedCevml], "", `${location.pathname}?${String(urlSearccBitz)}`);
+                    document.getElementsByTagName("title")[0].innerHTML = daNewTitel;
                 } else if (urlSearccBitz.get("vocab-list") == "Custom") {
                     urlSearccBitz.set("vocab-list", defauwtVocabListVal);
+                    document.getElementsByTagName("title")[0].innerHTML = daNewTitel;
                 }
                 document.getElementById("cevmlFiwelSelecc").value = urlSearccBitz.get("vocab-list");
             }
