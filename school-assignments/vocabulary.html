@@ -173,10 +173,16 @@ sTwTory
                 } else lookupCevmlFiel();
             }
 
-            function setUwlSearchPawams (vocabLishValueSet) {
+            function setUwlSearchPawams (elem) {
                 urlSearccBitz = new URLSearchParams(location.search);
-                urlSearccBitz.set("vocab-list", vocabLishValueSet);
+                urlSearccBitz.set("vocab-list", elem.value);
                 history.replaceState([decompedCevmlKey, decompedCevml], "", `${location.pathname}?${String(urlSearccBitz)}`)
+                daNewTitel = "Churro's School Shenanigans ~ English Vocabulary";
+                if (elem.options[elem.selectedIndex].text) {
+                    daNewTitel += " ~ ";
+                    daNewTitel += elem.options[elem.selectedIndex].text;
+                }
+                document.getElementsByTagName("title").innerHTML = daNewTitel;
             }
 
             function setDecompedCevml () {
@@ -301,7 +307,6 @@ sTwTory
                                                     .join(" ")
                                                 )
                                             ;
-                                            console.log(`sTwTory: ${currentSentemce}`)
                                             vocabTableStack += `<tbody><tr>
                                                 <td colspan="${(setInstr.parametersDefinedValue.definite + (setInstr.parametersDefinedValue.synonimz || setInstr.parametersDefinedValue.antonimz) + setInstr.parametersDefinedValue.sentemce) || 1}">
                                                     <p>${currentSentemce.join("</p><p>")}</p>
