@@ -196,7 +196,7 @@ sTwTory
             function initSearccPawams () {
                 const urlSearccBitz = new URLSearchParams(location.search);
                 const defauwtVocabListVal = location.protocol === "file:" ? "Current" : 21;
-                const daNewTitel = `Churro's School Shenanigans ~ English Vocabulary ~ ${defauwtVocabListVal}`;
+                const daNewTitel = `Churro's School Shenanigans ~ English Vocabulary ~ ${location.protocol === "file:" ? defauwtVocabListVal : "List #" + defauwtVocabListVal}`;
                 if (!urlSearccBitz.get("vocab-list")) {
                     urlSearccBitz.append("vocab-list", defauwtVocabListVal);
                     history.replaceState([decompedCevmlKey, decompedCevml], "", `${location.pathname}?${String(urlSearccBitz)}`);
