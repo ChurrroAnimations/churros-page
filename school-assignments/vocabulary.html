@@ -182,7 +182,7 @@ sTwTory
                     daNewTitel += " ~ ";
                     daNewTitel += elem.options[elem.selectedIndex].text;
                 }
-                document.getElementsByTagName("title")[0].innerHTML = daNewTitel;
+                document.title = daNewTitel;
             }
 
             function setDecompedCevml () {
@@ -200,10 +200,10 @@ sTwTory
                 if (!urlSearccBitz.get("vocab-list")) {
                     urlSearccBitz.append("vocab-list", defauwtVocabListVal);
                     history.replaceState([decompedCevmlKey, decompedCevml], "", `${location.pathname}?${String(urlSearccBitz)}`);
-                    document.getElementsByTagName("title")[0].innerHTML = daNewTitel;
+                    document.title = daNewTitel;
                 } else if (urlSearccBitz.get("vocab-list") == "Custom") {
                     urlSearccBitz.set("vocab-list", defauwtVocabListVal);
-                    document.getElementsByTagName("title")[0].innerHTML = daNewTitel;
+                    document.title = daNewTitel;
                 }
                 document.getElementById("cevmlFiwelSelecc").value = urlSearccBitz.get("vocab-list");
             }
