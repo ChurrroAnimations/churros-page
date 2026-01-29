@@ -17,7 +17,7 @@ OwOrds {
 sTwTory
     &w&para To make a new paragraph element.
     Þis make a paragraph.
-    You can do “&w&semi” to have a semicolon, or “&w&amd” for an ampersand.
+    You can do “&w&semi” to have a semicolon, “&w&mdass” for an mdash, or “&w&amd” for an ampersand.
     &w&para Here is anoþer paragraph.
     &w&para &w&imd Here is anoþer paragraph, but indented.
     &w&brek To make a br element.
