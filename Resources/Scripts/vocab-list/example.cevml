@@ -1,0 +1,26 @@
+*w* CEVML ~ Churro's English Vocabulary Markup Language.;
+*w* Þis is a comment;
+gUwUide set -cinnamons -antonyms sentence;
+    *w* Oþer functions:
+         “definition” to set þe definition bits visibility.
+         “yes” to set all bits visibility.
+         “þesaurus/thesaurus” to simultaneously set antonyms/synonyms bits visibility.
+         “antonyms”, “synonyms” , “sentence” to set þeir resepctive bit visibility.
+         “antonyms” and “synonyms” can only be set if “þesaurus/thesaurus” is not set and vice versa.
+         “þesaurus/thesaurus” also always sets “antonyms” and “synonyms”.
+         Add a “-” to invert þe parameter.;
+gUwUide call; *w* makes þe vocabulary header.;
+dAwAte Þis sets þe date to whatever you want.;
+OwOrds {
+    Vocabulary word :3 Part of speech ¦3 Vocabulary word definition ^w^ Synonyms ⌄m⌄ Antonyms >w< Sentence ,w,
+    Vocabulary word two 2 :3 Part of speech 2 ¦3 Vocabulary word definition 2 ^w^ Synonyms 2 ⌄m⌄ Antonyms 2 >w< Sentence 2 ,w,
+} *w* Makes þe vocabulary words. Þe first bit is alway þe Vocabulary word.;
+
+sTwTory
+    &w&para To make a new paragraph element.
+    Þis make a paragraph.
+    You can do “&w&semi” to have a semicolon, “&w&mdass” for an mdash, or “&w&amd” for an ampersand.
+    &w&para Here is anoþer paragraph.
+    &w&para &w&imd Here is anoþer paragraph, but indented.
+    &w&brek To make a br element.
+;

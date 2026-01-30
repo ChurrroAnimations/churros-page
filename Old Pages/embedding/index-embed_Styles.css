@@ -1,0 +1,145 @@
+:root {
+    --textPink: #FFD9E5;
+    background-color: #27272C;
+    background-image: url('../Resources/Page_Elements/Sunrise.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.backBlur {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    backdrop-filter: blur(5px);
+}
+
+.photoCred {
+    background-color: #9B9B9B80;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    margin: 0;
+    padding: 5px;
+    font-size: small;
+    color: #fdf5ff;
+}
+
+/* Fonts */
+    @font-face {
+        font-family: 'homeGreeting';
+        src: url('../Resources/Fonts/Unna/Unna-Regular.ttf');
+    }
+    @font-face {
+        font-family: 'sectionHeader';
+        src: url('../Resources/Fonts/Playwrite_HR_Lijeva/PlaywriteHRLijeva-VariableFont_wght.ttf');
+    }
+    @font-face {
+        font-family: 'linkButtons';
+        src: url('../Resources/Fonts/Ubuntu/Ubuntu-Bold.ttf');
+    }
+    @font-face {
+        font-family: 'subsectionHeader';
+        src: url('../Resources/Fonts/Comic_Neue/ComicNeue-Bold.ttf');
+    }
+    @font-face {
+        font-family: 'subsectionText';
+        src: url('../Resources/Fonts/Lora/Static/Lora-Bold.ttf');
+    }
+
+
+html {
+    height: 40vh;
+    margin: 0%;
+    text-align: center;
+    padding-top: 25vh;
+}
+
+.primaryContainer {
+    margin: auto;
+    width: 60%;
+    border-radius: 50px;
+    background-color: rgba(255, 197, 211, 0.5);
+    backdrop-filter: blur(0.1rem);
+    background-clip: padding-box;
+    border-width: 2px;
+}
+
+.secondaryContainer {
+    width: 75%;
+    margin: auto;
+}
+
+.primaryDivider {
+    border: 1px solid rgba(16, 16, 16, 0.33);
+}
+
+.homeGreeting {
+    text-align: center;
+    color: var(--textPink);
+    font-family: 'homeGreeting', serif;
+}
+
+.sectionHeader {
+    text-align: center;
+    color: #FDF5FF;
+    font-family: 'sectionHeader', sans-serif;
+    font-weight: bolder;
+    font-size: 60px;
+    margin-top: -5px;
+    margin-bottom: -5px;
+}
+
+.subsectionHeader {
+    text-align: center;
+    color: #FDF5FF;;
+    font-family: 'subsectionHeader', sans-serif;
+    margin-bottom: -14px;
+}
+
+/*Subsection Text */
+    .subsectionText {
+        margin-left: 50px;
+        color: var(--textPink);
+        font-family: 'subsectionText', sans-serif;
+    }
+    .subsectionParag {
+        text-indent: 30pt;
+        text-align: justify;
+    }
+
+    .subsectionList {
+        text-align: justify;
+        color: var(--textPink);
+        font-family: 'subsectionText', sans-serif;
+        margin-left: 50px;
+        margin-top: -10px;
+    }
+
+/* Classes for the buttons */
+    .linkButtonsLink {
+        text-decoration: none;
+    }
+
+    .linkButtons {
+        width: 75%;
+        margin: auto;
+        text-align: center;
+        border-radius: 5px;
+    }
+
+    .linkButtons .filln {
+        margin: auto;
+        text-align: center;
+        border-radius: 5px;
+        background-color: #F6B;
+    }
+
+    .linkButtons .text {
+        font-family: 'linkButtons', serif;
+        color: #FFF;
+        font-size: 30px;
+        padding: 5px;
+    }

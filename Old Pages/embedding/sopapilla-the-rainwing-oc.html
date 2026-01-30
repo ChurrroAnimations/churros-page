@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Churro's Website ~ Sopapilla the RainWing
+        </title>
+        <link rel="stylesheet" href="../index_Class.css">
+        <link rel="icon" href="../Resources/Page_Elements/Churro_Page_Icon.svg">
+        
+        <!-- Link Embedding -->
+        <meta charset="utf-8" />
+        <meta property="og:site_name" content="Churro's website" />
+        <meta property="og:title" content="Sopapilla the RainWing" />
+        <meta name="description" content="Sopapilla the RainWing bio" />
+        <meta property="og:description" content="Sopapilla the RainWing bio" />
+        <meta property="og:type" content="website" />
+        <meta property="og:image" content="https://churrroanimations.github.io/churros-page/Resources/External/embed-img-sopapilla.jpg" />
+        <meta property="og:image:type" content="image/jpeg" />
+        <meta property="og:image:width" content="2560" />
+        <meta property="og:image:height" content="1880" />
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta property="og:url" content="https://churrroanimations.github.io/churros-page/embedding/sopapilla-the-rainwing-oc" />
+        <link rel="canonical" href="https://churrroanimations.github.io/churros-page/embedding/sopapilla-the-rainwing-oc" />
+        <meta http-equiv="refresh" content="0; https://churrroanimations.github.io/churros-page/churros-ocs#sopapilla-the-rainwing" />
+    </head>
+    <body>
+        <div class="backBlur"></div>
+        <p class="photoCred">
+            <u>Text Fonts:</u> Google Fonts
+            <br>
+            <u>Background:</u> Aidan Bettis
+        </p>
+        <div class="primaryContainer primaryDivider">
+            <h1 class="sectionHeader">
+                Embedding
+            </h1>
+            <div class="linkButtons">
+                <h2 class="homeGreeting">
+                    This page is for just for embedding. 
+                    You should have been redirected to the home page.
+                </h2>
+                <h2 class="homeGreeting">
+                    This page embeds info about Churro's RainWing OC, Sopapilla.
+                </h2>
+                <a href="https://churrroanimations.github.io/churros-page/", class="linkButtonsLink">
+                    <div class="filln">
+                        <p class="text">
+                            Return home
+                        </p>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        <!-- Check if on a mobile device -->
+        <script>
+            let user = navigator.userAgent.toLowerCase();
+            let devices = ["android", "ipad", "iphone", "kindle"];
+            let isMobile = false;
+            for (i = 0; i < devices.length; i++) {
+                if (user.includes(devices[i])) {
+                    isMobile = true; break;
+                }
+            }
+            if (isMobile) {
+                document.getElementsByClassName("primaryContainer")[0].style.width = "80%";
+                document.getElementsByClassName("sectionHeader")[0].style.fontSize = "90px";
+                txts = document.getElementsByClassName("subsectionHeader");
+                for (let ti = 0; ti < txts.length; ti++) {
+                    let tf = txts[ti];
+                    tf.style.fontSize = "50px";
+                }
+                txts = document.getElementsByClassName("subsectionText");
+                for (let ti = 0; ti < txts.length; ti++) {
+                    let tf = txts[ti];
+                    tf.style.fontSize = "30px";
+                }
+            }
+        </script>
+    </body>
+</html>
