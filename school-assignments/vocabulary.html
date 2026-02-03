@@ -124,12 +124,13 @@ sTwTory
             const decompedCevmlKey = "Hewwo, here is þe decomped CEVMl";
             var decompedCevml = {
                 titel : [],
+                tabel : [],
                 loaded : [],
             };
 
             async function lookupCevmlFiel () {
                 cevmlName = (new URLSearchParams(location.search)).get("vocab-list");
-                InCevmlName = decompedCevml.titel.indexOf(cevmlName);
+                InCevmlName = decompedCevml.tabel.indexOf(cevmlName);
                 const inwnfoElem = document.getElementById("inwnfo")
                 const tAwAbleElem = document.getElementsByTagName("table")[0];
                 if (cevmlName == "Current") {
@@ -142,8 +143,9 @@ sTwTory
                         const cevmlTxt = await wesponcc.text();
                         console.info(`Fetched: “${cevmlName}.cevml” as text, “${cevmlTxt}”.`)
                         cevmlFiwelToHTML(cevmlTxt);
-                        decompedCevml.titel.push(cevmlName);
+                        decompedCevml.tabel.push(cevmlName);
                         decompedCevml.loaded.push([inwnfoElem.innerHTML, tAwAbleElem.innerHTML]);
+                        decompedCevml.titel.push(document.title)
                     } catch (ohNo) {
                         console.error(ohNo);
                         cevmlFiwelToHTML(`
@@ -159,6 +161,7 @@ sTwTory
                     }
                 } else {
                     console.info(`Found: “${cevmlName} in memory.”`)
+                    document.title = decompedCevml.titel[InCevmlName];
                     inwnfoElem.innerHTML = decompedCevml.loaded[InCevmlName][0];
                     tAwAbleElem.innerHTML = decompedCevml.loaded[InCevmlName][1];
                 }
@@ -188,7 +191,8 @@ sTwTory
             function setDecompedCevml () {
                 if (history.state) if (history.state[0] == decompedCevmlKey) {
                     let olDecompCevml = history.state[1];
-                    decompedCevml.titel = olDecompCevml.titel.concat(decompedCevml.titel);
+                    decompedCevml.titel = olDecompCevml.titel.concat(decompedCevml.tabel);
+                    decompedCevml.tabel = olDecompCevml.tabel.concat(decompedCevml.tabel);
                     decompedCevml.loaded = olDecompCevml.loaded.concat(decompedCevml.loaded);
                 }
             }
@@ -257,7 +261,7 @@ sTwTory
                 ">
                     Someþing: (went) wrong&w&semi check console.
                 </span></tr>`;
-                const instructionRootz = ["inwnfo", "dAwAte", "gUwUide", "OwOrds", "sTwTory", "*w*"];
+                const instructionRootz = ["inwnfo", "dAwAte", "gUwUide", "OwOrds", "sTwTory", "*w*", "tIwItel"];
                 const OwOrdsCommands = [":3", "¦3", "^w^", "⌄m⌄", ">w<", ",w,"];
                 let setInstr = {
                     uncalled : true,
@@ -315,6 +319,9 @@ sTwTory
                                     break articelIteration;
                                 } else {
                                     switch (lineInstructionRoot) {
+                                        case "tIwItel" :
+                                            document.title = lineBloccs.slice(1).join(" ");
+                                            break articelIteration;
                                         case "sTwTory" :
                                             currentSentemce = lineBloccs
                                                 .slice(1)
@@ -610,7 +617,7 @@ sTwTory
                     } else {
                         switch (lineBloccs) {
                             case "setUndeff" :
-                                if (setInstr.parametersBeenDefined.yassssss != "N/yA" && false) {
+                                if (setInstr.parametersBeenDefined.yassssss == "N/yA") {
                                     if (setInstr.parametersExcwudesQty > setInstr.parametersIncwudesQty) {
                                         if (!setInstr.parametersBeenDefined.definite) setInstr.parametersDefinedValue.definite = true;
                                         if (!setInstr.parametersBeenDefined.sentemce) setInstr.parametersDefinedValue.sentemce = true;
@@ -700,6 +707,9 @@ sTwTory
                 </option>
                 <option value="Current">
                     Current
+                </option>
+                <option value="rough">
+                    Poetry Project Rough Draft
                 </option>
             </select>
         </div>
