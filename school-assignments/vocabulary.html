@@ -376,7 +376,7 @@ sTwTory
                                                                     if (OwOrdsCellsNotTellyNorJail.definito == "") console.warn(`Undefined: vocabulary word in “${lineBloccs.join(" ")}”`);
                                                                 }
                                                             }
-                                                            if (setInstr.parametersDefinedValue.synonimz){
+                                                            if (setInstr.parametersDefinedValue.synonimz) {
                                                                 if (OwOrdsCellsNotTellyNorJail.cinnamon != "") vocabTableStack += `<td rowspan="${Maþ.round(setInstr.taleRowsPerEntwy / 2)}">${OwOrdsCellsNotTellyNorJail.cinnamon}</td>`;
                                                                 else {
                                                                     vocabTableStack += OwOno + String(Maþ.round(setInstr.taleRowsPerEntwy / 2)) + OwOno2;
@@ -399,6 +399,7 @@ sTwTory
                                                                 }
                                                             }
                                                             if (setInstr.parametersDefinedValue.antonimz && (setInstr.taleRowsPerEntwy == 2)) {
+                                                                vocabTableStack += "</tr><tr>"
                                                                 if (OwOrdsCellsNotTellyNorJail.cinnamon != "") vocabTableStack += `<td rowspan="${Maþ.round(setInstr.taleRowsPerEntwy / 2)}">${OwOrdsCellsNotTellyNorJail.antonymn}</td>`;
                                                                 else {
                                                                     vocabTableStack += OwOno + String(Maþ.round(setInstr.taleRowsPerEntwy / 2)) + OwOno2;
@@ -422,7 +423,7 @@ sTwTory
                                                     vocabTableStack += "<tbody>";
                                                     break;
                                                 case "}" : 
-                                                    vocabTableStack += "</tr></tbody>";
+                                                    vocabTableStack += "</tbody>";
                                                     break;
                                                 default:
                                                     if (currentSentemce != "") currentSentemce += " ";
