@@ -237,11 +237,11 @@ sTwTory
                 liness.push("replaceSymtaxChars");
                 liness.push("pushStackToTable");
                 
-                var vocabTableStack = "";
+                let vocabTableStack = "";
 
                 const instructionRootz = ["inwnfo", "dAwAte", "gUwUide", "OwOrds", "sTwTory", "*w*"];
                 const OwOrdsCommands = [":3", "¦3", "^w^", "⌄m⌄", ">w<", ",w,"];
-                var setInstr = {
+                let setInstr = {
                     uncalled : true,
                     parametersExcwudesQty : 0,
                     parametersIncwudesQty : 0,
@@ -264,7 +264,7 @@ sTwTory
                     taleRowsPerEntwy : 2,
                 };
 
-                var OwOrdsCellsNotTellyNorJail = {
+                let OwOrdsCellsNotTellyNorJail = {
                     vocabWormd : "",
                     pawtOfSpech : "",
                     definito : "",
@@ -281,7 +281,7 @@ sTwTory
                     setemcce : "",
                 };
 
-                var inwnfoBeenUncalled = true;
+                let inwnfoBeenUncalled = true;
                 
                 for (const lineBloccs of liness) {
                     let instructionFomd = false;
@@ -431,7 +431,7 @@ sTwTory
                                                     break;
                                                 case "set" :
                                                     if (lineArticel == "yes" || lineArticel == "-yes") {
-                                                        if (setInstr.parametersBeenDefined.yassssss == NaN) {
+                                                        if (setInstr.parametersBeenDefined.yassssss == "N/yA") {
                                                             console.error(`Error: parameters unexpected before “gUwUide set ${lineArticel}”.`);
                                                             break articelIteration;
                                                         } else if (lineBloccs.length != lineBloccs.indexOf(lineInstructionRoot) + 3) {
@@ -448,7 +448,7 @@ sTwTory
                                                             break;
                                                         }
                                                     } else {
-                                                        setInstr.parametersBeenDefined.yassssss = NaN;
+                                                        setInstr.parametersBeenDefined.yassssss = "N/yA";
                                                         switch (lineArticel) {
                                                             case "definition" :
                                                             case "-definition" :
@@ -558,7 +558,7 @@ sTwTory
                     } else {
                         switch (lineBloccs) {
                             case "setUndeff" :
-                                if (setInstr.parametersBeenDefined.yassssss != NaN && false) {
+                                if (setInstr.parametersBeenDefined.yassssss != "N/yA" && false) {
                                     if (setInstr.parametersExcwudesQty > setInstr.parametersIncwudesQty) {
                                         if (!setInstr.parametersBeenDefined.definite) setInstr.parametersDefinedValue.definite = true;
                                         if (!setInstr.parametersBeenDefined.sentemce) setInstr.parametersDefinedValue.sentemce = true;
@@ -645,9 +645,6 @@ sTwTory
                 </option>
                 <option value="example">
                     Example
-                </option>
-                <option value="Custom">
-                    Own Script
                 </option>
                 <option value="Current">
                     Current
