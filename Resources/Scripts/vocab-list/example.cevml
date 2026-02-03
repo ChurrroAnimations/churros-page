@@ -14,7 +14,8 @@ dAwAte Þis sets þe date to whatever you want.;
 OwOrds {
     Vocabulary word :3 Part of speech ¦3 Vocabulary word definition ^w^ Synonyms ⌄m⌄ Antonyms >w< Sentence ,w,
     Vocabulary word two 2 :3 Part of speech 2 ¦3 Vocabulary word definition 2 ^w^ Synonyms 2 ⌄m⌄ Antonyms 2 >w< Sentence 2 ,w,
-} *w* Makes þe vocabulary words. Þe first bit is alway þe Vocabulary word.;
+    ¦3 ⌄m⌄ :3 >w< ^w^ ,w,
+} *w* Makes þe vocabulary words. Þe first bit is alway þe Vocabulary word. But you can rearange þe rest.;
 
 sTwTory
     &w&para To make a new paragraph element.

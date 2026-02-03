@@ -213,6 +213,7 @@ sTwTory
                     .replaceAll("\n", " ")
                     .replaceAll("{", " { ")
                     .replaceAll("}", ",w, } ;")
+                    .replaceAll("*w*", " *w* ")
                     .split(";")
                     .filter((þingy9) => þingy9 != "")
                     .filter((þingy8) => þingy8
@@ -228,7 +229,7 @@ sTwTory
                 
                 const gUwUideInstrLinez = liness.filter((þingy4) => þingy4.includes("gUwUide"));
                 fimdGUwUideLime: for (const gUwUideLimeBloccs of gUwUideInstrLinez) {
-                    if (gUwUideLimeBloccs[1] == "set") {
+                    if (gUwUideLimeBloccs[1] == "set" && liness.indexOf(gUwUideLimeBloccs) > 0) {
                         liness.splice(liness.indexOf(gUwUideLimeBloccs), 1);
                         liness.unshift("setUndeff");
                         liness.unshift(gUwUideLimeBloccs);
@@ -239,6 +240,23 @@ sTwTory
                 
                 let vocabTableStack = "";
 
+                const OwOno = `<tr rowspan="`;
+                const OwOno2 = `"><span style="
+                    background-color: cadetblue;
+                    background-image: linear-gradient(
+                        90deg,rgba(252, 244, 52, 1) 0%,
+                        rgba(252, 244, 52, 1) 25%,
+                        rgba(255, 255, 255, 1) 25%,
+                        rgba(255, 255, 255, 1) 50%,
+                        rgba(156, 89, 209, 1) 50%,
+                        rgba(156, 89, 209, 1) 75%,
+                        rgba(44, 44, 44, 1) 75%,
+                        rgba(44, 44, 44, 1) 100%);
+                    color: transparent;
+                    background-clip: text;
+                ">
+                    Someþing: (went) wrong&w&semi check console.
+                </span></tr>`;
                 const instructionRootz = ["inwnfo", "dAwAte", "gUwUide", "OwOrds", "sTwTory", "*w*"];
                 const OwOrdsCommands = [":3", "¦3", "^w^", "⌄m⌄", ">w<", ",w,"];
                 let setInstr = {
@@ -345,17 +363,50 @@ sTwTory
                                                     case ",w," :
                                                         if (JSON.stringify(OwOrdsCellsNotTellyNorJail) != JSON.stringify(OwOrdsCellsNotTellyNorJailDefault)) {
                                                             vocabTableStack += "<tr>";
-                                                            if (setInstr.parametersDefinedValue.definite)
-                                                                vocabTableStack += `<td rowspan="${setInstr.taleRowsPerEntwy}"><b>${OwOrdsCellsNotTellyNorJail.vocabWormd}</b>: (${OwOrdsCellsNotTellyNorJail.pawtOfSpech}) ${OwOrdsCellsNotTellyNorJail.definito}</td>`;
-                                                            if (setInstr.parametersDefinedValue.synonimz)
-                                                                vocabTableStack += `<td rowspan="${Maþ.round(setInstr.taleRowsPerEntwy / 2)}">${OwOrdsCellsNotTellyNorJail.cinnamon}</td>`;
-                                                            if (setInstr.parametersDefinedValue.antonimz && (setInstr.taleRowsPerEntwy == 1))
-                                                                vocabTableStack += `<td rowspan="${Maþ.round(setInstr.taleRowsPerEntwy / 2)}">${OwOrdsCellsNotTellyNorJail.antonymn}</td>`;
-                                                            if (setInstr.parametersDefinedValue.sentemce)
-                                                                vocabTableStack += `<td rowspan="${setInstr.taleRowsPerEntwy}">${OwOrdsCellsNotTellyNorJail.setemcce}</td>`;
-                                                            if (setInstr.parametersDefinedValue.antonimz && (setInstr.taleRowsPerEntwy == 2))
-                                                                vocabTableStack += `</tr><tr><td rowspan="${Maþ.round(setInstr.taleRowsPerEntwy / 2)}">${OwOrdsCellsNotTellyNorJail.antonymn}</td></tr>`;
+                                                            if (setInstr.parametersDefinedValue.definite) {
+                                                                if (Boolean(OwOrdsCellsNotTellyNorJail.vocabWormd != "") + Boolean(OwOrdsCellsNotTellyNorJail.pawtOfSpech != "") + Boolean(OwOrdsCellsNotTellyNorJail.definito != "") == 3)
+                                                                    vocabTableStack += `<td rowspan="${setInstr.taleRowsPerEntwy}">
+                                                                        <b>${OwOrdsCellsNotTellyNorJail.vocabWormd}</b>:
+                                                                        (${OwOrdsCellsNotTellyNorJail.pawtOfSpech}) ${OwOrdsCellsNotTellyNorJail.definito}
+                                                                    </td>`;
+                                                                else {
+                                                                    vocabTableStack += OwOno + String(setInstr.taleRowsPerEntwy) + OwOno2;
+                                                                    if (OwOrdsCellsNotTellyNorJail.vocabWormd == "") console.warn(`Undefined: vocabulary word in “${lineBloccs.join(" ")}”`);
+                                                                    if (OwOrdsCellsNotTellyNorJail.pawtOfSpech == "") console.warn(`Undefined: vocabulary word in “${lineBloccs.join(" ")}”`);
+                                                                    if (OwOrdsCellsNotTellyNorJail.definito == "") console.warn(`Undefined: vocabulary word in “${lineBloccs.join(" ")}”`);
+                                                                }
                                                             }
+                                                            if (setInstr.parametersDefinedValue.synonimz){
+                                                                if (OwOrdsCellsNotTellyNorJail.cinnamon != "") vocabTableStack += `<td rowspan="${Maþ.round(setInstr.taleRowsPerEntwy / 2)}">${OwOrdsCellsNotTellyNorJail.cinnamon}</td>`;
+                                                                else {
+                                                                    vocabTableStack += OwOno + String(Maþ.round(setInstr.taleRowsPerEntwy / 2)) + OwOno2;
+                                                                    console.warn(`Undefined: synonyms in “${lineBloccs.join(" ")}”`);
+                                                                }
+                                                            }
+                                                                
+                                                            if (setInstr.parametersDefinedValue.antonimz && (setInstr.taleRowsPerEntwy == 1)) {
+                                                                if (OwOrdsCellsNotTellyNorJail.cinnamon != "") vocabTableStack += `<td rowspan="${Maþ.round(setInstr.taleRowsPerEntwy / 2)}">${OwOrdsCellsNotTellyNorJail.antonymn}</td>`;
+                                                                else {
+                                                                    vocabTableStack += OwOno + String(Maþ.round(setInstr.taleRowsPerEntwy / 2)) + OwOno2;
+                                                                    console.warn(`Undefined: antonyms in “${lineBloccs.join(" ")}”`);
+                                                                }
+                                                            }
+                                                            if (setInstr.parametersDefinedValue.sentemce) {
+                                                                if (OwOrdsCellsNotTellyNorJail.sentemce != "") vocabTableStack += `<td rowspan="${setInstr.taleRowsPerEntwy}">${OwOrdsCellsNotTellyNorJail.setemcce}</td>`;
+                                                                else {
+                                                                    vocabTableStack += OwOno + String(setInstr.taleRowsPerEntwy) + OwOno2;
+                                                                    console.warn(`Undefined: sentence in “${lineBloccs.join(" ")}”`);
+                                                                }
+                                                            }
+                                                            if (setInstr.parametersDefinedValue.antonimz && (setInstr.taleRowsPerEntwy == 2)) {
+                                                                if (OwOrdsCellsNotTellyNorJail.cinnamon != "") vocabTableStack += `<td rowspan="${Maþ.round(setInstr.taleRowsPerEntwy / 2)}">${OwOrdsCellsNotTellyNorJail.antonymn}</td>`;
+                                                                else {
+                                                                    vocabTableStack += OwOno + String(Maþ.round(setInstr.taleRowsPerEntwy / 2)) + OwOno2;
+                                                                    console.warn(`Undefined: antonyms in “${lineBloccs.join(" ")}”`);
+                                                                    
+                                                                }
+                                                            }
+                                                        }
                                                         OwOrdsCellsNotTellyNorJail.vocabWormd = currentSentemce;
                                                         OwOrdsCellsNotTellyNorJail.pawtOfSpech = "";
                                                         OwOrdsCellsNotTellyNorJail.definito = "";
