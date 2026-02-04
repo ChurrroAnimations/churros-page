@@ -368,7 +368,15 @@ sTwTory
                                                         OwOrdsCellsNotTellyNorJail.setemcce = currentSentemce;
                                                         break;
                                                     case ",w," :
-                                                        if (JSON.stringify(OwOrdsCellsNotTellyNorJail) != JSON.stringify(OwOrdsCellsNotTellyNorJailDefault)) {
+                                                        if (
+                                                            // JSON.stringify(OwOrdsCellsNotTellyNorJail) != JSON.stringify(OwOrdsCellsNotTellyNorJailDefault)
+                                                            OwOrdsCellsNotTellyNorJail.vocabWormd != "" ||
+                                                            OwOrdsCellsNotTellyNorJail.pawtOfSpech != "" ||
+                                                            OwOrdsCellsNotTellyNorJail.definito != "" ||
+                                                            OwOrdsCellsNotTellyNorJail.cinnamon != "" ||
+                                                            OwOrdsCellsNotTellyNorJail.antonymn != "" ||
+                                                            OwOrdsCellsNotTellyNorJail.setemcce != ""
+                                                        ) {
                                                             vocabTableStack += "<tr>";
                                                             if (setInstr.parametersDefinedValue.definite) {
                                                                 if (Boolean(OwOrdsCellsNotTellyNorJail.vocabWormd != "") + Boolean(OwOrdsCellsNotTellyNorJail.pawtOfSpech != "") + Boolean(OwOrdsCellsNotTellyNorJail.definito != "") == 3)
