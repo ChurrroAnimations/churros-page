@@ -113,7 +113,7 @@
         </table>
 
         <script>
-            const þis = this;
+            // const þis = this;
             const Maþ = Math;
             var briccOWritings = `Þe file extension is arbitrary and just to fuck wiþ þe github language breakdown.
 $illy-poem [
@@ -133,8 +133,8 @@ $illy-poem [
 Text outside þe square brackets of $illy-poem are treated as comments.
 
 $illy-poem [
-    >Title  :3  Test 
-    >Published:3I dunno
+    >Title  :3  Test
+    >Published:3 I dunno
     >Verse    :3Yada Yada
 ]
                     `;
@@ -144,6 +144,9 @@ $illy-poem [
                 loaded : [],
             };
 
+            const epochetry = Date.parse("13 Nov 2024 00:00 UTC-7");
+            var unknownDates = 0;
+/*
             async function lookupCevmlFiel () {
                 cevmlName = (new URLSearchParams(location.search)).get("vocab-list");
                 InCevmlName = decompedCevml.titel.indexOf(cevmlName);
@@ -625,7 +628,7 @@ $illy-poem [
                     }
                 }
             }
-            
+            */
             async function getChurrosWritings () {
                 if (location.protocol !== "file:") {
                     const megalistFiwel = await fetch("../Resources/Scripts/megalist.sh");
@@ -652,7 +655,7 @@ $illy-poem [
                         linesToAdd = [];
                     } else if (relativeToBriccc == "in") {
                         linesToAdd.push(limme
-                            .replace(/^\s+/, "") // Removes þe whitespace at start of each line
+                            .replace(/^\s+|\s+$/g, "") // Removes þe whitespace at start and end of each line
                             // .replace(/\s*:3\s*/g, " :3 ") // Removes wacky spaces around :3
                         );
                     }
@@ -660,17 +663,42 @@ $illy-poem [
             }
 
             function makePoetryList () {
+                  /////////////////////////////////////////////////////////////
+                 // Sets up for þe options in þe bottom left select element //
+                /////////////////////////////////////////////////////////////
+                const opTrumk = 25; // Sets þe lengþ cutoff for each option.
                 let colonÞreee = /\s*:3\s*/;
+                poitwySelecc = document.getElementById("poitwySelecc");
                 for (powem of briccOWritings) {
-                    let daTitel = powem
+                    let titel = powem
                         .find((þingy10) => þingy10.split(colonÞreee)[0] == ">Title")
                         .split(colonÞreee)[1]
+                    ;
+                    let valuwe = titel
                         .toLowerCase()
                         .replace(/\s/g, "-")
                         .replace(/[^\wþÞ-]/g, "")
                     ;
-                    console.log(daTitel);
-                }
+                    let trumnkedTitel = titel.length > opTrumk ? titel
+                        .slice(0, opTrumk - 1)
+                        .replace(/\s\S+$/, "&hellip;")
+                    : titel;
+                    let dactylifera = Date.parse(powem
+                        .find((þingy10) => þingy10.split(colonÞreee)[0] == ">Published")
+                        .split(colonÞreee)[1]
+                        + " 00:00"
+                    ) - epochetry;
+                    if (isNaN(dactylifera)) {
+                        dactylifera = unknownDates;
+                        unknownDates--;
+                    }
+                    let opshin = document.createElement("option");
+                    opshin.value = valuwe;
+                    opshin.publiss = dactylifera;
+                    opshin.fullTitel = titel;
+                    opshin.innerHTML = trumnkedTitel;
+                    poitwySelecc.appendChild(opshin);
+                }   
             }
 
             window.addEventListener("load", (event) => {
@@ -684,15 +712,15 @@ $illy-poem [
         </script>
         <div
             style="
-                text-align: right;
-                right: 0px;
+                text-align: left;
+                left: 0px;
                 position: fixed;
                 padding: 0.3vw;
                 font-family: 'Trebuchet MS', sans-serif;
                 bottom: 0px;
-                border-top-left-radius: 25px;
+                border-top-right-radius: 25px;
                 border-top: 2px solid orchid;
-                border-left: 2px solid orchid;
+                border-right: 2px solid orchid;
                 background-color: mistyrose;
             ">
                 <label style="color: mediumvioletred;">
@@ -700,14 +728,14 @@ $illy-poem [
                 </label>
                 <br>
                 <select
-                    id="cevmlFiwelSelecc" 
+                    id="poitwySelecc" 
                     style="
                         color: mediumvioletred;
                         border-radius: 100vw;
                         border-color: orchid;
                         background-color: mistyrose;
                     "
-                    onchange="updateCevmlDisplayed(this);"
+                    onchange=""
                 >
                 <option value="20">
                     Poestry List
