@@ -1,0 +1,67 @@
+@font-face {
+    src: url('../Resources/Font/Other/OldeEnglish.ttf');
+    font-family: 'Olden';
+}
+@font-face {
+    src: url('../Resources/Font/Google/Ubuntu/Ubuntu-Regular.ttf');
+    font-family: 'Ubuntu';
+}
+@font-face {
+    src: url('../Resources/Font/Google/Bellefair/Bellefair-Regular.ttf');
+    font-family: 'Bellefair';
+}
+
+:root {
+    background-color: yellow;
+    background-image: url('../Resources/Backgrounds/WikiMedia/Brick_Wall_Orford_Suffolk.jpg');
+    background-size: 15%;
+    background-blend-mode: hard-light;
+    background-position: center;
+}
+
+.titelA {
+    z-index: -50000;
+    font-size: 5em;
+    color: black;
+    margin-bottom: 0.5rem;
+}
+.titelB {
+    margin-bottom: -5.375rem;
+    font-size: 4.9em;
+}
+.titelB span {
+    color: transparent;
+    background-clip: text;
+    background: linear-gradient(to right, hotpink, lime);
+    -webkit-background-clip: text;
+
+}
+
+table {
+    font-size: 1.5em;
+    width: 90%;
+    margin: auto;
+    border: 3px dashed dimgray;
+    background-color: black;
+}
+thead td {
+    font-weight: bold;
+    font-family: 'Bellefair', sans-serif;
+    color: forestgreen;
+    border: transparent;
+    background-color: palevioletred;
+}
+tbody td {
+    font-weight: bold;
+    font-family: 'Bellefair', sans-serif;
+    color: limegreen;
+    border: transparent;
+    background-color: pink;
+    -webkit-text-stroke-width: 0.2px;
+    -webkit-text-stroke-color: forestgreen;
+}
+h1 {
+    text-align: center;
+    margin: auto;
+    font-family: 'Olden', serif;
+}

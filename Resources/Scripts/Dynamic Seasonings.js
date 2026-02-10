@@ -54,7 +54,7 @@ function updateWindow () {
 }
 
 function initDS () {
-    console.info("Starting Dynamic Styles");
+    console.info("Starting Dynamic Seasonings");
     checkIfForceStatus();
     checkHtmlParams();
     updateWindow();

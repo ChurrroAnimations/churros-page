@@ -2,98 +2,19 @@
 <html>
     <head>
         <title>
-            Churro's School Shenanigans ~ English Vocabulary
+            More Churro ~ Churro's Writings
         </title>
+        <link rel="stylesheet" href="../Resources/Seasonings/Androgenous/Moar-Churro/Churros-Writings.css">
+        <link rel="icon" href="../Resources/Icons/Eepy.svg">
         <!-- Link Embedding -->
         <meta charset="utf-8" />
-        <meta property="og:site_name" content="Churro's School Shenanigans ~ English Vocabulary" />
-        <meta property="og:title" content="Churro's School Shenanigans ~ English Vocabulary" />
-        <meta name="description" content="Þe English Vocabulary for Churro's English 12 class." />
-        <meta property="og:description" content="Þe English Vocabulary for Churro's English 12 class." />
+        <meta property="og:site_name" content="More Churro ~ Churro's Writings" />
+        <meta property="og:title" content="More Churro ~ Churro's Writings" />
+        <meta name="description" content="A page for Churro's various poems and writings." />
+        <meta property="og:description" content="A page for Churro's various poems and writings." />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://churrroanimations.github.io/churros-page/school-assignments/vocabulary" />
-        <link rel="canonical" href="https://churrroanimations.github.io/churros-page/school-assignments/vocabulary" />
-        <!-- /$$$$$$   /$$               /$$
-            /$$__  $$ | $$              | $$
-           | $$  \__//$$$$$$   /$$   /$$| $$  /$$$$$$
-           |  $$$$$$|_  $$_/  | $$  | $$| $$ /$$__  $$
-            \____  $$ | $$    | $$  | $$| $$| $$$$$$$$
-            /$$  \ $$ | $$ /$$| $$  | $$| $$| $$_____/
-           |  $$$$$$/ |  $$$$/|  $$$$$$$| $$|  $$$$$$$
-            \______/   \___/   \____  $$|__/ \_______/
-                               /$$  | $$
-                              |  $$$$$$/
-                               \______/ -->
-        <link rel="icon" href="../Resources/Icons/Eepy.svg">
-        <style>
-            @font-face {
-                src: url('../Resources/Font/Other/OldeEnglish.ttf');
-                font-family: 'Olden';
-            }
-            @font-face {
-                src: url('../Resources/Font/Google/Ubuntu/Ubuntu-Regular.ttf');
-                font-family: 'Ubuntu';
-            }
-            @font-face {
-                src: url('../Resources/Font/Google/Bellefair/Bellefair-Regular.ttf');
-                font-family: 'Bellefair';
-            }
-
-            :root {
-                background-color: yellow;
-                background-image: url('../Resources/Backgrounds/WikiMedia/Brick_Wall_Orford_Suffolk.jpg');
-                background-size: 15%;
-                background-blend-mode: hard-light;
-                background-position: center;
-            }
-            
-            .titelA {
-                z-index: -50000;
-                font-size: 5em;
-                color: black;
-                margin-bottom: 0.5rem;
-            }
-            .titelB {
-                margin-bottom: -5.375rem;
-                font-size: 4.9em;
-            }
-            .titelB span {
-                color: transparent;
-                background-clip: text;
-                background: linear-gradient(to right, hotpink, lime);
-                -webkit-background-clip: text;
-
-            }
-
-            table {
-                font-size: 1.5em;
-                width: 90%;
-                margin: auto;
-                border: 3px dashed dimgray;
-                background-color: black;
-            }
-            thead td {
-                font-weight: bold;
-                font-family: 'Bellefair', sans-serif;
-                color: forestgreen;
-                border: transparent;
-                background-color: palevioletred;
-            }
-            tbody td {
-                font-weight: bold;
-                font-family: 'Bellefair', sans-serif;
-                color: limegreen;
-                border: transparent;
-                background-color: pink;
-                -webkit-text-stroke-width: 0.2px;
-                -webkit-text-stroke-color: forestgreen;
-            }
-            h1 {
-                text-align: center;
-                margin: auto;
-                font-family: 'Olden', serif;
-            }
-        </style>
+        <meta property="og:url" content="https://churrroanimations.github.io/churros-page/more-churro/churros-writings" />
+        <link rel="canonical" href="https://churrroanimations.github.io/churros-page/more-churro/churros-writings" />
     </head>
     <body>
         <h1 class="titelB">
@@ -663,12 +584,17 @@ $illy-poem [
             }
 
             function makePoetryList () {
+                let poitwySelecc = document.getElementById("poitwySelecc");
+                const fullList = document.createElement("option");
+                fullList.dactylifera = "First";
+                fullList.innerHTML = "<b>E</b>"
+                poitwySelecc.appendChild(fullList);
+
                   /////////////////////////////////////////////////////////////
                  // Sets up for þe options in þe bottom left select element //
                 /////////////////////////////////////////////////////////////
                 const opTrumk = 25; // Sets þe lengþ cutoff for each option.
                 let colonÞreee = /\s*:3\s*/;
-                poitwySelecc = document.getElementById("poitwySelecc");
                 for (powem of briccOWritings) {
                     let titel = powem
                         .find((þingy10) => þingy10.split(colonÞreee)[0] == ">Title")
@@ -692,13 +618,14 @@ $illy-poem [
                         dactylifera = unknownDates;
                         unknownDates--;
                     }
-                    let opshin = document.createElement("option");
+                    // Add option to poitwySelecc.
+                    const opshin = document.createElement("option");
                     opshin.value = valuwe;
                     opshin.publiss = dactylifera;
                     opshin.fullTitel = titel;
                     opshin.innerHTML = trumnkedTitel;
                     poitwySelecc.appendChild(opshin);
-                }   
+                }
             }
 
             window.addEventListener("load", (event) => {
@@ -710,36 +637,12 @@ $illy-poem [
                 // lookupCevmlFiel();
             });
         </script>
-        <div
-            style="
-                text-align: left;
-                left: 0px;
-                position: fixed;
-                padding: 0.3vw;
-                font-family: 'Trebuchet MS', sans-serif;
-                bottom: 0px;
-                border-top-right-radius: 25px;
-                border-top: 2px solid orchid;
-                border-right: 2px solid orchid;
-                background-color: mistyrose;
-            ">
-                <label style="color: mediumvioletred;">
-                    List:
-                </label>
-                <br>
-                <select
-                    id="poitwySelecc" 
-                    style="
-                        color: mediumvioletred;
-                        border-radius: 100vw;
-                        border-color: orchid;
-                        background-color: mistyrose;
-                    "
-                    onchange=""
-                >
-                <option value="20">
-                    Poestry List
-                </option>
+        <div>
+            <label>
+                Poem:
+            </label>
+            <br>
+            <select id="poitwySelecc" onchange="">
             </select>
         </div>
     </body>
