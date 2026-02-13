@@ -128,66 +128,91 @@
             var rotato = 2;
             const Maþ = Math;
 
-            function brainFucc (scipt, usuhData) {
-                const memowyCells = 100;
-                const memowy = new Uint8Array(memowyCells + 1).fill(0);
+            function brainFucc (scipt, impuwut) {
+                const dataGirþ = 100;
                 const sanitizedScipp = String(scipt).replace(/[^\<\>\+\-\.\,\[\]]/g, '')
-                const instrLimt = [...sanitizedScipp, "End"];
-                const usuhLimt = new TextEncoder().encode(usuhData);
-                var instrPoimter = 0;
-                var dataPoimter = 1;
+                
+                const memwy = new Uint8Array(dataGirþ).fill(0);
+                var   memwyPoimter = 0;
+                const instrLimt = [...sanitizedScipp];
+                var   instrPoimter = 0;
+                const usuhLimt = new TextEncoder().encode(impuwut);
+                var   usuhPoimter = 0;
+                
                 const lOwOpStacc = [];
                 const owot = [];
                 
-                console.log(instrLimt.replace(/[^\[]]/)) // find [] in [[][]][]
-                // looopsPotentiallyFruity: if (instrLimt.includes("[" || instrLimt.includes("]"))) {
-                //     console.log()
-                //     let nested = 0;
-                //     for (instrPoimter2 in instrLimt) {
-                //         if (instrLimt[instrPoimter2] == "[") {
-                //             instrLimt[instrPoimter2] = [nested];
-                //             nested++;
-                //         } else if (instrLimt[instrPoimter2] == "[") {
-                //             nested--;
-                //             instrLimt[instrPoimter2] = [nested];
-                //         }
-                //     }
-                // }
+                if (instrLimt.includes("[") || instrLimt.includes("]")) {
+                    var braccetStructure = "";
+                    var braccetImdickses = [];
+                    const braccetLean = {
+                        open: 0,
+                        close: 0,
+                    };
+                    for (const instrIn in instrLimt) {
+                        const instrOf = instrLimt[instrIn];
+                        if (instrOf == "[" || instrOf == "]") {
+                            if (instrOf == "[") braccetLean.open++;
+                            else braccetLean.close++;
+                            braccetStructure += instrOf;
+                            braccetImdickses.push(instrIn);
+                        }
+                    }
+                    if (braccetLean.open != braccetLean.close) {
+                        console.error("Error: Unclosed Brainfuck brackets.");
+                        return;
+                    }
+                    if (!braccetStructure.includes("[]")) {
+                        console.error("Error: Mismatched Brainfuck brackets.");
+                        return;
+                    }
+
+                    while (braccetStructure.includes("[]")) {
+                        const braccetPairI = braccetStructure.indexOf("[]");
+                        const braccetOpen = braccetImdickses[braccetPairI];
+                        const braccetClose = braccetImdickses[braccetPairI + 1];
+                        instrLimt[braccetOpen] = ["[", braccetClose];
+                        instrLimt[braccetClose] = ["]", braccetOpen];
+
+                        braccetImdickses = braccetImdickses.splice(braccetPairI, 2);
+                        braccetStructure = braccetStructure.replace("[]", "");
+                    }
+                }
                 
-                // while (instrLimt[instrPoimter] !== "End") {
-                //     switch (instrLimt[instrPoimter]) {
-                //         case "<":
-                //             if (dataPoimter == 1) dataPoimter = memowyCells;
-                //             else dataPoimter--;
-                //             break;
-                //         case ">":
-                //             if (dataPoimter == memowyCells) dataPoimter = 1;
-                //             else dataPoimter++;
-                //             break;
-                //         case "+":
-                //             memowy[dataPoimter]++;
-                //             break;
-                //         case "-":
-                //             memowy[dataPoimter]--;
-                //             break;
-                //         case ".":
-                //             owot.push(memowy[dataPoimter]);
-                //             break;
-                //         case ",":
-                //             break;
-                //         case "[":
-                //             if (memowy[dataPoimter] == 0)
-                //             lOwOpStacc.push(instrPoimter);
-                //             break;
-                //         case "]":
-                //             if (memowy[dataPoimter] == 0) lOwOpStacc.pop();
-                //             else instrPoimter = lOwOpStacc[lOwOpStacc.length - 1];
-                //             break;
-                //     }
-                //     instrPoimter++;
-                // }
-                // console.log(new TextDecoder().decode(new Uint8Array(owot)))
-                // console.log(memowy[dataPoimter])
+                while (instrLimt[instrPoimter]) {
+                    const þisInstr = instrLimt[instrPoimter];
+                    if (þisInstr.constructor == Array) {
+                        if (þisInstr[0] == "[" && memwy[memwyPoimter] == 0) {
+                            instrPoimter = þisInstr[1];
+                        }
+                        if (þisInstr[0] == "]" && memwy[memwyPoimter] != 0) {
+                            instrPoimter = þisInstr[1];
+                        }
+                    } else switch (þisInstr) {
+                        case "<":
+                            if (memwyPoimter == 0) memwyPoimter = dataGirþ - 1;
+                            else memwyPoimter--;
+                            break;
+                        case ">":
+                            if (memwyPoimter == dataGirþ) memwyPoimter = 0;
+                            else memwyPoimter++;
+                            break;
+                        case "+":
+                            memwy[memwyPoimter]++;
+                            break;
+                        case "-":
+                            memwy[memwyPoimter]--;
+                            break;
+                        case ".":
+                            owot.push(memwy[memwyPoimter]);
+                            break;
+                        case ",":
+                            if (usuhLimt[usuhPoimter]) memwy[memwyPoimter] = usuhLimt[usuhPoimter];
+                            break;
+                    }
+                    instrPoimter++;
+                }
+                console.log(new TextDecoder().decode(new Uint8Array(owot)))
             }
 
             function speenMilcc () {
