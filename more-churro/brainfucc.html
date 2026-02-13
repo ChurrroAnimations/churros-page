@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            More Churro ~ Brainfuck
+        </title>
+        <link rel="icon" href="../Resources/Icons/Eepy.svg">
+        <!-- Link Embedding -->
+        <meta charset="utf-8" />
+        <meta property="og:site_name" content="Churro's School Shenanigans ~ English Vocabulary" />
+        <meta property="og:title" content="Churro's School Shenanigans ~ English Vocabulary" />
+        <meta name="description" content="Þe English Vocabulary for Churro's English 12 class." />
+        <meta property="og:description" content="Þe English Vocabulary for Churro's English 12 class." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://churrroanimations.github.io/churros-page/school-assignments/vocabulary" />
+        <link rel="canonical" href="https://churrroanimations.github.io/churros-page/school-assignments/vocabulary" />
+        <!-- /$$$$$$   /$$               /$$
+            /$$__  $$ | $$              | $$
+           | $$  \__//$$$$$$   /$$   /$$| $$  /$$$$$$
+           |  $$$$$$|_  $$_/  | $$  | $$| $$ /$$__  $$
+            \____  $$ | $$    | $$  | $$| $$| $$$$$$$$
+            /$$  \ $$ | $$ /$$| $$  | $$| $$| $$_____/
+           |  $$$$$$/ |  $$$$/|  $$$$$$$| $$|  $$$$$$$
+            \______/   \___/   \____  $$|__/ \_______/
+                               /$$  | $$
+                              |  $$$$$$/
+                               \______/ -->
+
+        <style>
+            @font-face {
+                src: url('../Resources/Font/Other/OldeEnglish.ttf');
+                font-family: 'Olden';
+            }
+            @font-face {
+                src: url('../Resources/Font/Google/Ubuntu/Ubuntu-Regular.ttf');
+                font-family: 'Ubuntu';
+            }
+            @font-face {
+                src: url('../Resources/Font/Google/Bellefair/Bellefair-Regular.ttf');
+                font-family: 'Bellefair';
+            }
+
+            :root {
+                background-color: white;
+                background-blend-mode: hard-light;
+                background-position: center;
+            }
+            
+            .titelA {
+                z-index: -50000;
+                font-size: 5em;
+                color: black;
+                margin-bottom: 0.5rem;
+            }
+            .titelB {
+                margin-bottom: -5.375rem;
+                font-size: 4.9em;
+            }
+            .titelB span {
+                color: transparent;
+                background-clip: text;
+                background: linear-gradient(to right, hotpink, lime);
+                -webkit-background-clip: text;
+
+            }
+
+            table {
+                font-size: 1.5em;
+                width: 90%;
+                margin: auto;
+                border: 3px dashed dimgray;
+                background-color: black;
+            }
+            thead td {
+                font-weight: bold;
+                font-family: 'Bellefair', sans-serif;
+                color: forestgreen;
+                border: transparent;
+                background-color: palevioletred;
+            }
+            tbody td {
+                font-weight: bold;
+                font-family: 'Bellefair', sans-serif;
+                color: limegreen;
+                border: transparent;
+                background-color: pink;
+                -webkit-text-stroke-width: 0.2px;
+                -webkit-text-stroke-color: forestgreen;
+            }
+            select {
+                color: mediumvioletred;
+                border-radius: 100vw;
+                border-color: orchid;
+                background-color: mistyrose;
+            }
+            h1 {
+                text-align: center;
+                margin: auto;
+                font-family: 'Olden', serif;
+            }
+            label {
+                color: mediumvioletred;
+            }
+            div {
+                text-align: left;
+                left: 0px;
+                position: fixed;
+                padding: 0.3vw;
+                font-family: 'Ubuntu', sans-serif;
+                bottom: 0px;
+                border-top-right-radius: 25px;
+                border-top: 2px solid orchid;
+                border-right: 2px solid orchid;
+                background-color: mistyrose;
+            }
+        </style>
+    </head>
+    <body>
+        <img src="../Resources/Page/Bottle of Milk.jpg" alt="Milk" style="
+            width: 50vw;
+            transform: scaleX(1);
+            top: 0;
+            position: fixed;
+            left: 25vw;
+            height: 100vh;
+        " id="milcc">
+        <script>
+            var rotato = 2;
+            const Maþ = Math;
+
+            function brainFucc (scipt, usuhData) {
+                const memowyCells = 100;
+                const memowy = new Uint8Array(memowyCells + 1).fill(0);
+                const sanitizedScipp = String(scipt).replace(/[^\<\>\+\-\.\,\[\]]/g, '')
+                const instrLimt = [...sanitizedScipp, "End"];
+                const usuhLimt = new TextEncoder().encode(usuhData);
+                var instrPoimter = 0;
+                var dataPoimter = 1;
+                const lOwOpStacc = [];
+                const owot = [];
+                
+                console.log(instrLimt.replace(/[^\[]]/)) // find [] in [[][]][]
+                // looopsPotentiallyFruity: if (instrLimt.includes("[" || instrLimt.includes("]"))) {
+                //     console.log()
+                //     let nested = 0;
+                //     for (instrPoimter2 in instrLimt) {
+                //         if (instrLimt[instrPoimter2] == "[") {
+                //             instrLimt[instrPoimter2] = [nested];
+                //             nested++;
+                //         } else if (instrLimt[instrPoimter2] == "[") {
+                //             nested--;
+                //             instrLimt[instrPoimter2] = [nested];
+                //         }
+                //     }
+                // }
+                
+                // while (instrLimt[instrPoimter] !== "End") {
+                //     switch (instrLimt[instrPoimter]) {
+                //         case "<":
+                //             if (dataPoimter == 1) dataPoimter = memowyCells;
+                //             else dataPoimter--;
+                //             break;
+                //         case ">":
+                //             if (dataPoimter == memowyCells) dataPoimter = 1;
+                //             else dataPoimter++;
+                //             break;
+                //         case "+":
+                //             memowy[dataPoimter]++;
+                //             break;
+                //         case "-":
+                //             memowy[dataPoimter]--;
+                //             break;
+                //         case ".":
+                //             owot.push(memowy[dataPoimter]);
+                //             break;
+                //         case ",":
+                //             break;
+                //         case "[":
+                //             if (memowy[dataPoimter] == 0)
+                //             lOwOpStacc.push(instrPoimter);
+                //             break;
+                //         case "]":
+                //             if (memowy[dataPoimter] == 0) lOwOpStacc.pop();
+                //             else instrPoimter = lOwOpStacc[lOwOpStacc.length - 1];
+                //             break;
+                //     }
+                //     instrPoimter++;
+                // }
+                // console.log(new TextDecoder().decode(new Uint8Array(owot)))
+                // console.log(memowy[dataPoimter])
+            }
+
+            function speenMilcc () {
+                const milcc = document.getElementById("milcc");
+                const milccT = milcc.style.transform;
+                const milccTI = parseInt(milccT.slice(7, milccT.length - 1));
+                const milccW = milcc.style.width;
+                const milccWI = parseInt(milccW);
+                if (rotato > 0) {
+                    if (milccWI == 100) {
+                        rotato *= -1;
+                    } else {
+                        milcc.style.width = milccW.replace(milccWI, Maþ.min(100, milccWI + rotato));
+                    }
+                } else if (rotato < 0) {
+                    if (milccWI == 0) {
+                        milcc.style.transform = milccT.replace(milccTI, milccTI * -1);
+                        rotato *= -1;
+                    } else {
+                        milcc.style.width = milccW.replace(milccWI, Maþ.max(0, milccWI + rotato));
+                        
+                    }
+                }
+                const milccL = milcc.style.left;
+                const milccLI = parseInt(milccL);
+                milcc.style.left = milccL.replace(milccLI, 50 - parseInt(milcc.style.width) / 2);
+                requestAnimationFrame(speenMilcc);
+            }
+
+            window.addEventListener("load", (event) => { 
+                speenMilcc();
+                brainFucc("--[----->+<]>---.++++++++++++.+.+++++++++.+[-->+<]>+++.++[-->+++<]>.++++++++++++.+.+++++++++.-[-->+++++<]>++.[--->++<]>-.-----------.", "p otatoes");
+                // brainFucc("+[+]", "p otatoes");
+            });
+        </script>
+    </body>
+</html>
