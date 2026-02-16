@@ -42,93 +42,138 @@
 
             :root {
                 background-color: white;
-                background-blend-mode: hard-light;
-                background-position: center;
             }
             
-            .titelA {
-                z-index: -50000;
-                font-size: 5em;
-                color: black;
-                margin-bottom: 0.5rem;
+            textarea {
+                resize: none;
             }
-            .titelB {
-                margin-bottom: -5.375rem;
-                font-size: 4.9em;
-            }
-            .titelB span {
-                color: transparent;
-                background-clip: text;
-                background: linear-gradient(to right, hotpink, lime);
-                -webkit-background-clip: text;
-
+            
+            td {
+                padding: 0;
+                margin: 0;
+                border: 1px solid black;
             }
 
             table {
-                font-size: 1.5em;
-                width: 90%;
                 margin: auto;
-                border: 3px dashed dimgray;
-                background-color: black;
+                border-collapse: collapse;
             }
-            thead td {
-                font-weight: bold;
-                font-family: 'Bellefair', sans-serif;
-                color: forestgreen;
-                border: transparent;
-                background-color: palevioletred;
-            }
-            tbody td {
-                font-weight: bold;
-                font-family: 'Bellefair', sans-serif;
-                color: limegreen;
-                border: transparent;
-                background-color: pink;
-                -webkit-text-stroke-width: 0.2px;
-                -webkit-text-stroke-color: forestgreen;
-            }
-            select {
-                color: mediumvioletred;
-                border-radius: 100vw;
-                border-color: orchid;
-                background-color: mistyrose;
-            }
-            h1 {
-                text-align: center;
-                margin: auto;
-                font-family: 'Olden', serif;
-            }
-            label {
-                color: mediumvioletred;
-            }
-            div {
-                text-align: left;
-                left: 0px;
+
+            img {
+                z-index: -67;
+                top: 0;
                 position: fixed;
-                padding: 0.3vw;
-                font-family: 'Ubuntu', sans-serif;
-                bottom: 0px;
-                border-top-right-radius: 25px;
-                border-top: 2px solid orchid;
-                border-right: 2px solid orchid;
-                background-color: mistyrose;
+                height: 100vh;
             }
         </style>
     </head>
     <body>
-        <img src="../Resources/Page/Bottle of Milk.jpg" alt="Milk" style="
-            width: 50vw;
-            transform: scaleX(1);
-            top: 0;
-            position: fixed;
-            left: 25vw;
-            height: 100vh;
-        " id="milcc">
+        <img src="../Resources/Page/Bottle of Milk.jpg" alt="Milk" style="width: 50vw; transform: scaleX(1); left: 25vw; " id="milcc">
+        <table>
+            <tr>
+                <td colspan=2>
+                    <h3>
+                        Brainf*ck
+                    </h3>
+                </t>
+            </tr>
+            <tr>
+                <td colspan=2>
+                    <textarea id="brainfuccI" placeholder="Brainf*ck Code" cols=50 rows=5>&gt;+++++ +++ [&gt;+++++ ++ &lt;-]&#10;&gt; [&lt;+ &lt;+ &gt;&gt;-]&#10;&lt;----- &lt;++&#10;.&gt;.</textarea>
+                </td>
+            </tr>
+            <tr>
+                <td colspan=2>
+                    <label for="usuhI">Input:</label>
+                    <input type="text" id="usuhI" placeholder="User Input">
+                </td>
+            </tr>
+            <tr>
+                <td colspan=1>
+                    <button onclick="runBf()">
+                        Run Brainf*ck
+                    </button>
+                </td>
+                <td colspan=1>
+                    <button onclick="">
+                        Show Memory
+                    </button>
+                </td>
+            </tr>
+            <tr>
+                <td colspan=2>
+                    <label for="outputText">Output:</label>
+                </td>
+            </tr>
+            <tr>
+                <td colspan=2>
+                    <textarea id="textO" placeholder readonly cols=52 rows=5></textarea>
+                </td>
+            </tr>
+            <tr>
+                <td colspan=2>
+                    <textarea rows=1 cols=52></textarea>
+                </td>
+            </tr>
+        </table>
+        <p id="gay"></p>
         <script>
-            var rotato = 2;
             const Maþ = Math;
+            const usuhIn = document.getElementById("usuhI");
+            const textOut = document.getElementById("textO");
+            const milcc = document.getElementById("milcc");
+            const brainfuccIn = document.getElementById("brainfuccI");
 
-            function brainFucc (scipt, impuwut) {
+            const gae = document.getElementById("gay");
+            var rotato = 2;
+
+            function runBf () {
+                // gae.textContent = brainfuccIn.value;//String(brainfuccIn.textContent).replace(/[^\<\>\+\-\.\,\[\]]/g, '');
+                // brainFuccGo(brainfuccIn.value, usuhIn.value);
+            }
+
+            function speenMilcc () {
+                const milccT = milcc.style.transform;
+                const milccTI = parseInt(milccT.slice(7, milccT.length - 1));
+                const milccW = milcc.style.width;
+                const milccWI = parseInt(milccW);
+                if (rotato > 0) {
+                    if (milccWI == 100) {
+                        rotato *= -1;
+                    } else {
+                        milcc.style.width = milccW.replace(milccWI, Maþ.min(100, milccWI + rotato));
+                    }
+                } else if (rotato < 0) {
+                    if (milccWI == 0) {
+                        milcc.style.transform = milccT.replace(milccTI, milccTI * -1);
+                        rotato *= -1;
+                    } else {
+                        milcc.style.width = milccW.replace(milccWI, Maþ.max(0, milccWI + rotato));
+                        
+                    }
+                }
+                const milccL = milcc.style.left;
+                const milccLI = parseInt(milccL);
+                milcc.style.left = milccL.replace(milccLI, 50 - parseInt(milcc.style.width) / 2);
+
+                if (brainfuccIn.scrollHeight > brainfuccIn.clientHeight) brainfuccIn.cols = 52;
+                else brainfuccIn.cols = 50;
+                requestAnimationFrame(speenMilcc);
+            }
+
+            function checcUrlParams () {
+                const urlParams = new URLSearchParams(document.location.search);
+
+
+                // 10
+                // 26, 27
+                // gae.innerHTML = 
+                // if (urlParams)
+                // if (urlParams.has(""))
+                // gae.innerHTML = urlParams.has("hello");
+            }
+
+            function brainFuccGo (scipt, impuwut) {
                 const dataGirþ = 100;
                 const sanitizedScipp = String(scipt).replace(/[^\<\>\+\-\.\,\[\]]/g, '')
                 
@@ -174,12 +219,13 @@
                         instrLimt[braccetOpen] = ["[", braccetClose];
                         instrLimt[braccetClose] = ["]", braccetOpen];
 
-                        braccetImdickses = braccetImdickses.splice(braccetPairI, 2);
+                        braccetImdickses.splice(braccetPairI, 2);
                         braccetStructure = braccetStructure.replace("[]", "");
                     }
                 }
                 
                 while (instrLimt[instrPoimter]) {
+                    // instrPoimter = -1;
                     const þisInstr = instrLimt[instrPoimter];
                     if (þisInstr.constructor == Array) {
                         if (þisInstr[0] == "[" && memwy[memwyPoimter] == 0) {
@@ -212,39 +258,14 @@
                     }
                     instrPoimter++;
                 }
-                console.log(new TextDecoder().decode(new Uint8Array(owot)))
+                textOut.value = new TextDecoder().decode(new Uint8Array(owot));
             }
 
-            function speenMilcc () {
-                const milcc = document.getElementById("milcc");
-                const milccT = milcc.style.transform;
-                const milccTI = parseInt(milccT.slice(7, milccT.length - 1));
-                const milccW = milcc.style.width;
-                const milccWI = parseInt(milccW);
-                if (rotato > 0) {
-                    if (milccWI == 100) {
-                        rotato *= -1;
-                    } else {
-                        milcc.style.width = milccW.replace(milccWI, Maþ.min(100, milccWI + rotato));
-                    }
-                } else if (rotato < 0) {
-                    if (milccWI == 0) {
-                        milcc.style.transform = milccT.replace(milccTI, milccTI * -1);
-                        rotato *= -1;
-                    } else {
-                        milcc.style.width = milccW.replace(milccWI, Maþ.max(0, milccWI + rotato));
-                        
-                    }
-                }
-                const milccL = milcc.style.left;
-                const milccLI = parseInt(milccL);
-                milcc.style.left = milccL.replace(milccLI, 50 - parseInt(milcc.style.width) / 2);
-                requestAnimationFrame(speenMilcc);
-            }
 
-            window.addEventListener("load", (event) => { 
+            window.addEventListener("load", (event)  => {
+                checcUrlParams();
                 speenMilcc();
-                brainFucc("--[----->+<]>---.++++++++++++.+.+++++++++.+[-->+<]>+++.++[-->+++<]>.++++++++++++.+.+++++++++.-[-->+++++<]>++.[--->++<]>-.-----------.", "p otatoes");
+                // brainFucc("--[----->+<]>---.++++++++++++.+.+++++++++.+[-->+<]>+++.++[-->+++<]>.++++++++++++.+.+++++++++.-[-->+++++<]>++.[--->++<]>-.-----------.", "p otatoes");
                 // brainFucc("+[+]", "p otatoes");
             });
         </script>
