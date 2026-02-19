@@ -229,7 +229,7 @@ sTwTory
 
             function initSearccPawams () {
                 const urlSearccBitz = new URLSearchParams(location.search);
-                const defauwtVocabListVal = location.protocol === "file:" ? "Current" : 21;
+                const defauwtVocabListVal = location.protocol === "file:" ? "Current" : 24;
                 const daNewTitel = `Churro's School Shenanigans ~ English Vocabulary ~ ${location.protocol === "file:" ? defauwtVocabListVal : "List #" + defauwtVocabListVal}`;
                 if (!urlSearccBitz.get("vocab-list")) {
                     urlSearccBitz.append("vocab-list", defauwtVocabListVal);
@@ -240,6 +240,7 @@ sTwTory
                     document.title = daNewTitel;
                 }
                 document.getElementById("cevmlFiwelSelecc").value = urlSearccBitz.get("vocab-list");
+                updateCevmlDisplayed(document.getElementById("cevmlFiwelSelecc"));
             }
 
             function cevmlFiwelToHTML (cevmlBricc) {
@@ -737,6 +738,9 @@ sTwTory
                 </option>
                 <option value="23">
                     List #23
+                </option>
+                <option value="24">
+                    List #24
                 </option>
                 <option value="example">
                     Example
