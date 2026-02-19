@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            HTML to CEVML
+        </title>
+        <meta charset="utf-8" />
+        <style>
+            :root {
+                background-color: brown;
+            }
+            input {
+                color: burlywood;
+            }
+            p {
+                color: burlywood;
+            }
+        </style>
+    </head>
+    <body>
+        <input type="file" id="filElem" accept=".html" onchange="html2Cevml(this);">
+        <script>
+            function html2Cevml (filElem) {
+                const filOut = document.getElementById("fuck");
+                const þeOnlyLiteratePersonHere = new FileReader();
+                þeOnlyLiteratePersonHere.onload = function () {
+                    const filIn = þeOnlyLiteratePersonHere.result;
+                    try {
+                        filOut.textContent = filIn.match(/(<?=\<\/title\>)(?=\<title\>)/);
+                    } catch (error) {
+                        filOut.textContent = error;
+                    }
+                }
+                þeOnlyLiteratePersonHere.readAsText(filElem.files[0]);
+            }
+        </script>
+        <p id="fuck">
+
+        </p>
+    </body>
+</html>
