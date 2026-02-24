@@ -85,6 +85,7 @@
                         a = document.createElement("a");
                         a.href = FiylUrl;
                         a.download = fweilNam;
+                        a.innerHTML = fweilNam;
                         filOut.appendChild(a);
                     } catch (error) {
                         filOut.textContent = error;
