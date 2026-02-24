@@ -23,19 +23,80 @@
             function html2Cevml (filElem) {
                 const filOut = document.getElementById("fuck");
                 const þeOnlyLiteratePersonHere = new FileReader();
+                const filNam = filElem.files[0].name;
                 þeOnlyLiteratePersonHere.onload = function () {
                     const filIn = þeOnlyLiteratePersonHere.result;
+                    var cevmlStacc = "";
                     try {
-                        filOut.textContent = filIn.match(/(<?=\<\/title\>)(?=\<title\>)/);
+                        cevmlStacc += `inwnfo show;\ngUwUide set yes;\n `;
+                        const tIwItel = filIn
+                            .match(/(?<=<title>\s*).*?(?=\s*<\/title>)/s)[0]
+                            .replaceAll(";", "&w&semi")
+                        ;
+                        if (tIwItel) cevmlStacc += `\ntIwItel ${tIwItel};`;
+                        const dAwAte = filIn
+                            .match(/(?<=<p>\s*Tuesday\sBettis\s*<br>\s*).*?(?=\s*<br>.*<\/p>)/s)[0]
+                            .replace(";", "&w&semi")
+                        ;
+                        if (dAwAte) cevmlStacc += `\ndAwAte ${dAwAte};`
+                        cevmlStacc = `\n\ngUwUide call;` + cevmlStacc
+                            .split("\n")
+                            .filter((dis) => dis)
+                            .join(" ")
+                        ;
+                        if (filIn.includes("bricc")) {
+                            bricc = filIn
+                                .match(/(?<=bricc\s*=\s*`\s*).*?(?=\s*`\s*;)/s)[0]
+                                .split(/\n/)
+                                .filter((dis) => dis.length - 1)
+                            ;
+
+                            cevmlStacc += "OwOrds {";
+                            
+                            for (vocabLine of bricc) {
+                                OwOrdsLine = vocabLine.split("${breamk}");
+                                vocabDef = OwOrdsLine[0]
+                                    .split(/\s/s)
+                                    .filter((dis) => dis)
+                                ;
+                                vocabDef[0] = vocabDef[0].replace(/\s*:\s*/s, " :3 ");
+                                vocabDef[1] = vocabDef[1].replace(/\s*\.\s*/s, " ¦3 ");
+                                vocabDef = vocabDef
+                                    .join(" ")
+                                    .replaceAll(";", "&w&semi")
+                                ;
+                                þesaurus = OwOrdsLine[1]
+                                    .split(/\s/s)
+                                    .filter((dis) => dis)
+                                ;
+                                þesaurus = `^w^ ${þesaurus[0]}, ${þesaurus[1]} ⌄m⌄ ${þesaurus[2]}, ${þesaurus[3]}`;
+    
+                                setemce = ">w< " + OwOrdsLine[2].replaceAll(";", "&w&semi");
+                                cevmlStacc += `\n${vocabDef} ${þesaurus} ${setemce} ,w,`; 
+                            }
+
+                            
+                            cevmlStacc += "\n}";
+                        }
+                        
+                        cevmlFiewl = new Blob([cevmlStacc], {type: ".cevml"});
+                        FiylUrl = URL.createObjectURL(cevmlFiewl);
+                        fweilNam = filElem.value.match(/\d/g).join("") + ".cevml";
+                        a = document.createElement("a");
+                        a.href = FiylUrl;
+                        a.download = fweilNam;
+                        filOut.appendChild(a);
                     } catch (error) {
                         filOut.textContent = error;
                     }
+
                 }
                 þeOnlyLiteratePersonHere.readAsText(filElem.files[0]);
             }
         </script>
-        <p id="fuck">
+        <div id="fuck"></div>
+        <!-- <p id="fuck" style="width: 50vw;">
 
-        </p>
+        </p> -->
     </body>
 </html>
