@@ -205,6 +205,8 @@ sTwTory
                     .replaceAll("&w&imd", "&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;")
                     .replaceAll("&w&amd", "&")
                     .replaceAll("&w&brek", "<br>")
+                    .replaceAll("&w&O2Quo", "&OpenCurlyDoubleQuote;")
+                    .replaceAll("&w&C2Quo", "&CloseCurlyDoubleQuote;")
                 ;
                 return deSyntaxDLime;
             }
@@ -246,6 +248,7 @@ sTwTory
             function cevmlFiwelToHTML (cevmlBricc) {
                 const liness = cevmlBricc
                     .replaceAll("\n", " ")
+                    .replaceAll("\\;", "&w&semi")
                     .replaceAll("{", " { ")
                     .replaceAll("}", ",w, } ;")
                     .replaceAll("*w*", " *w* ")
@@ -801,9 +804,6 @@ sTwTory
                 </option>
                 <option value="26">
                     List #26
-                </option>
-                <option value="example">
-                    Example
                 </option>
                 <option value="Current">
                     Current

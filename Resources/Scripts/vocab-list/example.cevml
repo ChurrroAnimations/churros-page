@@ -1,15 +1,16 @@
-*w* CEVML ~ Churro's English Vocabulary Markup Language.;
-*w* Þis is a comment;
-gUwUide set -cinnamons -antonyms sentence;
-    *w* Oþer functions:
-         “definition” to set þe definition bits visibility.
-         “yes” to set all bits visibility.
-         “þesaurus/thesaurus” to simultaneously set antonyms/synonyms bits visibility.
-         “antonyms”, “synonyms” , “sentence” to set þeir resepctive bit visibility.
-         “antonyms” and “synonyms” can only be set if “þesaurus/thesaurus” is not set and vice versa.
-         “þesaurus/thesaurus” also always sets “antonyms” and “synonyms”.
-         Add a “-” to invert þe parameter.;
-gUwUide call; *w* makes þe vocabulary header.;
+*w* CEVML ~ Churro's English Vocabulary Markup Language.
+
+keywords: 
+> gUwUide [set/call]
+    > gUwUide set parameters:
+        > “definition” to make definition cell visible.
+        > “yes” to set all bits visibility.
+        > “þesaurus/thesaurus” to simultaneously set antonyms/synonyms cells visibility.
+        > “antonyms”, “synonyms” , “sentence” to set þeir resepctive cell visibility.
+        > “antonyms” and “synonyms” can only be set if “þesaurus/thesaurus” is not set and vice versa.
+        > “þesaurus/thesaurus” also always sets “antonyms” and “synonyms”.
+        > Add a “-” to invert þe parameter.
+    ;
 dAwAte Þis sets þe date to whatever you want.;
 OwOrds {
     Vocabulary word :3 Part of speech ¦3 Vocabulary word definition ^w^ Synonyms ⌄m⌄ Antonyms >w< Sentence ,w,
