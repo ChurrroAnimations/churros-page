@@ -295,7 +295,7 @@ sTwTory
                 ">
                     Someþing: (went) wrong&w&semi check console.
                 </span></tr>`;
-                const instructionRootz = ["inwnfo", "dAwAte", "gUwUide", "OwOrds", "sTwTory", "*w*", "tIwItel"];
+                const instructionRootz = ["inwnfo", "dAwAte", "gUwUide", "OwOrds", "sTwTory", "*w*", "tIwItel", "gibHed"];
                 const OwOrdsCommands = [":3", "¦3", "^w^", "⌄m⌄", ">w<", ",w,"];
                 let setInstr = {
                     uncalled : true,
@@ -643,6 +643,11 @@ sTwTory
                                             if (inwnfoBeenUncalled) document.getElementById("dAwAte").innerHTML = lineBloccs.slice(1).join(" ");
                                             else console.error(`Error: cannot set dAwAte wiþ a custom “inwnfo”.`);
                                             break articelIteration;
+                                        case "gibHed" :
+                                            vocabTableStack += `<tr>
+                                                ${lineBloccs.slice(1).join(" ").replace(/\s*,w,\s*/, "</tr><tr>")}
+                                            </tr>`;
+                                            break articelIteration;
                                     }
                                 }
                             } else {
@@ -804,6 +809,9 @@ sTwTory
                 </option>
                 <option value="26">
                     List #26
+                </option>
+                <option value="S1">
+                    Shakespere 1
                 </option>
                 <option value="Current">
                     Current
