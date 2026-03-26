@@ -231,7 +231,7 @@ sTwTory
 
             function initSearccPawams () {
                 const urlSearccBitz = new URLSearchParams(location.search);
-                const defauwtVocabListVal = location.protocol === "file:" ? "Current" : 25;
+                const defauwtVocabListVal = location.protocol === "file:" ? "Current" : "S1";
                 const daNewTitel = `Churro's School Shenanigans ~ English Vocabulary ~ ${location.protocol === "file:" ? defauwtVocabListVal : "List #" + defauwtVocabListVal}`;
                 if (!urlSearccBitz.get("vocab-list")) {
                     urlSearccBitz.append("vocab-list", defauwtVocabListVal);
@@ -691,6 +691,10 @@ sTwTory
                             case "replaceSymtaxChars":
                                 vocabTableStack = deSyntax(vocabTableStack);
                                 console.info("Replacing syntax characters.");
+                                if (!(setInstr.parametersDefinedValue.antonimz || setInstr.parametersDefinedValue.synonimz)) {
+                                    vocabTableStack = vocabTableStack.replaceAll(`rowspan="${setInstr.taleRowsPerEntwy}`, "");
+                                    console.info("Removed 'rowspan' attribute because unneeded");
+                                }
                                 break;
                             case "pushStackToTable" :
                                 console.info("Pushing “vocabTableStack” to table.");
