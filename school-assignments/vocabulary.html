@@ -128,11 +128,13 @@ sTwTory
                 tabel : [],
                 loaded : [],
             };
+            
+            const inwnfoElem = document.getElementById("inwnfo");
+            const inwnfoDefat = inwnfoElem.innerHTML;
 
             async function lookupCevmlFiel () {
                 cevmlName = (new URLSearchParams(location.search)).get("vocab-list");
                 InCevmlName = decompedCevml.tabel.indexOf(cevmlName);
-                const inwnfoElem = document.getElementById("inwnfo")
                 const tAwAbleElem = document.getElementsByTagName("table")[0];
                 if (cevmlName == "Current") {
                     console.info("Using whatever leftover data churro has.");
@@ -170,11 +172,7 @@ sTwTory
 
             function updateCevmlDisplayed (elem) {
                 setUwlSearchPawams(elem);
-                if (elem.value == "Custom") {
-                    let ownScript = prompt("Enter your CEVML script.", "inwnfo custom Custom CEVML Script;");
-                    if (ownScript.includes("<script>")) alert("An error ocurred, check console.");
-                    else cevmlFiwelToHTML(ownScript);
-                } else lookupCevmlFiel();
+                lookupCevmlFiel();
             }
 
             function setUwlSearchPawams (elem) {
@@ -200,7 +198,7 @@ sTwTory
 
             function deSyntax (lime) {
                 deSyntaxDLime = String(lime)
-                    .replaceAll("&w&semi", ";")
+                    .replaceAll("&w&semi", ";") // Also “\;” works. In cevmlFiwelToHTML, \; is replaced wiþ &w&semi.
                     .replaceAll("&w&mdass", "&mdash;")
                     .replaceAll("&w&imd", "&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;")
                     .replaceAll("&w&amd", "&")
@@ -246,6 +244,7 @@ sTwTory
             }
 
             function cevmlFiwelToHTML (cevmlBricc) {
+                inwnfoElem.innerHTML = inwnfoDefat;
                 const liness = cevmlBricc
                     .replaceAll("\n", " ")
                     .replaceAll("\\;", "&w&semi")
