@@ -24,30 +24,30 @@ OwOrds {
 
 sTwTory
     &w&para <b>Exercise 1. Finish þe sentences wiþ þe proper form of “you” (þou, þee, þy, þine)<br>Imagine what you would use for þe first person to figure out which form to use.</b>
-    &w&para <b>Example:</b> <u>&emsp;Þou&emsp;</u> hast done me wrong!
+    &w&para <b>Example:</b> <u>&emsp\;Þou&emsp\;</u> hast done me wrong!
     (þink “I have done you wrong” þen change it to “you” wiþ “þee,” or “þou”)
     <ol>
         <li>
-            I have never lied to <u>&emsp;&emsp;</u>.
+            I have never lied to <u>&emsp\;&emsp\;</u>.
             (þink “You have never lied to me” change “me” to “you” wiþ “þee,” or “þou”)
         </li>
         <li>
-            <u>&emsp;Þou&emsp;</u> knowest my heart is <u>&emsp;þine&emsp;</u>. (þink “I know my heart is mine”)
+            <u>&emsp\;Þou&emsp\;</u> knowest my heart is <u>&emsp\;þine&emsp\;</u>. (þink “I know my heart is mine”)
         </li>
         <li>
-            Why dost <u>&emsp;þou&emsp;</u> not believe me? (þink “Why do I not believe you”)
+            Why dost <u>&emsp\;þou&emsp\;</u> not believe me? (þink “Why do I not believe you”)
         </li>
         <li>
-            If only <u>&emsp;þy&emsp;</u> love were as constant as mine, <u>&emsp;&emsp;</u>wouldst feel þe anguish þat I do.
+            If only <u>&emsp\;þy&emsp\;</u> love were as constant as mine, <u>&emsp\;&emsp\;</u>wouldst feel þe anguish þat I do.
         </li>
         <li>
-            <u>&emsp;Þou&emsp;</u> dost not know what I have suffered.
+            <u>&emsp\;Þou&emsp\;</u> dost not know what I have suffered.
         </li>
         <li>
-            I have suffered agonies for <u>&emsp;þee&emsp;</u>.
+            I have suffered agonies for <u>&emsp\;þee&emsp\;</u>.
         </li>
         <li>
-            Wilt <u>&emsp;þou&emsp;</u> not see þat my heart is truly <u>&emsp;þine&emsp;</u>?
+            Wilt <u>&emsp\;þou&emsp\;</u> not see þat my heart is truly <u>&emsp\;þine&emsp\;</u>?
         </li>
     </ol>
 ;
@@ -57,21 +57,21 @@ sTwTory
     </p></td></tr>
     <tr>
     <td colspan="1">
-        <u>&ensp\;(E)&ensp\;</u> 1. ere
-        <u>&ensp\;(G)&ensp\;</u> 2. abhor
-        <u>&ensp\;(D)&ensp\;</u> 3. anon
-        <u>&ensp\;(F)&ensp\;</u> 4. hiþer
-        <u>&ensp\;(A)&ensp\;</u> 5. marry
-        <u>&ensp\;(C)&ensp\;</u> 6. alacrity
+        <u>&ensp\;(E)&ensp\;</u> 1. ere <br>
+        <u>&ensp\;(G)&ensp\;</u> 2. abhor <br>
+        <u>&ensp\;(D)&ensp\;</u> 3. anon <br>
+        <u>&ensp\;(F)&ensp\;</u> 4. hiþer <br>
+        <u>&ensp\;(A)&ensp\;</u> 5. marry <br>
+        <u>&ensp\;(C)&ensp\;</u> 6. alacrity <br>
         <u>&ensp\;(B)&ensp\;</u> 7. aught
     </td>
     <td colspan="2">
-        (A) indeed	
-        (B) anyþing
-        (C) readyness
-        (D) right away
-        (E) before
-        (F) here
+        (A) indeed <br>
+        (B) anyþing <br>
+        (C) readyness <br>
+        (D) right away <br>
+        (E) before <br>
+        (F) here <br>
         (G) hate
 ;
 *W* Yay for code in essence of our noodly goodness. ;
@@ -82,36 +82,36 @@ sTwTory
     <ol>
         <li>
             Art thou coming home anon?
-            <br>&#9758;
+            <br>&#9758\;
             I know I have been digging for hours and my shovel dull, but I cannot until I find my sanity.
         </li>
         <li>
             Should I bring aught to the party?
-            <br>&#9758;
+            <br>&#9758\;
             May you please bring a kilogramme of ANFO for þe children to play?
         </li>
         <li>
             God-den coz!
-            <br>&#9758;
+            <br>&#9758\;
         </li>
         <li>
             Wilt thou come hither?
-            <br>&#9758;
-            Depends; do you have a dollar?
+            <br>&#9758\;
+            Depends\; do you have a dollar?
         </li>
         <li>
             Do you think you can pass a class by deluding your teacher?
-            <br>&#9758;
+            <br>&#9758\;
             Pipe down, you anencephalous sub, you'll blow my cover!
         </li>
         <li>
             What preferment do you desire?
-            <br>&#9758;
+            <br>&#9758\;
             See, my last has me here, a guard to þe slums, so I wish for no more.
         </li>
         <li>
             Coz, wilt thou be home ere morning?
-            <br>&#9758;
+            <br>&#9758\;
             Probably not. My flight has been delayed a few hours.
         </li>
     </ol>
@@ -121,25 +121,25 @@ sTwTory
     </p>
     <ol>
         <li>
-            Þere has been an emergency! We need you here <u>&emsp;anon&emsp;</u>!
+            Þere has been an emergency! We need you here <u>&emsp\;anon&emsp\;</u>!
         </li>
         <li>
-            You said we could choose a topic, but I cannot think of <u>&emsp;aught&emsp;</u> to write about.
+            You said we could choose a topic, but I cannot think of <u>&emsp\;aught&emsp\;</u> to write about.
         </li>
         <li>
-            Would you please come <u>&emsp;hiþer&emsp;</u>, I need to talk to you.
+            Would you please come <u>&emsp\;hiþer&emsp\;</u>, I need to talk to you.
         </li>
         <li>
-            Your <u>&emsp;alacrity&emsp;</u> for the task shows a real enthusiasm. I’m glad to see it!
+            Your <u>&emsp\;alacrity&emsp\;</u> for the task shows a real enthusiasm. I’m glad to see it!
         </li>
         <li>
-            If you work hard and show your abilities, it might aid in your <u>&emsp;preferment&emsp;</u> at work.
+            If you work hard and show your abilities, it might aid in your <u>&emsp\;preferment&emsp\;</u> at work.
         </li>
         <li>
-            Get thee <u>&emsp;hence&emsp;</u>! I do not ever want to see you again!
+            Get thee <u>&emsp\;hence&emsp\;</u>! I do not ever want to see you again!
         </li>
         <li>
-            You are <u>&emsp;deluding&emsp;</u> yourself if you think you can do no work and still pass this class. 
+            You are <u>&emsp\;deluding&emsp\;</u> yourself if you think you can do no work and still pass this class. 
         </li>
     </ol>
 ;
