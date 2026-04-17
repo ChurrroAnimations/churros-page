@@ -229,7 +229,7 @@ sTwTory
 
             function initSearccPawams () {
                 const urlSearccBitz = new URLSearchParams(location.search);
-                const defauwtVocabListVal = location.protocol === "file:" ? "Current" : "S3";
+                const defauwtVocabListVal = location.protocol === "file:" ? "Current" : "O4";
                 const daNewTitel = `Churro's School Shenanigans ~ English Vocabulary ~ ${location.protocol === "file:" ? defauwtVocabListVal : "List #" + defauwtVocabListVal}`;
                 if (!urlSearccBitz.get("vocab-list")) {
                     urlSearccBitz.append("vocab-list", defauwtVocabListVal);
@@ -813,11 +813,14 @@ sTwTory
                 <option value="26">
                     List #26
                 </option>
-                <option value="S1">
-                    Shakespere 1
+                <option value="O1">
+                    Othello 1
                 </option>
-                <option value="S3">
-                    Shakespeare 3
+                <option value="O3">
+                    Othello 3
+                </option>
+                <option value="O4">
+                    Othello 3
                 </option>
                 <option value="Current">
                     Current
