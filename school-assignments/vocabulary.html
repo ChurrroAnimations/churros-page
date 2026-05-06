@@ -232,7 +232,7 @@
             function initSearccPawams () {
                 const urlSearccBitz = new URLSearchParams(location.search);
                 // Update vocab list to current.
-                const defauwtVocabListVal = location.protocol === "file:" ? "Current" : "27"; // Set list to load automatically.
+                const defauwtVocabListVal = location.protocol === "file:" ? "Current" : "28"; // Set list to load automatically.
                 const daNewTitel = `Churro's School Shenanigans ~ English Vocabulary ~ ${location.protocol === "file:" ? defauwtVocabListVal : "List #" + defauwtVocabListVal}`;
                 if (!urlSearccBitz.get("vocab-list")) {
                     urlSearccBitz.append("vocab-list", defauwtVocabListVal);
@@ -357,6 +357,9 @@
                                     break articelIteration;
                                 } else {
                                     switch (lineInstructionRoot) {
+                                        case "ACExual" : 
+                                            vocabTableStack += lineBloccs.slice(1).join(" ");
+                                            break articelIteration;
                                         case "tIwItel" :
                                             document.title = lineBloccs.slice(1).join(" ");
                                             break articelIteration;
@@ -832,6 +835,9 @@
                 </option>
                 <option value="27">
                     List #27
+                </option>
+                <option value="28">
+                    List #28
                 </option>
                 <option value="Current">
                     Current
