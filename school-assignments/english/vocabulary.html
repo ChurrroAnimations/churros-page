@@ -24,11 +24,11 @@
                                /$$  | $$
                               |  $$$$$$/
                                \______/ -->
-        <link rel="icon" href="../Resources/Icons/Churro Originals/Eepy.svg">
+        <link rel="icon" href="../../Resources/Icons/Churro Originals/Eepy.svg">
         <style>
             @font-face {
                 font-family: 'papyrus';
-                src: url('../Resources/Font/Microsoft/PAPYRUS.TTF');
+                src: url('../../Resources/Font/Microsoft/PAPYRUS.TTF');
             }
             #inwnfo {
                 text-align: center;
@@ -144,7 +144,7 @@
                 } else if (InCevmlName < 0) {
                     try {
                         console.info(`Fetching: “${cevmlName}.cevml” as it was not found in memory.`);
-                        const wesponcc = await fetch(`../Resources/Scripts/vocab-list/${cevmlName}.cevml`);
+                        const wesponcc = await fetch(`../../Resources/Scripts/vocab-list/${cevmlName}.cevml`);
                         const cevmlTxt = await wesponcc.text();
                         console.info(`Fetched: “${cevmlName}.cevml” as text, “${cevmlTxt}”.`)
                         cevmlFiwelToHTML(cevmlTxt);

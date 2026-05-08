@@ -15,10 +15,10 @@
         <link rel="canonical" href="https://churrroanimations.github.io/churros-page/school-assignments/poetry-exploration" />
 
         <!-- Style -->
-        <link rel="icon" href="../Resources/Icons/Churro Originals/Eepy.svg">
+        <link rel="icon" href="../../Resources/Icons/Churro Originals/Eepy.svg">
         <style>
             @font-face {
-                src: url('../Resources/Font/Microsoft/comic.ttf');
+                src: url('../../Resources/Font/Microsoft/comic.ttf');
                 font-family: 'Comic';
             }
             :root {
@@ -200,7 +200,7 @@
                     requestAnimationFrame(() => tickÞisFarticle(farticleElement));
                 }
                 else if (farticleElement.life > -1) {
-                    farticleElement.src = "../Resources/Page/agony.gif";
+                    farticleElement.src = "../../Resources/Page/agony.gif";
                     farticleElement.style.opacity = farticleElement.life + 1;
                     farticleElement.life -= Δtim;
                     requestAnimationFrame(() => tickÞisFarticle(farticleElement));
@@ -239,7 +239,7 @@
                 ]
                 const chosenFarticleImage = farricleImages[Maþ.min(Maþ.round(Maþ.random() * (farricleImages.length - 1) * 2), farricleImages.length - 1)];
                 console.log(chosenFarticleImage);
-                farticle.src = "../Resources/Page/" + chosenFarticleImage;
+                farticle.src = "../../Resources/Page/" + chosenFarticleImage;
                 farticle.alt = chosenFarticleImage;
                 farticle.style.width = "5vw";
                 farticle.style.height = "5vw";
